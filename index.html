@@ -238,6 +238,113 @@
             
               
                 
+                <a class="post-title-link" href="/2016/10/28/如何使用七牛云做为图床？/" itemprop="url">
+                  为Markdown插入图片
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-10-28T22:04:50+08:00" content="2016-10-28">
+              2016-10-28
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="使用七牛云做为markdown图床"><a href="#使用七牛云做为markdown图床" class="headerlink" title="使用七牛云做为markdown图床"></a><a href="http://cnfeat.com/blog/2015/11/30/cli-qiniu/#section-8" target="_blank" rel="external">使用七牛云做为markdown图床</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://cnfeat.com/blog/2015/11/30/cli-qiniu/#section-8</div></pre></td></tr></table></figure>
+<h3 id="qrsync-命令行同步工具"><a href="#qrsync-命令行同步工具" class="headerlink" title="qrsync 命令行同步工具"></a><a href="http://docs.qiniu.com/tools/v6/qrsync.html" target="_blank" rel="external">qrsync 命令行同步工具</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://docs.qiniu.com/tools/v6/qrsync.html</div></pre></td></tr></table></figure>
+<h3 id="自动上传图片"><a href="#自动上传图片" class="headerlink" title="自动上传图片"></a>自动上传图片</h3><ul>
+<li><p>图片保存至上传目录 <code>/Users/wanglizhong/software/7niu/PicUpload/</code></p>
+</li>
+<li><p>写个简单的脚本获得图片地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#/usr/bin/perl -w</div><div class="line">my $pic=`ls /Users/wanglizhong/software/7niu/PicUpload/*`;</div><div class="line">chomp $pic;</div><div class="line">$pic =~ /\/([^\/]+)$/;</div><div class="line">print &quot;![image](http://ofr9vioug.bkt.clouddn.com/$1)&quot;;</div><div class="line">`rm $pic`;</div></pre></td></tr></table></figure>
+</li>
+<li><p>插入图片地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![image](http://ofr9vioug.bkt.clouddn.com/QQ20161028-0@2x-chimpanzee.png)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>效果如下<br><img src="http://ofr9vioug.bkt.clouddn.com/QQ20161028-0@2x-chimpanzee.png" alt="image"></p>
+<h3 id="调整markdown插入图片尺寸"><a href="#调整markdown插入图片尺寸" class="headerlink" title="调整markdown插入图片尺寸"></a>调整markdown插入图片尺寸</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">![image](http://ofr9vioug.bkt.clouddn.com/PairwiseCluster.png)</div><div class="line">添加后缀 “?imageView/2/w/600”，600为自定义宽度</div><div class="line">![image](http://ofr9vioug.bkt.clouddn.com/PairwiseCluster.png?imageView/2/w/600)</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/10/27/Cheetsheets-easy-for-searching/" itemprop="url">
                   Cheetsheets easy for searching
                 </a>
@@ -738,7 +845,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
