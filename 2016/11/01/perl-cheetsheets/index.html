@@ -1,0 +1,636 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="perl," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="变量当你需要声明一个复杂的字符串时，可以使用heredoc语法：
+1234567my $blurb =&amp;lt;&amp;lt;&amp;apos;END_BLURB&amp;apos;;He looked up. &amp;quot;Change is the constant on which they allcan agree. We instead, born out of time, remain perfectand">
+<meta property="og:type" content="article">
+<meta property="og:title" content="perl cheetsheets">
+<meta property="og:url" content="http://yoursite.com/2016/11/01/perl-cheetsheets/index.html">
+<meta property="og:site_name" content="lizhong's notes">
+<meta property="og:description" content="变量当你需要声明一个复杂的字符串时，可以使用heredoc语法：
+1234567my $blurb =&amp;lt;&amp;lt;&amp;apos;END_BLURB&amp;apos;;He looked up. &amp;quot;Change is the constant on which they allcan agree. We instead, born out of time, remain perfectand">
+<meta property="og:updated_time" content="2016-11-01T12:23:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="perl cheetsheets">
+<meta name="twitter:description" content="变量当你需要声明一个复杂的字符串时，可以使用heredoc语法：
+1234567my $blurb =&amp;lt;&amp;lt;&amp;apos;END_BLURB&amp;apos;;He looked up. &amp;quot;Change is the constant on which they allcan agree. We instead, born out of time, remain perfectand">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/01/perl-cheetsheets/"/>
+
+  <title> perl cheetsheets | lizhong's notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lizhong's notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学习学习再学习</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                perl cheetsheets
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-01T20:22:32+08:00" content="2016-11-01">
+              2016-11-01
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/work/" itemprop="url" rel="index">
+                    <span itemprop="name">work</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/work/Cheetsheets/" itemprop="url" rel="index">
+                    <span itemprop="name">Cheetsheets</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>当你需要声明一个复杂的字符串时，可以使用heredoc语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">my $blurb =&lt;&lt;&apos;END_BLURB&apos;;</div><div class="line">He looked up. &quot;Change is the constant on which they all</div><div class="line">can agree. We instead, born out of time, remain perfect</div><div class="line">and perfectly self-aware. We only suffer change as we</div><div class="line">pursue it. It is against our nature. We rebel against</div><div class="line">that change. Shall we consider them greater for it?&quot;</div><div class="line">END_BLURB</div></pre></td></tr></table></figure>
+<h3 id="Undef"><a href="#Undef" class="headerlink" title="Undef"></a>Undef</h3><p>Perl里的undef表示一个未分配、不确定、未知的值。<br>一个声明了但是没有定义的标量值就是undef：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">my $name = undef;     # unnecessary assignment</div><div class="line">my $rank;     # also contains undef</div></pre></td></tr></table></figure>
+<h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><p>Perl支持整型数字和浮点数字，你可以使用不同的方式来表示它们，二进制、八进制、十进制、十六进制：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">my $integer = 42;    #整型</div><div class="line">my $float = 0.007;    #浮点型</div><div class="line">my $sci_float = 1.02e14;    #科学计数法，浮点数</div><div class="line">my $binary = 0b101010;    #二进制0b前缀</div><div class="line">my $octal = 052;    #十六进制0前缀</div><div class="line">my $hex = 0x20;    #十六进制0x前缀</div></pre></td></tr></table></figure>
+<p>还可以使用下划线来增加可读性：（注意不是逗号，因为逗号在Perl中有特殊意义）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">my $billion = 1000000000;</div><div class="line">my $billion = 1_000_000_000;</div><div class="line">my $billion = 10_0_00_00_0_0_0;</div></pre></td></tr></table></figure>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><p>使用范围操作符（..）可以很方便的创建列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">my @chars = &apos;a&apos; .. &apos;z&apos;;</div><div class="line">my @count = 13 .. 27;</div></pre></td></tr></table></figure>
+<p>可以使用qw()操作符分隔空白来产生字符串列表：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">my @stooges = qw( Larry Curly Moe Shemp Joey Kenny );</div></pre></td></tr></table></figure>
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><h3 id="条件分支、循环"><a href="#条件分支、循环" class="headerlink" title="条件分支、循环"></a>条件分支、循环</h3><p>使用<strong>后缀形式</strong>，添加括号增加可读性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">print &quot;yes\n&quot; if ($a&gt;1);</div><div class="line"></div><div class="line">print &quot;$_&quot; for 1..10</div></pre></td></tr></table></figure>
+<h3 id="三目操作符"><a href="#三目操作符" class="headerlink" title="三目操作符"></a>三目操作符</h3><p>三目操作符（? :）可以根据给定的条件选择执行表达式.</p>
+<p>条件表达式为真时执行表达式1，条件表达式为假时执行表达式2：<br>条件表达式 ? 表达式1 : 表达式2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">my $time_suffix = after_noon($time)</div><div class="line">? &apos;afternoon&apos;</div><div class="line">: &apos;morning&apos;;</div><div class="line"></div><div class="line">push @&#123; rand() &gt; 0.5 ? \@red_team : \@blue_team &#125;, Player-&gt;new;</div></pre></td></tr></table></figure>
+<h3 id="循环控制"><a href="#循环控制" class="headerlink" title="循环控制"></a>循环控制</h3><p>next-立即进入下一循环：</p>
+<p>last-立即结束循环。</p>
+<p>redo-重新进入当前迭代（无需评估循环条件）。</p>
+<p>循环嵌套时，可能不容易让人理清楚结构，这时可以使用标签：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">LINE:</div><div class="line">while (&lt;$fh&gt;)&#123;</div><div class="line">  chomp;  </div><div class="line">  PREFIX:</div><div class="line">  for my $prefix (@prefixes)&#123;</div><div class="line">    next LINE unless $prefix;</div><div class="line">    say &quot;$prefix: $_&quot;;</div><div class="line">    # next PREFIX is implicit here</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="哈希"><a href="#哈希" class="headerlink" title="哈希"></a>哈希</h3><p>访问哈希</p>
+<p>访问键<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for my $addressee (keys %addresses)</div><div class="line">&#123;</div><div class="line">say &quot;Found an address for $addressee!&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>访问值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">for my $address (values %addresses)</div><div class="line">&#123;</div><div class="line">say &quot;Someone lives at $address&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>访问键值对</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">while (my ($addressee, $address) = each %addresses)</div><div class="line">&#123;</div><div class="line">say &quot;$addressee lives at $address&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>用哈希去重复用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">my %uniq;</div><div class="line">undef @uniq&#123; @items &#125;;</div><div class="line">my @uniques = keys %uniq;</div><div class="line"></div><div class="line"># @items是需要去重的数据，@uniques是去重后的</div><div class="line"># 对哈希切片使用undef就是将所有的切片值设置为undef。</div></pre></td></tr></table></figure>
+<h3 id="数学操作符"><a href="#数学操作符" class="headerlink" title="数学操作符"></a>数学操作符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">+ 加</div><div class="line">- 减</div><div class="line">* 乘</div><div class="line">/ 除</div><div class="line">** 乘方</div><div class="line">% 模，取余</div><div class="line">+=,-=, *=, /=, **=,  %=  组合形式</div><div class="line">--  前缀自减</div><div class="line">== 相等</div><div class="line">!= 不等</div><div class="line">&gt; 大于</div><div class="line">&lt; 小于</div><div class="line">&gt;= 大于等于</div><div class="line">&lt;= 小于等于</div><div class="line">&lt;=&gt; 排序中的比较符号</div></pre></td></tr></table></figure>
+<h3 id="字符串操作符"><a href="#字符串操作符" class="headerlink" title="字符串操作符"></a>字符串操作符</h3><p>字符串操作符为操作数提供字符串语境。比如正则表达式的绑定操作符（=~， !~），字符串连接符（.），字符串比较操作符（eq），还有sort排序中的字符串比较操作符（cmp）。</p>
+<h3 id="逻辑操作符"><a href="#逻辑操作符" class="headerlink" title="逻辑操作符"></a>逻辑操作符</h3><p>逻辑操作符为操作数提供布尔语境。如&amp;&amp;, ||, and， or，//，三目操作符（?:） 逻辑非 （!）， not （优先级比!低） ，还有xor。<br>注意//和||的区别，操作符//只要目标操作数有定义就为真，即使是0和空字符串。</p>
+<h3 id="位操作符"><a href="#位操作符" class="headerlink" title="位操作符"></a>位操作符</h3><p>位操作符提供的是数字语境。这些操作符不太常见。<br>左移位（&lt;&lt;），右移位（&gt;&gt;）， 逐位与运算（&amp;）， 逐位或运算（|）， 逐位异或运算（^）， 以及组合形式（&lt;&lt;=，&gt;&gt;=，&amp;=，|=，^=）。</p>
+<h3 id="特殊操作符"><a href="#特殊操作符" class="headerlink" title="特殊操作符"></a>特殊操作符</h3><p>自增操作符（++）的行为比较特别，当操作数是数字时就数值加一。如果是字符串就增长字符串。</p>
+<p>重复操作符（x）也有着复杂的行为，在列表上下文中将列表重复；在标量上下文中，重复并连接成一个字符串。</p>
+<p>范围操作符（..），在列表语境下会生成从一个操作数到另一个操作数的列表，可以是数字也可以是字符串。<br>在布尔语境下行为很不一样：操作符初始值为假，在左操作数为真时整体变为真值，持续这个状态直到右操作数为真时，整体再转变变为假值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">#列表语境</div><div class="line">my @cards = ( 2 .. 10, &apos;J&apos;, &apos;Q&apos;, &apos;K&apos;, &apos;A&apos; );</div><div class="line"></div><div class="line">#布尔语境</div><div class="line"> foreach my $x ( 1..10 )&#123;print $x if $x == 3..$x == 4&#125;</div><div class="line"># 打印 3 4</div><div class="line"></div><div class="line">#利用该特性来方便地提取邮件正文：</div><div class="line">while (/Hello, $user/ .. /Sincerely,/)</div><div class="line">&#123;</div><div class="line">say &quot;&gt; $_&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><h3 id="函数参数"><a href="#函数参数" class="headerlink" title="函数参数"></a>函数参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">sub show_pets_by_type&#123;</div><div class="line">my ($type, %pets) = @_;    #记得要先将标量分出来</div><div class="line">  while (my ($name, $species) = each %pets)&#123;</div><div class="line">    next unless $species eq $type;</div><div class="line">    say &quot;$name is a $species&quot;;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>列表赋值是贪婪的，所以上面例子中%pets会吞掉@_里面所有剩下的值。所以如果$type参数的位置是在后面，那么就会报错，因为所有的值先被哈希吞掉，但是却发现单了一个。</p>
+<h3 id="验证参数"><a href="#验证参数" class="headerlink" title="验证参数"></a>验证参数</h3><p>某些时候参数验证是很容易的，比如验证参数的个数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">sub add_numbers</div><div class="line">&#123;</div><div class="line">croak &apos;Expected two numbers, received: &apos; . @_</div><div class="line">unless @_ == 2;</div><div class="line">...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有时则比较麻烦，比如要验证参数的类型。因为Perl中，类型可以发生转换。如果你有这方面的需求，可以看看这些模块：Params::Validate和MooseX::Method::Signatures。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/perl/" rel="tag">#perl</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/01/The-Art-of-Charm/" rel="next" title="The Art of Charm">
+                <i class="fa fa-chevron-left"></i> The Art of Charm
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Lizhong Wang" />
+          <p class="site-author-name" itemprop="name">Lizhong Wang</p>
+          <p class="site-description motion-element" itemprop="description">自我提升和自我完善是一种终身的修行</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量"><span class="nav-number">1.</span> <span class="nav-text">变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Undef"><span class="nav-number">2.</span> <span class="nav-text">Undef</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数字"><span class="nav-number">3.</span> <span class="nav-text">数字</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表"><span class="nav-number">4.</span> <span class="nav-text">列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-number"></span> <span class="nav-text">流程控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#条件分支、循环"><span class="nav-number">1.</span> <span class="nav-text">条件分支、循环</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三目操作符"><span class="nav-number">2.</span> <span class="nav-text">三目操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环控制"><span class="nav-number">3.</span> <span class="nav-text">循环控制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#哈希"><span class="nav-number">4.</span> <span class="nav-text">哈希</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数学操作符"><span class="nav-number">5.</span> <span class="nav-text">数学操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串操作符"><span class="nav-number">6.</span> <span class="nav-text">字符串操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑操作符"><span class="nav-number">7.</span> <span class="nav-text">逻辑操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位操作符"><span class="nav-number">8.</span> <span class="nav-text">位操作符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特殊操作符"><span class="nav-number">9.</span> <span class="nav-text">特殊操作符</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数"><span class="nav-number"></span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数参数"><span class="nav-number">1.</span> <span class="nav-text">函数参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证参数"><span class="nav-number">2.</span> <span class="nav-text">验证参数</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lizhong Wang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
