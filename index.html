@@ -1058,27 +1058,25 @@
 <li>software version</li>
 </ul>
 <p>leverage directories to help stay organized.</p>
-<h3 id="Shell-Expansion-Tips"><a href="#Shell-Expansion-Tips" class="headerlink" title="Shell Expansion Tips"></a>Shell Expansion Tips</h3><p><code>$ echo dog-{gone,bowl,bark}</code></p>
-<p>dog-gone dog-bowl dog-bark</p>
+<h3 id="Shell-Expansion-Tips"><a href="#Shell-Expansion-Tips" class="headerlink" title="Shell Expansion Tips"></a>Shell Expansion Tips</h3><p><code>$ echo dog-{gone,bowl,bark}</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ ls</div><div class="line">dog-gone   dog-bowl   dog-bark</div></pre></td></tr></table></figure></p>
 <p><code>$ mkdir -p zmays-snps/{data/seqs,scripts,analysis}</code></p>
 <p><code>$ touch seqs/zmays{A,B,C}_R{1,2}.fastq</code></p>
-<p><code>$ ls seqs/</code></p>
-<p>zmaysA_R1.fastq zmaysB_R1.fastq zmaysC_R1.fastq zmaysA_R2.fastq zmaysB_R2.fastq zmaysC_R2.fastq</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ ls seqs/</div><div class="line"></div><div class="line">zmaysA_R1.fastq zmaysB_R1.fastq zmaysC_R1.fastq zmaysA_R2.fastq zmaysB_R2.fastq zmaysC_R2.fastq</div></pre></td></tr></table></figure>
 <h3 id="shell-wildcards"><a href="#shell-wildcards" class="headerlink" title="shell wildcards"></a>shell wildcards</h3><p>Wildcard What it matches</p>
 <ul>
-<li><p>* Zero or more characters (but ignores hidden les starting with a period).</p>
+<li><p>*: Zero or more characters (but ignores hidden les starting with a period).</p>
 </li>
-<li><p>? One character (also ignores hidden les).</p>
+<li><p>?: One character (also ignores hidden les).</p>
 </li>
-<li><p>[A-Z] Any character between the supplied alphanumeric range (in this case, any character betweenAandZ); this works for any alphanumeric    character range (e.g.,[0-9]matches any character between 0 and 9).</p>
+<li><p>[A-Z]: Any character between the supplied alphanumeric range (in this case, any character betweenAandZ); this works for any alphanumeric    character range (e.g.,[0-9]matches any character between 0 and 9).</p>
 </li>
-<li><p>best to be as restrictive as possible with wildcards<br>Instead of zmaysB<em>, use **zmaysB\</em>fastq<strong> or </strong>zmaysB_R?.fastq** (the ? only matches a single character).</p>
+<li><p>best to be as restrictive as possible with wildcards<br>Instead of zmaysB<em>, use `**zmaysB\</em>fastq<strong><code>or</code></strong>zmaysB_R?.fastq**` (the ? only matches a single character).</p>
 </li>
 </ul>
 <p><code>$ ls zmays[AB]_R1.fastq</code></p>
-<p>zmaysA_R1.fastq zmaysB_R1.fastq</p>
+<p>zmaysA_R1.fastq     zmaysB_R1.fastq</p>
 <p><code>$ ls zmays[A-B]_R1.fastq</code></p>
-<p>zmaysA_R1.fastq zmaysB_R1.fastq</p>
+<p>zmaysA_R1.fastq     zmaysB_R1.fastq</p>
 <h3 id="Leading-Zeros-and-Sorting"><a href="#Leading-Zeros-and-Sorting" class="headerlink" title="Leading Zeros and Sorting"></a>Leading Zeros and Sorting</h3><p>e.g., le-0021.txt rather than le-21.txt</p>
 <p><code>$ ls -l</code></p>
 <p>-rw-r–r– 1 vinceb staff 0 Feb 21 21:23 genes-001.txt</p>
@@ -1086,12 +1084,13 @@
 <p>[…]</p>
 <p>-rw-r–r– 1 vinceb staff 0 Feb 21 21:23 genes-013.txt</p>
 <p>-rw-r–r– 1 vinceb staff 0 Feb 21 21:23 genes-014.txt</p>
-<h3 id="Markdown-syntax-（语法）"><a href="#Markdown-syntax-（语法）" class="headerlink" title="Markdown syntax （语法）"></a>Markdown syntax （语法）</h3><p>*emphasis*    <em>emphasis</em></p>
-<p>**bold**    <strong>bold</strong></p>
-<p>`inline code`    <code>inline code</code></p>
-<p>&lt; <a href="http://website.com/link" target="_blank" rel="external">http://website.com/link</a> &gt;    Hyperlink to <a href="http://website.com/link" target="_blank" rel="external">http://website.com/link</a></p>
-<p><a href="http:// website.com/link" target="_blank" rel="external">link text</a>    Hyperlink to <a href="http://website.com/link" target="_blank" rel="external">http://website.com/link</a>, with text “link text”</p>
-<h1 id="Header-level-1"><a href="#Header-level-1" class="headerlink" title="Header level 1"></a>Header level 1</h1><h2 id="Header-level-2"><a href="#Header-level-2" class="headerlink" title="Header level 2"></a>Header level 2</h2><h3 id="Header-level-3"><a href="#Header-level-3" class="headerlink" title="Header level 3"></a>Header level 3</h3><p>-，*，+ 无序排列</p>
+<h3 id="Markdown-syntax-（语法）"><a href="#Markdown-syntax-（语法）" class="headerlink" title="Markdown syntax （语法）"></a>Markdown syntax （语法）</h3><p><code>*emphasis*</code>: <em>emphasis</em></p>
+<p><code>**bold**</code>: <strong>bold</strong></p>
+<p><code>inline code</code>:    <code>inline code</code></p>
+<p><code>&lt;http://website.com/link&gt;</code>:    Hyperlink to <a href="http://website.com/link" target="_blank" rel="external">http://website.com/link</a></p>
+<p><code>[link text](http:// website.com/link)</code>:    Hyperlink to <a href="http://website.com/link" target="_blank" rel="external">http://website.com/link</a>, with text “link text”</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># Header level 1</div><div class="line">## Header level 2</div><div class="line">### Header level 3</div></pre></td></tr></table></figure>
+<p>-，*，+ 无序排列</p>
 <p>1. 2. 3. 有序排列</p>
 <h2 id="Use-Pandoc-to-Render-Markdown-to-HTML"><a href="#Use-Pandoc-to-Render-Markdown-to-HTML" class="headerlink" title="Use Pandoc to Render Markdown to HTML"></a>Use <a href="http://johnmacfarlane.net/pandoc/" target="_blank" rel="external">Pandoc</a> to Render Markdown to HTML</h2><p><a href="http://johnmacfarlane.net/pandoc/" target="_blank" rel="external">http://johnmacfarlane.net/pandoc/</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pandoc --from markdown --to html notebook.md &gt; output.html</div></pre></td></tr></table></figure>
