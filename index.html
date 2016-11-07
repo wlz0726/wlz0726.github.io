@@ -791,12 +791,12 @@
         
           
             <h3 id="使用七牛云做为markdown图床"><a href="#使用七牛云做为markdown图床" class="headerlink" title="使用七牛云做为markdown图床"></a><a href="http://cnfeat.com/blog/2015/11/30/cli-qiniu/#section-8" target="_blank" rel="external">使用七牛云做为markdown图床</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://cnfeat.com/blog/2015/11/30/cli-qiniu/#section-8</div></pre></td></tr></table></figure>
-<h3 id="qrsync-命令行同步工具"><a href="#qrsync-命令行同步工具" class="headerlink" title="qrsync 命令行同步工具"></a><a href="http://docs.qiniu.com/tools/v6/qrsync.html" target="_blank" rel="external">qrsync 命令行同步工具</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://docs.qiniu.com/tools/v6/qrsync.html</div></pre></td></tr></table></figure>
+<h3 id="qshell-命令行同步工具"><a href="#qshell-命令行同步工具" class="headerlink" title="qshell 命令行同步工具"></a>qshell 命令行同步工具</h3><p>(2016.11.8 更新) qrsync被官方弃用了…<br>现在可以使用<a href="http://developer.qiniu.com/code/v6/tool/qshell.html" target="_blank" rel="external">qshell工具</a>实现<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">http://developer.qiniu.com/code/v6/tool/qshell.html</div></pre></td></tr></table></figure></p>
 <h3 id="自动上传图片并获得图片外链地址"><a href="#自动上传图片并获得图片外链地址" class="headerlink" title="自动上传图片并获得图片外链地址"></a>自动上传图片并获得图片外链地址</h3><ul>
 <li><p>图片保存至上传目录 <code>/Users/wanglizhong/software/7niu/PicUpload/</code></p>
 </li>
 <li><p>写个简单的脚本获得图片地址<br>get_url.pl内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#/usr/bin/perl -w</div><div class="line">`/usr/local/bin/qrsync /Users/wanglizhong/software/7niu/conf.json 2&gt;/Users/wan\</div><div class="line">glizhong/software/7niu/.tmp`;</div><div class="line">my $pic=`ls /Users/wanglizhong/software/7niu/PicUpload/*`;</div><div class="line">chomp $pic;</div><div class="line">$pic =~ /\/([^\/]+)$/;</div><div class="line">print &quot;![image](http://ofr9vioug.bkt.clouddn.com/$1)&quot;;</div><div class="line">`rm $pic`;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#/usr/bin/perl -w</div><div class="line">`/usr/local/bin/qshell qupload  /Users/wanglizhong/software/7niu/conf.json 2&gt;/Users/wan\</div><div class="line">glizhong/software/7niu/.tmp`;</div><div class="line">my $pic=`ls /Users/wanglizhong/software/7niu/PicUpload/*`;</div><div class="line">chomp $pic;</div><div class="line">$pic =~ /\/([^\/]+)$/;</div><div class="line">print &quot;![image](http://ofr9vioug.bkt.clouddn.com/$1)&quot;;</div><div class="line">`rm $pic`;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>终端运行 <code>perl get_url.pl</code>，可以进一步使用Keyboard Maestro绑定快捷键。</p>
@@ -804,7 +804,7 @@
 <li>插入图片地址<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![image](http://ofr9vioug.bkt.clouddn.com/QQ20161028-0@2x-chimpanzee.png)</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>效果<br><img src="http://ofr9vioug.bkt.clouddn.com/QQ20161028-0@2x-chimpanzee.png" alt="image"></p>
+<p><img src="http://ofr9vioug.bkt.clouddn.com/QQ20161028-0@2x-chimpanzee.png" alt="image"></p>
 <h3 id="调整markdown插入图片尺寸"><a href="#调整markdown插入图片尺寸" class="headerlink" title="调整markdown插入图片尺寸"></a>调整markdown插入图片尺寸</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">![image](http://ofr9vioug.bkt.clouddn.com/PairwiseCluster.png)</div><div class="line">添加后缀 “?imageView/2/w/600”，600为自定义宽度</div><div class="line">![image](http://ofr9vioug.bkt.clouddn.com/PairwiseCluster.png?imageView/2/w/600)</div></pre></td></tr></table></figure>
 
           
@@ -1419,7 +1419,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
