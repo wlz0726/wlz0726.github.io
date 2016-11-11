@@ -352,6 +352,300 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/11/R-Cheetsheets/" itemprop="url">
+                  R Cheetsheets
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-11T10:40:41+08:00" content="2016-11-11">
+              2016-11-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Cheetsheets/" itemprop="url" rel="index">
+                    <span itemprop="name">Cheetsheets</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h2><h3 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h3><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>points(x,y)</td>
+<td>添加点</td>
+</tr>
+<tr>
+<td>lines(x,y)</td>
+<td>添加线</td>
+</tr>
+<tr>
+<td>text(x,y,labels,…)</td>
+<td>在(x,y)处添加用labels指定的文字</td>
+</tr>
+<tr>
+<td>mtext(text,side=3,line=0,…)</td>
+<td>在边空添加用text指定的文字</td>
+</tr>
+<tr>
+<td>segments(x0,y0,x1,y1)</td>
+<td>从(x0,y0)各点到(x1,y1)各点画线段</td>
+</tr>
+<tr>
+<td>arrows(x0,y0,x1,y1,…)</td>
+<td>同上，但添加箭头</td>
+</tr>
+<tr>
+<td>abline(a,b)</td>
+<td>绘制斜率为b和截距为a的直线</td>
+</tr>
+<tr>
+<td>abline(h=y)</td>
+<td>在纵坐标y处画水平线</td>
+</tr>
+<tr>
+<td>abline(v=x)</td>
+<td>在横坐标x处画垂直线</td>
+</tr>
+<tr>
+<td>abline(lm.obj)</td>
+<td>画出lm.obj确定的回归线</td>
+</tr>
+<tr>
+<td>rect(x1,y1,x2,y2)</td>
+<td>绘制长方形，(x1,y1)为左下角，(x2,y2)为右上角</td>
+</tr>
+<tr>
+<td>polygon(x,y)</td>
+<td>绘制连接各x,y坐标确定的点的多边形</td>
+</tr>
+<tr>
+<td>legend(x,y,legend)</td>
+<td>在点(x,y)处添加图例，说明内容由legend给定</td>
+</tr>
+<tr>
+<td>title()</td>
+<td>添加标题，也可添加一个副标题</td>
+</tr>
+<tr>
+<td>axis(side,vect)</td>
+<td>画坐标轴</td>
+</tr>
+<tr>
+<td>box()</td>
+<td>在当前的图上加边框</td>
+</tr>
+<tr>
+<td>rug(x)</td>
+<td>在x轴上用短线画出x数据的位置</td>
+</tr>
+<tr>
+<td>locator(n,type=”n”,…)</td>
+<td>获取鼠标在图中点击处的坐标</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用绘图函数"><a href="#常用绘图函数" class="headerlink" title="常用绘图函数"></a>常用绘图函数</h3><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plot(x)</td>
+<td>以x的元素值为纵坐标、以序号为横坐标绘图</td>
+</tr>
+<tr>
+<td>plot(x,y)</td>
+<td>x与y的二元作图</td>
+</tr>
+<tr>
+<td>pie(x)</td>
+<td>饼图</td>
+</tr>
+<tr>
+<td>boxplot(x)</td>
+<td>盒形图(也称箱线图)</td>
+</tr>
+<tr>
+<td>hist(x)</td>
+<td>x的频率直方图</td>
+</tr>
+<tr>
+<td>barplot(x)</td>
+<td>x的值的条形图</td>
+</tr>
+<tr>
+<td>pairs(x)</td>
+<td>如果x是矩阵或是数据框，作x的各列之间的二元图</td>
+</tr>
+<tr>
+<td>matplot(x,y)</td>
+<td>二元图，其中x的第一列对应y的第一列，依次类推</td>
+</tr>
+<tr>
+<td>qqnorm(x)</td>
+<td>正态分位数-分位数图</td>
+</tr>
+<tr>
+<td>image(x,y,z)</td>
+<td>x,y,z三元图</td>
+</tr>
+<tr>
+<td>heatmap(x)</td>
+<td>热图</td>
+</tr>
+<tr>
+<td>coplot(x~y&#124;z)</td>
+<td>关于z的每个数值(或数值区间)绘制x与y的二元图</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="点图-point"><a href="#点图-point" class="headerlink" title="点图 point"></a>点图 point</h2><p>应用（PCA）</p>
+<p>input file：“input.ggplot2”:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">name     PC1      PC2      species</div><div class="line">sample1    1.10     2.039    D</div><div class="line">sample2    0.83     1.928    D</div><div class="line">sample3    0.678    0.837    W</div><div class="line">sample4    1.828    1.282    W</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<h3 id="geom-point"><a href="#geom-point" class="headerlink" title="geom_point()"></a>geom_point()</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a=read.table(<span class="string">"input.ggplot2"</span>,header=<span class="literal">T</span>);</div><div class="line">p=ggplot(a,aes(PC1,PC2,color=species))+geom_point(alpha=<span class="number">0.9</span>,size=<span class="number">4</span>)</div><div class="line">p+theme_bw()+scale_color_manual(values=c(\<span class="string">"#2166ac\",\"#b2182b\"))</span></div></pre></td></tr></table></figure>
+<h3 id="plot-amp-points"><a href="#plot-amp-points" class="headerlink" title="plot &amp; points"></a>plot &amp; points</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 用不同的颜色区分不同群体</div><div class="line">d1=read.table(&quot;D1.txt&quot;,header=T);</div><div class="line">d2=read.table(&quot;D2.txt&quot;,header=T);</div><div class="line">w=read.table(&quot;W.txt&quot;,header=T);</div><div class="line"></div><div class="line">d1x=d1$PC1</div><div class="line">d1y=d1$PC2</div><div class="line">d2x=d2$PC1</div><div class="line">d2y=d2$PC2</div><div class="line">wx=w$PC1</div><div class="line">wy=w$PC2</div><div class="line"></div><div class="line">pdf(file=&quot;PC12.pdf&quot;,width=2,height=2)</div><div class="line">plot(d1x,d1y,pch=4,col=&quot;#89c876&quot;,cex=2,cex.lab=1.5,lwd=2,xlab=&quot;PC1 (3.24%)&quot;,ylab=&quot;PC2 (1.36%)&quot;,xlim=c(-0.3,0.1),ylim=c(-0.6,0.2))</div><div class="line">points(d2x,d2y,pch=4,col=&quot;#2166ac&quot;,cex=2,lwd=2)</div><div class="line">points(wx,wy,pch=4,col=&quot;#b2182b&quot;,cex=2,lwd=2)</div><div class="line">dev.off()</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="boxplot"><a href="#boxplot" class="headerlink" title="boxplot"></a>boxplot</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">par(mfrow=c(1,2))</div><div class="line">boxplot(bb1$V2,bc1$V2,cc1$V2,outline = F,names=c(&quot;B-B&quot;,&quot;B-C&quot;,&quot;C-C&quot;),main=&quot;1 bp overlap&quot;)</div><div class="line">boxplot(bb5$V2,bc5$V2,cc5$V2,outline = F,names=c(&quot;B-B&quot;,&quot;B-C&quot;,&quot;C-C&quot;),main=&quot;50% reciprocal overlap&quot;)</div></pre></td></tr></table></figure>
+<h2 id="wilcox-test"><a href="#wilcox-test" class="headerlink" title="wilcox.test()"></a>wilcox.test()</h2><p>Wilcoxon rank sum test / Mann–Whitney U test / Mann–Whitney–Wilcoxon (MWW)/Wilcoxon秩和检验</p>
+<blockquote>
+<p>在R中，wilcox.test()函数可以用来做Wilcoxon秩和检验，也可以用于做 Mann-Whitney U检验。</p>
+<ul>
+<li>当参数为<code>单个样本</code>/<code>或者是两个样本相减</code>/<code>或者是两个参数，paired=T</code>时，是Wilcoxon秩和检验。</li>
+<li>当<code>两个参数，paired = FALSE（独立样本）</code>时，就是 Mann-Whitney U检验</li>
+</ul>
+<p>If only x is given, or if both x and y are given and paired is TRUE, a Wilcoxon signed rank test of the null that the distribution of x (in the one sample case) or of x - y (in the paired two sample case) is symmetric about mu is performed.</p>
+<p>Otherwise, if both x and y are given and paired is FALSE, a Wilcoxon rank sum test (equivalent to the Mann-Whitney test: see the Note) is carried out. In this case, the null hypothesis is that the distributions of x and y differ by a location shift of mu and the alternative is that they differ by some other location shift (and the one-sided alternative “greater” is that x is shifted to the right of y).</p>
+</blockquote>
+<h3 id="配对Wilcoxon符号秩检验"><a href="#配对Wilcoxon符号秩检验" class="headerlink" title="配对Wilcoxon符号秩检验"></a>配对Wilcoxon符号秩检验</h3><p>例8-1: 对12份血清分别用原方法（检测时间20分钟）和新方法（检测时间10分钟）测谷-丙转氨酶，结果见表8-1的（2）、（3）栏。问两法所得结果有无差别？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line">old &lt;- c(60,142,195,80,242,220,190,25,198,38,236,95)</div><div class="line">new &lt;- c(76,152,243,82,240,220,205,38,243,44,190,100)</div><div class="line">wilcox.test(old,new,paired = TRUE)</div><div class="line"></div><div class="line"># 运行结果</div><div class="line">&gt; wilcox.test(old,new,paired = TRUE) #配对wilcoxon检验</div><div class="line"></div><div class="line">        Wilcoxon signed rank test with continuity correction</div><div class="line"></div><div class="line">data:  old and new</div><div class="line">V = 11.5, p-value = 0.06175</div><div class="line">alternative hypothesis: true location shift is not equal to 0</div><div class="line"></div><div class="line">Warning messages:</div><div class="line">1: In wilcox.test.default(old, new, paired = TRUE) :</div><div class="line">  cannot compute exact p-value with ties</div><div class="line">2: In wilcox.test.default(old, new, paired = TRUE) :</div><div class="line">  cannot compute exact p-value with zeroes</div><div class="line"></div><div class="line"># 结果分析： p-value=0.06175，因此不能认为两法测谷丙转氨酶有差别。</div></pre></td></tr></table></figure></p>
+<h3 id="独立样本Wilcoxon检验（Mann-Whitney-U检验）"><a href="#独立样本Wilcoxon检验（Mann-Whitney-U检验）" class="headerlink" title="独立样本Wilcoxon检验（Mann-Whitney U检验）"></a>独立样本Wilcoxon检验（Mann-Whitney U检验）</h3><p>例8-2  已知某地正常人尿氟含量的中位数为45.30μmol/L 。今在该地某厂随机抽取12名工人，测得尿氟含量见表8-2第（1）栏。问该厂工人的尿氟含量是否高于当地正常人的尿氟含量？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line">data82 &lt;- c(44.21,45.30,46.39,49.47,51.05,53.16,53.26,54.37,57.16,67.37,71.05,87.37)</div><div class="line">wilcox.test(data82-45.30)</div><div class="line"></div><div class="line"># 运行结果：</div><div class="line">&gt; wilcox.test(data82,mu=45.30)</div><div class="line"></div><div class="line">        Wilcoxon signed rank test with continuity correction</div><div class="line"></div><div class="line">data:  data82</div><div class="line">V = 65, p-value = 0.005099</div><div class="line">alternative hypothesis: true location is not equal to 45.3</div><div class="line"></div><div class="line">Warning message:</div><div class="line">In wilcox.test.default(data82, mu = 45.3) :</div><div class="line">  cannot compute exact p-value with zeroes</div><div class="line"># 结果分析：p值小于0.01，可以视为该工厂的工人尿氟含量高于正常人。</div></pre></td></tr></table></figure></p>
+<p>例8-3  对10例肺癌病人和12例矽肺0期工人用X光片测量肺门横径右侧距RD值（cm），结果见表8-5。问肺癌病人的RD值是否高于矽肺0期工人的RD值？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line">lc &lt;- c(2.78,3.23,4.2,4.87,5.12,6.21,7.18,8.05,8.56,9.6)</div><div class="line">si &lt;- c(3.23,3.5,4.04,4.15,4.28,4.34,4.47,4.64,4.75,4.82,4.95,5.1)</div><div class="line">wilcox.test(lc,si)</div><div class="line"></div><div class="line">#运行结果：</div><div class="line">&gt; wilcox.test(lc,si,alternative=&quot;greater&quot;,exact=F)</div><div class="line"></div><div class="line">        Wilcoxon rank sum test with continuity correction</div><div class="line"></div><div class="line">data:  lc and si</div><div class="line">W = 86.5, p-value = 0.04318</div><div class="line">alternative hypothesis: true location shift is greater than 0</div><div class="line"># 在R中，wilcox.test()函数可以用来做Wilcoxon秩和检验，也可以用于做Mann-Whitney U检验。当参数为单个样本，或者是两个样本相减，或者是两个参数，paired=F时，是Wilcoxon秩和检验。当paired = FALSE（独立样本）时，就是Mann-Whitney U检验，在这个题目中，用的就是Mann-Whitney U检验，虽然结果中W=86.5与书中的T=141.5不一样，但本质上是一样的，换算如下：W1=141.5-10*(10+1)/2=86.5；W2=111.5-12*(12+1)/2=33.5</div></pre></td></tr></table></figure></p>
+<p>例8-4  39名吸烟工人和40名不吸烟工人的碳氧血红蛋白HbCO(%)含量见表8-6。问吸烟工人的HbCO(%)含量是否高于不吸烟工人的HbCO(%)含量？</p>
+<p>答：本题书中用的是wilcox检验，其实用Ridit分析更合适一些，下面分别用这两种方法进行检验：</p>
+<ul>
+<li>Wilcox.test,或Kruskal检</li>
+</ul>
+<p>Wilcox.test（或Kruskal检验）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">smoke &lt;- c(1,8,16,10,4)</div><div class="line">no.smoke &lt;-c(2,23,11,4,0)</div><div class="line">rank.c &lt;- c(1:5)</div><div class="line">group1 &lt;- rep(rank.c,smoke)</div><div class="line">group2 &lt;- rep(rank.c,no.smoke)</div><div class="line">data84 &lt;- c(group1,group2)</div><div class="line">group.f &lt;-factor(c(rep(1,length(group1)),rep(2,length(group2))))</div><div class="line">wilcox.test(data84~group.f)</div><div class="line">kruskal.test(data84~group.f)</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"># 运行结果：</div><div class="line"># wilcox.test</div><div class="line">wilcox.test(data84~group.f)</div><div class="line"></div><div class="line">Wilcoxon rank sum test with continuity correction</div><div class="line"></div><div class="line">data: data84 by group.f</div><div class="line">W = 1137, p-value = 0.0002181</div><div class="line">alternative hypothesis: true location shift is not equal to 0</div><div class="line"></div><div class="line">Warning message:</div><div class="line">In wilcox.test.default(x = c(1L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, :</div><div class="line">cannot compute exact p-value with ties</div><div class="line"></div><div class="line"></div><div class="line"># kruskal.test检验</div><div class="line">&gt; kruskal.test(data84~group.f)</div><div class="line"></div><div class="line">Kruskal-Wallis rank sum test</div><div class="line"></div><div class="line">data: data84 by group.f</div><div class="line">Kruskal-Wallis chi-squared = 13.707, df = 1, p-value = 0.0002137</div></pre></td></tr></table></figure>
+<ul>
+<li>此题用Ridit检验更合适一些</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">data84 &lt;- matrix(c(1,8,16,10,4,2,23,11,4,0),nrow=5)</div><div class="line">dimnames(data84) &lt;- list(cone=c(&quot;very low&quot;,&quot;low&quot;,&quot;median&quot;,&quot;a bit high&quot;,&quot;high&quot;),</div><div class="line">worker=c(&quot;smoker&quot;,&quot;no-smoker&quot;))</div><div class="line">library(Ridit)</div><div class="line">ridit(data84,2)</div><div class="line">chisq.test(data84)</div><div class="line"></div><div class="line"># 运行结果：</div><div class="line">&gt; library(Ridit)</div><div class="line">&gt; ridit(data84,2)</div><div class="line"></div><div class="line">Ridit Analysis:</div><div class="line"></div><div class="line">Group Label Mean Ridit</div><div class="line">----- ----- ----------</div><div class="line">1 smoker 0.6159</div><div class="line">2 no-smoker 0.387</div><div class="line"></div><div class="line">Reference: Total of all groups</div><div class="line">chi-squared = 13.707, df = 1, p-value = 0.0002137</div><div class="line"></div><div class="line">&gt; chisq.test(data84)</div><div class="line"></div><div class="line">Pearsons Chi-squared test</div><div class="line"></div><div class="line">data: data84</div><div class="line">X-squared = 15.0785, df = 4, p-value = 0.004541</div></pre></td></tr></table></figure>
+<h2 id="Kurskal-Wallis检验"><a href="#Kurskal-Wallis检验" class="headerlink" title="Kurskal-Wallis检验"></a>Kurskal-Wallis检验</h2><p>Kurskal-Wallis检验是Wilcoxon方法（其实是Mann-Whitney检验）用于多于两个样本的时候的升级版。当对两个样本进行比较的时候，Kurskal-Wallis检验与Mann-Whitney检验是等价的。</p>
+<p>例8-5  用三种药物杀灭钉螺，每批用200只活钉螺，用药后清点每批钉螺的死亡数、再计算死亡率（%），结果见表8-9。问三种药物杀灭钉螺的效果有无差别？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line">drug &lt;-rep(c(&quot;甲药&quot;,&quot;乙药&quot;,&quot;丙药&quot;),each=5)</div><div class="line">data &lt;- c(32.5,35.5,40.5,46,49,16,20.5,22.5,29,36,6.5,9.0,12.5,18,24)</div><div class="line">data85 &lt;- data.frame(drug,data)</div><div class="line">kruskal.test(data85$data~data85$drug)</div><div class="line"></div><div class="line"># 运行结果：</div><div class="line">&gt; kruskal.test(data85$data~data85$drug)</div><div class="line"></div><div class="line">        Kruskal-Wallis rank sum test</div><div class="line"></div><div class="line">data:  data85$data by data85$drug</div><div class="line">Kruskal-Wallis chi-squared = 9.74, df = 2, p-value = 0.007673</div><div class="line"># 结果分析：Kruskal-Wallis的统计量是H值。</div></pre></td></tr></table></figure>
+<p>例8-6  比较小白鼠接种三种不同菌型伤寒杆菌9D、11C和DSC1后存活日数，结果见表8-10。问小白鼠接种三种不同菌型伤寒杆菌的存活日数有无差别？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line">mice &lt;- as.factor(c(rep(&quot;9D&quot;,10),rep(&quot;11C&quot;,9),rep(&quot;DSC1&quot;,11)))</div><div class="line">data86 &lt;- c(2,2,2,3,4,4,4,5,7,7,5,5,6,6,6,7,8,10,12,3,5,6,6,6,7,7,9,10,11,11)</div><div class="line">data86 &lt;- data.frame(mice,data)</div><div class="line">kruskal.test(data86$data~data86$mice)</div><div class="line"></div><div class="line"># 运行结果：</div><div class="line">&gt; kruskal.test(data86$data~data86$mice)</div><div class="line"></div><div class="line">        Kruskal-Wallis rank sum test</div><div class="line"></div><div class="line">data:  data86$data by data86$mice</div><div class="line">Kruskal-Wallis chi-squared = 9.9405, df = 2, p-value = 0.006941</div></pre></td></tr></table></figure>
+<p>例8-7  四种疾病患者痰液内嗜酸性白细胞的检查结果见表8-11。问四种疾病患者痰液内的嗜酸性白细胞有无差别？注：这道例题与《医学统计学及SAS应用》（上海交通大学）的9.11类似</p>
+<p><img src="http://ofr9vioug.bkt.clouddn.com/8-7-table-KWtest.png?imageView/2/w/500" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line">x1 &lt;- c(0,2,9,6)</div><div class="line">x2 &lt;- c(3,5,5,2)</div><div class="line">x3 &lt;- c(5,7,3,2)</div><div class="line">x4 &lt;- c(3,5,3,0)</div><div class="line"></div><div class="line">freq &lt;- function(x)&#123;</div><div class="line">count &lt;-c()</div><div class="line">for(i in 1:4)&#123;</div><div class="line">count1 &lt;-c(rep(i,x[i]))</div><div class="line">count &lt;- append(count,count1)</div><div class="line">&#125;</div><div class="line">return(count)&#125;</div><div class="line">data87 &lt;-c(freq(x1),freq(x2),freq(x3),freq(x4))</div><div class="line">group &lt;- c(rep(1,sum(x1)),rep(2,sum(x2)),rep(3,sum(x3)),rep(4,sum(x4)))</div><div class="line">kruskal.test(data87~group)</div><div class="line"></div><div class="line"># 运行结果：</div><div class="line">&gt; kruskal.test(data87~group)</div><div class="line"></div><div class="line">        Kruskal-Wallis rank sum test</div><div class="line"></div><div class="line">data:  data87 by group</div><div class="line">Kruskal-Wallis chi-squared = 15.5058, df = 3, p-value = 0.001432</div></pre></td></tr></table></figure>
+<p>例8-8  对例8-6资料（表8-10）作三个样本间的两两比较，Nemenyi检验。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line"># 需要安装下列包：</div><div class="line"># install.packages(&quot;pgirmess&quot;)</div><div class="line"># install.packages(&quot;coin&quot;)</div><div class="line"># install.packages(&quot;multcomp&quot;)</div><div class="line"># library(pgirmess)</div><div class="line"># library(coin)</div><div class="line"># library(multcomp) # 安装并加载要用到的包</div><div class="line">mice &lt;- as.factor(c(rep(&quot;9D&quot;,10),rep(&quot;11C&quot;,9),rep(&quot;DSC1&quot;,11)))</div><div class="line">data &lt;- c(2,2,2,3,4,4,4,5,7,7,5,5,6,6,6,7,8,10,12,3,5,6,6,6,7,7,9,10,11,11)</div><div class="line">data88 &lt;- data.frame(mice,data)</div><div class="line">kruskal.test(data~mice,data=data88)</div><div class="line">kruskalmc(data~mice, data=data88, probs=0.05) # 使用kruskalmc函数做两两比较，但此方法不能给出具体的值</div><div class="line"># 下面构建函数计算具体的p值</div><div class="line">mult &lt;- oneway_test(data ~ mice, data = data88,</div><div class="line">ytrafo = function(data) trafo(data, numeric_trafo = rank),</div><div class="line">xtrafo = function(data) trafo(data, factor_trafo = function(x)</div><div class="line">model.matrix(~x - 1) %*% t(contrMat(table(x), &quot;Tukey&quot;))),</div><div class="line">teststat = &quot;max&quot;, distribution = approximate(B = 90000))</div><div class="line">pvalue(mult, method = &quot;single-step&quot;) #计算具体的p值，这段代码是复制丁香园的[1]</div><div class="line"></div><div class="line"></div><div class="line"># 运行结果：</div><div class="line">&gt; kruskal.test(data~mice,data=data88)</div><div class="line"></div><div class="line">    Kruskal-Wallis rank sum test</div><div class="line"></div><div class="line">data:  data by mice</div><div class="line">Kruskal-Wallis chi-squared = 9.9405, df = 2, p-value = 0.006941</div><div class="line"></div><div class="line">&gt; kruskalmc(data~mice, data=data88, probs=0.05) # 使用kruskalmc函数做两两比较，但此方法不能给出具体的值</div><div class="line">Multiple comparison test after Kruskal-Wallis</div><div class="line">p.value: 0.05</div><div class="line">Comparisons</div><div class="line">            obs.dif critical.dif difference</div><div class="line">11C-9D   10.3777778     9.683378       TRUE</div><div class="line">11C-DSC1  0.4949495     9.472590      FALSE</div><div class="line">9D-DSC1  10.8727273     9.208410       TRUE</div><div class="line"></div><div class="line">&gt; pvalue(mult, method = &quot;single-step&quot;) #计算具体的p值</div><div class="line"></div><div class="line">9D - 11C   0.01870000</div><div class="line">DSC1 - 11C 0.95110000</div><div class="line">DSC1 - 9D  0.01088889</div></pre></td></tr></table></figure></p>
+<p>例8-9  8名受试对象在相同实验条件下分别接受4种不同频率声音的刺激，他们的反应率（%）资料见表8-12。问4种频率声音刺激的反应率是否有差别？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line">freA &lt;- c(8.40,11.60,9.40,9.80,8.30,8.60,8.90,7.80)</div><div class="line">freB &lt;- c(9.60,12.70,9.10,8.70,8.00,9.80,9.00,8.20)</div><div class="line">freC &lt;- c(9.80,11.80,10.40,9.90,8.60,9.60,10.60,8.50)</div><div class="line">freD &lt;- c(11.70,12.00,9.80,12.00,8.60,10.60,11.40,10.80)</div><div class="line">matrix89 &lt;- matrix(c(freA,freB,freC,freD),nrow=8,dimnames=list(no=1:8,c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;)))</div><div class="line">friedman.test(matrix89)</div><div class="line"></div><div class="line">运行结果：</div><div class="line">&gt; friedman.test(matrix89)</div><div class="line"></div><div class="line">        Friedman rank sum test</div><div class="line"></div><div class="line">data:  matrix89</div><div class="line">Friedman chi-squared = 15.1519, df = 3, p-value = 0.001691</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/11/07/Fix-pheatmap-bug/" itemprop="url">
                   Fix Pheatmap Bug
                 </a>
@@ -547,7 +841,6 @@
 <p>reverse 反向 <code>@fred = reverse @fred</code> #本身不修改</p>
 <p>排序<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">my</span> @result = <span class="keyword">sort</span> by_number @some_numbers</div><div class="line"><span class="keyword">my</span> @result = <span class="keyword">sort</span> &#123; $a &lt;=&gt; $b&#125; @some_numbers;  <span class="comment"># &lt;=&gt; 符号表示数字的比较和排序</span></div><div class="line"><span class="keyword">my</span> @string = <span class="keyword">sort</span> &#123;$a cmp $b&#125; @any_strings;  <span class="comment"># cmp 表示字符串的比较和排序</span></div><div class="line"><span class="keyword">my</span> @string = <span class="keyword">sort</span> &#123;<span class="string">"\L$a"</span> cmp <span class="string">"\L$b"</span>&#125; @any_strings;  <span class="comment"># \L表示忽略大小写</span></div></pre></td></tr></table></figure></p>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">sub</span> <span class="title">by_score_and_name</span> </span>&#123;</div><div class="line">  &#123;$score&#123;$b&#125; &lt;=&gt; $score&#123;$a&#125;&#125;  <span class="comment"># 按照value对key做降序排列</span></div><div class="line"></div><div class="line">  <span class="keyword">or</span></div><div class="line"></div><div class="line">  $a cmp $b <span class="comment"># 按照字母顺序再排序</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="特殊变量-I"><a href="#特殊变量-I" class="headerlink" title="特殊变量  $^I"></a>特殊变量  $^I</h3><p>$^I = “.bak”;</p>
 <h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><h3 id="条件分支、循环"><a href="#条件分支、循环" class="headerlink" title="条件分支、循环"></a>条件分支、循环</h3><p>使用<strong>后缀形式</strong>，添加括号增加可读性：</p>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> <span class="string">"yes\n"</span> <span class="keyword">if</span> ($a&gt;<span class="number">1</span>);</div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">"$_"</span> <span class="keyword">for</span> <span class="number">1</span>..<span class="number">10</span></div></pre></td></tr></table></figure>
 <h3 id="三目操作符"><a href="#三目操作符" class="headerlink" title="三目操作符"></a>三目操作符</h3><p>三目操作符（? :）可以根据给定的条件选择执行表达式.</p>
@@ -561,10 +854,10 @@
 <h2 id="哈希"><a href="#哈希" class="headerlink" title="哈希"></a>哈希</h2><h3 id="访问哈希"><a href="#访问哈希" class="headerlink" title="访问哈希"></a>访问哈希</h3><p>访问键<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span> <span class="keyword">my</span> $addressee (<span class="keyword">keys</span> %addresses)&#123;</div><div class="line"><span class="keyword">say</span> <span class="string">"Found an address for $addressee!"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>访问值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">for my $address (values %addresses)&#123;</div><div class="line">say &quot;Someone lives at $address&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p><strong>访问键值对</strong><br>each 函数,唯一使用地方就是在while循环中<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">while</span> (<span class="keyword">my</span> ($addressee, $address) = <span class="keyword">each</span> %addresses)&#123;</div><div class="line"><span class="keyword">say</span> <span class="string">"$addressee lives at $address"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="反转-松绑哈希"><a href="#反转-松绑哈希" class="headerlink" title="反转 松绑哈希"></a>反转 松绑哈希</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">%inverse_hash = <span class="keyword">reverse</span> %any_hash <span class="comment"># 反转哈希  键值互换</span></div><div class="line">@any_array = %some_hash;  <span class="comment">#哈希松绑，把哈希转化成 键/值 对的列表</span></div></pre></td></tr></table></figure>
-<h3 id="去除哈希里的键"><a href="#去除哈希里的键" class="headerlink" title="去除哈希里的键"></a>去除哈希里的键</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> $h&#123;$a&#125;</div></pre></td></tr></table></figure>
 <h3 id="用哈希去重复用法"><a href="#用哈希去重复用法" class="headerlink" title="用哈希去重复用法"></a>用哈希去重复用法</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">my</span> %uniq;</div><div class="line"><span class="keyword">undef</span> @uniq&#123; @items &#125;;</div><div class="line"><span class="keyword">my</span> @uniques = <span class="keyword">keys</span> %uniq;</div><div class="line"></div><div class="line"><span class="comment"># @items是需要去重的数据，@uniques是去重后的</span></div><div class="line"><span class="comment"># 对哈希切片使用undef就是将所有的切片值设置为undef。</span></div></pre></td></tr></table></figure>
 <h3 id="exists-函数-检查哈四中是否有某个键"><a href="#exists-函数-检查哈四中是否有某个键" class="headerlink" title="exists 函数:检查哈四中是否有某个键"></a>exists 函数:检查哈四中是否有某个键</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (<span class="keyword">exists</span> $books&#123;<span class="string">"dino"</span>&#125;) &#123;</div><div class="line">    <span class="keyword">print</span> <span class="string">"Hey, there's a library card for dino!\n"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="反转-松绑哈希"><a href="#反转-松绑哈希" class="headerlink" title="反转 松绑哈希"></a>反转 松绑哈希</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">%inverse_hash = <span class="keyword">reverse</span> %any_hash <span class="comment"># 反转哈希  键值互换</span></div><div class="line">@any_array = %some_hash;  <span class="comment">#哈希松绑，把哈希转化成 键/值 对的列表</span></div></pre></td></tr></table></figure>
+<h3 id="去除哈希里的键"><a href="#去除哈希里的键" class="headerlink" title="去除哈希里的键"></a>去除哈希里的键</h3><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">delete</span> $h&#123;$a&#125;</div></pre></td></tr></table></figure>
 <h2 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h2><h3 id="数学操作符"><a href="#数学操作符" class="headerlink" title="数学操作符"></a>数学操作符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">+ 加</div><div class="line">- 减</div><div class="line">* 乘</div><div class="line">/ 除</div><div class="line">** 乘方</div><div class="line">% 模，取余 10%3  余数为1</div><div class="line">+=,-=, *=, /=, **=,  %=  组合形式</div><div class="line">--  前缀自减</div><div class="line">== 相等</div><div class="line">!= 不等</div><div class="line">&gt; 大于</div><div class="line">&lt; 小于</div><div class="line">&gt;= 大于等于</div><div class="line">&lt;= 小于等于</div><div class="line">&lt;=&gt; 排序中的比较符号</div></pre></td></tr></table></figure>
 <h3 id="自增-自减"><a href="#自增-自减" class="headerlink" title="自增 自减"></a>自增 自减</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">自增++ 自减--</div><div class="line">操作符++放在变量之前就能先增加变量的值，然后获取标量的值。</div><div class="line"></div><div class="line">$m = 5;</div><div class="line">my $n = ++$m; # $m 增加到 6，并把该值赋给 $n</div><div class="line"></div><div class="line">$m = 5;</div><div class="line">my $d = $m++; # $d 得到的值为 $m 之前的值 5 ，然后 $m 增加到6</div></pre></td></tr></table></figure>
 <h3 id="双引号里的转义字符"><a href="#双引号里的转义字符" class="headerlink" title="双引号里的转义字符"></a>双引号里的转义字符</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">\n	#换行</div><div class="line">\r	#光标回到最左边</div><div class="line">\t	#水平制表符</div><div class="line">\f	#换页符</div><div class="line">\b	#退格</div><div class="line">\a	#系统响铃</div><div class="line">\e	#Esc（ASCII编码的转义字符）</div><div class="line">\007	#任何八进制的ASCII值（此例中007表示系统响铃）</div><div class="line">\x7f	#任何十六进制的ASCII值（此例中7f表示删除键的控制代码）</div><div class="line">\cC	#控制符，也就是control键的代码（此例中表示同时按下Ctrl和C键的返回码）</div><div class="line">\\	#反斜线</div><div class="line">\&quot;	#双引号</div><div class="line">\l	#将下个字符转为小写</div><div class="line">\L	#将到\E为止的所有字符转为小写</div><div class="line">\u	#将下个字符转为大写</div><div class="line">\U	#将到\E未知的所有字符转为大写</div><div class="line">\Q	#将到\E为止的非单词（non-word）字符串加上反斜线</div><div class="line">\E	#结束\L，\U或\Q</div></pre></td></tr></table></figure>
@@ -587,11 +880,12 @@
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">sub</span> <span class="title">add_numbers</span></span>&#123;</div><div class="line">croak <span class="string">'Expected two numbers, received: '</span> . @_</div><div class="line"><span class="keyword">unless</span> @_ == <span class="number">2</span>;</div><div class="line">...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>有时则比较麻烦，比如要验证参数的类型。因为Perl中，类型可以发生转换。如果你有这方面的需求，可以看看这些模块：Params::Validate和MooseX::Method::Signatures。</p>
 <h2 id="输入和输出"><a href="#输入和输出" class="headerlink" title="输入和输出"></a>输入和输出</h2><p>调用参数 <code>@ARGV</code>由调用参数组成的列表,开始运行时，@ARGV已经塞满了调用参数。</p>
+<p>6个特殊的文件句柄是perl保留的：</p>
+<p>STDIN   STDOUT  STDERR  DATA    ARGV    ARGVOUT</p>
+<p>使用say来输出 与print相比会再每行输出的结尾z自动加上换行符</p>
 <h3 id="printf格式化输出"><a href="#printf格式化输出" class="headerlink" title="printf格式化输出"></a>printf格式化输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">printf &quot;Hello, %s; your password expires in %d days!\n&quot;, $user, $days_to_die;</div><div class="line"># %s 代表字符串 $user； %d 代表数字 $days_to_die</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">%d    十进制整数，自动舍去小数点后数字</div><div class="line">%s    字符串格式，可设定字段宽度 printf &quot;%10s\n&quot;,&quot;wilma&quot;; (正数右对齐，负数左对齐)</div><div class="line">%f    转换格式（浮点数，四舍五入），可指定小数点后输出位数 printf &quot;12.3f\n&quot;,42 + 2/3;   (宽度12，小数点3位)</div><div class="line">%%    要输出百分号，使用 %%</div></pre></td></tr></table></figure>
-<p>例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 直接给字符串</div><div class="line"># Format number with up to 8 leading zeroes</div><div class="line">my $result = sprintf(&quot;%08d&quot;, $number);</div><div class="line"></div><div class="line"># Round number to 3 digits after decimal point</div><div class="line">my $rounded = sprintf(&quot;%.3f&quot;, $number);</div></pre></td></tr></table></figure></p>
-<p>6个特殊的文件句柄是perl保留的：<br>STDIN   STDOUT  STDERR  DATA    ARGV    ARGVOUT</p>
-<p>使用say来输出 与print相比会再每行输出的结尾z自动加上换行符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 直接给字符串</div><div class="line"># Format number with up to 8 leading zeroes</div><div class="line">my $result = sprintf(&quot;%08d&quot;, $number);</div><div class="line"></div><div class="line"># Round number to 3 digits after decimal point</div><div class="line">my $rounded = sprintf(&quot;%.3f&quot;, $number);</div></pre></td></tr></table></figure>
 
           
         
@@ -1360,12 +1654,19 @@
       
         
           
-            <p>Creat a new repository on github with name ‘yourname.github.io’, then:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/Public</div><div class="line">git clone https://github.com/yourname/yourname.github.io.git</div><div class="line">hexo init yourname.github.io</div><div class="line">cd yourname.github.io</div><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
+            <p><a href="http://xiaolai.li/2016/06/22/makecs-build-a-blog-with-hexo-on-github/" target="_blank" rel="external">Referece</a></p>
+<p>Creat a new repository on github with name ‘yourname.github.io’, then:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd ~/Public</div><div class="line">git clone https://github.com/yourname/yourname.github.io.git</div><div class="line">hexo init yourname.github.io</div><div class="line">cd yourname.github.io</div><div class="line">npm install hexo-deployer-git --save</div></pre></td></tr></table></figure></p>
 <h3 id="deployment"><a href="#deployment" class="headerlink" title="deployment"></a>deployment</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo generate &amp;&amp; hexo server # hgs</div><div class="line">hexo generate &amp;&amp; hexo deploy # hgd</div></pre></td></tr></table></figure>
 <h3 id="new-article"><a href="#new-article" class="headerlink" title="new article"></a>new article</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo new &quot;new article name&quot;</div></pre></td></tr></table></figure>
 <p>edit your article in the source/_posts/ directory</p>
 <h3 id="Write-markdown-files-with-atom"><a href="#Write-markdown-files-with-atom" class="headerlink" title="Write markdown files with atom"></a>Write markdown files with atom</h3><p>用 ⇧⌃m 呼出预览</p>
-
+<h3 id="html字符实体在markdown里表示特殊符号"><a href="#html字符实体在markdown里表示特殊符号" class="headerlink" title="html字符实体在markdown里表示特殊符号"></a>html字符实体在markdown里表示特殊符号</h3><p>比如 <code>|</code>符号 的表示方式有，可用在markdown插入表格中:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&amp;verbar;</div><div class="line">&amp;vert;</div><div class="line">&amp;VerticalLine;</div><div class="line">&amp;#x0007C;</div><div class="line">&amp;#124;</div></pre></td></tr></table></figure></p>
+<p><a href="http://www.w3school.com.cn/tags/html_ref_entities.html" target="_blank" rel="external">字符实体参考手册</a></p>
+<p><a href="http://www.w3school.com.cn/tags/html_ref_ascii.asp" target="_blank" rel="external">ASCII</a></p>
+<p><a href="http://www.w3school.com.cn/tags/html_ref_symbols.html" target="_blank" rel="external">符号</a></p>
+<p><a href="http://www.w3school.com.cn/html/html_colors.asp" target="_blank" rel="external">颜色代码</a></p>
+<p><a href="http://www.w3school.com.cn/html/html_colornames.asp" target="_blank" rel="external">颜色名</a></p>
+<h2 id="Google-Material-design"><a href="#Google-Material-design" class="headerlink" title="Google Material design"></a><a href="https://material.google.com/" target="_blank" rel="external">Google Material design</a></h2>
           
         
       
@@ -1434,7 +1735,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

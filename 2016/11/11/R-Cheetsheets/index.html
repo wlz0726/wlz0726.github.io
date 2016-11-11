@@ -1,0 +1,875 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="R," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="基本基本元素
+
+
+函数名
+功能
+
+
+
+
+points(x,y)
+添加点
+
+
+lines(x,y)
+添加线
+
+
+text(x,y,labels,…)
+在(x,y)处添加用labels指定的文字
+
+
+mtext(text,side=3,line=0,…)
+在边空添加用text指定的文字
+
+
+segments(x0,y0,x1,y1)
+从(x0,y0)各点到(x1,y1)各点画线段
+
+
+arrows(x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R Cheetsheets">
+<meta property="og:url" content="http://yoursite.com/2016/11/11/R-Cheetsheets/index.html">
+<meta property="og:site_name" content="lizhong's notes">
+<meta property="og:description" content="基本基本元素
+
+
+函数名
+功能
+
+
+
+
+points(x,y)
+添加点
+
+
+lines(x,y)
+添加线
+
+
+text(x,y,labels,…)
+在(x,y)处添加用labels指定的文字
+
+
+mtext(text,side=3,line=0,…)
+在边空添加用text指定的文字
+
+
+segments(x0,y0,x1,y1)
+从(x0,y0)各点到(x1,y1)各点画线段
+
+
+arrows(x">
+<meta property="og:image" content="http://ofr9vioug.bkt.clouddn.com/8-7-table-KWtest.png?imageView/2/w/500">
+<meta property="og:updated_time" content="2016-11-11T04:48:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="R Cheetsheets">
+<meta name="twitter:description" content="基本基本元素
+
+
+函数名
+功能
+
+
+
+
+points(x,y)
+添加点
+
+
+lines(x,y)
+添加线
+
+
+text(x,y,labels,…)
+在(x,y)处添加用labels指定的文字
+
+
+mtext(text,side=3,line=0,…)
+在边空添加用text指定的文字
+
+
+segments(x0,y0,x1,y1)
+从(x0,y0)各点到(x1,y1)各点画线段
+
+
+arrows(x">
+<meta name="twitter:image" content="http://ofr9vioug.bkt.clouddn.com/8-7-table-KWtest.png?imageView/2/w/500">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/11/R-Cheetsheets/"/>
+
+  <title> R Cheetsheets | lizhong's notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lizhong's notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">学习学习再学习</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                R Cheetsheets
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-11T10:40:41+08:00" content="2016-11-11">
+              2016-11-11
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Cheetsheets/" itemprop="url" rel="index">
+                    <span itemprop="name">Cheetsheets</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="基本"><a href="#基本" class="headerlink" title="基本"></a>基本</h2><h3 id="基本元素"><a href="#基本元素" class="headerlink" title="基本元素"></a>基本元素</h3><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>points(x,y)</td>
+<td>添加点</td>
+</tr>
+<tr>
+<td>lines(x,y)</td>
+<td>添加线</td>
+</tr>
+<tr>
+<td>text(x,y,labels,…)</td>
+<td>在(x,y)处添加用labels指定的文字</td>
+</tr>
+<tr>
+<td>mtext(text,side=3,line=0,…)</td>
+<td>在边空添加用text指定的文字</td>
+</tr>
+<tr>
+<td>segments(x0,y0,x1,y1)</td>
+<td>从(x0,y0)各点到(x1,y1)各点画线段</td>
+</tr>
+<tr>
+<td>arrows(x0,y0,x1,y1,…)</td>
+<td>同上，但添加箭头</td>
+</tr>
+<tr>
+<td>abline(a,b)</td>
+<td>绘制斜率为b和截距为a的直线</td>
+</tr>
+<tr>
+<td>abline(h=y)</td>
+<td>在纵坐标y处画水平线</td>
+</tr>
+<tr>
+<td>abline(v=x)</td>
+<td>在横坐标x处画垂直线</td>
+</tr>
+<tr>
+<td>abline(lm.obj)</td>
+<td>画出lm.obj确定的回归线</td>
+</tr>
+<tr>
+<td>rect(x1,y1,x2,y2)</td>
+<td>绘制长方形，(x1,y1)为左下角，(x2,y2)为右上角</td>
+</tr>
+<tr>
+<td>polygon(x,y)</td>
+<td>绘制连接各x,y坐标确定的点的多边形</td>
+</tr>
+<tr>
+<td>legend(x,y,legend)</td>
+<td>在点(x,y)处添加图例，说明内容由legend给定</td>
+</tr>
+<tr>
+<td>title()</td>
+<td>添加标题，也可添加一个副标题</td>
+</tr>
+<tr>
+<td>axis(side,vect)</td>
+<td>画坐标轴</td>
+</tr>
+<tr>
+<td>box()</td>
+<td>在当前的图上加边框</td>
+</tr>
+<tr>
+<td>rug(x)</td>
+<td>在x轴上用短线画出x数据的位置</td>
+</tr>
+<tr>
+<td>locator(n,type=”n”,…)</td>
+<td>获取鼠标在图中点击处的坐标</td>
+</tr>
+</tbody>
+</table>
+<h3 id="常用绘图函数"><a href="#常用绘图函数" class="headerlink" title="常用绘图函数"></a>常用绘图函数</h3><table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plot(x)</td>
+<td>以x的元素值为纵坐标、以序号为横坐标绘图</td>
+</tr>
+<tr>
+<td>plot(x,y)</td>
+<td>x与y的二元作图</td>
+</tr>
+<tr>
+<td>pie(x)</td>
+<td>饼图</td>
+</tr>
+<tr>
+<td>boxplot(x)</td>
+<td>盒形图(也称箱线图)</td>
+</tr>
+<tr>
+<td>hist(x)</td>
+<td>x的频率直方图</td>
+</tr>
+<tr>
+<td>barplot(x)</td>
+<td>x的值的条形图</td>
+</tr>
+<tr>
+<td>pairs(x)</td>
+<td>如果x是矩阵或是数据框，作x的各列之间的二元图</td>
+</tr>
+<tr>
+<td>matplot(x,y)</td>
+<td>二元图，其中x的第一列对应y的第一列，依次类推</td>
+</tr>
+<tr>
+<td>qqnorm(x)</td>
+<td>正态分位数-分位数图</td>
+</tr>
+<tr>
+<td>image(x,y,z)</td>
+<td>x,y,z三元图</td>
+</tr>
+<tr>
+<td>heatmap(x)</td>
+<td>热图</td>
+</tr>
+<tr>
+<td>coplot(x~y&#124;z)</td>
+<td>关于z的每个数值(或数值区间)绘制x与y的二元图</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="点图-point"><a href="#点图-point" class="headerlink" title="点图 point"></a>点图 point</h2><p>应用（PCA）</p>
+<p>input file：“input.ggplot2”:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">name     PC1      PC2      species</div><div class="line">sample1    1.10     2.039    D</div><div class="line">sample2    0.83     1.928    D</div><div class="line">sample3    0.678    0.837    W</div><div class="line">sample4    1.828    1.282    W</div><div class="line">...</div></pre></td></tr></table></figure></p>
+<h3 id="geom-point"><a href="#geom-point" class="headerlink" title="geom_point()"></a>geom_point()</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a=read.table(<span class="string">"input.ggplot2"</span>,header=<span class="literal">T</span>);</div><div class="line">p=ggplot(a,aes(PC1,PC2,color=species))+geom_point(alpha=<span class="number">0.9</span>,size=<span class="number">4</span>)</div><div class="line">p+theme_bw()+scale_color_manual(values=c(\<span class="string">"#2166ac\",\"#b2182b\"))</span></div></pre></td></tr></table></figure>
+<h3 id="plot-amp-points"><a href="#plot-amp-points" class="headerlink" title="plot &amp; points"></a>plot &amp; points</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 用不同的颜色区分不同群体</div><div class="line">d1=read.table(&quot;D1.txt&quot;,header=T);</div><div class="line">d2=read.table(&quot;D2.txt&quot;,header=T);</div><div class="line">w=read.table(&quot;W.txt&quot;,header=T);</div><div class="line"></div><div class="line">d1x=d1$PC1</div><div class="line">d1y=d1$PC2</div><div class="line">d2x=d2$PC1</div><div class="line">d2y=d2$PC2</div><div class="line">wx=w$PC1</div><div class="line">wy=w$PC2</div><div class="line"></div><div class="line">pdf(file=&quot;PC12.pdf&quot;,width=2,height=2)</div><div class="line">plot(d1x,d1y,pch=4,col=&quot;#89c876&quot;,cex=2,cex.lab=1.5,lwd=2,xlab=&quot;PC1 (3.24%)&quot;,ylab=&quot;PC2 (1.36%)&quot;,xlim=c(-0.3,0.1),ylim=c(-0.6,0.2))</div><div class="line">points(d2x,d2y,pch=4,col=&quot;#2166ac&quot;,cex=2,lwd=2)</div><div class="line">points(wx,wy,pch=4,col=&quot;#b2182b&quot;,cex=2,lwd=2)</div><div class="line">dev.off()</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="boxplot"><a href="#boxplot" class="headerlink" title="boxplot"></a>boxplot</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">par(mfrow=c(1,2))</div><div class="line">boxplot(bb1$V2,bc1$V2,cc1$V2,outline = F,names=c(&quot;B-B&quot;,&quot;B-C&quot;,&quot;C-C&quot;),main=&quot;1 bp overlap&quot;)</div><div class="line">boxplot(bb5$V2,bc5$V2,cc5$V2,outline = F,names=c(&quot;B-B&quot;,&quot;B-C&quot;,&quot;C-C&quot;),main=&quot;50% reciprocal overlap&quot;)</div></pre></td></tr></table></figure>
+<h2 id="wilcox-test"><a href="#wilcox-test" class="headerlink" title="wilcox.test()"></a>wilcox.test()</h2><p>Wilcoxon rank sum test / Mann–Whitney U test / Mann–Whitney–Wilcoxon (MWW)/Wilcoxon秩和检验</p>
+<blockquote>
+<p>在R中，wilcox.test()函数可以用来做Wilcoxon秩和检验，也可以用于做 Mann-Whitney U检验。</p>
+<ul>
+<li>当参数为<code>单个样本</code>/<code>或者是两个样本相减</code>/<code>或者是两个参数，paired=T</code>时，是Wilcoxon秩和检验。</li>
+<li>当<code>两个参数，paired = FALSE（独立样本）</code>时，就是 Mann-Whitney U检验</li>
+</ul>
+<p>If only x is given, or if both x and y are given and paired is TRUE, a Wilcoxon signed rank test of the null that the distribution of x (in the one sample case) or of x - y (in the paired two sample case) is symmetric about mu is performed.</p>
+<p>Otherwise, if both x and y are given and paired is FALSE, a Wilcoxon rank sum test (equivalent to the Mann-Whitney test: see the Note) is carried out. In this case, the null hypothesis is that the distributions of x and y differ by a location shift of mu and the alternative is that they differ by some other location shift (and the one-sided alternative “greater” is that x is shifted to the right of y).</p>
+</blockquote>
+<h3 id="配对Wilcoxon符号秩检验"><a href="#配对Wilcoxon符号秩检验" class="headerlink" title="配对Wilcoxon符号秩检验"></a>配对Wilcoxon符号秩检验</h3><p>例8-1: 对12份血清分别用原方法（检测时间20分钟）和新方法（检测时间10分钟）测谷-丙转氨酶，结果见表8-1的（2）、（3）栏。问两法所得结果有无差别？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line">old &lt;- c(60,142,195,80,242,220,190,25,198,38,236,95)</div><div class="line">new &lt;- c(76,152,243,82,240,220,205,38,243,44,190,100)</div><div class="line">wilcox.test(old,new,paired = TRUE)</div><div class="line"></div><div class="line"># 运行结果</div><div class="line">&gt; wilcox.test(old,new,paired = TRUE) #配对wilcoxon检验</div><div class="line"></div><div class="line">        Wilcoxon signed rank test with continuity correction</div><div class="line"></div><div class="line">data:  old and new</div><div class="line">V = 11.5, p-value = 0.06175</div><div class="line">alternative hypothesis: true location shift is not equal to 0</div><div class="line"></div><div class="line">Warning messages:</div><div class="line">1: In wilcox.test.default(old, new, paired = TRUE) :</div><div class="line">  cannot compute exact p-value with ties</div><div class="line">2: In wilcox.test.default(old, new, paired = TRUE) :</div><div class="line">  cannot compute exact p-value with zeroes</div><div class="line"></div><div class="line"># 结果分析： p-value=0.06175，因此不能认为两法测谷丙转氨酶有差别。</div></pre></td></tr></table></figure></p>
+<h3 id="独立样本Wilcoxon检验（Mann-Whitney-U检验）"><a href="#独立样本Wilcoxon检验（Mann-Whitney-U检验）" class="headerlink" title="独立样本Wilcoxon检验（Mann-Whitney U检验）"></a>独立样本Wilcoxon检验（Mann-Whitney U检验）</h3><p>例8-2  已知某地正常人尿氟含量的中位数为45.30μmol/L 。今在该地某厂随机抽取12名工人，测得尿氟含量见表8-2第（1）栏。问该厂工人的尿氟含量是否高于当地正常人的尿氟含量？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line">data82 &lt;- c(44.21,45.30,46.39,49.47,51.05,53.16,53.26,54.37,57.16,67.37,71.05,87.37)</div><div class="line">wilcox.test(data82-45.30)</div><div class="line"></div><div class="line"># 运行结果：</div><div class="line">&gt; wilcox.test(data82,mu=45.30)</div><div class="line"></div><div class="line">        Wilcoxon signed rank test with continuity correction</div><div class="line"></div><div class="line">data:  data82</div><div class="line">V = 65, p-value = 0.005099</div><div class="line">alternative hypothesis: true location is not equal to 45.3</div><div class="line"></div><div class="line">Warning message:</div><div class="line">In wilcox.test.default(data82, mu = 45.3) :</div><div class="line">  cannot compute exact p-value with zeroes</div><div class="line"># 结果分析：p值小于0.01，可以视为该工厂的工人尿氟含量高于正常人。</div></pre></td></tr></table></figure></p>
+<p>例8-3  对10例肺癌病人和12例矽肺0期工人用X光片测量肺门横径右侧距RD值（cm），结果见表8-5。问肺癌病人的RD值是否高于矽肺0期工人的RD值？<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line">lc &lt;- c(2.78,3.23,4.2,4.87,5.12,6.21,7.18,8.05,8.56,9.6)</div><div class="line">si &lt;- c(3.23,3.5,4.04,4.15,4.28,4.34,4.47,4.64,4.75,4.82,4.95,5.1)</div><div class="line">wilcox.test(lc,si)</div><div class="line"></div><div class="line">#运行结果：</div><div class="line">&gt; wilcox.test(lc,si,alternative=&quot;greater&quot;,exact=F)</div><div class="line"></div><div class="line">        Wilcoxon rank sum test with continuity correction</div><div class="line"></div><div class="line">data:  lc and si</div><div class="line">W = 86.5, p-value = 0.04318</div><div class="line">alternative hypothesis: true location shift is greater than 0</div><div class="line"># 在R中，wilcox.test()函数可以用来做Wilcoxon秩和检验，也可以用于做Mann-Whitney U检验。当参数为单个样本，或者是两个样本相减，或者是两个参数，paired=F时，是Wilcoxon秩和检验。当paired = FALSE（独立样本）时，就是Mann-Whitney U检验，在这个题目中，用的就是Mann-Whitney U检验，虽然结果中W=86.5与书中的T=141.5不一样，但本质上是一样的，换算如下：W1=141.5-10*(10+1)/2=86.5；W2=111.5-12*(12+1)/2=33.5</div></pre></td></tr></table></figure></p>
+<p>例8-4  39名吸烟工人和40名不吸烟工人的碳氧血红蛋白HbCO(%)含量见表8-6。问吸烟工人的HbCO(%)含量是否高于不吸烟工人的HbCO(%)含量？</p>
+<p>答：本题书中用的是wilcox检验，其实用Ridit分析更合适一些，下面分别用这两种方法进行检验：</p>
+<ul>
+<li>Wilcox.test,或Kruskal检</li>
+</ul>
+<p>Wilcox.test（或Kruskal检验）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">smoke &lt;- c(1,8,16,10,4)</div><div class="line">no.smoke &lt;-c(2,23,11,4,0)</div><div class="line">rank.c &lt;- c(1:5)</div><div class="line">group1 &lt;- rep(rank.c,smoke)</div><div class="line">group2 &lt;- rep(rank.c,no.smoke)</div><div class="line">data84 &lt;- c(group1,group2)</div><div class="line">group.f &lt;-factor(c(rep(1,length(group1)),rep(2,length(group2))))</div><div class="line">wilcox.test(data84~group.f)</div><div class="line">kruskal.test(data84~group.f)</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"># 运行结果：</div><div class="line"># wilcox.test</div><div class="line">wilcox.test(data84~group.f)</div><div class="line"></div><div class="line">Wilcoxon rank sum test with continuity correction</div><div class="line"></div><div class="line">data: data84 by group.f</div><div class="line">W = 1137, p-value = 0.0002181</div><div class="line">alternative hypothesis: true location shift is not equal to 0</div><div class="line"></div><div class="line">Warning message:</div><div class="line">In wilcox.test.default(x = c(1L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, :</div><div class="line">cannot compute exact p-value with ties</div><div class="line"></div><div class="line"></div><div class="line"># kruskal.test检验</div><div class="line">&gt; kruskal.test(data84~group.f)</div><div class="line"></div><div class="line">Kruskal-Wallis rank sum test</div><div class="line"></div><div class="line">data: data84 by group.f</div><div class="line">Kruskal-Wallis chi-squared = 13.707, df = 1, p-value = 0.0002137</div></pre></td></tr></table></figure>
+<ul>
+<li>此题用Ridit检验更合适一些</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">data84 &lt;- matrix(c(1,8,16,10,4,2,23,11,4,0),nrow=5)</div><div class="line">dimnames(data84) &lt;- list(cone=c(&quot;very low&quot;,&quot;low&quot;,&quot;median&quot;,&quot;a bit high&quot;,&quot;high&quot;),</div><div class="line">worker=c(&quot;smoker&quot;,&quot;no-smoker&quot;))</div><div class="line">library(Ridit)</div><div class="line">ridit(data84,2)</div><div class="line">chisq.test(data84)</div><div class="line"></div><div class="line"># 运行结果：</div><div class="line">&gt; library(Ridit)</div><div class="line">&gt; ridit(data84,2)</div><div class="line"></div><div class="line">Ridit Analysis:</div><div class="line"></div><div class="line">Group Label Mean Ridit</div><div class="line">----- ----- ----------</div><div class="line">1 smoker 0.6159</div><div class="line">2 no-smoker 0.387</div><div class="line"></div><div class="line">Reference: Total of all groups</div><div class="line">chi-squared = 13.707, df = 1, p-value = 0.0002137</div><div class="line"></div><div class="line">&gt; chisq.test(data84)</div><div class="line"></div><div class="line">Pearsons Chi-squared test</div><div class="line"></div><div class="line">data: data84</div><div class="line">X-squared = 15.0785, df = 4, p-value = 0.004541</div></pre></td></tr></table></figure>
+<h2 id="Kurskal-Wallis检验"><a href="#Kurskal-Wallis检验" class="headerlink" title="Kurskal-Wallis检验"></a>Kurskal-Wallis检验</h2><p>Kurskal-Wallis检验是Wilcoxon方法（其实是Mann-Whitney检验）用于多于两个样本的时候的升级版。当对两个样本进行比较的时候，Kurskal-Wallis检验与Mann-Whitney检验是等价的。</p>
+<p>例8-5  用三种药物杀灭钉螺，每批用200只活钉螺，用药后清点每批钉螺的死亡数、再计算死亡率（%），结果见表8-9。问三种药物杀灭钉螺的效果有无差别？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line">drug &lt;-rep(c(&quot;甲药&quot;,&quot;乙药&quot;,&quot;丙药&quot;),each=5)</div><div class="line">data &lt;- c(32.5,35.5,40.5,46,49,16,20.5,22.5,29,36,6.5,9.0,12.5,18,24)</div><div class="line">data85 &lt;- data.frame(drug,data)</div><div class="line">kruskal.test(data85$data~data85$drug)</div><div class="line"></div><div class="line"># 运行结果：</div><div class="line">&gt; kruskal.test(data85$data~data85$drug)</div><div class="line"></div><div class="line">        Kruskal-Wallis rank sum test</div><div class="line"></div><div class="line">data:  data85$data by data85$drug</div><div class="line">Kruskal-Wallis chi-squared = 9.74, df = 2, p-value = 0.007673</div><div class="line"># 结果分析：Kruskal-Wallis的统计量是H值。</div></pre></td></tr></table></figure>
+<p>例8-6  比较小白鼠接种三种不同菌型伤寒杆菌9D、11C和DSC1后存活日数，结果见表8-10。问小白鼠接种三种不同菌型伤寒杆菌的存活日数有无差别？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line">mice &lt;- as.factor(c(rep(&quot;9D&quot;,10),rep(&quot;11C&quot;,9),rep(&quot;DSC1&quot;,11)))</div><div class="line">data86 &lt;- c(2,2,2,3,4,4,4,5,7,7,5,5,6,6,6,7,8,10,12,3,5,6,6,6,7,7,9,10,11,11)</div><div class="line">data86 &lt;- data.frame(mice,data)</div><div class="line">kruskal.test(data86$data~data86$mice)</div><div class="line"></div><div class="line"># 运行结果：</div><div class="line">&gt; kruskal.test(data86$data~data86$mice)</div><div class="line"></div><div class="line">        Kruskal-Wallis rank sum test</div><div class="line"></div><div class="line">data:  data86$data by data86$mice</div><div class="line">Kruskal-Wallis chi-squared = 9.9405, df = 2, p-value = 0.006941</div></pre></td></tr></table></figure>
+<p>例8-7  四种疾病患者痰液内嗜酸性白细胞的检查结果见表8-11。问四种疾病患者痰液内的嗜酸性白细胞有无差别？注：这道例题与《医学统计学及SAS应用》（上海交通大学）的9.11类似</p>
+<p><img src="http://ofr9vioug.bkt.clouddn.com/8-7-table-KWtest.png?imageView/2/w/500" alt="image"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line">x1 &lt;- c(0,2,9,6)</div><div class="line">x2 &lt;- c(3,5,5,2)</div><div class="line">x3 &lt;- c(5,7,3,2)</div><div class="line">x4 &lt;- c(3,5,3,0)</div><div class="line"></div><div class="line">freq &lt;- function(x)&#123;</div><div class="line">count &lt;-c()</div><div class="line">for(i in 1:4)&#123;</div><div class="line">count1 &lt;-c(rep(i,x[i]))</div><div class="line">count &lt;- append(count,count1)</div><div class="line">&#125;</div><div class="line">return(count)&#125;</div><div class="line">data87 &lt;-c(freq(x1),freq(x2),freq(x3),freq(x4))</div><div class="line">group &lt;- c(rep(1,sum(x1)),rep(2,sum(x2)),rep(3,sum(x3)),rep(4,sum(x4)))</div><div class="line">kruskal.test(data87~group)</div><div class="line"></div><div class="line"># 运行结果：</div><div class="line">&gt; kruskal.test(data87~group)</div><div class="line"></div><div class="line">        Kruskal-Wallis rank sum test</div><div class="line"></div><div class="line">data:  data87 by group</div><div class="line">Kruskal-Wallis chi-squared = 15.5058, df = 3, p-value = 0.001432</div></pre></td></tr></table></figure>
+<p>例8-8  对例8-6资料（表8-10）作三个样本间的两两比较，Nemenyi检验。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line"># 需要安装下列包：</div><div class="line"># install.packages(&quot;pgirmess&quot;)</div><div class="line"># install.packages(&quot;coin&quot;)</div><div class="line"># install.packages(&quot;multcomp&quot;)</div><div class="line"># library(pgirmess)</div><div class="line"># library(coin)</div><div class="line"># library(multcomp) # 安装并加载要用到的包</div><div class="line">mice &lt;- as.factor(c(rep(&quot;9D&quot;,10),rep(&quot;11C&quot;,9),rep(&quot;DSC1&quot;,11)))</div><div class="line">data &lt;- c(2,2,2,3,4,4,4,5,7,7,5,5,6,6,6,7,8,10,12,3,5,6,6,6,7,7,9,10,11,11)</div><div class="line">data88 &lt;- data.frame(mice,data)</div><div class="line">kruskal.test(data~mice,data=data88)</div><div class="line">kruskalmc(data~mice, data=data88, probs=0.05) # 使用kruskalmc函数做两两比较，但此方法不能给出具体的值</div><div class="line"># 下面构建函数计算具体的p值</div><div class="line">mult &lt;- oneway_test(data ~ mice, data = data88,</div><div class="line">ytrafo = function(data) trafo(data, numeric_trafo = rank),</div><div class="line">xtrafo = function(data) trafo(data, factor_trafo = function(x)</div><div class="line">model.matrix(~x - 1) %*% t(contrMat(table(x), &quot;Tukey&quot;))),</div><div class="line">teststat = &quot;max&quot;, distribution = approximate(B = 90000))</div><div class="line">pvalue(mult, method = &quot;single-step&quot;) #计算具体的p值，这段代码是复制丁香园的[1]</div><div class="line"></div><div class="line"></div><div class="line"># 运行结果：</div><div class="line">&gt; kruskal.test(data~mice,data=data88)</div><div class="line"></div><div class="line">    Kruskal-Wallis rank sum test</div><div class="line"></div><div class="line">data:  data by mice</div><div class="line">Kruskal-Wallis chi-squared = 9.9405, df = 2, p-value = 0.006941</div><div class="line"></div><div class="line">&gt; kruskalmc(data~mice, data=data88, probs=0.05) # 使用kruskalmc函数做两两比较，但此方法不能给出具体的值</div><div class="line">Multiple comparison test after Kruskal-Wallis</div><div class="line">p.value: 0.05</div><div class="line">Comparisons</div><div class="line">            obs.dif critical.dif difference</div><div class="line">11C-9D   10.3777778     9.683378       TRUE</div><div class="line">11C-DSC1  0.4949495     9.472590      FALSE</div><div class="line">9D-DSC1  10.8727273     9.208410       TRUE</div><div class="line"></div><div class="line">&gt; pvalue(mult, method = &quot;single-step&quot;) #计算具体的p值</div><div class="line"></div><div class="line">9D - 11C   0.01870000</div><div class="line">DSC1 - 11C 0.95110000</div><div class="line">DSC1 - 9D  0.01088889</div></pre></td></tr></table></figure></p>
+<p>例8-9  8名受试对象在相同实验条件下分别接受4种不同频率声音的刺激，他们的反应率（%）资料见表8-12。问4种频率声音刺激的反应率是否有差别？</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"># 源代码：</div><div class="line">freA &lt;- c(8.40,11.60,9.40,9.80,8.30,8.60,8.90,7.80)</div><div class="line">freB &lt;- c(9.60,12.70,9.10,8.70,8.00,9.80,9.00,8.20)</div><div class="line">freC &lt;- c(9.80,11.80,10.40,9.90,8.60,9.60,10.60,8.50)</div><div class="line">freD &lt;- c(11.70,12.00,9.80,12.00,8.60,10.60,11.40,10.80)</div><div class="line">matrix89 &lt;- matrix(c(freA,freB,freC,freD),nrow=8,dimnames=list(no=1:8,c(&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;D&quot;)))</div><div class="line">friedman.test(matrix89)</div><div class="line"></div><div class="line">运行结果：</div><div class="line">&gt; friedman.test(matrix89)</div><div class="line"></div><div class="line">        Friedman rank sum test</div><div class="line"></div><div class="line">data:  matrix89</div><div class="line">Friedman chi-squared = 15.1519, df = 3, p-value = 0.001691</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/R/" rel="tag">#R</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/07/Fix-pheatmap-bug/" rel="next" title="Fix Pheatmap Bug">
+                <i class="fa fa-chevron-left"></i> Fix Pheatmap Bug
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/9999/01/01/shell-Cheetsheets/" rel="prev" title="Shell Scripting Cheetsheets">
+                Shell Scripting Cheetsheets <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Lizhong Wang" />
+          <p class="site-author-name" itemprop="name">Lizhong Wang</p>
+          <p class="site-description motion-element" itemprop="description">自我提升和自我完善是一种终身的修行</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">10</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/samr" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/wanglzh" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本"><span class="nav-number">1.</span> <span class="nav-text">基本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本元素"><span class="nav-number">1.1.</span> <span class="nav-text">基本元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用绘图函数"><span class="nav-number">1.2.</span> <span class="nav-text">常用绘图函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点图-point"><span class="nav-number">2.</span> <span class="nav-text">点图 point</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#geom-point"><span class="nav-number">2.1.</span> <span class="nav-text">geom_point()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plot-amp-points"><span class="nav-number">2.2.</span> <span class="nav-text">plot & points</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boxplot"><span class="nav-number">3.</span> <span class="nav-text">boxplot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wilcox-test"><span class="nav-number">4.</span> <span class="nav-text">wilcox.test()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配对Wilcoxon符号秩检验"><span class="nav-number">4.1.</span> <span class="nav-text">配对Wilcoxon符号秩检验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#独立样本Wilcoxon检验（Mann-Whitney-U检验）"><span class="nav-number">4.2.</span> <span class="nav-text">独立样本Wilcoxon检验（Mann-Whitney U检验）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kurskal-Wallis检验"><span class="nav-number">5.</span> <span class="nav-text">Kurskal-Wallis检验</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lizhong Wang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
