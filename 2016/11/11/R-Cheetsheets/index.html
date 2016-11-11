@@ -149,7 +149,7 @@ segments(x0,y0,x1,y1)
 
 arrows(x">
 <meta property="og:image" content="http://ofr9vioug.bkt.clouddn.com/8-7-table-KWtest.png?imageView/2/w/500">
-<meta property="og:updated_time" content="2016-11-11T04:48:41.000Z">
+<meta property="og:updated_time" content="2016-11-11T04:49:12.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R Cheetsheets">
 <meta name="twitter:description" content="基本基本元素
@@ -547,7 +547,7 @@ arrows(x">
 <p>例8-4  39名吸烟工人和40名不吸烟工人的碳氧血红蛋白HbCO(%)含量见表8-6。问吸烟工人的HbCO(%)含量是否高于不吸烟工人的HbCO(%)含量？</p>
 <p>答：本题书中用的是wilcox检验，其实用Ridit分析更合适一些，下面分别用这两种方法进行检验：</p>
 <ul>
-<li>Wilcox.test,或Kruskal检</li>
+<li>Wilcox.test,或Kruskal检验</li>
 </ul>
 <p>Wilcox.test（或Kruskal检验）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">smoke &lt;- c(1,8,16,10,4)</div><div class="line">no.smoke &lt;-c(2,23,11,4,0)</div><div class="line">rank.c &lt;- c(1:5)</div><div class="line">group1 &lt;- rep(rank.c,smoke)</div><div class="line">group2 &lt;- rep(rank.c,no.smoke)</div><div class="line">data84 &lt;- c(group1,group2)</div><div class="line">group.f &lt;-factor(c(rep(1,length(group1)),rep(2,length(group2))))</div><div class="line">wilcox.test(data84~group.f)</div><div class="line">kruskal.test(data84~group.f)</div></pre></td></tr></table></figure></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"># 运行结果：</div><div class="line"># wilcox.test</div><div class="line">wilcox.test(data84~group.f)</div><div class="line"></div><div class="line">Wilcoxon rank sum test with continuity correction</div><div class="line"></div><div class="line">data: data84 by group.f</div><div class="line">W = 1137, p-value = 0.0002181</div><div class="line">alternative hypothesis: true location shift is not equal to 0</div><div class="line"></div><div class="line">Warning message:</div><div class="line">In wilcox.test.default(x = c(1L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, 2L, :</div><div class="line">cannot compute exact p-value with ties</div><div class="line"></div><div class="line"></div><div class="line"># kruskal.test检验</div><div class="line">&gt; kruskal.test(data84~group.f)</div><div class="line"></div><div class="line">Kruskal-Wallis rank sum test</div><div class="line"></div><div class="line">data: data84 by group.f</div><div class="line">Kruskal-Wallis chi-squared = 13.707, df = 1, p-value = 0.0002137</div></pre></td></tr></table></figure>
