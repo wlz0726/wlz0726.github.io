@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Bioinfomatics,R," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="pheatmap画图保存为pdf的时候会产生空白页，添加onefile=FALSE可以解决1pdf(&quot;test.pdf&quot;, onefile=FALSE)">
+<meta name="description" content="clear explaination
+1. install libgd-2.1.0123456789101112131415161718wget https://github.com/libgd/libgd/releases/download/gd-2.1.0/libgd-2.1.0.tar.gztar zxvf libgd-2.1.0.tar.gzcd libgd-2.1.0./configur">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fix Pheatmap Bug">
-<meta property="og:url" content="http://yoursite.com/2016/11/07/Fix-pheatmap-bug/index.html">
+<meta property="og:title" content="Libgd and GD Problem (Installing Circos)">
+<meta property="og:url" content="http://yoursite.com/2016/11/15/libgd-and-GD-problem-installing-Circos/index.html">
 <meta property="og:site_name" content="lizhong's notes">
-<meta property="og:description" content="pheatmap画图保存为pdf的时候会产生空白页，添加onefile=FALSE可以解决1pdf(&quot;test.pdf&quot;, onefile=FALSE)">
-<meta property="og:updated_time" content="2016-11-07T12:05:59.000Z">
+<meta property="og:description" content="clear explaination
+1. install libgd-2.1.0123456789101112131415161718wget https://github.com/libgd/libgd/releases/download/gd-2.1.0/libgd-2.1.0.tar.gztar zxvf libgd-2.1.0.tar.gzcd libgd-2.1.0./configur">
+<meta property="og:updated_time" content="2016-11-15T04:49:59.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fix Pheatmap Bug">
-<meta name="twitter:description" content="pheatmap画图保存为pdf的时候会产生空白页，添加onefile=FALSE可以解决1pdf(&quot;test.pdf&quot;, onefile=FALSE)">
+<meta name="twitter:title" content="Libgd and GD Problem (Installing Circos)">
+<meta name="twitter:description" content="clear explaination
+1. install libgd-2.1.0123456789101112131415161718wget https://github.com/libgd/libgd/releases/download/gd-2.1.0/libgd-2.1.0.tar.gztar zxvf libgd-2.1.0.tar.gzcd libgd-2.1.0./configur">
 
 
 
@@ -114,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/07/Fix-pheatmap-bug/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/15/libgd-and-GD-problem-installing-Circos/"/>
 
-  <title> Fix Pheatmap Bug | lizhong's notes </title>
+  <title> Libgd and GD Problem (Installing Circos) | lizhong's notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -236,7 +239,7 @@
             
             
               
-                Fix Pheatmap Bug
+                Libgd and GD Problem (Installing Circos)
               
             
           </h1>
@@ -248,30 +251,11 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-07T19:55:11+08:00" content="2016-11-07">
-              2016-11-07
+            <time itemprop="dateCreated" datetime="2016-11-15T12:47:33+08:00" content="2016-11-15">
+              2016-11-15
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Work/" itemprop="url" rel="index">
-                    <span itemprop="name">Work</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -295,7 +279,12 @@
       
 
       
-        <p>pheatmap画图保存为pdf的时候会产生空白页，添加<code>onefile=FALSE</code>可以解决<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pdf(<span class="string">"test.pdf"</span>, onefile=<span class="literal">FALSE</span>)</div></pre></td></tr></table></figure></p>
+        <p><a href="http://zientzilaria.herokuapp.com/blog/2012/06/03/installing-circos-on-os-x/" target="_blank" rel="external">clear explaination</a></p>
+<h3 id="1-install-libgd-2-1-0"><a href="#1-install-libgd-2-1-0" class="headerlink" title="1. install libgd-2.1.0"></a>1. install libgd-2.1.0</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">wget https://github.com/libgd/libgd/releases/download/gd-2.1.0/libgd-2.1.0.tar.gz</div><div class="line">tar zxvf libgd-2.1.0.tar.gz</div><div class="line">cd libgd-2.1.0</div><div class="line">./configure</div><div class="line">...</div><div class="line">** Configuration summary for libgd 2.1.0:</div><div class="line"></div><div class="line">   Support for Zlib:                 yes</div><div class="line">   Support for PNG library:          yes</div><div class="line">   Support for JPEG library:         yes</div><div class="line">   Support for VPX library:          no</div><div class="line">   Support for TIFF library:         yes</div><div class="line">   Support for Freetype 2.x library: yes</div><div class="line">   Support for Fontconfig library:   yes</div><div class="line">   Support for Xpm library:          no</div><div class="line">   Support for pthreads:             yes</div><div class="line"></div><div class="line">...</div></pre></td></tr></table></figure>
+<p>If Freetype and Fontconfig are missing, you would have to download, configure, make and install them like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">curl -O http://www.ijg.org/files/jpegsrc.v8d.tar.gz</div><div class="line">tar -xzvf jpegsrc.v8d.tar.gz</div><div class="line">cd jpeg-8d</div><div class="line">./configure --prefix=/path/to/jpeg-8d</div><div class="line">make</div><div class="line">make install (or &quot;sudo make install&quot;)</div><div class="line"></div><div class="line">curl -O ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng16/libpng-1.6.2.tar.gz</div><div class="line">tar -xzvf libpng-1.6.2.tar.gz</div><div class="line">cd libpng-1.6.2.tar.gz</div><div class="line">./configure --prefix=/path/to/jpeg-8d</div><div class="line">make</div><div class="line">make install (or &quot;sudo make install&quot;)</div></pre></td></tr></table></figure>
+<p>Finish install libgd<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">./configure --prefix=/path/to/jpeg-8d</div><div class="line">make</div><div class="line">make install(or &quot;sudo make install&quot;)</div></pre></td></tr></table></figure></p>
+<h3 id="2-install-GD-manually-perl-module"><a href="#2-install-GD-manually-perl-module" class="headerlink" title="2. install GD manually (perl module)"></a>2. install GD manually (perl module)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">curl -O http://www.cpan.org/authors/id/L/LD/LDS/GD-2.49.tar.gz (if curl fails copy and past on your browser)</div><div class="line">tar -xzvf GD-2.49.tar.gz</div><div class="line">cd GD-2.49</div><div class="line">GD-2.49$ perl Makefile.PL</div><div class="line">GD-2.49$ make</div><div class="line">GD-2.49$ sudo make install</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -316,29 +305,21 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Bioinfomatics/" rel="tag">#Bioinfomatics</a>
-          
-            <a href="/tags/R/" rel="tag">#R</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/01/perl-cheetsheets/" rel="next" title="Perl Cheetsheets">
-                <i class="fa fa-chevron-left"></i> Perl Cheetsheets
+              <a href="/2016/11/11/R-Cheetsheets/" rel="next" title="R Cheetsheets">
+                <i class="fa fa-chevron-left"></i> R Cheetsheets
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/11/R-Cheetsheets/" rel="prev" title="R Cheetsheets">
-                R Cheetsheets <i class="fa fa-chevron-right"></i>
+              <a href="/9999/01/01/shell-Cheetsheets/" rel="prev" title="Shell Scripting Cheetsheets">
+                Shell Scripting Cheetsheets <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -473,7 +454,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-install-libgd-2-1-0"><span class="nav-number">1.</span> <span class="nav-text">1. install libgd-2.1.0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-install-GD-manually-perl-module"><span class="nav-number">2.</span> <span class="nav-text">2. install GD manually (perl module)</span></a></li></ol></div>
             
           </div>
         </section>
