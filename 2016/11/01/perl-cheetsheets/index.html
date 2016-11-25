@@ -94,7 +94,7 @@
 <meta property="og:description" content="比整个屏幕长的脚本都应该加上use strict;
 数据元素变量当你需要声明一个复杂的字符串时，可以使用heredoc语法：
 1234567my $blurb =&amp;lt;&amp;lt;&apos;END_BLURB&apos;;He looked up. &quot;Change is the constant on which they allcan agree. We instead, born out of time, rem">
-<meta property="og:updated_time" content="2016-11-11T02:40:03.000Z">
+<meta property="og:updated_time" content="2016-11-25T14:32:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Perl Cheetsheets">
 <meta name="twitter:description" content="比整个屏幕长的脚本都应该加上use strict;
@@ -360,7 +360,7 @@
 <p>有时则比较麻烦，比如要验证参数的类型。因为Perl中，类型可以发生转换。如果你有这方面的需求，可以看看这些模块：Params::Validate和MooseX::Method::Signatures。</p>
 <h2 id="输入和输出"><a href="#输入和输出" class="headerlink" title="输入和输出"></a>输入和输出</h2><p>调用参数 <code>@ARGV</code>由调用参数组成的列表,开始运行时，@ARGV已经塞满了调用参数。</p>
 <p>6个特殊的文件句柄是perl保留的：</p>
-<p>STDIN   STDOUT  STDERR  DATA    ARGV    ARGVOUT</p>
+<p><code>STDIN</code>   <code>STDOUT</code>  <code>STDERR</code>  <code>DATA</code>    <code>ARGV</code>    <code>ARGVOUT</code></p>
 <p>使用say来输出 与print相比会再每行输出的结尾z自动加上换行符</p>
 <h3 id="printf格式化输出"><a href="#printf格式化输出" class="headerlink" title="printf格式化输出"></a>printf格式化输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">printf &quot;Hello, %s; your password expires in %d days!\n&quot;, $user, $days_to_die;</div><div class="line"># %s 代表字符串 $user； %d 代表数字 $days_to_die</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">%d    十进制整数，自动舍去小数点后数字</div><div class="line">%s    字符串格式，可设定字段宽度 printf &quot;%10s\n&quot;,&quot;wilma&quot;; (正数右对齐，负数左对齐)</div><div class="line">%f    转换格式（浮点数，四舍五入），可指定小数点后输出位数 printf &quot;12.3f\n&quot;,42 + 2/3;   (宽度12，小数点3位)</div><div class="line">%%    要输出百分号，使用 %%</div></pre></td></tr></table></figure>
