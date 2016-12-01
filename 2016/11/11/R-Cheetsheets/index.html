@@ -149,7 +149,7 @@ segments(x0,y0,x1,y1)
 
 arrows(x">
 <meta property="og:image" content="http://ofr9vioug.bkt.clouddn.com/8-7-table-KWtest.png?imageView/2/w/500">
-<meta property="og:updated_time" content="2016-11-24T03:05:43.000Z">
+<meta property="og:updated_time" content="2016-12-01T02:49:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="R Cheetsheets">
 <meta name="twitter:description" content="基本基本元素
@@ -525,7 +525,13 @@ arrows(x">
 </tbody>
 </table>
 <hr>
-<h1 id="常见图"><a href="#常见图" class="headerlink" title="常见图"></a>常见图</h1><h2 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">source(&quot;http://www.bioconductor.org/biocLite.R&quot;)</div><div class="line"># 可以一次装多个包</div><div class="line">biocLite(c(&quot;gridExtra&quot;,&quot;ggplot2&quot;))</div></pre></td></tr></table></figure>
+<h1 id="常见图"><a href="#常见图" class="headerlink" title="常见图"></a>常见图</h1><p><a href="http://docs.ggplot2.org/current/" target="_blank" rel="external">ggplot2 doc</a></p>
+<p><a href="http://blog.csdn.net/bone_ace/article/details/47284065" target="_blank" rel="external">柱状图、饼图、玫瑰图、图例、坐标系、主题、颜色等汇总</a></p>
+<p><a href="http://fibears.top/2016/01/24/RVisualization/" target="_blank" rel="external">R/ggplot2基础查询</a></p>
+<p><a href="http://www.cnblogs.com/weibaar/p/4567791.html" target="_blank" rel="external">柱状图、分类柱状图、簇形图、百分比堆积图、饼图极坐标图、折线图</a></p>
+<p><a href="http://fibears.top/2016/01/06/RMap/" target="_blank" rel="external">地图</a></p>
+<h2 id="安装包"><a href="#安装包" class="headerlink" title="安装包"></a>安装包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">source(&quot;http://www.bioconductor.org/biocLite.R&quot;)</div><div class="line"># 可以一次装多个包</div><div class="line">biocLite(c(&quot;gridExtra&quot;,&quot;ggplot2&quot;))</div></pre></td></tr></table></figure>
+<h2 id="好看的颜色"><a href="#好看的颜色" class="headerlink" title="好看的颜色"></a>好看的颜色</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">library(RColorBrewer)</div><div class="line"># color names : https://github.com/lh3/gnuplot-colorbrewer</div><div class="line"># 测试颜色test colors</div><div class="line">mycolor =brewer.pal(n=11, &apos;BrBG&apos;)</div><div class="line">image(1:8,1,as.matrix(1:8),col=mycolor,xlab=&quot; &quot;,ylab=&quot;&quot;,xaxt=&quot;n&quot;,yaxt=&quot;n&quot;,bty=&quot;n&quot;)</div><div class="line"># ggplot manual colors</div><div class="line">p+scale_color_manual(values=mycolor)</div></pre></td></tr></table></figure>
 <h2 id="将绘图区划分成-m-行-n-列"><a href="#将绘图区划分成-m-行-n-列" class="headerlink" title="将绘图区划分成 m 行 n 列"></a>将绘图区划分成 m 行 n 列</h2><p>par(mfrow=c(m,n))</p>
 <h3 id="mfrow方法"><a href="#mfrow方法" class="headerlink" title="mfrow方法"></a>mfrow方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 划分成 1行 2列</div><div class="line">par(mfrow=c(1,2))</div><div class="line"></div><div class="line"># 直接在原图上叠加</div><div class="line">par(new=TRUE)</div></pre></td></tr></table></figure>
 <h3 id="gridExtra方法，可以和ggplot一起使用"><a href="#gridExtra方法，可以和ggplot一起使用" class="headerlink" title="gridExtra方法，可以和ggplot一起使用"></a>gridExtra方法，可以和ggplot一起使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">library(grid)</div><div class="line">library(gridExtra)</div><div class="line">b=ggplot(a,aes(pos,value))+geom_point(col=1)</div><div class="line">c=ggplot(a,aes(pos,value))+geom_point(col=2)</div><div class="line">grid.arrange(b,c,ncol=2,nrow=2) # 4个小图，2x2排布</div></pre></td></tr></table></figure>
@@ -536,12 +542,283 @@ arrows(x">
 <hr>
 <h2 id="barplot-柱状图"><a href="#barplot-柱状图" class="headerlink" title="barplot 柱状图"></a>barplot 柱状图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"># admixture</div><div class="line"># k2.txt</div><div class="line">0.000000001	0.999999999</div><div class="line">0.029249134	0.970750866</div><div class="line">0.000000001	0.999999999</div><div class="line">8.65071E-08	0.999999913</div><div class="line">0.000000001	0.999999999</div><div class="line">1.49306E-08	0.999999985</div><div class="line">0.043220336	0.956779664</div><div class="line">0.04214767	0.95785233</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">admix=t(as.matrix(read.table(&quot;k2.txt&quot;,header=F)))</div><div class="line">barplot(admix,col=c(&quot;#2166ac&quot;,&quot;#b2182b&quot;),space=0,border=NULL ,xlab=&quot;Individuals&quot;,ylab=&quot;K=2&quot;,cex.lab=2)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">+geom_boxplot()</div><div class="line"># 参数 width,outlier.size,outlier.shape</div></pre></td></tr></table></figure>
+<h2 id="小提琴图"><a href="#小提琴图" class="headerlink" title="小提琴图"></a>小提琴图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">geom_violin()</div><div class="line"># 参数：adjust调整平滑程度，scale=&quot;count&quot;使得图的面积与每组观测值数目成正比</div></pre></td></tr></table></figure>
 <hr>
 <h2 id="boxplot-箱线图"><a href="#boxplot-箱线图" class="headerlink" title="boxplot 箱线图"></a>boxplot 箱线图</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">par(mfrow=c(1,2))</div><div class="line">boxplot(bb1$V2,bc1$V2,cc1$V2,outline = F,names=c(&quot;B-B&quot;,&quot;B-C&quot;,&quot;C-C&quot;),main=&quot;1 bp overlap&quot;)</div><div class="line">boxplot(bb5$V2,bc5$V2,cc5$V2,outline = F,names=c(&quot;B-B&quot;,&quot;B-C&quot;,&quot;C-C&quot;),main=&quot;50% reciprocal overlap&quot;)</div></pre></td></tr></table></figure>
 <h2 id="geom-histogram"><a href="#geom-histogram" class="headerlink" title="geom_histogram()"></a>geom_histogram()</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">pdf(file=&quot;B1.final.cnv.V3.pdf&quot;)</div><div class="line">library(&quot;ggplot2&quot;)</div><div class="line">a &lt;- read.table(&quot;B1.final.cnv&quot;,head=F)</div><div class="line"># logx</div><div class="line">ggplot(a,aes(x=log(a$V3)/log(10)))+geom_histogram()+xlab(&quot;CNV length (log10)&quot;)+ylab(&quot;Count&quot;)+xlim(3,7)</div><div class="line"># ggplot(a,aes(x=a$V3))+geom_histogram()+xlab(&quot;CNV length (log10)&quot;)+ylab(&quot;Count&quot;)</div><div class="line">dev.off()</div></pre></td></tr></table></figure>
 <h2 id="pheatmap-热图"><a href="#pheatmap-热图" class="headerlink" title="pheatmap 热图"></a>pheatmap 热图</h2><p>输入格式 <code>input.txt</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">        B1	B2	B3	B4	B5	B6	C1	C2	C3	C4	C5</div><div class="line">B1	1	0.624833110814419	0.616958399636281	0.648058868307536	0.63029315960912	0.628120893561104	0.615183929037308	0.632938076416337	0.637414484548242	0.6375	0.616299232103047</div><div class="line">B2	0.624833110814419	1	0.593837535014006	0.65446941975954	0.676940319417204	0.659620596205962	0.653577192038731	0.665760869565217	0.612027158098933	0.626946847960445	0.615502294747578</div><div class="line">B3	0.616958399636281	0.593837535014006	1	0.574553571428571	0.538953350698556	0.558471454880295	0.563129002744739	0.557452699584679	0.606948514022604	0.575867205788466	0.572989510489511</div><div class="line">B4	0.648058868307536	0.65446941975954	0.574553571428571	1	0.645949535192563	0.629439011837365	0.625958099131323	0.636738906088751	0.62962962962963	0.649846734260788	0.627489072365226</div><div class="line">B5	0.63029315960912	0.676940319417204	0.538953350698556	0.645949535192563	1	0.675117112152108	0.667213563029806	0.676982591876209	0.611863155303963	0.635542168674699	0.632996632996633</div><div class="line">B6	0.628120893561104	0.659620596205962	0.558471454880295	0.629439011837365	0.675117112152108	1	0.68078348332451	0.652941176470588	0.60755258126195	0.627040194884287	0.650426921145153</div><div class="line">C1	0.615183929037308	0.653577192038731	0.563129002744739	0.625958099131323	0.667213563029806	0.68078348332451	1	0.64968152866242	0.611585944919278	0.631986450520203	0.650872817955112</div><div class="line">C2	0.632938076416337	0.665760869565217	0.557452699584679	0.636738906088751	0.676982591876209	0.652941176470588	0.64968152866242	1	0.625778629611883	0.652991452991453	0.64551863041289</div><div class="line">C3	0.637414484548242	0.612027158098933	0.606948514022604	0.62962962962963	0.611863155303963	0.60755258126195	0.611585944919278	0.625778629611883	1	0.612910332672395	0.581521739130435</div><div class="line">C4	0.6375	0.626946847960445	0.575867205788466	0.649846734260788	0.635542168674699	0.627040194884287	0.631986450520203	0.652991452991453	0.612910332672395	1	0.682038275305511</div><div class="line">C5	0.616299232103047	0.615502294747578	0.572989510489511	0.627489072365226	0.632996632996633	0.650426921145153	0.650872817955112	0.64551863041289	0.581521739130435	0.682038275305511	1</div></pre></td></tr></table></figure></p>
 <p>例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">a=read.table(&quot;input.txt”)</div><div class="line">a=as.matrix(a)</div><div class="line"># 聚类</div><div class="line">pdf(&quot;out.cluster.pdf&quot;,width=10,height=10,onefile=FALSE)</div><div class="line">pheatmap(a,cellwidth = 18, cellheight = 18, fontsize=12, fontsize_row=9,main=&quot;title&quot;)</div><div class="line">dev.off()</div><div class="line"></div><div class="line"># 不聚类</div><div class="line">pheatmap(a,cellwidth = 18, cellheight = 18, fontsize=12, fontsize_row=9,main=&quot;title&quot;,cluster_rows=0,cluster_cols=0)</div></pre></td></tr></table></figure></p>
 <p>其他例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">pheatmap(data,fontsize=9, fontsize_row=6) #最简单地直接出图</div><div class="line">pheatmap(data, scale = &quot;row&quot;, clustering_distance_row = &quot;correlation&quot;, fontsize=9, fontsize_row=6) #改变排序算法</div><div class="line">pheatmap(data, color = colorRampPalette(c(&quot;navy&quot;, &quot;white&quot;, &quot;firebrick3&quot;))(50), fontsize=9, fontsize_row=6) #自定义颜色</div><div class="line">pheatmap(data, cluster_row=FALSE, fontsize=9, fontsize_row=6) #关闭按行排序</div><div class="line">pheatmap(data, legend = FALSE, fontsize=9, fontsize_row=6) #关闭图例</div><div class="line">pheatmap(data, cellwidth = 6, cellheight = 5, fontsize=9, fontsize_row=6) #设定格子的尺寸</div></pre></td></tr></table></figure></p>
+<h2 id="ggplot-调整作图细节"><a href="#ggplot-调整作图细节" class="headerlink" title="ggplot 调整作图细节"></a>ggplot 调整作图细节</h2><h3 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">pdf(file=&quot;plot.allpop.chr.pl.pdf&quot;,width=10,height=10)</div><div class="line">ggplot ... # 具体图形</div><div class="line">dev.off()</div></pre></td></tr></table></figure>
+<h3 id="自定义颜色"><a href="#自定义颜色" class="headerlink" title="自定义颜色"></a>自定义颜色</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># set colors; 26</div><div class="line">mycolor=c(&quot;#A6CEE3&quot;, &quot;#1F78B4&quot;, &quot;#B2DF8A&quot;, &quot;#33A02C&quot;, &quot;#FB9A99&quot;, &quot;#E31A1C&quot;, &quot;#FDBF6F&quot;, &quot;#FF7F00&quot;, &quot;#CAB2D6&quot;, &quot;#6A3D9A&quot;, &quot;#FFFF99&quot;, &quot;#B15928&quot;, &quot;#A6CEE3&quot;, &quot;#1F78B4&quot;, &quot;#B2DF8A&quot;, &quot;#33A02C&quot;, &quot;#FB9A99&quot;, &quot;#E31A1C&quot;, &quot;#FDBF6F&quot;, &quot;#FF7F00&quot;, &quot;#CAB2D6&quot;, &quot;#6A3D9A&quot;, &quot;#FFFF99&quot;, &quot;#B15928&quot;, &quot;#A6CEE3&quot;, &quot;#1F78B4&quot;)</div><div class="line">p+scale_color_manual(values=mycolor) # 注意颜色数量要一致，26种颜色对应26个分类</div></pre></td></tr></table></figure>
+<h3 id="白色主题模板"><a href="#白色主题模板" class="headerlink" title="白色主题模板"></a>白色主题模板</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p+theme_bw()</div></pre></td></tr></table></figure>
+<h3 id="加x、y坐标名字；标题"><a href="#加x、y坐标名字；标题" class="headerlink" title="加x、y坐标名字；标题"></a>加x、y坐标名字；标题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">p+xlab(&quot;X轴名&quot;)+ylab(&quot;Y轴名&quot;)+ ggtitle(&quot;标题&quot;)</div><div class="line">p+labs(x=&quot;Xname&quot;,y=&quot;Yname&quot;,title=&quot;title&quot;)</div></pre></td></tr></table></figure>
+<h3 id="x、y坐标反转"><a href="#x、y坐标反转" class="headerlink" title="x、y坐标反转"></a>x、y坐标反转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p+coord_flip()</div></pre></td></tr></table></figure>
+<h3 id="主题设置，X轴、Y轴操作"><a href="#主题设置，X轴、Y轴操作" class="headerlink" title="主题设置，X轴、Y轴操作"></a>主题设置，X轴、Y轴操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">p+ theme(</div><div class="line">  # 去掉网格线，分别去掉主要、次要网格线</div><div class="line">  panel.grid =element_blank(),</div><div class="line">  panel.grid.major=element_blank(),</div><div class="line">  panel.grid.minor=element_blank(),</div><div class="line">  # 去掉外边框</div><div class="line">  panel.border=element_blank(),</div><div class="line">  # 再加上X轴、Y轴，无刻度、无标签</div><div class="line">  axis.line = element_line(colour = &quot;black&quot;,size = 0.2),</div><div class="line">  # 去掉图例</div><div class="line">  legend.position = &quot;none&quot;,</div><div class="line">  # X轴标签：大小、字体、颜色、加粗、位置、角度 &lt;http://docs.ggplot2.org/current/element_text.html&gt;，字体需要单独加载字体family=“”,看下一条，其他element_text()规则一样</div><div class="line">  ## face取值：plain普通，bold加粗，italic斜体，bold.italic斜体加粗</div><div class="line">  axis.title.x =element_text(size=12,color=&quot;black&quot;,face=&quot;bold&quot;,vjust = 0.5, hjust = 0.5, angle = 45),</div><div class="line">  # X轴刻度标签名</div><div class="line">  axis.text = element_blank(), # 去掉所有刻度标签</div><div class="line">  axis.text.x=element_blank(), # 去掉x刻度标签</div><div class="line">  axis.text.y=element_blank(), # 去掉y刻度标签</div><div class="line">  # Y轴</div><div class="line">  axis.title.y=element_text(size=8),</div><div class="line">  axis.text.y = element_text(size=8),</div><div class="line">  # X轴刻度线，不显示</div><div class="line">  axis.ticks = element_blank(), # 去掉所有刻度</div><div class="line">  axis.ticks.x=element_blank(), # 去掉x刻度</div><div class="line">  axis.ticks.y=element_blank(), # 去掉y刻度</div><div class="line">  )</div></pre></td></tr></table></figure>
+<h4 id="theme关键词表"><a href="#theme关键词表" class="headerlink" title="theme关键词表"></a>theme关键词表</h4><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>设置内容</th>
+<th>继承自</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>line</td>
+<td>所有线属性</td>
+<td></td>
+</tr>
+<tr>
+<td>rect</td>
+<td>所有矩形区域属性</td>
+<td></td>
+</tr>
+<tr>
+<td>text</td>
+<td>所有文本相关属性</td>
+<td></td>
+</tr>
+<tr>
+<td>title</td>
+<td>所有标题属性</td>
+<td></td>
+</tr>
+<tr>
+<td>axis.title</td>
+<td>坐标轴标题</td>
+<td>text</td>
+</tr>
+<tr>
+<td>axis.title.x</td>
+<td>x轴属性</td>
+<td>axis.title</td>
+</tr>
+<tr>
+<td>axis.title.y</td>
+<td>y轴属性</td>
+<td>axis.title</td>
+</tr>
+<tr>
+<td>axis.text</td>
+<td>坐标轴刻度标签属性</td>
+<td>text</td>
+</tr>
+<tr>
+<td>axis.text.x</td>
+<td>属性和继承和前面类似，不再重复</td>
+<td></td>
+</tr>
+<tr>
+<td>axis.text.y</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>axis.ticks</td>
+<td>坐标轴刻度线</td>
+<td>line</td>
+</tr>
+<tr>
+<td>axis.ticks.x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>axis.ticks.y</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>axis.ticks.length</td>
+<td>刻度线长度</td>
+<td></td>
+</tr>
+<tr>
+<td>axis.ticks.margin</td>
+<td>刻度线和刻度标签之间的间距</td>
+<td></td>
+</tr>
+<tr>
+<td>axis.line</td>
+<td>坐标轴线</td>
+<td>line</td>
+</tr>
+<tr>
+<td>axis.line.x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>axis.line.y</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>legend.background</td>
+<td>图例背景</td>
+<td>rect</td>
+</tr>
+<tr>
+<td>legend.margin</td>
+<td>图例边界</td>
+<td></td>
+</tr>
+<tr>
+<td>legend.key</td>
+<td>图例符号</td>
+<td></td>
+</tr>
+<tr>
+<td>legend.key.size</td>
+<td>图例符号大小</td>
+<td></td>
+</tr>
+<tr>
+<td>legend.key.height</td>
+<td>图例符号高度</td>
+<td></td>
+</tr>
+<tr>
+<td>legend.key.width</td>
+<td>图例符号宽度</td>
+<td></td>
+</tr>
+<tr>
+<td>legend.text</td>
+<td>图例文字标签</td>
+<td></td>
+</tr>
+<tr>
+<td>legend.text.align</td>
+<td>图例文字标签对齐方式</td>
+<td>0为左齐，1为右齐</td>
+</tr>
+<tr>
+<td>legend.title</td>
+<td>图例标题</td>
+<td>text</td>
+</tr>
+<tr>
+<td>legend.title.align</td>
+<td>图例标题对齐方式</td>
+<td></td>
+</tr>
+<tr>
+<td>legend.position</td>
+<td>图例位置</td>
+<td>left, right, bottom, top, 两数字向量</td>
+</tr>
+<tr>
+<td>legend.direction</td>
+<td>图例排列方向</td>
+<td>“horizontal” or “vertical”</td>
+</tr>
+<tr>
+<td>legend.justification</td>
+<td>居中方式</td>
+<td>center或两数字向量</td>
+</tr>
+<tr>
+<td>legend.box</td>
+<td>多图例的排列方式</td>
+<td>“horizontal” or “vertical”</td>
+</tr>
+<tr>
+<td>legend.box.just</td>
+<td>多图例居中方式</td>
+<td></td>
+</tr>
+<tr>
+<td>panel.background</td>
+<td>绘图区背景</td>
+<td>rect</td>
+</tr>
+<tr>
+<td>panel.border</td>
+<td>绘图区边框</td>
+<td>rect</td>
+</tr>
+<tr>
+<td>panel.margin</td>
+<td>分面绘图区之间的边距</td>
+<td></td>
+</tr>
+<tr>
+<td>panel.grid</td>
+<td>绘图区网格线</td>
+<td>line</td>
+</tr>
+<tr>
+<td>panel.grid.major</td>
+<td>主网格线</td>
+<td></td>
+</tr>
+<tr>
+<td>panel.grid.minor</td>
+<td>次网格线</td>
+<td></td>
+</tr>
+<tr>
+<td>panel.grid.major.x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>panel.grid.major.y</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>panel.grid.minor.x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>panel.grid.minor.y</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>plot.background</td>
+<td>整个图形的背景</td>
+<td></td>
+</tr>
+<tr>
+<td>plot.title</td>
+<td>图形标题</td>
+<td></td>
+</tr>
+<tr>
+<td>plot.margin</td>
+<td>图形边距</td>
+<td>top, right, bottom, left</td>
+</tr>
+<tr>
+<td>strip.background</td>
+<td>分面标签背景</td>
+<td>rect</td>
+</tr>
+<tr>
+<td>strip.text</td>
+<td>分面标签文本</td>
+<td>text</td>
+</tr>
+<tr>
+<td>strip.text.x</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>strip.text.y</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="加载字体"><a href="#加载字体" class="headerlink" title="加载字体"></a>加载字体</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"># require(&quot;sysfonts&quot;)</div><div class="line"># require(&quot;showtext&quot;)</div><div class="line"># 查看字体列表，可以使用系统已安装的所有字体</div><div class="line">font.files()</div><div class="line"># 更改字体 family参数</div><div class="line">ggplot(data.frame(x = rnorm(100))) +</div><div class="line">    geom_histogram(aes(x), fill = &apos;purple&apos;, alpha = 0.6) +</div><div class="line">    labs(x = &apos;X 取值&apos;, y = &apos;频数 Count&apos;) +</div><div class="line">    theme(text = element_text(family = &apos;Arial Black&apos;))</div></pre></td></tr></table></figure>
+<h3 id="x、y轴，数据范围"><a href="#x、y轴，数据范围" class="headerlink" title="x、y轴，数据范围"></a>x、y轴，数据范围</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"># 方法一</div><div class="line">p+ scale_y_continuous(limits=c(0,1.8))</div><div class="line"># scale_x_continuous(limits=c(0,10))</div><div class="line"></div><div class="line"># 方法二</div><div class="line">p+xlim(0,10) # 不一定都适用</div><div class="line">p + xlim(min(dt$A, 0)*1.2, max(dt$A)*1.2)   ## 一般使用倍数来限定大小，注意定义最小值的方式</div></pre></td></tr></table></figure>
+<h3 id="坐标轴刻度间隔大小"><a href="#坐标轴刻度间隔大小" class="headerlink" title="坐标轴刻度间隔大小"></a>坐标轴刻度间隔大小</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">p + scale_x_continuous(breaks=seq(0, 10, 5)) # X轴，每隔5个单位</div></pre></td></tr></table></figure>
 <h1 id="检验"><a href="#检验" class="headerlink" title="检验"></a>检验</h1><h2 id="wilcox-test"><a href="#wilcox-test" class="headerlink" title="wilcox.test()"></a>wilcox.test()</h2><p>Wilcoxon rank sum test / Wilcoxon秩和检验<br>Mann–Whitney U test(曼-惠特尼U检验) / Mann–Whitney–Wilcoxon (MWW)</p>
 <blockquote>
 <p>在R中，wilcox.test()函数可以用来做Wilcoxon秩和检验，也可以用于做 Mann-Whitney U检验。</p>
@@ -752,7 +1029,7 @@ arrows(x">
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本"><span class="nav-number">1.</span> <span class="nav-text">基本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本元素"><span class="nav-number">1.0.1.</span> <span class="nav-text">基本元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用绘图函数"><span class="nav-number">1.0.2.</span> <span class="nav-text">常用绘图函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见图"><span class="nav-number">2.</span> <span class="nav-text">常见图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装包"><span class="nav-number">2.1.</span> <span class="nav-text">安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将绘图区划分成-m-行-n-列"><span class="nav-number">2.2.</span> <span class="nav-text">将绘图区划分成 m 行 n 列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mfrow方法"><span class="nav-number">2.2.1.</span> <span class="nav-text">mfrow方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gridExtra方法，可以和ggplot一起使用"><span class="nav-number">2.2.2.</span> <span class="nav-text">gridExtra方法，可以和ggplot一起使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点图-point"><span class="nav-number">2.3.</span> <span class="nav-text">点图 point</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#geom-point"><span class="nav-number">2.3.1.</span> <span class="nav-text">geom_point()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plot-amp-points"><span class="nav-number">2.3.2.</span> <span class="nav-text">plot & points</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#barplot-柱状图"><span class="nav-number">2.4.</span> <span class="nav-text">barplot 柱状图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boxplot-箱线图"><span class="nav-number">2.5.</span> <span class="nav-text">boxplot 箱线图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#geom-histogram"><span class="nav-number">2.6.</span> <span class="nav-text">geom_histogram()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pheatmap-热图"><span class="nav-number">2.7.</span> <span class="nav-text">pheatmap 热图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#检验"><span class="nav-number">3.</span> <span class="nav-text">检验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#wilcox-test"><span class="nav-number">3.1.</span> <span class="nav-text">wilcox.test()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配对Wilcoxon符号秩检验"><span class="nav-number">3.1.1.</span> <span class="nav-text">配对Wilcoxon符号秩检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-1"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">例8-1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#独立样本Wilcoxon检验（Mann-Whitney-U检验）"><span class="nav-number">3.1.2.</span> <span class="nav-text">独立样本Wilcoxon检验（Mann-Whitney U检验）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-2"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">例8-2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-3"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">例8-3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-4"><span class="nav-number">3.1.2.3.</span> <span class="nav-text">例8-4</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kurskal-Wallis检验"><span class="nav-number">3.2.</span> <span class="nav-text">Kurskal-Wallis检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-5"><span class="nav-number">3.2.0.1.</span> <span class="nav-text">例8-5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-6"><span class="nav-number">3.2.0.2.</span> <span class="nav-text">例8-6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-7"><span class="nav-number">3.2.0.3.</span> <span class="nav-text">例8-7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-8"><span class="nav-number">3.2.0.4.</span> <span class="nav-text">例8-8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-9"><span class="nav-number">3.2.0.5.</span> <span class="nav-text">例8-9</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本"><span class="nav-number">1.</span> <span class="nav-text">基本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本元素"><span class="nav-number">1.0.1.</span> <span class="nav-text">基本元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用绘图函数"><span class="nav-number">1.0.2.</span> <span class="nav-text">常用绘图函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常见图"><span class="nav-number">2.</span> <span class="nav-text">常见图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装包"><span class="nav-number">2.1.</span> <span class="nav-text">安装包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#好看的颜色"><span class="nav-number">2.2.</span> <span class="nav-text">好看的颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将绘图区划分成-m-行-n-列"><span class="nav-number">2.3.</span> <span class="nav-text">将绘图区划分成 m 行 n 列</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mfrow方法"><span class="nav-number">2.3.1.</span> <span class="nav-text">mfrow方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gridExtra方法，可以和ggplot一起使用"><span class="nav-number">2.3.2.</span> <span class="nav-text">gridExtra方法，可以和ggplot一起使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点图-point"><span class="nav-number">2.4.</span> <span class="nav-text">点图 point</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#geom-point"><span class="nav-number">2.4.1.</span> <span class="nav-text">geom_point()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plot-amp-points"><span class="nav-number">2.4.2.</span> <span class="nav-text">plot & points</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#barplot-柱状图"><span class="nav-number">2.5.</span> <span class="nav-text">barplot 柱状图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小提琴图"><span class="nav-number">2.6.</span> <span class="nav-text">小提琴图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#boxplot-箱线图"><span class="nav-number">2.7.</span> <span class="nav-text">boxplot 箱线图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#geom-histogram"><span class="nav-number">2.8.</span> <span class="nav-text">geom_histogram()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pheatmap-热图"><span class="nav-number">2.9.</span> <span class="nav-text">pheatmap 热图</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ggplot-调整作图细节"><span class="nav-number">2.10.</span> <span class="nav-text">ggplot 调整作图细节</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#保存文件"><span class="nav-number">2.10.1.</span> <span class="nav-text">保存文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义颜色"><span class="nav-number">2.10.2.</span> <span class="nav-text">自定义颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#白色主题模板"><span class="nav-number">2.10.3.</span> <span class="nav-text">白色主题模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加x、y坐标名字；标题"><span class="nav-number">2.10.4.</span> <span class="nav-text">加x、y坐标名字；标题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x、y坐标反转"><span class="nav-number">2.10.5.</span> <span class="nav-text">x、y坐标反转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主题设置，X轴、Y轴操作"><span class="nav-number">2.10.6.</span> <span class="nav-text">主题设置，X轴、Y轴操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#theme关键词表"><span class="nav-number">2.10.6.1.</span> <span class="nav-text">theme关键词表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加载字体"><span class="nav-number">2.10.7.</span> <span class="nav-text">加载字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x、y轴，数据范围"><span class="nav-number">2.10.8.</span> <span class="nav-text">x、y轴，数据范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#坐标轴刻度间隔大小"><span class="nav-number">2.10.9.</span> <span class="nav-text">坐标轴刻度间隔大小</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#检验"><span class="nav-number">3.</span> <span class="nav-text">检验</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#wilcox-test"><span class="nav-number">3.1.</span> <span class="nav-text">wilcox.test()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配对Wilcoxon符号秩检验"><span class="nav-number">3.1.1.</span> <span class="nav-text">配对Wilcoxon符号秩检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-1"><span class="nav-number">3.1.1.1.</span> <span class="nav-text">例8-1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#独立样本Wilcoxon检验（Mann-Whitney-U检验）"><span class="nav-number">3.1.2.</span> <span class="nav-text">独立样本Wilcoxon检验（Mann-Whitney U检验）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-2"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">例8-2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-3"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">例8-3</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-4"><span class="nav-number">3.1.2.3.</span> <span class="nav-text">例8-4</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Kurskal-Wallis检验"><span class="nav-number">3.2.</span> <span class="nav-text">Kurskal-Wallis检验</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-5"><span class="nav-number">3.2.0.1.</span> <span class="nav-text">例8-5</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-6"><span class="nav-number">3.2.0.2.</span> <span class="nav-text">例8-6</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-7"><span class="nav-number">3.2.0.3.</span> <span class="nav-text">例8-7</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-8"><span class="nav-number">3.2.0.4.</span> <span class="nav-text">例8-8</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#例8-9"><span class="nav-number">3.2.0.5.</span> <span class="nav-text">例8-9</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>

@@ -94,7 +94,7 @@
 <meta property="og:description" content="比整个屏幕长的脚本都应该加上use strict;
 数据元素变量当你需要声明一个复杂的字符串时，可以使用heredoc语法：
 1234567my $blurb =&amp;lt;&amp;lt;&apos;END_BLURB&apos;;He looked up. &quot;Change is the constant on which they allcan agree. We instead, born out of time, rem">
-<meta property="og:updated_time" content="2016-11-25T14:32:21.000Z">
+<meta property="og:updated_time" content="2016-11-29T01:06:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Perl Cheetsheets">
 <meta name="twitter:description" content="比整个屏幕长的脚本都应该加上use strict;
@@ -315,7 +315,7 @@
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">my</span> @chars = <span class="string">'a'</span> .. <span class="string">'z'</span>;</div><div class="line"><span class="keyword">my</span> @count = <span class="number">13</span> .. <span class="number">27</span>;</div></pre></td></tr></table></figure>
 <p>可以使用qw()操作符分隔空白来产生字符串列表：</p>
 <figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">my</span> @stooges = <span class="string">qw( Larry Curly Moe Shemp Joey Kenny )</span>;</div></pre></td></tr></table></figure>
-<h3 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h3><p>压入、弹出<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">my</span> $fred = <span class="keyword">pop</span>(@array)   <span class="comment"># shift左边</span></div><div class="line"><span class="keyword">push</span> (@array,$a)         <span class="comment"># unshift左边</span></div></pre></td></tr></table></figure></p>
+<h3 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h3><p>压入、弹出<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">my</span> $fred = <span class="keyword">pop</span>(@array)   <span class="comment"># pop从右边弹出；shift从左边弹出</span></div><div class="line"><span class="keyword">push</span> (@array,$a)         <span class="comment"># push从右边压入；unshift从左边压入</span></div></pre></td></tr></table></figure></p>
 <p>最后一个元素的索引 <code>$trees[$#trees]</code></p>
 <p>reverse 反向 <code>@fred = reverse @fred</code> #本身不修改</p>
 <p>排序<br><figure class="highlight perl"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">my</span> @result = <span class="keyword">sort</span> by_number @some_numbers</div><div class="line"><span class="keyword">my</span> @result = <span class="keyword">sort</span> &#123; $a &lt;=&gt; $b&#125; @some_numbers;  <span class="comment"># &lt;=&gt; 符号表示数字的比较和排序</span></div><div class="line"><span class="keyword">my</span> @string = <span class="keyword">sort</span> &#123;$a cmp $b&#125; @any_strings;  <span class="comment"># cmp 表示字符串的比较和排序</span></div><div class="line"><span class="keyword">my</span> @string = <span class="keyword">sort</span> &#123;<span class="string">"\L$a"</span> cmp <span class="string">"\L$b"</span>&#125; @any_strings;  <span class="comment"># \L表示忽略大小写</span></div></pre></td></tr></table></figure></p>
