@@ -84,16 +84,19 @@
 
 
 
-<meta name="description" content="自我提升和自我完善是一种终身的修行">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="samtools bam2fq1samtools.1.3.1 bam2fq input.bam |gzip -c &amp;gt; output.fq.gz
+提取 unmapped reads12# 提取unmapped reads比对到另一个ref（比如线粒体）上samtools.1.3.1 bam2fq -f 4 input.bam | bwa mem -t 30 -M -R &amp;apos;@RG\tI">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bam2fq">
+<meta property="og:url" content="http://yoursite.com/2017/04/06/bam2fq/index.html">
 <meta property="og:site_name" content="lizhong's notes">
-<meta property="og:description" content="自我提升和自我完善是一种终身的修行">
-<meta property="og:updated_time" content="2016-11-01T13:07:00.000Z">
+<meta property="og:description" content="samtools bam2fq1samtools.1.3.1 bam2fq input.bam |gzip -c &amp;gt; output.fq.gz
+提取 unmapped reads12# 提取unmapped reads比对到另一个ref（比如线粒体）上samtools.1.3.1 bam2fq -f 4 input.bam | bwa mem -t 30 -M -R &amp;apos;@RG\tI">
+<meta property="og:updated_time" content="2017-04-06T07:01:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Categories">
-<meta name="twitter:description" content="自我提升和自我完善是一种终身的修行">
+<meta name="twitter:title" content="Bam2fq">
+<meta name="twitter:description" content="samtools bam2fq1samtools.1.3.1 bam2fq input.bam |gzip -c &amp;gt; output.fq.gz
+提取 unmapped reads12# 提取unmapped reads比对到另一个ref（比如线粒体）上samtools.1.3.1 bam2fq -f 4 input.bam | bwa mem -t 30 -M -R &amp;apos;@RG\tI">
 
 
 
@@ -114,15 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/06/bam2fq/"/>
 
-  <title>
-  
-
-  
-    分类 | lizhong's notes
-  
-</title>
+  <title> Bam2fq | lizhong's notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -143,7 +140,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -223,16 +220,119 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
     
-      <div class="category-all-page">
-        <div class="category-all-title">
-            目前共计 3 个分类
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Bam2fq
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-06T14:58:39+08:00" content="2017-04-06">
+              2017-04-06
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
         </div>
-        <div class="category-all">
-          <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Cheetsheets/">Cheetsheets</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Social/">Social</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Work/">Work</a><span class="category-list-count">2</span></li></ul>
-        </div>
-      </div>
+      </header>
     
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="samtools-bam2fq"><a href="#samtools-bam2fq" class="headerlink" title="samtools bam2fq"></a>samtools bam2fq</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">samtools.1.3.1 bam2fq input.bam |gzip -c &gt; output.fq.gz</div></pre></td></tr></table></figure>
+<h2 id="提取-unmapped-reads"><a href="#提取-unmapped-reads" class="headerlink" title="提取 unmapped reads"></a>提取 unmapped reads</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 提取unmapped reads比对到另一个ref（比如线粒体）上</div><div class="line">samtools.1.3.1 bam2fq -f 4 input.bam | bwa mem -t 30 -M -R &apos;@RG\tID:Sample01\tLB:Sample01\tSM:Sample01\tPL:Illumina\tPU:Illumina\tSM:Sample01\t&apos; mt.fa - | samtools.1.3.1 sort -O bam -T /dir/tmp -o mapMt.sort.bam</div></pre></td></tr></table></figure>
+<h2 id="提取-unique-reads"><a href="#提取-unique-reads" class="headerlink" title="提取 unique reads"></a>提取 unique reads</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># unique reads (a single read mapping at one best position)</div><div class="line"># -q INT Skip alignments with MAPQ smaller than INT [0]</div><div class="line">samtools view -bq 1 file.bam &gt; unique.bam</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/23/GATK-SNP-calling/" rel="next" title="GATK SNP Calling">
+                <i class="fa fa-chevron-left"></i> GATK SNP Calling
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/9999/01/01/shell-Cheetsheets/" rel="prev" title="Shell Scripting Cheetsheets">
+                Shell Scripting Cheetsheets <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -264,8 +364,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -335,6 +444,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#samtools-bam2fq"><span class="nav-number">1.</span> <span class="nav-text">samtools bam2fq</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提取-unmapped-reads"><span class="nav-number">2.</span> <span class="nav-text">提取 unmapped reads</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提取-unique-reads"><span class="nav-number">3.</span> <span class="nav-text">提取 unique reads</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -431,6 +551,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
