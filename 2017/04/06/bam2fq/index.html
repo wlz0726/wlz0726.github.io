@@ -85,18 +85,21 @@
 
 
 <meta name="description" content="samtools bam2fq1samtools.1.3.1 bam2fq input.bam |gzip -c &amp;gt; output.fq.gz
-提取 unmapped reads12# 提取unmapped reads比对到另一个ref（比如线粒体）上samtools.1.3.1 bam2fq -f 4 input.bam | bwa mem -t 30 -M -R &amp;apos;@RG\tI">
+
+提取 unmapped reads12# 提取unmapped reads比对到另一个ref（比如线粒体）上samtools.1.3.1 bam2fq -f 4 input.bam | bwa mem -t 30 -M -R &amp;apos;@RG\t">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bam2fq">
 <meta property="og:url" content="http://yoursite.com/2017/04/06/bam2fq/index.html">
 <meta property="og:site_name" content="lizhong's notes">
 <meta property="og:description" content="samtools bam2fq1samtools.1.3.1 bam2fq input.bam |gzip -c &amp;gt; output.fq.gz
-提取 unmapped reads12# 提取unmapped reads比对到另一个ref（比如线粒体）上samtools.1.3.1 bam2fq -f 4 input.bam | bwa mem -t 30 -M -R &amp;apos;@RG\tI">
-<meta property="og:updated_time" content="2017-04-18T02:03:12.000Z">
+
+提取 unmapped reads12# 提取unmapped reads比对到另一个ref（比如线粒体）上samtools.1.3.1 bam2fq -f 4 input.bam | bwa mem -t 30 -M -R &amp;apos;@RG\t">
+<meta property="og:updated_time" content="2017-04-18T02:15:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bam2fq">
 <meta name="twitter:description" content="samtools bam2fq1samtools.1.3.1 bam2fq input.bam |gzip -c &amp;gt; output.fq.gz
-提取 unmapped reads12# 提取unmapped reads比对到另一个ref（比如线粒体）上samtools.1.3.1 bam2fq -f 4 input.bam | bwa mem -t 30 -M -R &amp;apos;@RG\tI">
+
+提取 unmapped reads12# 提取unmapped reads比对到另一个ref（比如线粒体）上samtools.1.3.1 bam2fq -f 4 input.bam | bwa mem -t 30 -M -R &amp;apos;@RG\t">
 
 
 
@@ -309,7 +312,9 @@
 
       
         <h2 id="samtools-bam2fq"><a href="#samtools-bam2fq" class="headerlink" title="samtools bam2fq"></a>samtools bam2fq</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">samtools.1.3.1 bam2fq input.bam |gzip -c &gt; output.fq.gz</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="提取-unmapped-reads"><a href="#提取-unmapped-reads" class="headerlink" title="提取 unmapped reads"></a>提取 unmapped reads</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 提取unmapped reads比对到另一个ref（比如线粒体）上</div><div class="line">samtools.1.3.1 bam2fq -f 4 input.bam | bwa mem -t 30 -M -R &apos;@RG\tID:Sample01\tLB:Sample01\tSM:Sample01\tPL:Illumina\tPU:Illumina\tSM:Sample01\t&apos; mt.fa - | samtools.1.3.1 sort -O bam -T /dir/tmp -o mapMt.sort.bam</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="提取-unique-reads"><a href="#提取-unique-reads" class="headerlink" title="提取 unique reads"></a>提取 unique reads</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># unique reads (a single read mapping at one best position)</div><div class="line"># -q INT Skip alignments with MAPQ smaller than INT [0]</div><div class="line">samtools view -bq 1 file.bam &gt; unique.bam</div></pre></td></tr></table></figure>
 
       
@@ -424,7 +429,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -441,7 +446,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -312,9 +312,13 @@
         
           
             <h2 id="A-Bioinformatician’s-UNIX-Toolbox"><a href="#A-Bioinformatician’s-UNIX-Toolbox" class="headerlink" title="A Bioinformatician’s UNIX Toolbox"></a><a href="http://lh3lh3.users.sourceforge.net/biounix.shtml" target="_blank" rel="external">A Bioinformatician’s UNIX Toolbox</a></h2><h2 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">#取某几列</div><div class="line">awk &apos;&#123;print $2,$4,$5&#125;&apos; input.txt &gt; output.txt</div><div class="line">cat *log|grep &quot;variants loaded&quot;|awk &apos;&#123;print $1&#125;&apos;|les</div><div class="line"></div><div class="line"># 查看文件有几列</div><div class="line">cat in.txt | awk  &apos;&#123;print NF&#125;&apos;</div><div class="line"></div><div class="line"># -F 修改分隔符为冒号：</div><div class="line">awk -F: &apos;&#123;print $1&#125;&apos; in.txt</div><div class="line">awk -F&quot; &quot; &apos;&#123;print $1&#125;&apos; in.txt</div><div class="line"></div><div class="line"># 正则匹配</div><div class="line">awk &apos;/^test[0-9]+/&apos; input.txt</div><div class="line"></div><div class="line"># 数某一列出现次数</div><div class="line">awk &apos;&#123;l[$1]++&#125;END&#123;for (x in l) print x,l[x]&#125;&apos; input.txt</div><div class="line"></div><div class="line"># 几列之间运算 calculate the sum of column 2 and 3 and put it at the end of a row or replace the first column:</div><div class="line">awk &apos;&#123;print $0,$2+$3&#125;&apos; input.txt</div><div class="line">awk &apos;&#123;$1=$2+$3;print&#125;&apos; input.txt</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="tr"><a href="#tr" class="headerlink" title="tr"></a>tr</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 把回车都替换成空格</div><div class="line">awk &apos;&#123;print $1&#125;&apos; in.txt|tr &quot;\n&quot; &quot; &quot;|less</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="纵向合并文件"><a href="#纵向合并文件" class="headerlink" title="纵向合并文件"></a>纵向合并文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">paste a.txt b.txt &gt; ab.txt</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">find . -name *.pl</div><div class="line">find /path/dir -regextype &quot;posix-egrep&quot; -regex &quot;.*\.(pl|sh|py|r|pdf|)$&quot;</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="fasta-fastq-vcf"><a href="#fasta-fastq-vcf" class="headerlink" title="fasta/fastq/vcf"></a>fasta/fastq/vcf</h2><ul>
 <li><p>取fasta中的某一段序列（代替perl里的substr效果）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">samtools faidx hg19.fasta chr1:1-100</div></pre></td></tr></table></figure>
@@ -323,9 +327,106 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">samtools/htslib/bgzip -c file.vcf &gt; file.vcf.gz</div><div class="line">samtools/htslib/tabix -p vcf file.vcf.gz</div></pre></td></tr></table></figure>
 </li>
 </ul>
+<p><br></p>
 <h2 id="Example-header-of-PBS-qsub-Command-Lines"><a href="#Example-header-of-PBS-qsub-Command-Lines" class="headerlink" title="Example header of PBS(qsub) Command Lines"></a>Example header of PBS(qsub) Command Lines</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">#$ -S /bin/sh</div><div class="line">#$ -e z.1.sh.SuperMem-1.pbs.$JOB_ID.e</div><div class="line">#$ -o z.1.sh.SuperMem-1.pbs.$JOB_ID.o</div><div class="line">#$ -l vf=1G</div><div class="line">#$ -m n</div><div class="line">#$ -cwd</div><div class="line">#$ -P st_supermem</div><div class="line">#$ -q supermem.q@supermem-0-2</div><div class="line"># 指定supermem-0-2节点</div><div class="line"></div><div class="line"># start time</div><div class="line">date1=`date &quot;+%Y-%m-%d %H:%M:%S&quot;`; date1_sys=`date -d &quot;$date1&quot; +%s`;echo &quot;start running ========= at $date1&quot;</div><div class="line"></div><div class="line">perl test.pl</div><div class="line"></div><div class="line"># end time and running time; output to z.1.sh.SuperMem-1.pbs.$JOB_ID.o</div><div class="line">date2=`date &quot;+%Y-%m-%d %H:%M:%S&quot;`; date2_sys=`date -d &quot;$date2&quot; +%s`; interval=`expr $date2_sys - $date1_sys`; hour=`expr $interval / 3600`;left_second=`expr $interval % 3600`; min=`expr $left_second / 60`; second=`expr $interval % 60`; echo &quot;done  running ========= at $date2 in $hour hour $min min $second s&quot;</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="kill"><a href="#kill" class="headerlink" title="kill"></a>kill</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 一次杀掉所有进程，慎用</div><div class="line">pgrep -u wanglizhong |xargs kill</div><div class="line"></div><div class="line">kill -9 $(ps -ef|grep wanglizhong|awk &apos;&#123;print $2&#125;&apos;)</div><div class="line"></div><div class="line">pkill -u wanglizhong</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="解压-压缩"><a href="#解压-压缩" class="headerlink" title="解压/压缩"></a>解压/压缩</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line">.tar</div><div class="line">解包：tar xvf Something.tar</div><div class="line">打包：tar cvf Something.tar DirName</div><div class="line">（注：tar是打包，不是压缩！）</div><div class="line">———————————————</div><div class="line">.gz</div><div class="line">解压1：gunzip Something.gz</div><div class="line">解压2：gzip -d Something.gz</div><div class="line">压缩：gzip Something</div><div class="line"></div><div class="line">.tar.gz 和 .tgz</div><div class="line">解压：tar zxvf Something.tar.gz</div><div class="line">压缩：tar zcvf Something.tar.gz DirName</div><div class="line">———————————————</div><div class="line">.bz2</div><div class="line">解压1：bzip2 -d Something.bz2</div><div class="line">解压2：bunzip2 Something.bz2</div><div class="line">压缩： bzip2 -z Something</div><div class="line"></div><div class="line">.tar.bz2</div><div class="line">解压：tar jxvf Something.tar.bz2</div><div class="line">压缩：tar jcvf Something.tar.bz2 DirName</div><div class="line">———————————————</div><div class="line">.bz</div><div class="line">解压1：bzip2 -d Something.bz</div><div class="line">解压2：bunzip2 Something.bz</div><div class="line">压缩：未知</div><div class="line"></div><div class="line">.tar.bz</div><div class="line">解压：tar jxvf Something.tar.bz</div><div class="line">压缩：未知</div><div class="line">———————————————</div><div class="line">.Z</div><div class="line">解压：uncompress Something.Z</div><div class="line">压缩：compress Something</div><div class="line">.tar.Z</div><div class="line"></div><div class="line">解压：tar Zxvf Something.tar.Z</div><div class="line">压缩：tar Zcvf Something.tar.Z DirName</div><div class="line">———————————————</div><div class="line">.zip</div><div class="line">解压：unzip Something.zip</div><div class="line">压缩：zip Something.zip DirName</div><div class="line">———————————————</div><div class="line">.rar</div><div class="line">解压：rar x Something.rar</div><div class="line">压缩：rar a Something.rar DirName</div><div class="line">———————————————</div><div class="line">.lha</div><div class="line">解压：lha -e Something.lha</div><div class="line">压缩：lha -a Something.lha Something</div><div class="line">———————————————</div><div class="line">.rpm</div><div class="line">解包：rpm2cpio Something.rpm | cpio -div</div><div class="line">#———————————————</div><div class="line">.deb</div><div class="line">解包：ar p Something.deb data.tar.gz | tar zxf -</div><div class="line">———————————————</div><div class="line">.tar .tgz .tar.gz .tar.Z .tar.bz .tar.bz2 .zip .cpio .rpm .deb .slp .arj .rar .ace .lha .lzh .lzx .lzs .arc .sda .sfx .lnx .zoo .cab .kar .cpt .pit .sit .sea</div><div class="line">解压：sEx x Something.*</div><div class="line">压缩：sEx a Something.* Something</div><div class="line"></div><div class="line">.tar.xz    (xz http://tukaani.org/xz/)</div><div class="line">xz -d Something.tar.xz</div><div class="line"></div><div class="line"># gzip 压缩比</div><div class="line">-num 用指定的数字 num 调整压缩的速度，-1 或 --fast 表示最快压缩方法（低压缩比），-9 或--best表示最慢压缩方法（高压缩比）。系统缺省值为 6。</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/18/Insert-blank-line-using-markdown/" itemprop="url">
+                  Insert blank line using markdown
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-18T10:21:10+08:00" content="2017-04-18">
+              2017-04-18
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>markdown里插入空行的方法，两个可用的:<br><code>&lt;br /&gt;</code><br><code>&lt;br&gt;&lt;/br&gt;</code></p>
 
           
         
@@ -681,21 +782,30 @@
       
         
           
-            <h2 id="Always使用bgzip生成vcf-gz文件"><a href="#Always使用bgzip生成vcf-gz文件" class="headerlink" title="Always使用bgzip生成vcf.gz文件"></a>Always使用bgzip生成vcf.gz文件</h2><p>并用tabix生成index，使得vcftools和GATK中直接使用vcf.gz文件。</p>
+            <h2 id="习惯：Always使用bgzip生成vcf-gz文件"><a href="#习惯：Always使用bgzip生成vcf-gz文件" class="headerlink" title="习惯：Always使用bgzip生成vcf.gz文件"></a>习惯：Always使用bgzip生成vcf.gz文件</h2><p>并用tabix生成index，使得vcftools和GATK中直接使用vcf.gz文件。</p>
 <p>bgzip和tabix包含在<code>samtools/htslib</code>内。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">samtools/htslib/bgzip -c file.vcf &gt; file.vcf.gz</div><div class="line">samtools/htslib/tabix -p vcf file.vcf.gz</div></pre></td></tr></table></figure></p>
 <hr>
 <p><strong>小模块</strong><br>在<code>vcftools/vcftools-build/bin/</code>中的小程序，实现简单的特定功能。列出几个最常用的。<a href="http://vcftools.sourceforge.net/perl_module.html" target="_blank" rel="external">其他更多</a></p>
 <h2 id="单个vcf"><a href="#单个vcf" class="headerlink" title="单个vcf"></a>单个vcf</h2><h3 id="重新计算INFO里的AN和AC"><a href="#重新计算INFO里的AN和AC" class="headerlink" title="重新计算INFO里的AN和AC"></a>重新计算<code>INFO</code>里的AN和AC</h3><p>fill-an-ac<br>重新计算AN和AC 并加入<code>INFO</code>中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zcat in.vcf.gz|fill-an-ac &gt; out.vcf</div></pre></td></tr></table></figure></p>
+<p><br></p>
 <h3 id="vcf2fa"><a href="#vcf2fa" class="headerlink" title="vcf2fa"></a>vcf2fa</h3><p>vcf转成一致性序列(consensus sequence)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cat ref.fa|vcf-consensus file.vcf.gz &gt; out.fa</div><div class="line"></div><div class="line"># 其中某一个个体</div><div class="line">cat ref.fa|vcf-consensus -s sampleA_ID file.vcf.gz &gt; out.sampleA_ID.fa</div><div class="line"></div><div class="line"># 只有某一个haplotype（1或者2）</div><div class="line">cat ref.fa|vcf-consensus -H 1 file.vcf.gz &gt; out.hap1.fa</div></pre></td></tr></table></figure></p>
+<p><br></p>
 <h3 id="取出部分个体"><a href="#取出部分个体" class="headerlink" title="取出部分个体"></a>取出部分个体</h3><p>vcf-subset -c<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vcf-subset -c NA0001,NA0002 file.vcf.gz | bgzip -c &gt; out.vcf.gz</div></pre></td></tr></table></figure></p>
+<p><br></p>
 <h3 id="vcf里的信息自定义输出"><a href="#vcf里的信息自定义输出" class="headerlink" title="vcf里的信息自定义输出"></a>vcf里的信息自定义输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vcf-query file.vcf.gz 1:10327-10330</div><div class="line">vcf-query file.vcf -f &apos;%CHROM:%POS %REF %ALT [ %DP]\n&apos;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Usage: vcf-query [OPTIONS] file.vcf.gz</div><div class="line">Options:</div><div class="line">   -c, --columns &lt;file|list&gt;           List of comma-separated column names or one column name per line in a file.</div><div class="line">   -f, --format &lt;string&gt;               The default is &apos;%CHROM:%POS\t%REF[\t%SAMPLE=%GT]\n&apos;</div><div class="line">   -l, --list-columns                  List columns.</div><div class="line">   -r, --region chr:from-to            Retrieve the region. (Runs tabix.)</div><div class="line">       --use-old-method                Use old version of API, which is slow but more robust.</div><div class="line">   -h, -?, --help                      This help message.</div><div class="line">Expressions:</div><div class="line">   %CHROM          The CHROM column (similarly also other columns)</div><div class="line">   %GT             Translated genotype (e.g. C/A)</div><div class="line">   %GTR            Raw genotype (e.g. 0/1)</div><div class="line">   %INFO/TAG       Any tag in the INFO column</div><div class="line">   %LINE           Prints the whole line</div><div class="line">   %SAMPLE         Sample name</div><div class="line">   []              The brackets loop over all samples</div><div class="line">   %*&lt;A&gt;&lt;B&gt;        All format fields printed as KEY&lt;A&gt;VALUE&lt;B&gt;</div><div class="line">Examples:</div><div class="line">   vcf-query file.vcf.gz 1:1000-2000 -c NA001,NA002,NA003</div><div class="line">   vcf-query file.vcf.gz -r 1:1000-2000 -f &apos;%CHROM:%POS\t%REF\t%ALT[\t%SAMPLE:%*=,]\n&apos;</div><div class="line">   vcf-query file.vcf.gz -f &apos;[%GT\t]%LINE\n&apos;</div><div class="line">   vcf-query file.vcf.gz -f &apos;[%GT\ ]%LINE\n&apos;</div><div class="line">   vcf-query file.vcf.gz -f &apos;%CHROM\_%POS\t%INFO/DP\t%FILTER\n&apos;</div></pre></td></tr></table></figure>
+<p><br></p>
 <h3 id="将个体顺序重排"><a href="#将个体顺序重排" class="headerlink" title="将个体顺序重排"></a>将个体顺序重排</h3><p>Reorder columns<br>将<code>file.vcf.gz</code>按照<code>template.vcf.gz</code>顺序重排<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vcf-shuffle-cols -t template.vcf.gz file.vcf.gz &gt; out.vcf</div></pre></td></tr></table></figure></p>
+<p><br></p>
 <h3 id="转换成tab格式"><a href="#转换成tab格式" class="headerlink" title="转换成tab格式"></a>转换成tab格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zcat file.vcf.gz | vcf-to-tab &gt; out.tab</div></pre></td></tr></table></figure>
 <p>输出如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#CHROM  POS REF 05537</div><div class="line">chr2    131 T   T/T</div><div class="line">chr2    437 G   G/G</div><div class="line">chr2    453 G   G/G</div><div class="line">chr2    469 G   G/G</div><div class="line">chr2    526 G   G/G</div><div class="line">chr2    618 G   G/G</div><div class="line">chr2    745 A   A/A</div><div class="line">chr2    756 T   T/T</div><div class="line">chr2    760 T   T/T</div></pre></td></tr></table></figure></p>
+<p><br></p>
 <h3 id="计算tstv"><a href="#计算tstv" class="headerlink" title="计算tstv"></a>计算tstv</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat file.vcf | vcf-tstv</div></pre></td></tr></table></figure>
+<p><br></p>
 <h3 id="vcf格式校验"><a href="#vcf格式校验" class="headerlink" title="vcf格式校验"></a>vcf格式校验</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vcf-validator file.vcf.gz</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="多个vcf"><a href="#多个vcf" class="headerlink" title="多个vcf"></a>多个vcf</h2><h3 id="比较多个vcf里SNP位置的overlap"><a href="#比较多个vcf里SNP位置的overlap" class="headerlink" title="比较多个vcf里SNP位置的overlap"></a>比较多个vcf里SNP位置的overlap</h3><p>可以用结果画维恩图Venn-Diagram。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># run</div><div class="line">vcf-compare test.vcf.gz test2.vcf.gz test3.vcf.gz|grep ^VN | cut -f 2-</div><div class="line"></div><div class="line"># results</div><div class="line">VN      94      test.vcf.gz (9.5%)      test2.vcf.gz (22.3%)    test3.vcf.gz (48.5%)</div><div class="line">VN      100     test.vcf.gz (10.1%)     test3.vcf.gz (51.5%)</div><div class="line">VN      327     test.vcf.gz (32.9%)     test2.vcf.gz (77.7%)</div><div class="line">VN      473     test.vcf.gz (47.6%)</div></pre></td></tr></table></figure></p>
+<p><br></p>
 <h3 id="合并多个染色体chr-scaffold"><a href="#合并多个染色体chr-scaffold" class="headerlink" title="合并多个染色体chr/scaffold"></a>合并多个染色体chr/scaffold</h3><p>1.个体（header）需完全相同。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vcf-concat chr1.vcf.gz chr2.vcf.gz | bgzip -c &gt; all.vcf.gz</div></pre></td></tr></table></figure></p>
 <p>2.合并有不同个体的多个vcf</p>
 <ul>
@@ -707,6 +817,7 @@
 </li>
 </ul>
 <p>3.一行命令合并vcf，巧用括号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># Merge (that is, concatenate) two VCF files into one, keeping the header</div><div class="line"># from first one only.</div><div class="line">(zcat A.vcf.gz | grep ^#; zcat A.vcf.gz | grep -v ^#; zcat B.vcf.gz | grep -v ^#; )| bgzip -c &gt; out.vcf.gz</div></pre></td></tr></table></figure></p>
+<p><br></p>
 <h3 id="找vcf-overlap-互补位置"><a href="#找vcf-overlap-互补位置" class="headerlink" title="找vcf overlap/互补位置"></a>找vcf overlap/互补位置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 输出两个vcf里共有的</div><div class="line">vcf-isec -n +2 A.vcf.gz B.vcf.gz | bgzip -c &gt; out.vcf.gz</div><div class="line"></div><div class="line"># 输出第一个vcf里有，其他vcf（B和C及后面更多）里没有的</div><div class="line">vcf-isec -c A.vcf.gz B.vcf.gz C.vcf.gz | bgzip -c &gt; out.vcf.gz</div></pre></td></tr></table></figure>
 
           
@@ -821,7 +932,9 @@
         
           
             <h2 id="samtools-bam2fq"><a href="#samtools-bam2fq" class="headerlink" title="samtools bam2fq"></a>samtools bam2fq</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">samtools.1.3.1 bam2fq input.bam |gzip -c &gt; output.fq.gz</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="提取-unmapped-reads"><a href="#提取-unmapped-reads" class="headerlink" title="提取 unmapped reads"></a>提取 unmapped reads</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"># 提取unmapped reads比对到另一个ref（比如线粒体）上</div><div class="line">samtools.1.3.1 bam2fq -f 4 input.bam | bwa mem -t 30 -M -R &apos;@RG\tID:Sample01\tLB:Sample01\tSM:Sample01\tPL:Illumina\tPU:Illumina\tSM:Sample01\t&apos; mt.fa - | samtools.1.3.1 sort -O bam -T /dir/tmp -o mapMt.sort.bam</div></pre></td></tr></table></figure>
+<p><br></p>
 <h2 id="提取-unique-reads"><a href="#提取-unique-reads" class="headerlink" title="提取 unique reads"></a>提取 unique reads</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># unique reads (a single read mapping at one best position)</div><div class="line"># -q INT Skip alignments with MAPQ smaller than INT [0]</div><div class="line">samtools view -bq 1 file.bam &gt; unique.bam</div></pre></td></tr></table></figure>
 
           
@@ -3034,7 +3147,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">18</span>
+              <span class="site-state-item-count">19</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -3051,7 +3164,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
