@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Bioinfomatics,R," />
+  <meta name="keywords" content="admixtools," />
 
 
 
@@ -84,16 +84,25 @@
 
 
 
-<meta name="description" content="pheatmap画图保存为pdf的时候会产生空白页，添加onefile=FALSE可以解决1pdf(&quot;test.pdf&quot;, onefile=FALSE)">
+<meta name="description" content="常见的和格式有关的问题：more
+ped、fam格式第六列的格式问题Question: convertf decides to “ignore” all my samples. Why?
+
+Answer: A likely reason is that you are using a “fam” or “ped” file with a funny value (0, 9 or -9) in co">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fix pheatmap bug">
-<meta property="og:url" content="http://yoursite.com/2016/11/07/Fix-pheatmap-bug/index.html">
+<meta property="og:title" content="admixtools">
+<meta property="og:url" content="http://yoursite.com/2017/04/18/admixtools/index.html">
 <meta property="og:site_name" content="lizhong's notes">
-<meta property="og:description" content="pheatmap画图保存为pdf的时候会产生空白页，添加onefile=FALSE可以解决1pdf(&quot;test.pdf&quot;, onefile=FALSE)">
-<meta property="og:updated_time" content="2016-11-07T12:05:59.000Z">
+<meta property="og:description" content="常见的和格式有关的问题：more
+ped、fam格式第六列的格式问题Question: convertf decides to “ignore” all my samples. Why?
+
+Answer: A likely reason is that you are using a “fam” or “ped” file with a funny value (0, 9 or -9) in co">
+<meta property="og:updated_time" content="2017-04-18T02:08:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fix pheatmap bug">
-<meta name="twitter:description" content="pheatmap画图保存为pdf的时候会产生空白页，添加onefile=FALSE可以解决1pdf(&quot;test.pdf&quot;, onefile=FALSE)">
+<meta name="twitter:title" content="admixtools">
+<meta name="twitter:description" content="常见的和格式有关的问题：more
+ped、fam格式第六列的格式问题Question: convertf decides to “ignore” all my samples. Why?
+
+Answer: A likely reason is that you are using a “fam” or “ped” file with a funny value (0, 9 or -9) in co">
 
 
 
@@ -114,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/07/Fix-pheatmap-bug/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/18/admixtools/"/>
 
-  <title> Fix pheatmap bug | lizhong's notes </title>
+  <title> admixtools | lizhong's notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -246,7 +255,7 @@
             
             
               
-                Fix pheatmap bug
+                admixtools
               
             
           </h1>
@@ -258,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-07T19:55:11+08:00" content="2016-11-07">
-              2016-11-07
+            <time itemprop="dateCreated" datetime="2017-04-18T09:40:20+08:00" content="2017-04-18">
+              2017-04-18
             </time>
           </span>
 
@@ -272,8 +281,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Work/" itemprop="url" rel="index">
-                    <span itemprop="name">Work</span>
+                  <a href="/categories/Cheetsheets/" itemprop="url" rel="index">
+                    <span itemprop="name">Cheetsheets</span>
                   </a>
                 </span>
 
@@ -305,7 +314,31 @@
       
 
       
-        <p>pheatmap画图保存为pdf的时候会产生空白页，添加<code>onefile=FALSE</code>可以解决<br><figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pdf(<span class="string">"test.pdf"</span>, onefile=<span class="literal">FALSE</span>)</div></pre></td></tr></table></figure></p>
+        <h1 id="常见的和格式有关的问题：more"><a href="#常见的和格式有关的问题：more" class="headerlink" title="常见的和格式有关的问题：more"></a>常见的和格式有关的问题：<a href="https://www.hsph.harvard.edu/alkes-price/eigensoft-frequently-asked-questions/" target="_blank" rel="external">more</a></h1><p><br></p>
+<h2 id="ped、fam格式第六列的格式问题"><a href="#ped、fam格式第六列的格式问题" class="headerlink" title="ped、fam格式第六列的格式问题"></a>ped、fam格式第六列的格式问题</h2><p>Question: convertf decides to “ignore” all my samples. Why?</p>
+<blockquote>
+<p>Answer: A likely reason is that you are using a “fam” or “ped” file with a funny value (0, 9 or -9) in column 6. Try setting column 6 to 1.</p>
+</blockquote>
+<p><br></p>
+<h2 id="推荐去除LD先"><a href="#推荐去除LD先" class="headerlink" title="推荐去除LD先 "></a>推荐去除LD先 <br></h2><p>Question: Should regions of long-range LD in the genome be removed prior to PCA?</p>
+<blockquote>
+<p>Answer: Yes, to avoid principal components that are artifacts of long-range LD it is ideal to remove such regions. See Table 1 of Price et al. 2008 AJHG. However, EIGENSTRAT can subsequently be run to compute disease association statistics using the full set of SNPs.</p>
+</blockquote>
+<p><br></p>
+<h2 id="仅支持有限的SNP数量"><a href="#仅支持有限的SNP数量" class="headerlink" title="仅支持有限的SNP数量"></a>仅支持有限的SNP数量</h2><p>Question: Can I run EIGENSOFT on very large data sets? <br></p>
+<blockquote>
+<p>Answer: Yes. We currently support GWAS data sets up to 8 billion genotypes. For data sets between 2 billion and 8 billion genotypes, some care is required. See documentation for details.</p>
+</blockquote>
+<p><br></p>
+<h2 id="命名太长的问题"><a href="#命名太长的问题" class="headerlink" title="命名太长的问题"></a>命名太长的问题</h2><p>Question: When I run I get an error message about “idnames too long”. What should I do?</p>
+<blockquote>
+<p>Answer: The software supports sample ID names up to a max of 39 characters. Longer sample ID names must be shortened. In addition, if your data is in PED format, the default is to concatenate the family ID and sample ID names so that their total length must meet this limit; however, you can set “familynames: NO” so that only the sample ID name will be used and must meet the 39 character limit.</p>
+</blockquote>
+<p><br></p>
+<h2 id="只取一部分群体"><a href="#只取一部分群体" class="headerlink" title="只取一部分群体"></a>只取一部分群体</h2><p>Question: How do I compute principal components using only a subset of populations and project other populations onto those principal components?</p>
+<blockquote>
+<p>Answer: Use -w flag to smartpca.perl (see EIGENSTRAT/README), or use poplistname parameter to smartpca (see POPGEN/README).</p>
+</blockquote>
 
       
     </div>
@@ -328,9 +361,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Bioinfomatics/" rel="tag">#Bioinfomatics</a>
-          
-            <a href="/tags/R/" rel="tag">#R</a>
+            <a href="/tags/admixtools/" rel="tag">#admixtools</a>
           
         </div>
       
@@ -339,16 +370,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/01/perl-cheetsheets/" rel="next" title="perl cheetsheets">
-                <i class="fa fa-chevron-left"></i> perl cheetsheets
+              <a href="/2017/04/17/Getting-free-images-with-copyright/" rel="next" title="Getting free images with copyright">
+                <i class="fa fa-chevron-left"></i> Getting free images with copyright
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/15/libgd-and-GD-problem-installing-Circos/" rel="prev" title="libgd and GD problem (installing Circos)">
-                libgd and GD problem (installing Circos) <i class="fa fa-chevron-right"></i>
+              <a href="/9999/01/01/shell-Cheetsheets/" rel="prev" title="Shell Scripting Cheetsheets">
+                Shell Scripting Cheetsheets <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -501,7 +532,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#常见的和格式有关的问题：more"><span class="nav-number">1.</span> <span class="nav-text">常见的和格式有关的问题：more</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ped、fam格式第六列的格式问题"><span class="nav-number">1.1.</span> <span class="nav-text">ped、fam格式第六列的格式问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐去除LD先"><span class="nav-number">1.2.</span> <span class="nav-text">推荐去除LD先 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#仅支持有限的SNP数量"><span class="nav-number">1.3.</span> <span class="nav-text">仅支持有限的SNP数量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名太长的问题"><span class="nav-number">1.4.</span> <span class="nav-text">命名太长的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#只取一部分群体"><span class="nav-number">1.5.</span> <span class="nav-text">只取一部分群体</span></a></li></ol></li></ol></div>
             
           </div>
         </section>

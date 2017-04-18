@@ -375,6 +375,143 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/18/admixtools/" itemprop="url">
+                  admixtools
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-18T09:40:20+08:00" content="2017-04-18">
+              2017-04-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Cheetsheets/" itemprop="url" rel="index">
+                    <span itemprop="name">Cheetsheets</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="常见的和格式有关的问题：more"><a href="#常见的和格式有关的问题：more" class="headerlink" title="常见的和格式有关的问题：more"></a>常见的和格式有关的问题：<a href="https://www.hsph.harvard.edu/alkes-price/eigensoft-frequently-asked-questions/" target="_blank" rel="external">more</a></h1><p><br></p>
+<h2 id="ped、fam格式第六列的格式问题"><a href="#ped、fam格式第六列的格式问题" class="headerlink" title="ped、fam格式第六列的格式问题"></a>ped、fam格式第六列的格式问题</h2><p>Question: convertf decides to “ignore” all my samples. Why?</p>
+<blockquote>
+<p>Answer: A likely reason is that you are using a “fam” or “ped” file with a funny value (0, 9 or -9) in column 6. Try setting column 6 to 1.</p>
+</blockquote>
+<p><br></p>
+<h2 id="推荐去除LD先"><a href="#推荐去除LD先" class="headerlink" title="推荐去除LD先 "></a>推荐去除LD先 <br></h2><p>Question: Should regions of long-range LD in the genome be removed prior to PCA?</p>
+<blockquote>
+<p>Answer: Yes, to avoid principal components that are artifacts of long-range LD it is ideal to remove such regions. See Table 1 of Price et al. 2008 AJHG. However, EIGENSTRAT can subsequently be run to compute disease association statistics using the full set of SNPs.</p>
+</blockquote>
+<p><br></p>
+<h2 id="仅支持有限的SNP数量"><a href="#仅支持有限的SNP数量" class="headerlink" title="仅支持有限的SNP数量"></a>仅支持有限的SNP数量</h2><p>Question: Can I run EIGENSOFT on very large data sets? <br></p>
+<blockquote>
+<p>Answer: Yes. We currently support GWAS data sets up to 8 billion genotypes. For data sets between 2 billion and 8 billion genotypes, some care is required. See documentation for details.</p>
+</blockquote>
+<p><br></p>
+<h2 id="命名太长的问题"><a href="#命名太长的问题" class="headerlink" title="命名太长的问题"></a>命名太长的问题</h2><p>Question: When I run I get an error message about “idnames too long”. What should I do?</p>
+<blockquote>
+<p>Answer: The software supports sample ID names up to a max of 39 characters. Longer sample ID names must be shortened. In addition, if your data is in PED format, the default is to concatenate the family ID and sample ID names so that their total length must meet this limit; however, you can set “familynames: NO” so that only the sample ID name will be used and must meet the 39 character limit.</p>
+</blockquote>
+<p><br></p>
+<h2 id="只取一部分群体"><a href="#只取一部分群体" class="headerlink" title="只取一部分群体"></a>只取一部分群体</h2><p>Question: How do I compute principal components using only a subset of populations and project other populations onto those principal components?</p>
+<blockquote>
+<p>Answer: Use -w flag to smartpca.perl (see EIGENSTRAT/README), or use poplistname parameter to smartpca (see POPGEN/README).</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/17/Getting-free-images-with-copyright/" itemprop="url">
                   Getting free images with copyright
                 </a>
@@ -2897,7 +3034,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">17</span>
+              <span class="site-state-item-count">18</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -2914,7 +3051,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
