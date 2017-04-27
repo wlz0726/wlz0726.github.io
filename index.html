@@ -483,12 +483,12 @@
 </ol>
 <p><br></p>
 <h2 id="千人SV过滤和merge方法（doi-10-1038-nature15394）"><a href="#千人SV过滤和merge方法（doi-10-1038-nature15394）" class="headerlink" title="千人SV过滤和merge方法（doi:10.1038/nature15394）"></a>千人SV过滤和merge方法（doi:10.1038/nature15394）</h2><blockquote>
-<p>For  each  sample  we  subsequently  selected  confident  CNVnator  calls  as  follows:<br>1)  calls  having  <strong>paired-end</strong>  support;  (PE reads only in bam)<br>2)  calls  with  p-values  less  than  1e-5  (to  accounts  for  multiple  hypothesis testing, i.e., calling in ~2,500 samples), and with <strong>q0 &lt; 0.5</strong>;<br>3) deletion calls with  p-values less than 10-5 and <strong>rd*(1 + q0) &lt; 0.75</strong> — whereby rd is the read-depth normalized  to  genome  average,  and  q0  is  fraction  of  reads  mapped  with  0  (zero)  mapping  quality.  </p>
+<p>For  each  sample  we  subsequently  selected  confident  CNVnator  calls  as  follows:<br>1)  calls  having  <strong>paired-end</strong>  support;  (PE reads only in bam)<br>2)  calls  with  p-values  less  than  1e-5  (to  accounts  for  multiple  hypothesis testing, i.e., calling in ~2,500 samples), and with <strong>q0 &lt; 0.5</strong>;<br>3) deletion calls with  p-values less than 10^-5 and <strong>rd*(1 + q0) &lt; 0.75</strong> — whereby rd is the read-depth normalized  to  genome  average,  and  q0  is  fraction  of  reads  mapped  with  0  (zero)  mapping  quality.  </p>
 <p>We  merged  CNV  calls  for  individuals  within  each  population. For  CNVnator  site  merging  we  initially  clustered  <strong>confident  overlapping  calls</strong>  and  <strong>averaged  coordinates  of  each  bound</strong>,  pursuing the merging initially by population and then across the entire sample set.</p>
 </blockquote>
 <p><br></p>
 <h2 id="CNV处理方式"><a href="#CNV处理方式" class="headerlink" title="CNV处理方式"></a>CNV处理方式</h2><ol>
-<li><p>不同个体间，大于50% reciprocal  overlap的CNV为一个CNV （0-GR-2011-CNVnator：  consider  two  calls  concordant  if  they  have  &gt;50%  reciprocal  overlap.  ）</p>
+<li><p>不同个体间，大于50% reciprocal  overlap的CNV为一个CNV （0-GR-2011-CNVnator, doi:10.1101/gr.114876.110：  consider  two  calls  concordant  if  they  have  &gt;50%  reciprocal  overlap.  ）</p>
 </li>
 <li><p>For  each  population,  overlapping  calls  were  merged  by  selecting  the  largest  call  of  all  overlapping  ones.(to CNVR)<br>For comparisons of CNVs among multiple individuals, we merged all overlapping calls across individuals into unique CNVRs.</p>
 </li>
@@ -499,7 +499,7 @@
 </li>
 <li><p>e-val1 &gt;= 0.01</p>
 </li>
-<li><p>deletion and duplication; dose not <strong> within </strong> a gap</p>
+<li><p>deletion and duplication; dose not <strong>within</strong> a gap</p>
 </li>
 </ol>
 <h3 id="实际使用个体间merge方法"><a href="#实际使用个体间merge方法" class="headerlink" title="实际使用个体间merge方法"></a>实际使用个体间merge方法</h3><ul>
@@ -519,7 +519,7 @@
 <li>In addition, we use the term “CNV regions” (<strong>CNVRs</strong>) for genomic regions that include all partially or fully overlapping CNVs in any one of the analyzed animals. The borders of a CNVR are defined by the coordinates of the merged CNV calls across all individuals</li>
 </ul>
 <h3 id="描述数量"><a href="#描述数量" class="headerlink" title="描述数量"></a>描述数量</h3><p>Three  to  five thousand CNV calls were produced for each individual, ranging in size from 200  to  1,590,400  bp  (see  Figure  S3).  </p>
-<h2 id="Vst分析-（千人SV-doi-10-1038-nature15394）"><a href="#Vst分析-（千人SV-doi-10-1038-nature15394）" class="headerlink" title="Vst分析 （千人SV doi:10.1038/nature15394）"></a>Vst分析 （千人SV doi:10.1038/nature15394）</h2><p><strong>计算方法</strong></p>
+<h2 id="Vst分析-（千人SV文章-doi-10-1038-nature15394）"><a href="#Vst分析-（千人SV文章-doi-10-1038-nature15394）" class="headerlink" title="Vst分析 （千人SV文章, doi:10.1038/nature15394）"></a>Vst分析 （千人SV文章, doi:10.1038/nature15394）</h2><p><strong>计算方法</strong></p>
 <p><img src="http://ofr9vioug.bkt.clouddn.com/vst_analysis.png?imageView/2/w/500" alt="image"></p>
 <h2 id="copy-number-based-Vst"><a href="#copy-number-based-Vst" class="headerlink" title="copy number based Vst"></a>copy number based Vst</h2><ul>
 <li>用copy number（CN）方差来反应群体之间的分化</li>
@@ -529,52 +529,56 @@
 <p><img src="http://ofr9vioug.bkt.clouddn.com/vst_table_display.png?imageView/2/w/500" alt="image"></p>
 <p><br></p>
 <hr>
-<h1 id="个性化分析"><a href="#个性化分析" class="headerlink" title="个性化分析"></a>个性化分析</h1><h2 id="基本信息统计"><a href="#基本信息统计" class="headerlink" title="基本信息统计"></a>基本信息统计</h2><h3 id="基于个体的"><a href="#基于个体的" class="headerlink" title="基于个体的"></a>基于个体的</h3><ol>
+<h1 id="个性化分析"><a href="#个性化分析" class="headerlink" title="个性化分析"></a>个性化分析</h1><h2 id="基本信息统计"><a href="#基本信息统计" class="headerlink" title="基本信息统计"></a>基本信息统计</h2><h3 id="基于个体的"><a href="#基于个体的" class="headerlink" title="基于个体的"></a>基于个体的</h3><ul>
 <li><p>平均乘数、比对reads数、比对率、 All CNVs数量、Average CNV length、Genetic CNVs数量、CNV基因数量 （table）</p>
 </li>
 <li><p>统计presence and absence patterns of CNV alss between individuals(individuals within populations are more similar to each other than individuals between populations) (FigS5 家鼠 doi/10.1101/gr.187187.114.)</p>
 </li>
-</ol>
+</ul>
 <p><img src="http://ofr9vioug.bkt.clouddn.com/PairwiseCluster.png?imageView/2/w/600" alt="image"></p>
-<ol>
+<ul>
 <li>不同群体之间，两两个体overlap数（1bp，50%长度分别展示）</li>
-</ol>
+</ul>
 <p><img src="http://ofr9vioug.bkt.clouddn.com/cnv_overlap_1bp_50percentage.png?imageView/2/w/600" alt="image"></p>
-<h3 id="基于群体的"><a href="#基于群体的" class="headerlink" title="基于群体的"></a>基于群体的</h3><ol>
+<h3 id="基于群体的"><a href="#基于群体的" class="headerlink" title="基于群体的"></a>基于群体的</h3><ul>
 <li>CNV <strong>长度</strong>分布，分群体展示（FigS3 家鼠 doi/10.1101/gr.187187.114.)</li>
-</ol>
+</ul>
 <p><img src="http://ofr9vioug.bkt.clouddn.com/CNV_size_distribution.png?imageView/2/w/600" alt="image"></p>
-<ol>
+<ul>
 <li>不同群体CNV calls/genetic CNVs/CNV genes<strong>数目</strong>，barplot (Fig1 家鼠 doi/10.1101/gr.187187.114.)</li>
-</ol>
+</ul>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">boxplot(CNV_number~sample_id,data=a)</div><div class="line">boxplot(a$V1,b$V1,outline = <span class="literal">F</span>,names=c(<span class="string">"A"</span>,<span class="string">"B"</span>),main=<span class="string">"title"</span>)</div></pre></td></tr></table></figure>
 <p><img src="http://ofr9vioug.bkt.clouddn.com/CNVnumberBarplot?imageView/2/w/600" alt="image"></p>
-<ol>
+<ul>
 <li>不同群体share情况</li>
-</ol>
+</ul>
 <p><img src="http://ofr9vioug.bkt.clouddn.com/cnv-human.png?imageView/2/w/400" alt="image"></p>
 <p>share</p>
 <p><img src="http://ofr9vioug.bkt.clouddn.com/CNV_share_within_without_pops.png?imageView/2/w/500" alt="image"></p>
 <p>private</p>
 <p><img src="http://ofr9vioug.bkt.clouddn.com/cnv_private.png?imageView/2/w/500" alt="image"></p>
-<ol>
+<ul>
 <li>和基因组不同区域的overlap情况</li>
-</ol>
+</ul>
 <p><img src="http://ofr9vioug.bkt.clouddn.com/overlap_with_genomic_elements.png?imageView/2/w/500" alt="image"></p>
 <blockquote>
 <p>Extended Data Figure 7 | Enrichment of functional elements intersecting SVs. a, Shadow figure of Fig. 2a. Overlap enrichment analysis of deletions (with resolved breakpoints) versus genomic elements, using partial overlap statistic, deletions categorized into VAF bins. b, Similar to a. The only difference is that engulf overlap statistic is used instead of partial overlap statistic. Engulf overlap statistic is the count of genomic elements (for example, CDS) that are fully imbedded in at least one SV interval (for example, deletions). *no element intersected observed within data set. c, Similar to a and b, with the enrichment/depletion analysis pursued for common SNPs as well as more rare single nucleotide polymorphisms/variants (SNVs). Common SNV alleles show the highest levels of depletion for investigated genomic elements. d, Overlap enrichment analysis of various SV types versus genomic elements, using partial overlap statistic.</p>
 </blockquote>
-<ol>
+<ul>
 <li><p>cnv长度和拷贝数的关系？</p>
 </li>
 <li><p>CNV频率分布（CNV Allele Frequency Distributions）对选择的影响（doi:10.1371/journal.pgen.1004830）</p>
 </li>
-</ol>
+</ul>
 <blockquote>
 <p>To test for the influence of selection on the allele frequency spectrum of CNVs, we used a Poisson Random Field approach implemented in <strong>prfreq</strong>, which evaluates the expected allele frequency distributions given different demographic and selection models. We compared the estimates of the scaled selection coefficient c of CNVs (both deletions and duplications) with intergenic SNPs, by fitting the ‘‘single point mass’’ model over a range of c (between 220 and 10). Estimates were taken modeling a stationary population, under the assumption that demographics affect intergenic SNPs and CNVs in a similar fashion.</p>
 </blockquote>
-<p>7.cnv 注释，不同区域的数量、比例，用比例可以不然不同群体间/不同类型（Deletion/Duplication)数量差异在图上太明显</p>
+<ul>
+<li>cnv 注释，不同区域的数量、比例，用比例可以不然不同群体间/不同类型（Deletion/Duplication)数量差异在图上太明显</li>
+</ul>
 <p><img src="http://ofr9vioug.bkt.clouddn.com/cnv-annot.png?imageView/2/w/500" alt="image"></p>
+<p><br></p>
+<p><br></p>
 
           
         
