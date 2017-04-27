@@ -382,6 +382,248 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/27/CNVnator-Based-Analysis/" itemprop="url">
+                  CNVnator Based Analysis
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-27T18:05:14+08:00" content="2017-04-27">
+              2017-04-27
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://github.com/abyzovlab/CNVnator" target="_blank" rel="external">CNVnator</a></p>
+<p>(Other software: Genome STRiP)</p>
+<h1 id="Call-CNV-using-CNVnator"><a href="#Call-CNV-using-CNVnator" class="headerlink" title="Call CNV using CNVnator"></a>Call CNV using CNVnator</h1><h2 id="Running-example"><a href="#Running-example" class="headerlink" title="Running example"></a>Running example</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">export ROOTSYS=/path/to/software/root;</div><div class="line">export LD_LIBRARY_PATH=/path/to/software/root/lib:$LD_LIBRARY_PATH;</div><div class="line">cnvnator -root AGS10A.Chr1.50.root -unique -tree AGS10A.sorted.bam -chrom Chr1 &gt;AGS10A.Chr1.50.root.l1 2&gt;AGS10A.Chr1.50.root.e1;</div><div class="line">cnvnator -root AGS10A.Chr1.50.root -d split_chr_dir -his 50 -chrom Chr1 &gt;AGS10A.Chr1.50.root.l2 2&gt;AGS10A.Chr1.50.root.e2</div><div class="line">cnvnator -root AGS10A.Chr1.50.root -stat 50 -chrom Chr1 &gt;AGS10A.Chr1.50.root.l3 2&gt;AGS10A.Chr1.50.root.e3;</div><div class="line">cnvnator -root AGS10A.Chr1.50.root -partition 50 -chrom Chr1 &gt;AGS10A.Chr1.50.root.l4 2&gt;AGS10A.Chr1.50.root.e4</div><div class="line">cnvnator -root AGS10A.Chr1.50.root -call 50 -chrom Chr1 &gt; AGS10A.Chr1.50.cnv 2&gt;AGS10A.Chr1.50.root.e5</div></pre></td></tr></table></figure>
+<h2 id="Result-format"><a href="#Result-format" class="headerlink" title="Result format:"></a>Result format:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">CNV_type  coordinates  CNV_size  normalized_RD  e-val1  e-val2  e-val3  e-val4  q0</div><div class="line"></div><div class="line">- normalized_RD -- normalized to 1.</div><div class="line">- e-val1        -- is calculated using t-test statistics.</div><div class="line">- e-val2        -- is from the probability of RD values within the region to be in</div><div class="line">the tails of a gaussian distribution describing frequencies of RD values in bins.</div><div class="line">- e-val3        -- same as e-val1 but for the middle of CNV</div><div class="line">- e-val4        -- same as e-val2 but for the middle of CNV</div><div class="line">- q0            -- fraction of reads mapped with q0 quality</div></pre></td></tr></table></figure>
+<p><br></p>
+<p><br></p>
+<h1 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h1><ul>
+<li><p>First thins you should do is try different bin_size settings like 100, 200, 500, 1000. And make sure that for the bin size you are using the ratio of average to its sd is around <strong>4-5</strong>. In the running log of <code>-stat</code> or <code>-eval</code>, something like this：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"># cnvnator -root scaffold100.root -chrom scaffold100 -stat 1000</div><div class="line">Making statistics for scaffold100 ...</div><div class="line">Average RD per bin (1-22) is 46.1805 +- 11.2085 (before GC correction)</div><div class="line">Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)</div><div class="line">Correcting counts by GC-content for &apos;scaffold100&apos; ...</div><div class="line">Making statistics for scaffold100 after GC correction ...</div><div class="line">Average RD per bin (1-22) is 45.3823 +- 10.8865 (after GC correction)</div><div class="line">Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)</div><div class="line"></div><div class="line"># OR</div><div class="line"># cnvnator -root scaffold100.root -chrom scaffold100 -eval 1000</div><div class="line">Average RD per bin (1-22) is 45.3823 +- 10.8865 4.16869</div><div class="line">Warning in &lt;Fit&gt;: Fit data is empty</div><div class="line">Warning in &lt;Fit&gt;: Fit data is empty</div><div class="line">Average RD per bin (X,Y)  is 0 +- 0 nan</div></pre></td></tr></table></figure>
+</li>
+<li><p>RAW cnv call的结果是normalized到1的深度, genotype的深度是normalized到2的深度。</p>
+</li>
+</ul>
+<blockquote>
+<p>The results of calling is RD signal normalized to 1, while genotyping returns estimated number of copies, which is 2 for all germline chromosomes except for X and Y in males.)</p>
+</blockquote>
+<ul>
+<li>By default CNVnator estimates CN (<code>-genotype</code>, last two number in each line) using bin size that you provided and bins of <code>1000</code> bp. If histogram for 1k bp bins don’t exist then the software prints the warning and print -1 (the last field).</li>
+</ul>
+<ul>
+<li>Larger events are more reliable. Also, regions with less repeats and segments duplication are more reliable (but this is taken care of by q0 filtering).</li>
+</ul>
+<ul>
+<li><strong>First e-values is more conservative.</strong> You can ignore e-val3 and e-val4. By default CNVantor reports calls that are with &lt;0.05 either for e-val1 or e-val2.</li>
+</ul>
+<p><br><br><br></p>
+<h1 id="Few-things-may-help"><a href="#Few-things-may-help" class="headerlink" title="Few things may help"></a>Few things may help</h1><ul>
+<li><p><code>CNVnator_v0.2.7</code> and <code>root-5.34.36</code> is a safe chioce</p>
+</li>
+<li><p>the information about genome is taken from BAM header. Option <code>-genome</code> is only relevant when using with SAM files</p>
+</li>
+<li><p>looks like your file got corrupted. Not sure about the reason. If the issue persist, the walk around is to save histograms into a different .root file. e.g. <code>cnvnator -root tree.root -outroot his.root -his 200 -d /ref/sep/</code></p>
+</li>
+<li><p>by default CNVantor reports calls that are with &lt;0.05 either for e-val1 or e-val2.</p>
+</li>
+<li><p>dealing with scaffolds genome, you may want to remove few scaffold with abnormal RD and sd (and the abnormal ratio of average to its sd ).</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># for example, scaffold with too many repeat sequences</div><div class="line">Making statistics for scaffold1152 ...</div><div class="line">Average RD per bin (1-22) is 3.35436e-07 +- 96.0994 (before GC correction)</div><div class="line">Average RD per bin (X,Y)  is 0 +- 0 (before GC correction)</div><div class="line">Correcting counts by GC-content for &apos;scaffold1152&apos; ...</div><div class="line">Making statistics for scaffold1152 after GC correction ...</div><div class="line">Average RD per bin (1-22) is 3.29977e-07 +- 9.1335e-08 (after GC correction)</div><div class="line">Average RD per bin (X,Y)  is 0 +- 0 (after GC correction)</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><br></p>
+<hr>
+<h1 id="过滤参考"><a href="#过滤参考" class="headerlink" title="过滤参考"></a>过滤参考</h1><h2 id="参考CNV过滤标准："><a href="#参考CNV过滤标准：" class="headerlink" title="参考CNV过滤标准："></a>参考CNV过滤标准：</h2><ol>
+<li><p>q0 &lt; 0.5, ie. calls with &gt;50% of q0 (zero mapping quality) reads within the CNV regions were removed (q0 filter）</p>
+</li>
+<li><p>CNV Calls &gt; 1kb (不必要)</p>
+</li>
+<li><p>P-value &lt;0.01 （e-val1 ）</p>
+</li>
+<li><p>不在基因组gap区域： it  does  not  <strong>overlap</strong> <strong>a gap</strong>  in  the  reference  genome  for  a  <strong>deletion</strong>,  and it is not <strong>within</strong> 0.5 Mb from a gap in the reference genome for a <strong>duplication</strong>; （nature11632-12-千人-s1）<em>/OR/</em> All CNV calls overlapping with gaps in the reference genome were excluded from consideration. (这个对于scaffolds的基因组太严了，尝试去掉50%以上)</p>
+</li>
+<li><p>重复序列区域： CNV calls that overlapped (more than 50% of their length) with masked regions were excluded from CNV analyses.</p>
+</li>
+<li><p>不好处理：a deletion must have at least two paired-end reads supporting the predictions  (overlapping  by  50%  reciprocally)  or  read  depth  in  the  middle  part  (1  kb  away  from  breakpoints)  of  the  called  region  should  be  statistically  different  from  average  read  depth.  Statistical  testing  was  done  the  same  way  as  when  calling  CNV regions. （nature11632-12-千人-s1）</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="千人SV过滤和merge方法（doi-10-1038-nature15394）"><a href="#千人SV过滤和merge方法（doi-10-1038-nature15394）" class="headerlink" title="千人SV过滤和merge方法（doi:10.1038/nature15394）"></a>千人SV过滤和merge方法（doi:10.1038/nature15394）</h2><blockquote>
+<p>For  each  sample  we  subsequently  selected  confident  CNVnator  calls  as  follows:<br>1)  calls  having  <strong>paired-end</strong>  support;  (PE reads only in bam)<br>2)  calls  with  p-values  less  than  1e-5  (to  accounts  for  multiple  hypothesis testing, i.e., calling in ~2,500 samples), and with <strong>q0 &lt; 0.5</strong>;<br>3) deletion calls with  p-values less than 10-5 and <strong>rd*(1 + q0) &lt; 0.75</strong> — whereby rd is the read-depth normalized  to  genome  average,  and  q0  is  fraction  of  reads  mapped  with  0  (zero)  mapping  quality.  </p>
+<p>We  merged  CNV  calls  for  individuals  within  each  population. For  CNVnator  site  merging  we  initially  clustered  <strong>confident  overlapping  calls</strong>  and  <strong>averaged  coordinates  of  each  bound</strong>,  pursuing the merging initially by population and then across the entire sample set.</p>
+</blockquote>
+<p><br></p>
+<h2 id="CNV处理方式"><a href="#CNV处理方式" class="headerlink" title="CNV处理方式"></a>CNV处理方式</h2><ol>
+<li><p>不同个体间，大于50% reciprocal  overlap的CNV为一个CNV （0-GR-2011-CNVnator：  consider  two  calls  concordant  if  they  have  &gt;50%  reciprocal  overlap.  ）</p>
+</li>
+<li><p>For  each  population,  overlapping  calls  were  merged  by  selecting  the  largest  call  of  all  overlapping  ones.(to CNVR)<br>For comparisons of CNVs among multiple individuals, we merged all overlapping calls across individuals into unique CNVRs.</p>
+</li>
+</ol>
+<p><br></p>
+<h2 id="实际过滤情况"><a href="#实际过滤情况" class="headerlink" title="实际过滤情况"></a>实际过滤情况</h2><h3 id="实际使用过滤标准："><a href="#实际使用过滤标准：" class="headerlink" title="实际使用过滤标准："></a>实际使用过滤标准：</h3><ol>
+<li><p>filter q0 &gt;= 0.5  </p>
+</li>
+<li><p>e-val1 &gt;= 0.01</p>
+</li>
+<li><p>deletion and duplication; dose not <strong> within </strong> a gap</p>
+</li>
+</ol>
+<h3 id="实际使用个体间merge方法"><a href="#实际使用个体间merge方法" class="headerlink" title="实际使用个体间merge方法"></a>实际使用个体间merge方法</h3><ul>
+<li>不同个体间，大于50% reciprocal overlap的CNV为一个CNV，平均两端的坐标（averaged  coordinates  of  each  bound）</li>
+</ul>
+<p><br></p>
+<hr>
+<h1 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h1><h2 id="相关定义"><a href="#相关定义" class="headerlink" title="相关定义"></a>相关定义</h2><ul>
+<li>Please make sure that for the bin size you are using the ratio of average to its sd is around 4-5. （<strong>第一步挑选一个合适的bin_size</strong>）</li>
+<li>most of false positives come from repetitive regions. So, the most confident calls are with q0 &lt; 0.5 (see README on how to generate it) （去除可能的重复序列区域结果）</li>
+</ul>
+<h2 id="CNV、genetic-CNV、CNV-gene定义"><a href="#CNV、genetic-CNV、CNV-gene定义" class="headerlink" title="CNV、genetic CNV、CNV gene定义"></a>CNV、genetic CNV、CNV gene定义</h2><p>(all from doi/10.1101/gr.187187.114.)</p>
+<ul>
+<li><strong>“CNVs”</strong> are all duplications or deletions ≥1 kb;</li>
+<li><strong>“genic CNVs”</strong> are calls that contain at least ++one whole transcription unit++, based on the RefSeq- Gene database;</li>
+<li>and <strong>“CNV genes”</strong> are transcription units that are completely contained within genic CNVs.</li>
+<li>In addition, we use the term “CNV regions” (<strong>CNVRs</strong>) for genomic regions that include all partially or fully overlapping CNVs in any one of the analyzed animals. The borders of a CNVR are defined by the coordinates of the merged CNV calls across all individuals</li>
+</ul>
+<h3 id="描述数量"><a href="#描述数量" class="headerlink" title="描述数量"></a>描述数量</h3><p>Three  to  five thousand CNV calls were produced for each individual, ranging in size from 200  to  1,590,400  bp  (see  Figure  S3).  </p>
+<h2 id="Vst分析-（千人SV-doi-10-1038-nature15394）"><a href="#Vst分析-（千人SV-doi-10-1038-nature15394）" class="headerlink" title="Vst分析 （千人SV doi:10.1038/nature15394）"></a>Vst分析 （千人SV doi:10.1038/nature15394）</h2><p><strong>计算方法</strong></p>
+<p><img src="http://ofr9vioug.bkt.clouddn.com/vst_analysis.png?imageView/2/w/500" alt="image"></p>
+<h2 id="copy-number-based-Vst"><a href="#copy-number-based-Vst" class="headerlink" title="copy number based Vst"></a>copy number based Vst</h2><ul>
+<li>用copy number（CN）方差来反应群体之间的分化</li>
+<li>取0.2作为阈值，鉴定高分化区域</li>
+<li>去掉X染色体的</li>
+</ul>
+<p><img src="http://ofr9vioug.bkt.clouddn.com/vst_table_display.png?imageView/2/w/500" alt="image"></p>
+<p><br></p>
+<hr>
+<h1 id="个性化分析"><a href="#个性化分析" class="headerlink" title="个性化分析"></a>个性化分析</h1><h2 id="基本信息统计"><a href="#基本信息统计" class="headerlink" title="基本信息统计"></a>基本信息统计</h2><h3 id="基于个体的"><a href="#基于个体的" class="headerlink" title="基于个体的"></a>基于个体的</h3><ol>
+<li><p>平均乘数、比对reads数、比对率、 All CNVs数量、Average CNV length、Genetic CNVs数量、CNV基因数量 （table）</p>
+</li>
+<li><p>统计presence and absence patterns of CNV alss between individuals(individuals within populations are more similar to each other than individuals between populations) (FigS5 家鼠 doi/10.1101/gr.187187.114.)</p>
+</li>
+</ol>
+<p><img src="http://ofr9vioug.bkt.clouddn.com/PairwiseCluster.png?imageView/2/w/600" alt="image"></p>
+<ol>
+<li>不同群体之间，两两个体overlap数（1bp，50%长度分别展示）</li>
+</ol>
+<p><img src="http://ofr9vioug.bkt.clouddn.com/cnv_overlap_1bp_50percentage.png?imageView/2/w/600" alt="image"></p>
+<h3 id="基于群体的"><a href="#基于群体的" class="headerlink" title="基于群体的"></a>基于群体的</h3><ol>
+<li>CNV <strong>长度</strong>分布，分群体展示（FigS3 家鼠 doi/10.1101/gr.187187.114.)</li>
+</ol>
+<p><img src="http://ofr9vioug.bkt.clouddn.com/CNV_size_distribution.png?imageView/2/w/600" alt="image"></p>
+<ol>
+<li>不同群体CNV calls/genetic CNVs/CNV genes<strong>数目</strong>，barplot (Fig1 家鼠 doi/10.1101/gr.187187.114.)</li>
+</ol>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">boxplot(CNV_number~sample_id,data=a)</div><div class="line">boxplot(a$V1,b$V1,outline = <span class="literal">F</span>,names=c(<span class="string">"A"</span>,<span class="string">"B"</span>),main=<span class="string">"title"</span>)</div></pre></td></tr></table></figure>
+<p><img src="http://ofr9vioug.bkt.clouddn.com/CNVnumberBarplot?imageView/2/w/600" alt="image"></p>
+<ol>
+<li>不同群体share情况</li>
+</ol>
+<p><img src="http://ofr9vioug.bkt.clouddn.com/cnv-human.png?imageView/2/w/400" alt="image"></p>
+<p>share</p>
+<p><img src="http://ofr9vioug.bkt.clouddn.com/CNV_share_within_without_pops.png?imageView/2/w/500" alt="image"></p>
+<p>private</p>
+<p><img src="http://ofr9vioug.bkt.clouddn.com/cnv_private.png?imageView/2/w/500" alt="image"></p>
+<ol>
+<li>和基因组不同区域的overlap情况</li>
+</ol>
+<p><img src="http://ofr9vioug.bkt.clouddn.com/overlap_with_genomic_elements.png?imageView/2/w/500" alt="image"></p>
+<blockquote>
+<p>Extended Data Figure 7 | Enrichment of functional elements intersecting SVs. a, Shadow figure of Fig. 2a. Overlap enrichment analysis of deletions (with resolved breakpoints) versus genomic elements, using partial overlap statistic, deletions categorized into VAF bins. b, Similar to a. The only difference is that engulf overlap statistic is used instead of partial overlap statistic. Engulf overlap statistic is the count of genomic elements (for example, CDS) that are fully imbedded in at least one SV interval (for example, deletions). *no element intersected observed within data set. c, Similar to a and b, with the enrichment/depletion analysis pursued for common SNPs as well as more rare single nucleotide polymorphisms/variants (SNVs). Common SNV alleles show the highest levels of depletion for investigated genomic elements. d, Overlap enrichment analysis of various SV types versus genomic elements, using partial overlap statistic.</p>
+</blockquote>
+<ol>
+<li><p>cnv长度和拷贝数的关系？</p>
+</li>
+<li><p>CNV频率分布（CNV Allele Frequency Distributions）对选择的影响（doi:10.1371/journal.pgen.1004830）</p>
+</li>
+</ol>
+<blockquote>
+<p>To test for the influence of selection on the allele frequency spectrum of CNVs, we used a Poisson Random Field approach implemented in <strong>prfreq</strong>, which evaluates the expected allele frequency distributions given different demographic and selection models. We compared the estimates of the scaled selection coefficient c of CNVs (both deletions and duplications) with intergenic SNPs, by fitting the ‘‘single point mass’’ model over a range of c (between 220 and 10). Estimates were taken modeling a stationary population, under the assumption that demographics affect intergenic SNPs and CNVs in a similar fashion.</p>
+</blockquote>
+<p>7.cnv 注释，不同区域的数量、比例，用比例可以不然不同群体间/不同类型（Deletion/Duplication)数量差异在图上太明显</p>
+<p><img src="http://ofr9vioug.bkt.clouddn.com/cnv-annot.png?imageView/2/w/500" alt="image"></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/18/Insert-blank-line-using-markdown/" itemprop="url">
                   Insert blank line using markdown
                 </a>
@@ -3155,7 +3397,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-count">20</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
