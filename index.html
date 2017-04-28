@@ -382,6 +382,100 @@
             
               
                 
+                <a class="post-title-link" href="/2017/04/28/bwa-aln/" itemprop="url">
+                  bwa-aln
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-28T14:08:42+08:00" content="2017-04-28">
+              2017-04-28
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"># aln pipeline</div><div class="line">mkdir tmp</div><div class="line"># step1</div><div class="line">bwa aln -m 100000 -t 4 -i 15 -q 10 -f sampleA_1.sai reference.fa sampleA_1.fq.gz</div><div class="line">bwa aln -m 100000 -t 4 -i 15 -q 10 -f sampleA_2.sai reference.fa sampleA_2.fq.gz</div><div class="line"></div><div class="line"># step2</div><div class="line"># map and sort; unmapped标记成 mapQ=0；</div><div class="line">bwa sampe -a 600 -r &quot;@RG\tID:sampleA\tPL:illumina\tPU:sampleA\tLB:sampleA\tSM:sampleA&quot; reference.fa out_1.sai out_2.sai input_1.fq.gz input_2.fq.gz|awk &apos;&#123;if (!/^@/ &amp;&amp; and($2,4) == 4) &#123;$5=0; $6=&quot;*&quot;;&#125; gsub(/ /,&quot;\t&quot;,$0); print&#125;&apos; | samtools view -bS -T reference.fa - &gt; sampleA.bam</div><div class="line"></div><div class="line"># FixMateInformation and sort</div><div class="line">java -Xmx3g -Djava.io.tmpdir=tmp -XX:MaxPermSize=512m -XX:-UseGCOverheadLimit -jar picard.jar FixMateInformation I=sampleA.bam O=sampleA.sort.bam TMP_DIR=tmp SO=coordinate VALIDATION_STRINGENCY=SILENT</div><div class="line"></div><div class="line"># index</div><div class="line">samtools1.2 index sampleA.sort.bam</div><div class="line"></div><div class="line"># calmd, recalculate MD/NM tags and &apos;=&apos; bases</div><div class="line">samtools calmd -b sampleA.bam reference.fa &gt; sampleA.sort.bam</div><div class="line"></div><div class="line"># remove PCR duplicates</div><div class="line">java -Xmx2G -Djava.io.tmpdir=tmp -XX:MaxPermSize=512m -XX:-UseGCOverheadLimit -jar picard.jar MarkDuplicates MAX_FILE_HANDLES=1000 REMOVE_DUPLICATES=true I=sampleA.sort.bam O=sampleA.rmdup.bam METRICS_FILE=sampleA.txt TMP_DIR=tmp VALIDATION_STRINGENCY=SILENT</div><div class="line"></div><div class="line"># merge</div><div class="line">java -Xmx2G -Djava.io.tmpdir=tmp -XX:MaxPermSize=512m -XX:-UseGCOverheadLimit -jar picard.jar MergeSamFiles MAX_FILE_HANDLES=1000 I=sampleA01.rmdup.bam I=sampleA02.rmdup.bam I=sampleA03.rmdup.bam O=sampleA.all.bam TMP_DIR=tmp SO=coordinate AS=true VALIDATION_STRINGENCY=SILENT</div><div class="line"></div><div class="line"># index</div><div class="line">samtools index sampleA.all.bam</div><div class="line"></div><div class="line"># realign</div><div class="line">java -Xmx4g -Djava.io.tmpdir=tmp -XX:MaxPermSize=512m -XX:-UseGCOverheadLimit -jar GenomeAnalysisTK.jar -T RealignerTargetCreator -R reference.fa -I sampleA.all.bam -o sampleA.realn.intervals -B:snps,VCF dbsnp_132.hg19.vcf -B:indels,VCF 1000G_indels_for_realignment.hg19.vcf -l INFO</div><div class="line"></div><div class="line">java -Xmx4g -Djava.io.tmpdir=tmp -XX:MaxPermSize=512m -XX:-UseGCOverheadLimit -jar GenomeAnalysisTK.jar -T IndelRealigner -R reference.fa -I sampleA.all.bam -o sampleA.realn.bam -targetIntervals sampleA.realn.intervals -maxInMemory 300000 -l INFO</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/04/27/CNVnator-Based-Analysis/" itemprop="url">
                   CNVnator Based Analysis
                 </a>
@@ -1062,6 +1156,9 @@
 </li>
 <li><p>把mis的用自定义genotype（0|0，0/0，1/1等等）填上</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vcf-merge -R &apos;0|0&apos; A.vcf.gz B.vcf.gz C.vcf.gz | bgzip -c &gt; out.vcf.gz</div></pre></td></tr></table></figure>
+</li>
+<li><p>bcftools</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">samtools/bcftools/bcftools merge --merge all --no-version --threads 10 file1.vcf.gz file2.vcf.gz |bgzip -c &gt; merge.vcf.gz</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>3.一行命令合并vcf，巧用括号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># Merge (that is, concatenate) two VCF files into one, keeping the header</div><div class="line"># from first one only.</div><div class="line">(zcat A.vcf.gz | grep ^#; zcat A.vcf.gz | grep -v ^#; zcat B.vcf.gz | grep -v ^#; )| bgzip -c &gt; out.vcf.gz</div></pre></td></tr></table></figure></p>
@@ -2141,6 +2238,7 @@
 <h4 id="Coding-language"><a href="#Coding-language" class="headerlink" title="Coding language"></a>Coding language</h4><p>Perl  <a href="http://www.perl.org/" target="_blank" rel="external">here</a><br>Python <a href="https://www.python.org/" target="_blank" rel="external">here</a><br>R <a href="http://www.r-project.org/" target="_blank" rel="external">here</a><br>Cookbook for R <a href="http://www.cookbook-r.com/" target="_blank" rel="external">here</a></p>
 <h4 id="Plot"><a href="#Plot" class="headerlink" title="Plot"></a>Plot</h4><p>ggplot2 <a href="http://docs.ggplot2.org/current/" target="_blank" rel="external">here</a><br>Circos <a href="http://circos.ca/" target="_blank" rel="external">here</a></p>
 <p>Color<br>Colorbrewer2 <a href="http://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3" target="_blank" rel="external">here</a></p>
+<h4 id="data-handling"><a href="#data-handling" class="headerlink" title="data handling"></a>data handling</h4><p>trim fastq reads <a href="https://github.com/lh3/trimadap" target="_blank" rel="external">trimadap</a><br>SeqKit <a href="http://bioinf.shenwei.me/seqkit/usage/" target="_blank" rel="external">here</a></p>
 <h4 id="Mapping"><a href="#Mapping" class="headerlink" title="Mapping"></a>Mapping</h4><p>BWA <a href="http://bio-bwa.sourceforge.net/" target="_blank" rel="external">here</a><br>Maq (out-of-date) <a href="http://maq.sourceforge.net/" target="_blank" rel="external">here</a><br>stamps (out-of-date) <a href="http://www.well.ox.ac.uk/project-stampy" target="_blank" rel="external">here</a><br>Bowtie (out-of-date) <a href="http://bowtie-bio.sourceforge.net/index.shtml" target="_blank" rel="external">here</a><br>Bowtie2 <a href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml" target="_blank" rel="external">here</a><br>minimap <a href="https://github.com/lh3/minimap" target="_blank" rel="external">here</a><br>SAM/BAM flag explain <a href="https://broadinstitute.github.io/picard/explain-flags.html" target="_blank" rel="external">here</a><br>lastz <a href="http://www.bx.psu.edu/miller_lab/dist/README.lastz-1.02.00/README.lastz-1.02.00a.html" target="_blank" rel="external">here</a></p>
 <ul>
 <li>axt format <a href="http://genome.ucsc.edu/goldenPath/help/axt.html" target="_blank" rel="external">here</a></li>
@@ -2150,26 +2248,33 @@
 <p>Variant call format<br>about vcf format <a href="http://vcftools.sourceforge.net/specs.html" target="_blank" rel="external">here</a><br>vcftools <a href="http://vcftools.sourceforge.net/index.html" target="_blank" rel="external">here</a></p>
 <h4 id="CNV-call"><a href="#CNV-call" class="headerlink" title="CNV call"></a>CNV call</h4><p>CNVnator <a href="https://github.com/abyzovlab/CNVnator" target="_blank" rel="external">here</a><br>Genome STRiP <a href="http://software.broadinstitute.org/software/genomestrip/" target="_blank" rel="external">here</a><br>XHMM <a href="http://atgu.mgh.harvard.edu/xhmm/index.shtml" target="_blank" rel="external">here</a></p>
 <h4 id="Genotype-phasing-imputation"><a href="#Genotype-phasing-imputation" class="headerlink" title="Genotype phasing, imputation"></a>Genotype phasing, imputation</h4><p>beagle <a href="http://faculty.washington.edu/browning/beagle/beagle.html" target="_blank" rel="external">here</a><br>impute2 <a href="http://genome.sph.umich.edu/wiki/IMPUTE2:_1000_Genomes_Imputation_Cookbook" target="_blank" rel="external">here</a><br>phase <a href="http://stephenslab.uchicago.edu/software.html#phase" target="_blank" rel="external">here</a><br>fastphase <a href="http://depts.washington.edu/fphase/Old/" target="_blank" rel="external">here</a><br>SHAPEIT <a href="https://mathgen.stats.ox.ac.uk/genetics_software/shapeit/shapeit.html" target="_blank" rel="external">here</a></p>
-<h4 id="Phylogenetic-tree"><a href="#Phylogenetic-tree" class="headerlink" title="Phylogenetic tree"></a>Phylogenetic tree</h4><p>fasttree <a href="http://www.microbesonline.org/fasttree/" target="_blank" rel="external">here</a><br>RAxML <a href="http://sco.h-its.org/exelixis/web/software/raxml/index.html" target="_blank" rel="external">here</a><br>Phylip <a href="http://evolution.genetics.washington.edu/phylip.html" target="_blank" rel="external">here</a><br>PAUP* <a href="http://www.molecularevolution.org/software/phylogenetics/paup" target="_blank" rel="external">here</a> <a href="http://paup.sc.fsu.edu/port.html" target="_blank" rel="external">here</a><br>Phylogen Programs <a href="http://evolution.genetics.washington.edu/phylip/software.html" target="_blank" rel="external">here</a><br>draw a nice tree <a href="http://www.evolgenius.info/evolview/#mytrees/DEMOS/bars" target="_blank" rel="external">here</a></p>
+<h4 id="Phylogenetic-tree"><a href="#Phylogenetic-tree" class="headerlink" title="Phylogenetic tree"></a>Phylogenetic tree</h4><p>fasttree <a href="http://www.microbesonline.org/fasttree/" target="_blank" rel="external">here</a><br>RAxML <a href="http://sco.h-its.org/exelixis/web/software/raxml/index.html" target="_blank" rel="external">here</a><br>Phylip <a href="http://evolution.genetics.washington.edu/phylip.html" target="_blank" rel="external">here</a><br>PAUP* <a href="http://www.molecularevolution.org/software/phylogenetics/paup" target="_blank" rel="external">here</a>   <a href="http://paup.sc.fsu.edu/port.html" target="_blank" rel="external">here</a><br>Phylogen Programs <a href="http://evolution.genetics.washington.edu/phylip/software.html" target="_blank" rel="external">here</a>  </p>
+<ul>
+<li><p>draw a nice tree <a href="http://www.evolgenius.info/evolview/#mytrees/DEMOS/bars" target="_blank" rel="external">here</a>   <a href="http://icytree.org/" target="_blank" rel="external">here</a></p>
+</li>
+<li><p>compare two trees <a href="https://cran.r-project.org/web/packages/dendextend/vignettes/introduction.html" target="_blank" rel="external">dendextend</a></p>
+</li>
+</ul>
 <h4 id="Analysis-tools"><a href="#Analysis-tools" class="headerlink" title="Analysis tools"></a>Analysis tools</h4><p>plink <a href="http://pngu.mgh.harvard.edu/~purcell/plink/index.shtml" target="_blank" rel="external">here</a><br>ngstools <a href="https://github.com/mfumagalli/ngsTools" target="_blank" rel="external">here</a></p>
 <h4 id="LD"><a href="#LD" class="headerlink" title="LD"></a>LD</h4><p>haploview<a href="http://www.broadinstitute.org/scientific-community/science/programs/medical-and-population-genetics/haploview/haploview" target="_blank" rel="external">here</a></p>
 <h4 id="IBD"><a href="#IBD" class="headerlink" title="IBD"></a>IBD</h4><p>beagle <a href="https://faculty.washington.edu/browning/beagle/beagle.html" target="_blank" rel="external">here</a><br>germline <a href="http://www.cs.columbia.edu/~gusev/germline/" target="_blank" rel="external">here</a></p>
 <h4 id="Population-Structure-analysis"><a href="#Population-Structure-analysis" class="headerlink" title="Population Structure analysis"></a>Population Structure analysis</h4><p>frappe <a href="http://med.stanford.edu/tanglab/software/frappe.html" target="_blank" rel="external">here</a><br>structure <a href="http://pritchardlab.stanford.edu/structure.html" target="_blank" rel="external">here</a><br>admixture <a href="http://www.genetics.ucla.edu/software/admixture/" target="_blank" rel="external">here</a><br>ngsAdmix <a href="http://www.popgen.dk/software/index.php/NgsAdmix" target="_blank" rel="external">here</a></p>
 <h4 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h4><p>eigensoft <a href="http://genetics.med.harvard.edu/reich/Reich_Lab/Software.html" target="_blank" rel="external">here</a></p>
-<h4 id="Demographic-history"><a href="#Demographic-history" class="headerlink" title="Demographic history"></a>Demographic history</h4><p>dadi <a href="https://code.google.com/p/dadi/" target="_blank" rel="external">here</a><br>psmc <a href="https://github.com/lh3/psmc" target="_blank" rel="external">here</a><br>msmc <a href="https://github.com/stschiff/msmc" target="_blank" rel="external">here</a><br>smc++ <a href="https://github.com/popgenmethods/smcpp" target="_blank" rel="external">here</a><br>treemix <a href="https://code.google.com/p/treemix/" target="_blank" rel="external">here</a><br>fastsimcoal2 <a href="http://cmpg.unibe.ch/software/fastsimcoal2/" target="_blank" rel="external">here</a><br>ChromoPainter/fineStructure/GLOBETROTTER <a href="http://www.paintmychromosomes.com/" target="_blank" rel="external">here</a><br>G-PhoCS <a href="http://compgen.cshl.edu/GPhoCS/" target="_blank" rel="external">here</a><br>SLim <a href="https://messerlab.org/slim/" target="_blank" rel="external">here</a></p>
+<h4 id="Demographic-history"><a href="#Demographic-history" class="headerlink" title="Demographic history"></a>Demographic history</h4><p>dadi <a href="https://code.google.com/p/dadi/" target="_blank" rel="external">here</a><br>psmc <a href="https://github.com/lh3/psmc" target="_blank" rel="external">here</a><br>msmc <a href="https://github.com/stschiff/msmc" target="_blank" rel="external">here</a><br>smc++ <a href="https://github.com/popgenmethods/smcpp" target="_blank" rel="external">here</a><br>treemix <a href="https://code.google.com/p/treemix/" target="_blank" rel="external">here</a><br>fastsimcoal2 <a href="http://cmpg.unibe.ch/software/fastsimcoal2/" target="_blank" rel="external">here</a><br>ChromoPainter/fineStructure/GLOBETROTTER <a href="http://www.paintmychromosomes.com/" target="_blank" rel="external">here</a><br>G-PhoCS <a href="http://compgen.cshl.edu/GPhoCS/" target="_blank" rel="external">here</a><br>SLim <a href="https://messerlab.org/slim/" target="_blank" rel="external">here</a><br>BEAST <a href="http://beast.bio.ed.ac.uk/" target="_blank" rel="external">here</a></p>
 <h4 id="Seletive-sweeps"><a href="#Seletive-sweeps" class="headerlink" title="Seletive sweeps"></a>Seletive sweeps</h4><p>sweep <a href="http://www.broadinstitute.org/mpg/sweep/" target="_blank" rel="external">here</a><br>ihs and xpehh <a href="http://hgdp.uchicago.edu/Software/" target="_blank" rel="external">here</a><br>nSL <a href="http://cteg.berkeley.edu/software.html" target="_blank" rel="external">here</a><br>SweepFinder <a href="http://people.binf.ku.dk/rasmus/webpage/sf.html" target="_blank" rel="external">here</a><br>SweeD <a href="http://sco.h-its.org/exelixis/web/software/sweed/index.html" target="_blank" rel="external">here</a><br>xp-clr <a href="http://genetics.med.harvard.edu/reichlab/Reich_Lab/Software.html" target="_blank" rel="external">here</a><br>selscan <a href="https://github.com/szpiech/selscan" target="_blank" rel="external">here</a></p>
 <h4 id="Transcriptome"><a href="#Transcriptome" class="headerlink" title="Transcriptome"></a>Transcriptome</h4><p>Trinity <a href="http://trinityrnaseq.sourceforge.net/" target="_blank" rel="external">here</a><br>velvet <a href="http://www.ebi.ac.uk/~zerbino/velvet/" target="_blank" rel="external">here</a><br>Tophat <a href="http://ccb.jhu.edu/software/tophat/index.shtml" target="_blank" rel="external">here</a><br>cufflinks <a href="http://cole-trapnell-lab.github.io/cufflinks/" target="_blank" rel="external">here</a><br>HISAT2 <a href="https://ccb.jhu.edu/software/hisat2/manual.shtml" target="_blank" rel="external">here</a><br>WGCNA (a R package for weighted correlation network analysis)  <a href="https://labs.genetics.ucla.edu/horvath/CoexpressionNetwork/Rpackages/WGCNA/" target="_blank" rel="external">here</a></p>
-<h4 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h4><p>DDBJ <a href="http://www.ddbj.nig.ac.jp/index-e.html" target="_blank" rel="external">here</a><br>ENA <a href="http://www.ebi.ac.uk/ena/home" target="_blank" rel="external">here</a><br>NCBI <a href="http://www.ncbi.nlm.nih.gov/" target="_blank" rel="external">here</a><br>ensembl <a href="http://asia.ensembl.org/index.html" target="_blank" rel="external">here</a><br>ensembl plant <a href="http://plants.ensembl.org/index.html" target="_blank" rel="external">here</a><br>KEGG <a href="http://www.genome.jp/kegg/" target="_blank" rel="external">here</a><br>GO <a href="http://www.geneontology.org/" target="_blank" rel="external">here</a><br>Plant transcription factor database (PlantTFDB) <a href="http://planttfdb.cbi.pku.edu.cn/" target="_blank" rel="external">here</a><br>Human Phenotype Ontology <a href="http://human-phenotype-ontology.github.io/" target="_blank" rel="external">here</a><br>GSA, Genome sequence archive of Beijing Institutes of Genomics(BIG) <a href="http://gsa.big.ac.cn/" target="_blank" rel="external">here</a></p>
+<h4 id="Database"><a href="#Database" class="headerlink" title="Database"></a>Database</h4><p>DDBJ <a href="http://www.ddbj.nig.ac.jp/index-e.html" target="_blank" rel="external">here</a><br>ENA <a href="http://www.ebi.ac.uk/ena/home" target="_blank" rel="external">here</a><br>NCBI <a href="http://www.ncbi.nlm.nih.gov/" target="_blank" rel="external">here</a><br>ensembl <a href="http://asia.ensembl.org/index.html" target="_blank" rel="external">here</a><br>ensembl plant <a href="http://plants.ensembl.org/index.html" target="_blank" rel="external">here</a><br>KEGG <a href="http://www.genome.jp/kegg/" target="_blank" rel="external">here</a><br>GO <a href="http://www.geneontology.org/" target="_blank" rel="external">here</a><br>Plant transcription factor database (PlantTFDB) <a href="http://planttfdb.cbi.pku.edu.cn/" target="_blank" rel="external">here</a><br>Human Phenotype Ontology <a href="http://human-phenotype-ontology.github.io/" target="_blank" rel="external">here</a><br>GSA, Genome sequence archive of Beijing Institutes of Genomics(BIG) <a href="http://gsa.big.ac.cn/" target="_blank" rel="external">here</a><br>水稻rice <a href="http://www.rmbreeding.cn/Index/" target="_blank" rel="external">here</a> <a href="http://cgm.sjtu.edu.cn/3kricedb/" target="_blank" rel="external">here</a><br>人human <a href="http://genetics.med.harvard.edu/reichlab/Reich_Lab/Datasets.html" target="_blank" rel="external">David Reich lab</a></p>
 <h4 id="GWAS"><a href="#GWAS" class="headerlink" title="GWAS"></a>GWAS</h4><p>FAST-LMM <a href="http://research.microsoft.com/en-us/um/redmond/projects/mscompbio/fastlmm/" target="_blank" rel="external">here</a><br>GAPIT <a href="https://groups.google.com/forum/#!forum/gapit-forum" target="_blank" rel="external">here</a><br>EMMAX <a href="http://csg.sph.umich.edu/kang/emmax/download/index.html" target="_blank" rel="external">here</a></p>
 <h4 id="Metagenomics-MGWAS"><a href="#Metagenomics-MGWAS" class="headerlink" title="Metagenomics(MGWAS)"></a>Metagenomics(MGWAS)</h4><p>MaAsLin <a href="https://huttenhower.sph.harvard.edu/maaslin" target="_blank" rel="external">here</a></p>
 <h4 id="RAD-seq"><a href="#RAD-seq" class="headerlink" title="RAD-seq"></a>RAD-seq</h4><p>Stacks <a href="http://catchenlab.life.illinois.edu/stacks/manual/" target="_blank" rel="external">here</a></p>
 <h4 id="SNP-annotation"><a href="#SNP-annotation" class="headerlink" title="SNP annotation"></a>SNP annotation</h4><p>SNPeff <a href="http://snpeff.sourceforge.net/SnpEff_manual.html#intro" target="_blank" rel="external">here</a><br>NGS-SNP <a href="http://www.ualberta.ca/~stothard/downloads/NGS-SNP/" target="_blank" rel="external">here</a><br>ANNOVAR <a href="http://annovar.openbioinformatics.org/en/latest/user-guide/startup/" target="_blank" rel="external">here</a></p>
 <h4 id="Gene-annotation"><a href="#Gene-annotation" class="headerlink" title="Gene annotation"></a>Gene annotation</h4><p>EVidenceModeler(EVM) <a href="https://evidencemodeler.github.io/" target="_blank" rel="external">here</a><br>DAVID <a href="https://david.ncifcrf.gov/home.jsp" target="_blank" rel="external">here</a></p>
-<h4 id="Protein-functional-effects"><a href="#Protein-functional-effects" class="headerlink" title="Protein functional effects"></a>Protein functional effects</h4><p>PolyPhen-2 <a href="http://genetics.bwh.harvard.edu/pph2/" target="_blank" rel="external">here</a></p>
-<h4 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h4><p>Primer3 <a href="https://www.plob.org/article/4529.html" target="_blank" rel="external">here</a> <a href="https://www.plob.org/article/4530.html" target="_blank" rel="external">here</a><br>TMHMM (domain prediction) <a href="http://www.cbs.dtu.dk/services/TMHMM/" target="_blank" rel="external">here</a><br>Wego <a href="http://wego.genomics.org.cn/cgi-bin/wego/index.pl" target="_blank" rel="external">here</a><br>Species &amp; general Chinese name <a href="http://wiki.cnki.com.cn/HotWord/28322.htm" target="_blank" rel="external">here</a><br>tree of life <a href="http://tolweb.org/tree/" target="_blank" rel="external">here</a></p>
-<h4 id="Venn-diagram"><a href="#Venn-diagram" class="headerlink" title="Venn diagram"></a>Venn diagram</h4><p>VennPainter <a href="https://github.com/linguoliang/VennPainter/" target="_blank" rel="external">here</a><br>Venny2.1 <a href="http://bioinfogp.cnb.csic.es/tools/venny/index.html" target="_blank" rel="external">here</a></p>
+<h4 id="Protein-functional-effects"><a href="#Protein-functional-effects" class="headerlink" title="Protein functional effects"></a>Protein functional effects</h4><p>PolyPhen-2 <a href="http://genetics.bwh.harvard.edu/pph2/" target="_blank" rel="external">here</a><br>Protein-Protein Interaction Networks <a href="http://string-db.org/" target="_blank" rel="external">here</a></p>
+<h4 id="Tools"><a href="#Tools" class="headerlink" title="Tools"></a>Tools</h4><p>Primer3 <a href="https://www.plob.org/article/4529.html" target="_blank" rel="external">here</a> <a href="https://www.plob.org/article/4530.html" target="_blank" rel="external">here</a><br>TMHMM (domain prediction) <a href="http://www.cbs.dtu.dk/services/TMHMM/" target="_blank" rel="external">here</a><br>Wego <a href="http://wego.genomics.org.cn/cgi-bin/wego/index.pl" target="_blank" rel="external">here</a><br>Species &amp; general Chinese name <a href="http://wiki.cnki.com.cn/HotWord/28322.htm" target="_blank" rel="external">here</a><br>tree of life <a href="http://tolweb.org/tree/" target="_blank" rel="external">here</a><br>制作流程图 <a href="https://www.draw.io/" target="_blank" rel="external">here</a> <a href="https://www.processon.com/" target="_blank" rel="external">here</a><br>Venn diagram 维恩图 <a href="https://github.com/linguoliang/VennPainter/" target="_blank" rel="external">VennPainter</a>  <a href="http://bioinfogp.cnb.csic.es/tools/venny/index.html" target="_blank" rel="external">Venny2.1</a></p>
+<p>draw a plot like this <a href="http://weblogo.berkeley.edu/logo.cgi" target="_blank" rel="external">weblogo</a><br><img src="http://ofr9vioug.bkt.clouddn.com/QQ20170419-145649-atgc.png?imageView/2/w/500" alt="image"></p>
 <h4 id="Cancer-related"><a href="#Cancer-related" class="headerlink" title="Cancer related"></a>Cancer related</h4><p>The Cancer Genome Atlas(TCGA) pan-cancer anlysis <a href="https://cancergenome.nih.gov/" target="_blank" rel="external">here</a> <a href="http://www.nature.com/tcga/" target="_blank" rel="external">here</a><br>International Cancer Genome Consortium (ICGC) <a href="http://icgc.org/" target="_blank" rel="external">here</a><br>National Cancer Institute (NCI) <a href="https://www.cancer.gov/research/areas/genomics" target="_blank" rel="external">here</a><br>National Comprehensive Cancer Network (NCCN), including NCCN guidelines for clinical application. <a href="https://www.nccn.org/" target="_blank" rel="external">here</a></p>
 <h4 id="Disease"><a href="#Disease" class="headerlink" title="Disease"></a>Disease</h4><p>CDC Public Health Genomics Knowledge Base <a href="https://phgkb.cdc.gov/GAPPKB/phgHome.do?action=home" target="_blank" rel="external">here</a></p>
+<h4 id="evolution"><a href="#evolution" class="headerlink" title="evolution"></a>evolution</h4><p><a href="http://evolution.berkeley.edu/evolibrary/home.php" target="_blank" rel="external">UC berkeley, Understanding Evolution</a><br><a href="http://tiktaalik.uchicago.edu/resources.html#" target="_blank" rel="external">tiktaalik roseae</a> <a href="http://open.163.com/movie/2015/10/9/5/MB617DHCA_MB619EC95.html" target="_blank" rel="external">你身体里的鱼 Your inner fish</a></p>
 
           
         
@@ -3401,7 +3506,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -3418,7 +3523,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

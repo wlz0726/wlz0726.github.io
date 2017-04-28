@@ -96,7 +96,7 @@ bgzip和tabix包含在samtools/htslib内。12samtools/htslib/bgzip -c file.vcf &
 bgzip和tabix包含在samtools/htslib内。12samtools/htslib/bgzip -c file.vcf &amp;gt; file.vcf.gzsamtools/htslib/tabix -p vcf file.vcf.gz
 
 小模块在">
-<meta property="og:updated_time" content="2017-04-24T08:14:56.000Z">
+<meta property="og:updated_time" content="2017-04-28T06:06:15.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vcftools">
 <meta name="twitter:description" content="习惯：Always使用bgzip生成vcf.gz文件并用tabix生成index，使得vcftools和GATK中直接使用vcf.gz文件。
@@ -349,6 +349,9 @@ bgzip和tabix包含在samtools/htslib内。12samtools/htslib/bgzip -c file.vcf &
 <li><p>把mis的用自定义genotype（0|0，0/0，1/1等等）填上</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vcf-merge -R &apos;0|0&apos; A.vcf.gz B.vcf.gz C.vcf.gz | bgzip -c &gt; out.vcf.gz</div></pre></td></tr></table></figure>
 </li>
+<li><p>bcftools</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">samtools/bcftools/bcftools merge --merge all --no-version --threads 10 file1.vcf.gz file2.vcf.gz |bgzip -c &gt; merge.vcf.gz</div></pre></td></tr></table></figure>
+</li>
 </ul>
 <p>3.一行命令合并vcf，巧用括号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># Merge (that is, concatenate) two VCF files into one, keeping the header</div><div class="line"># from first one only.</div><div class="line">(zcat A.vcf.gz | grep ^#; zcat A.vcf.gz | grep -v ^#; zcat B.vcf.gz | grep -v ^#; )| bgzip -c &gt; out.vcf.gz</div></pre></td></tr></table></figure></p>
 <p><br></p>
@@ -464,7 +467,7 @@ bgzip和tabix包含在samtools/htslib内。12samtools/htslib/bgzip -c file.vcf &
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">20</span>
+              <span class="site-state-item-count">21</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -481,7 +484,7 @@ bgzip和tabix包含在samtools/htslib内。12samtools/htslib/bgzip -c file.vcf &
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
