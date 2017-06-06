@@ -382,6 +382,101 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/06/Do-Phasing-with-SHAPEIT/" itemprop="url">
+                  Do Phasing with SHAPEIT
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-06T14:55:02+08:00" content="2017-06-06">
+              2017-06-06
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">export JAVA_HOME=/home/wanglizhong/software/java/jre1.8.0_45;</div><div class="line"></div><div class="line"># beagle was used to improve genotype calls using genotype likelihoods</div><div class="line">java -jar beagle/4.1/beagle.27Jul16.86a.jar gl=1.vcf.gz out=1.genotype;</div><div class="line"></div><div class="line"># phase with shapeit</div><div class="line">shapeit --thread 4 --effective-size 14269 --input-vcf 1.genotype.vcf.gz -M genetic_map_b37/genetic_map_chr1_combined_b37.txt --output-max 1.shapeit.haps 1.shapeit.sample --output-log 1.shapeit.log</div><div class="line"></div><div class="line"># Convert the SHAPEIT haplotypes to vcf formats</div><div class="line">shapeit -convert --input-haps 1.shapeit --output-vcf 1.shapeit.phased.vcf --output-log 1.shapeit.convert.log</div></pre></td></tr></table></figure>
+<p><a href="https://mathgen.stats.ox.ac.uk/genetics_software/shapeit/shapeit.html" target="_blank" rel="external">more about shapeit</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/05/27/LD-prune-with-plink/" itemprop="url">
                   LD-prune with plink
                 </a>
@@ -3821,7 +3916,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-count">25</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
