@@ -248,7 +248,7 @@
             
               
                 
-                <a class="post-title-link" href="/9999/01/01/shell-Cheetsheets/" itemprop="url">
+                <a class="post-title-link" href="/6666/06/06/shell-Cheetsheets/" itemprop="url">
                   Shell Scripting Cheetsheets
                 </a>
               
@@ -262,8 +262,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="9999-01-01T00:00:00+08:00" content="9999-01-01">
-              9999-01-01
+            <time itemprop="dateCreated" datetime="6666-06-06T00:00:00+08:00" content="6666-06-06">
+              6666-06-06
             </time>
           </span>
 
@@ -382,6 +382,200 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/19/tmux/" itemprop="url">
+                  tmux
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-19T13:17:32+08:00" content="2017-06-19">
+              2017-06-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>tmux安装过程报错可能是缺libevent，先安装libevent<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz</div><div class="line">tar zxvf libevent-2.1.8-stable.tar.gz</div><div class="line">cd libevent-2.1.8-stable</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure></p>
+<p>安装tmux，运行tmux如果缺库，则把libevent-* 连接到lib目录。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/19/无Root配置zsh和Oh-my-zsh/" itemprop="url">
+                  无Root配置zsh和Oh-my-zsh
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-19T13:02:48+08:00" content="2017-06-19">
+              2017-06-19
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>无root，系统里没有zsh的时候，无法用chsh切换zsh</p>
+<h2 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a>安装zsh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget -O zsh.tar.gz https://sourceforge.net/projects/zsh/files/latest/download</div><div class="line">tar zxvf zsh.tar.gz</div><div class="line">cd zsh-*</div><div class="line">./configure --prefix=/home/wanglizhong/software/zsh.install/zsh-5.2/</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<h2 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</div><div class="line">cp ~/.zshrc ~/.zshrc.orig</div><div class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</div></pre></td></tr></table></figure>
+<p>在 <code>.bashrc</code> 加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exec /home/wanglizhong/software/zsh.install/zsh-5.2/bin/zsh</div></pre></td></tr></table></figure></p>
+<p>配置.zshrc规则和.bashrc几乎一样</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"># Path to your oh-my-zsh installation.</div><div class="line">export ZSH=$HOME/software/oh-my-zsh</div><div class="line">ZSH_THEME=&quot;michelebologna&quot;</div><div class="line">DISABLE_AUTO_UPDATE=&quot;true&quot;</div><div class="line">plugins=(git)</div><div class="line">export LC_ALL=C</div><div class="line"></div><div class="line"># User configuration</div><div class="line">source $ZSH/oh-my-zsh.sh</div><div class="line"></div><div class="line">#shortcut</div><div class="line">alias em=&apos;/usr/bin/emacs&apos;</div><div class="line">alias ll=&apos;ls -l&apos;</div><div class="line">alias la=&apos;ls -a&apos;</div><div class="line">alias les=&apos;less -S -x4&apos;</div><div class="line">alias ks=&apos;ls&apos;</div><div class="line">alias ch=&apos;chmod +x&apos;</div><div class="line">alias ee=&apos;exit&apos;</div><div class="line">alias tt=&apos;top -u wanglizhong&apos;</div><div class="line">alias sourcerc=&apos;source ~/.zshrc&apos;</div><div class="line">alias head1=&apos;head -1&apos;</div><div class="line">alias githelp=&apos;cat /home/wanglizhong/helpfile/git&apos;</div><div class="line"># tmux</div><div class="line">alias tls=&apos;tmux ls&apos;</div><div class="line">alias tnew=&apos;tmux new -s&apos;</div><div class="line">alias tatt=&apos;tmux att -t&apos;</div><div class="line">alias tkill=&apos;tmux kill-session -t&apos;</div><div class="line"># help</div><div class="line">alias find-help=&apos;cat /home/wanglizhong/tools/find&apos;</div><div class="line">alias awk-help=&apos;cat /home/wanglizhong/tools/awk&apos;</div><div class="line"># qsub</div><div class="line">alias qs=&apos;qstat|sort -t&quot; &quot; -k1 -n|les -N&apos;</div><div class="line">alias qd=&apos;qdel&apos;</div><div class="line">alias qj=&apos;qstat -j&apos;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/06/Do-Phasing-with-SHAPEIT/" itemprop="url">
                   Do Phasing with SHAPEIT
                 </a>
@@ -401,6 +595,25 @@
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Cheetsheets/" itemprop="url" rel="index">
+                    <span itemprop="name">Cheetsheets</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -3918,7 +4131,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">25</span>
+              <span class="site-state-item-count">27</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -3935,7 +4148,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
