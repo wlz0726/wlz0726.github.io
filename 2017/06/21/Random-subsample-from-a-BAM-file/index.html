@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="picard,subsample-bam," />
 
 
 
@@ -84,15 +84,22 @@
 
 
 
-<meta name="description" content="自我提升和自我完善是一种终身的修行">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lizhong's notes">
-<meta property="og:url" content="http://yoursite.com/archives/2017/04/index.html">
+<meta name="description" content="picard DownsampleSam1java -jar picard.jar DownsampleSam P=0.25 I=QX70A.sorted.bam O=QX70A.Per0.25.bam CREATE_INDEX=true
+picard
+samtools好像有问题，取出来不随机？存疑1samtools view -h -b -s 0.25 QX70A.sorted.bam -o Q">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Random subsample from a BAM file">
+<meta property="og:url" content="http://yoursite.com/2017/06/21/Random-subsample-from-a-BAM-file/index.html">
 <meta property="og:site_name" content="lizhong's notes">
-<meta property="og:description" content="自我提升和自我完善是一种终身的修行">
+<meta property="og:description" content="picard DownsampleSam1java -jar picard.jar DownsampleSam P=0.25 I=QX70A.sorted.bam O=QX70A.Per0.25.bam CREATE_INDEX=true
+picard
+samtools好像有问题，取出来不随机？存疑1samtools view -h -b -s 0.25 QX70A.sorted.bam -o Q">
+<meta property="og:updated_time" content="2017-06-21T08:18:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lizhong's notes">
-<meta name="twitter:description" content="自我提升和自我完善是一种终身的修行">
+<meta name="twitter:title" content="Random subsample from a BAM file">
+<meta name="twitter:description" content="picard DownsampleSam1java -jar picard.jar DownsampleSam P=0.25 I=QX70A.sorted.bam O=QX70A.Per0.25.bam CREATE_INDEX=true
+picard
+samtools好像有问题，取出来不随机？存疑1samtools view -h -b -s 0.25 QX70A.sorted.bam -o Q">
 
 
 
@@ -113,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2017/04/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/21/Random-subsample-from-a-BAM-file/"/>
 
-  <title> 归档 | lizhong's notes </title>
+  <title> Random subsample from a BAM file | lizhong's notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +143,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -224,288 +231,149 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
-
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 28 篇日志。 继续努力。
-    </span>
-
+  <div id="posts" class="posts-expand">
     
-
-      
-      
-      
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
-        </div>
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/28/bwa-aln/" itemprop="url">
-              
-                <span itemprop="name">bwa-aln</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-28T14:08:42+08:00"
-              content="2017-04-28" >
-          04-28
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/27/CNVnator-Based-Analysis/" itemprop="url">
-              
-                <span itemprop="name">CNVnator Based Analysis</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-27T18:05:14+08:00"
-              content="2017-04-27" >
-          04-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/18/Insert-blank-line-using-markdown/" itemprop="url">
-              
-                <span itemprop="name">Insert blank line using markdown</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-18T10:21:10+08:00"
-              content="2017-04-18" >
-          04-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/18/admixtools/" itemprop="url">
-              
-                <span itemprop="name">admixtools FAQs</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-18T09:40:20+08:00"
-              content="2017-04-18" >
-          04-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/17/Getting-free-images-with-copyright/" itemprop="url">
-              
-                <span itemprop="name">Getting free images with copyright</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-17T16:54:21+08:00"
-              content="2017-04-17" >
-          04-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/12/vcftools/" itemprop="url">
-              
-                <span itemprop="name">vcftools</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-12T19:12:08+08:00"
-              content="2017-04-12" >
-          04-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/04/06/bam2fq/" itemprop="url">
-              
-                <span itemprop="name">bam2fq</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-06T14:58:39+08:00"
-              content="2017-04-06" >
-          04-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
 
   
+  
 
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Random subsample from a BAM file
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-21T16:15:19+08:00" content="2017-06-21">
+              2017-06-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Cheetsheets/" itemprop="url" rel="index">
+                    <span itemprop="name">Cheetsheets</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="picard-DownsampleSam"><a href="#picard-DownsampleSam" class="headerlink" title="picard DownsampleSam"></a>picard DownsampleSam</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar picard.jar DownsampleSam P=0.25 I=QX70A.sorted.bam O=QX70A.Per0.25.bam CREATE_INDEX=true</div></pre></td></tr></table></figure>
+<p><a href="https://broadinstitute.github.io/picard/command-line-overview.html#DownsampleSam" target="_blank" rel="external">picard</a></p>
+<h1 id="samtools"><a href="#samtools" class="headerlink" title="samtools"></a>samtools</h1><p>好像有问题，取出来不随机？存疑<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">samtools view -h -b -s 0.25 QX70A.sorted.bam -o QX70A.Per0.25.bam</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/picard/" rel="tag">#picard</a>
+          
+            <a href="/tags/subsample-bam/" rel="tag">#subsample-bam</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/19/tmux/" rel="next" title="tmux">
+                <i class="fa fa-chevron-left"></i> tmux
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/6666/06/06/shell-Cheetsheets/" rel="prev" title="Shell Scripting Cheetsheets">
+                Shell Scripting Cheetsheets <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -513,6 +381,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -532,8 +404,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -621,6 +502,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#picard-DownsampleSam"><span class="nav-number">1.</span> <span class="nav-text">picard DownsampleSam</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#samtools"><span class="nav-number">2.</span> <span class="nav-text">samtools</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -717,11 +609,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
 
 
   
