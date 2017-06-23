@@ -427,13 +427,13 @@
         
           
             <h1 id="一、延伸材料"><a href="#一、延伸材料" class="headerlink" title="一、延伸材料"></a>一、延伸材料</h1><p>Blast使用<br><a href="https://www.ncbi.nlm.nih.gov/books/NBK1734/" target="_blank" rel="external">https://www.ncbi.nlm.nih.gov/books/NBK1734/</a><br>Needleman-Wunsch algorithmdemo<br><a href="http://experiments.mostafa.io/public/needleman-wunsch/" target="_blank" rel="external">http://experiments.mostafa.io/public/needleman-wunsch/</a><br>Dynamic Programming<br><a href="http://www.avatar.se/molbioinfo2001/dynprog/dynamic.html" target="_blank" rel="external">http://www.avatar.se/molbioinfo2001/dynprog/dynamic.html</a><br>FastQ格式<br><a href="https://en.wikipedia.org/wiki/FASTQ_format" target="_blank" rel="external">https://en.wikipedia.org/wiki/FASTQ_format</a><br>SAM/BAM格式说明<br><a href="http://samtools.github.io/hts-specs/SAMv1.pdf" target="_blank" rel="external">http://samtools.github.io/hts-specs/SAMv1.pdf</a><br>SAM flags解释<br><a href="https://broadinstitute.github.io/picard/explain-flags.html" target="_blank" rel="external">https://broadinstitute.github.io/picard/explain-flags.html</a></p>
-<h1 id="二、常用比对软件及简单描述"><a href="#二、常用比对软件及简单描述" class="headerlink" title="二、常用比对软件及简单描述"></a>二、常用比对软件及简单描述</h1><ol>
+<h1 id="二、常用比对软件及简单描述"><a href="#二、常用比对软件及简单描述" class="headerlink" title="二、常用比对软件及简单描述"></a>二、常用比对软件及简单描述</h1><ul>
 <li>多序列比对<br><a href="http://www.ebi.ac.uk/Tools/msa/" target="_blank" rel="external">http://www.ebi.ac.uk/Tools/msa/</a><br>ClustalW，最广、经典<br>MUSCLE，快<br>T-coffee，相比ClustalW准确度高<br>Prank，相比ClustalW准确性高<br>MAFFT，速度准确度都好过ClustalW</li>
-</ol>
+</ul>
 <p>速度：MUSCLE &gt; MAFFT ~ Prank&gt;  ClustalW &gt;T-Coffee<br>准确性：MAFFT &gt; Prank &gt; MUSCLE &gt;  T-Coffee &gt; ClustalW</p>
-<ol>
+<ul>
 <li>短序列比对<br>BWA<br><a href="http://bio-bwa.sourceforge.net/bwa.shtml" target="_blank" rel="external">http://bio-bwa.sourceforge.net/bwa.shtml</a><br>Bowtie2<br><a href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml" target="_blank" rel="external">http://bowtie-bio.sourceforge.net/bowtie2/index.shtml</a><br>SOAP2<br><a href="http://soap.genomics.org.cn/soapaligner.html" target="_blank" rel="external">http://soap.genomics.org.cn/soapaligner.html</a><br>Samtools<br><a href="http://samtools.sourceforge.net/" target="_blank" rel="external">http://samtools.sourceforge.net/</a></li>
-</ol>
+</ul>
 <p>BWA为最常用的序列比对软件，可以处理几十bp到1Mb长的reads；<br>Bowtie2常用于RNA-seq、Chip-seq等，速度比BWA快；<br>SOAP2输出的比对格式与BWA、Bowtie2不同（不是SAM/BAM格式），使用时需要注意；<br>Samtools 是比对文件（SAM/BAM）处理相关最常用的工具软件。</p>
 <h1 id="三、比对相关命令（BWA）："><a href="#三、比对相关命令（BWA）：" class="headerlink" title="三、比对相关命令（BWA）："></a>三、比对相关命令（BWA）：</h1><ol>
 <li><p>为参考序列Reference建库：</p>
@@ -452,11 +452,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ samtools sort align.bam align.sort</div></pre></td></tr></table></figure>
 </li>
 <li><p>去除PCR重复</p>
-</li>
-</ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ samtools rmdup output.sort.bam output.dedup.bam</div></pre></td></tr></table></figure>
-<ol>
-<li>使用GATK套件Indel附近区域进行重新比对（Realignment）<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ java -jar GenomeAnalysisTK.jar -R ref.fa -T RealignerTargetCreator -o output.realn.intervals -I output.dedup.bam</div><div class="line">$ java -jar GenomeAnalysisTK.jar -R ref.fa -T IndelRealigner -targetIntervals output.realn.intervals -o output.realn.bam -I output.dedup.bam</div></pre></td></tr></table></figure>
+</li>
+<li><p>使用GATK套件Indel附近区域进行重新比对（Realignment）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ java -jar GenomeAnalysisTK.jar -R ref.fa -T RealignerTargetCreator -o output.realn.intervals -I output.dedup.bam</div><div class="line">$ java -jar GenomeAnalysisTK.jar -R ref.fa -T IndelRealigner -targetIntervals output.realn.intervals -o output.realn.bam -I output.dedup.bam</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <h1 id="四、处理比对文件（SAM-BAM格式）"><a href="#四、处理比对文件（SAM-BAM格式）" class="headerlink" title="四、处理比对文件（SAM/BAM格式）"></a>四、处理比对文件（SAM/BAM格式）</h1><ol>
@@ -473,13 +472,13 @@
 </li>
 </ol>
 <hr>
-<h1 id="试一试："><a href="#试一试：" class="headerlink" title="试一试："></a>试一试：</h1><ol>
+<h1 id="试一试："><a href="#试一试：" class="headerlink" title="试一试："></a>试一试：</h1><ul>
 <li>使用下列序列进行搜索<br>MSTAVLENPGLGRKLSDFGQETSYIEDNCNQNGAISLIFSLKEEVGALAKVLRLFEENDVNLTHIESRPSRLKKDEYEFFTHLDKRSLPALTNIIKILRHDIGATVHELSRDKKKDTVPWFPRTIQELDRFANQILSYGAELDADHPGFKDPVYRARRKQFADAYNYRHGQPIPRVEYMEEEKKTWGTVFKTLKSLYKTHACYEYNHIFPLLEKYCGFHEDNIPQLEDVSQFLQTCTGFRLRPVALLSSRDFLGGLAFRVFHCTQYIRHGSKPMYTPEPDICHELLGHVPLFSDRSFAQFSQEIGLASLGAPDEYIEKLATIYWFTVEFGLCKQGDSIKAYGAGLLSSFGELQYCLSEKPKLLPLELEKTAIQNYTVTEFQPLYYVAESFNDAKEKVRNFAATIPRPFSVRYDPYTQRIEVLDNTQQLKILADSINSEIGILCSALQKIK</li>
-</ol>
+</ul>
 <p>从结果中获得以下信息：<br>该序列在人类中的基因描述；<br>第一个匹配结果的bit score得分、E值、Identities、Gap数目；<br>上述指标第二个匹配结果如何；<br>下载前两个匹配结果，选择任一比对软件将与原序列与下载的软件一起进行多序列比对，它们之间的差异在什么地方，与blast结果比对的结果有什么异同。</p>
-<ol>
+<ul>
 <li>使用NCBI数据库获得不少于10个物种BRCA2基因氨基酸序列，并应用Clustal软件（<a href="http://www.ebi.ac.uk/Tools/msa/clustalo/" target="_blank" rel="external">http://www.ebi.ac.uk/Tools/msa/clustalo/</a>）进行序列多重比对得到系统进化树，分析其进化关系</li>
-</ol>
+</ul>
 
           
         
