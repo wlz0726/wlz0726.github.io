@@ -382,6 +382,121 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/28/Data-management-of-plink-format/" itemprop="url">
+                  Data management of plink format
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-28T16:33:27+08:00" content="2017-06-28">
+              2017-06-28
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Cheetsheets/" itemprop="url" rel="index">
+                    <span itemprop="name">Cheetsheets</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://www.cog-genomics.org/plink/1.9/" target="_blank" rel="external">plink 1.9 manul</a></p>
+<h1 id="取出某一些位点"><a href="#取出某一些位点" class="headerlink" title="取出某一些位点"></a>取出某一些位点</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">plink-1.9/plink --bfile input --extract postions.in --make-bed --out 03.array.v2.overlap;</div></pre></td></tr></table></figure>
+<h1 id="合并两个文件"><a href="#合并两个文件" class="headerlink" title="合并两个文件"></a>合并两个文件</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"># 先转换成vcf格式</div><div class="line">plink-1.9/plink --bfile 04.array --recode vcf --out 05.array</div><div class="line">plink-1.9/plink --bfile 04.seq --recode vcf --out 05.seq</div><div class="line"># 合并</div><div class="line">samtools/bcftools/bcftools merge --merge all --no-version --threads 10 05.array.vcf.gz 05.seq.vcf.gz |bgzip -c &gt; 06.merge.vcf.gz</div><div class="line">tabix -p vcf 06.merge.vcf.gz</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/23/More-about-sequence-alignments/" itemprop="url">
                   More about sequence alignments
                 </a>
@@ -878,7 +993,7 @@
           
             <p>无root，系统里没有zsh的时候，无法用chsh切换zsh</p>
 <h2 id="zsh"><a href="#zsh" class="headerlink" title="zsh"></a>zsh</h2><h3 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a>安装zsh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget -O zsh.tar.gz https://sourceforge.net/projects/zsh/files/latest/download</div><div class="line">tar zxvf zsh.tar.gz</div><div class="line">cd zsh-*</div><div class="line">./configure --prefix=/home/wanglizhong/software/zsh.install/zsh-5.2/</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
-<h3 id="在-bashrc-加一行"><a href="#在-bashrc-加一行" class="headerlink" title="在 .bashrc 加一行"></a>在 <code>.bashrc</code> 加一行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exec /home/wanglizhong/software/zsh.install/zsh-5.2/bin/zsh</div></pre></td></tr></table></figure>
+<h3 id="在-bash-profile-加一行"><a href="#在-bash-profile-加一行" class="headerlink" title="在 .bash_profile 加一行"></a>在 <code>.bash_profile</code> 加一行</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">exec /home/wanglizhong/software/zsh.install/zsh-5.2/bin/zsh</div></pre></td></tr></table></figure>
 <h2 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh-my-zsh"></a>oh-my-zsh</h2><h3 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</div><div class="line"># 备份原来的.zshrc</div><div class="line">cp ~/.zshrc ~/.zshrc.orig</div><div class="line"># 拷贝.zshrc模板</div><div class="line">cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc</div></pre></td></tr></table></figure>
 <h3 id="修改-zshrc配置-Optional"><a href="#修改-zshrc配置-Optional" class="headerlink" title="修改.zshrc配置(Optional)"></a>修改.zshrc配置(Optional)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"># oh-my-zsh目录 Path to your oh-my-zsh installation.</div><div class="line">export ZSH=$HOME/.oh-my-zsh</div><div class="line"></div><div class="line"># oh-my-zsh主题</div><div class="line">ZSH_THEME=&quot;michelebologna&quot;</div><div class="line"></div><div class="line">DISABLE_AUTO_UPDATE=&quot;true&quot;</div><div class="line">plugins=(git)</div><div class="line">export LC_ALL=C</div><div class="line"></div><div class="line">source $ZSH/oh-my-zsh.sh</div></pre></td></tr></table></figure>
 <p><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="external">更多oh-my-zsh主题</a></p>
@@ -4487,7 +4602,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-count">31</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -4504,7 +4619,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
