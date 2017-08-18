@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="fastq,reads,fq," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="自我提升和自我完善是一种终身的修行">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lizhong's notes">
-<meta property="og:url" content="http://yoursite.com/tags/vcftools/index.html">
+<meta name="description" content="FastQtrimmer.plFilter and Trim your Paired-end FastQ fileAs you get the Illumina sequencing data from a company like BGI/Novogene, first thingyou (probably) need to do is to do the sequnce quality che">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Filter and Trim your Paired-end FastQ file">
+<meta property="og:url" content="http://yoursite.com/2017/08/18/Filter-and-Trim-your-Paired-end-FastQ-file/index.html">
 <meta property="og:site_name" content="lizhong's notes">
-<meta property="og:description" content="自我提升和自我完善是一种终身的修行">
+<meta property="og:description" content="FastQtrimmer.plFilter and Trim your Paired-end FastQ fileAs you get the Illumina sequencing data from a company like BGI/Novogene, first thingyou (probably) need to do is to do the sequnce quality che">
+<meta property="og:updated_time" content="2017-08-18T02:49:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lizhong's notes">
-<meta name="twitter:description" content="自我提升和自我完善是一种终身的修行">
+<meta name="twitter:title" content="Filter and Trim your Paired-end FastQ file">
+<meta name="twitter:description" content="FastQtrimmer.plFilter and Trim your Paired-end FastQ fileAs you get the Illumina sequencing data from a company like BGI/Novogene, first thingyou (probably) need to do is to do the sequnce quality che">
 
 
 
@@ -113,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/vcftools/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/18/Filter-and-Trim-your-Paired-end-FastQ-file/"/>
 
-  <title> 标签: vcftools | lizhong's notes </title>
+  <title> Filter and Trim your Paired-end FastQ file | lizhong's notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -224,46 +225,156 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        vcftools
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Filter and Trim your Paired-end FastQ file
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-18T10:46:27+08:00" content="2017-08-18">
+              2017-08-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Cheetsheets/" itemprop="url" rel="index">
+                    <span itemprop="name">Cheetsheets</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h1 id="FastQtrimmer-pl"><a href="#FastQtrimmer-pl" class="headerlink" title="FastQtrimmer.pl"></a>FastQtrimmer.pl</h1><h3 id="Filter-and-Trim-your-Paired-end-FastQ-file"><a href="#Filter-and-Trim-your-Paired-end-FastQ-file" class="headerlink" title="Filter and Trim your Paired-end FastQ file"></a>Filter and Trim your Paired-end FastQ file</h3><p>As you get the Illumina sequencing data from a company like BGI/Novogene, first thing<br>you (probably) need to do is to do the sequnce quality check and filter the low quality reads.</p>
+<p>Here I assume you have no adaptor problem and the sequencing company have already remove<br>the adaptor before hand over you the data.</p>
+<p>FastQtrimmer.pl will trim and filtering Paired-end reads in gz format, and the following reads<br>will be removed:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1)  &gt;=10% unidentified nucleotides (N)</div><div class="line">2)  with a phred quality &lt;=7 for &gt;65% of the read length</div><div class="line">3)  reads are trimmed if they had three consecutive bp with a phred quality of &lt;=13,</div><div class="line">    and discarded if they were shorter than 45 bp</div></pre></td></tr></table></figure></p>
+<p>Example:<br>Your have one Paired-end FastQ file named <code>SampleID.1.fq.gz</code> and  <code>SampleID.2.fq.gz</code> with phred33 quality system,<br>the read length is 100 bp,</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">perl FastQtrimmer.pl SampleID.1.fq.gz SampleID.2.fq.gz SampleID.Filter 33 100</div></pre></td></tr></table></figure>
+<p>the results will be:<br>SampleID.Filter.1.TrimTwoSide.fq.gz<br>SampleID.Filter.2.TrimTwoSide.fq.gz</p>
+<hr>
+<h1 id="fastq-Phred64-to-33-gz-pl"><a href="#fastq-Phred64-to-33-gz-pl" class="headerlink" title="fastq_Phred64_to_33_gz.pl"></a>fastq_Phred64_to_33_gz.pl</h1><p>If your reads are in Phred64 quality system, and you need to transform Phred64 reads to Phred33, run like this:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">perl fastq_Phred64_to_33_gz.pl input.1.fq.gz input.2.fq.gz OutputPrefix</div></pre></td></tr></table></figure></p>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/04/12/vcftools/" itemprop="url">
-              
-                <span itemprop="name">vcftools</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-04-12T19:12:08+08:00"
-              content="2017-04-12" >
-          04-12
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/fastq/" rel="tag">#fastq</a>
+          
+            <a href="/tags/reads/" rel="tag">#reads</a>
+          
+            <a href="/tags/fq/" rel="tag">#fq</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/28/Data-management-of-plink-format/" rel="next" title="Data management of plink format">
+                <i class="fa fa-chevron-left"></i> Data management of plink format
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/6666/06/06/shell-Cheetsheets/" rel="prev" title="Shell Scripting Cheetsheets">
+                Shell Scripting Cheetsheets <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -271,6 +382,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -290,8 +405,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -379,6 +503,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FastQtrimmer-pl"><span class="nav-number">1.</span> <span class="nav-text">FastQtrimmer.pl</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Filter-and-Trim-your-Paired-end-FastQ-file"><span class="nav-number">1.0.1.</span> <span class="nav-text">Filter and Trim your Paired-end FastQ file</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#fastq-Phred64-to-33-gz-pl"><span class="nav-number">2.</span> <span class="nav-text">fastq_Phred64_to_33_gz.pl</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -475,6 +610,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
