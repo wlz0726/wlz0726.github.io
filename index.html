@@ -382,6 +382,133 @@
             
               
                 
+                <a class="post-title-link" href="/2017/08/18/Map-with-BWA-and-do-Indel-realignment-with-GATK/" itemprop="url">
+                  Map with BWA and do Indel realignment with GATK
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-08-18T14:11:22+08:00" content="2017-08-18">
+              2017-08-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Cheetsheets/" itemprop="url" rel="index">
+                    <span itemprop="name">Cheetsheets</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Cheetsheets/pipeline/" itemprop="url" rel="index">
+                    <span itemprop="name">pipeline</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="01-Mapping-BWAMEM-GATKRealgn-pl"><a href="#01-Mapping-BWAMEM-GATKRealgn-pl" class="headerlink" title="01.Mapping_BWAMEM-GATKRealgn.pl"></a>01.Mapping_BWAMEM-GATKRealgn.pl</h1><h2 id="step1-Mapping-with-BWA-MEM-and-sort-with-samtools-connected-with-tunnel"><a href="#step1-Mapping-with-BWA-MEM-and-sort-with-samtools-connected-with-tunnel" class="headerlink" title="step1: Mapping with BWA MEM and sort with samtools, connected with tunnel"></a>step1: Mapping with BWA MEM and sort with samtools, connected with tunnel</h2><p>NB: samtools should be v1.* or later<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bwa mem -R ref.fa SampleID.1.fq.gz SampleID.2.fq.gz | samtools sort -O bam -o SampleID.sort.bam</div><div class="line">samtools index SampleID.sort.bam</div></pre></td></tr></table></figure></p>
+<h2 id="step2-remove-PCR-duplicates-with-picard"><a href="#step2-remove-PCR-duplicates-with-picard" class="headerlink" title="step2: remove PCR duplicates with picard"></a>step2: remove PCR duplicates with <a href="http://broadinstitute.github.io/picard/" target="_blank" rel="external">picard</a></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar picard.jar MarkDuplicates INPUT=SampleID.sort.bam OUTPUT=SampleID.rmdup.bam METRICS_FILE =SampleID.dup.txt REMOVE_DUPLICATES=true VALIDATION_STRINGENCY=SILENT CREATE_INDEX=true</div></pre></td></tr></table></figure>
+<h2 id="step3-do-local-realignment-of-reads-to-enhance-the-alignments-in-the-vicinity-of-indel-polymorphisms"><a href="#step3-do-local-realignment-of-reads-to-enhance-the-alignments-in-the-vicinity-of-indel-polymorphisms" class="headerlink" title="step3: do local realignment of reads to enhance the alignments in the vicinity of indel polymorphisms"></a>step3: do local realignment of reads to enhance the alignments in the vicinity of indel polymorphisms</h2><p>NB: <a href="https://software.broadinstitute.org/gatk/" target="_blank" rel="external">GATK v3.6</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># use the RealignerTargetCreator to identify regions where realignment was needed</div><div class="line">java -jar GenomeAnalysisTK.jar -R ref.fa -T RealignerTargetCreator -o SampleID.intervals -I SampleID.rmdup.bam</div><div class="line"></div><div class="line"># use IndelRealigner to realign the regions found in the RealignerTargetCreator step</div><div class="line">java -jar GenomeAnalysisTK.jar -R ref.fa -T IndelRealigner -targetIntervals SampleID.intervals -o SampleID.realn.bam -I SampleID.rmdup.bam</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/08/18/Filter-and-Trim-your-Paired-end-FastQ-file/" itemprop="url">
                   Filter and Trim your Paired-end FastQ file
                 </a>
@@ -4736,7 +4863,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -4744,7 +4871,7 @@
           
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
@@ -4753,7 +4880,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">35</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
