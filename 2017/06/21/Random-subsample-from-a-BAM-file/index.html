@@ -86,20 +86,20 @@
 
 <meta name="description" content="picard DownsampleSam1java -jar picard.jar DownsampleSam P=0.25 I=QX70A.sorted.bam O=QX70A.Per0.25.bam CREATE_INDEX=true
 picard
-samtools好像有问题，取出来不随机？存疑1samtools view -h -b -s 0.25 QX70A.sorted.bam -o Q">
+samtools -s1samtools view -h -b -s 0.25 QX70A.sorted.bam -o QX70A.Per0.25">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Random subsample from a BAM file">
 <meta property="og:url" content="http://yoursite.com/2017/06/21/Random-subsample-from-a-BAM-file/index.html">
 <meta property="og:site_name" content="lizhong's notes">
 <meta property="og:description" content="picard DownsampleSam1java -jar picard.jar DownsampleSam P=0.25 I=QX70A.sorted.bam O=QX70A.Per0.25.bam CREATE_INDEX=true
 picard
-samtools好像有问题，取出来不随机？存疑1samtools view -h -b -s 0.25 QX70A.sorted.bam -o Q">
-<meta property="og:updated_time" content="2017-06-23T04:54:37.000Z">
+samtools -s1samtools view -h -b -s 0.25 QX70A.sorted.bam -o QX70A.Per0.25">
+<meta property="og:updated_time" content="2017-08-18T06:52:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Random subsample from a BAM file">
 <meta name="twitter:description" content="picard DownsampleSam1java -jar picard.jar DownsampleSam P=0.25 I=QX70A.sorted.bam O=QX70A.Per0.25.bam CREATE_INDEX=true
 picard
-samtools好像有问题，取出来不随机？存疑1samtools view -h -b -s 0.25 QX70A.sorted.bam -o Q">
+samtools -s1samtools view -h -b -s 0.25 QX70A.sorted.bam -o QX70A.Per0.25">
 
 
 
@@ -313,7 +313,8 @@ samtools好像有问题，取出来不随机？存疑1samtools view -h -b -s 0.2
       
         <h1 id="picard-DownsampleSam"><a href="#picard-DownsampleSam" class="headerlink" title="picard DownsampleSam"></a>picard DownsampleSam</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar picard.jar DownsampleSam P=0.25 I=QX70A.sorted.bam O=QX70A.Per0.25.bam CREATE_INDEX=true</div></pre></td></tr></table></figure>
 <p><a href="https://broadinstitute.github.io/picard/command-line-overview.html#DownsampleSam" target="_blank" rel="external">picard</a></p>
-<h1 id="samtools"><a href="#samtools" class="headerlink" title="samtools"></a>samtools</h1><p>好像有问题，取出来不随机？存疑<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">samtools view -h -b -s 0.25 QX70A.sorted.bam -o QX70A.Per0.25.bam</div></pre></td></tr></table></figure></p>
+<h1 id="samtools-s"><a href="#samtools-s" class="headerlink" title="samtools -s"></a>samtools -s</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">samtools view -h -b -s 0.25 QX70A.sorted.bam -o QX70A.Per0.25.bam</div></pre></td></tr></table></figure>
+<h1 id="GATK-dfrac"><a href="#GATK-dfrac" class="headerlink" title="GATK -dfrac"></a>GATK -dfrac</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar GenomeAnalysisTK.jar -T PrintReads -R ref.fa -I input.bam -o output.bam -dfrac 0.25</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -511,7 +512,7 @@ samtools好像有问题，取出来不随机？存疑1samtools view -h -b -s 0.2
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#picard-DownsampleSam"><span class="nav-number">1.</span> <span class="nav-text">picard DownsampleSam</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#samtools"><span class="nav-number">2.</span> <span class="nav-text">samtools</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#picard-DownsampleSam"><span class="nav-number">1.</span> <span class="nav-text">picard DownsampleSam</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#samtools-s"><span class="nav-number">2.</span> <span class="nav-text">samtools -s</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GATK-dfrac"><span class="nav-number">3.</span> <span class="nav-text">GATK -dfrac</span></a></li></ol></div>
             
           </div>
         </section>

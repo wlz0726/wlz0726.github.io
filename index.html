@@ -1058,7 +1058,8 @@
           
             <h1 id="picard-DownsampleSam"><a href="#picard-DownsampleSam" class="headerlink" title="picard DownsampleSam"></a>picard DownsampleSam</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar picard.jar DownsampleSam P=0.25 I=QX70A.sorted.bam O=QX70A.Per0.25.bam CREATE_INDEX=true</div></pre></td></tr></table></figure>
 <p><a href="https://broadinstitute.github.io/picard/command-line-overview.html#DownsampleSam" target="_blank" rel="external">picard</a></p>
-<h1 id="samtools"><a href="#samtools" class="headerlink" title="samtools"></a>samtools</h1><p>好像有问题，取出来不随机？存疑<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">samtools view -h -b -s 0.25 QX70A.sorted.bam -o QX70A.Per0.25.bam</div></pre></td></tr></table></figure></p>
+<h1 id="samtools-s"><a href="#samtools-s" class="headerlink" title="samtools -s"></a>samtools -s</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">samtools view -h -b -s 0.25 QX70A.sorted.bam -o QX70A.Per0.25.bam</div></pre></td></tr></table></figure>
+<h1 id="GATK-dfrac"><a href="#GATK-dfrac" class="headerlink" title="GATK -dfrac"></a>GATK -dfrac</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java -jar GenomeAnalysisTK.jar -T PrintReads -R ref.fa -I input.bam -o output.bam -dfrac 0.25</div></pre></td></tr></table></figure>
 
           
         
