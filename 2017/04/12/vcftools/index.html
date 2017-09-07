@@ -96,7 +96,7 @@ bgzip和tabix包含在samtools/htslib内。12samtools/htslib/bgzip -c file.vcf &
 bgzip和tabix包含在samtools/htslib内。12samtools/htslib/bgzip -c file.vcf &amp;gt; file.vcf.gzsamtools/htslib/tabix -p vcf file.vcf.gz
 
 小模块在">
-<meta property="og:updated_time" content="2017-04-28T06:06:15.000Z">
+<meta property="og:updated_time" content="2017-09-07T05:50:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vcftools">
 <meta name="twitter:description" content="习惯：Always使用bgzip生成vcf.gz文件并用tabix生成index，使得vcftools和GATK中直接使用vcf.gz文件。
@@ -318,6 +318,7 @@ bgzip和tabix包含在samtools/htslib内。12samtools/htslib/bgzip -c file.vcf &
 <p>bgzip和tabix包含在<code>samtools/htslib</code>内。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">samtools/htslib/bgzip -c file.vcf &gt; file.vcf.gz</div><div class="line">samtools/htslib/tabix -p vcf file.vcf.gz</div></pre></td></tr></table></figure></p>
 <hr>
 <p><strong>小模块</strong><br>在<code>vcftools/vcftools-build/bin/</code>中的小程序，实现简单的特定功能。列出几个最常用的。<a href="http://vcftools.sourceforge.net/perl_module.html" target="_blank" rel="external">其他更多</a></p>
+<p>使用前需要导入perl_module lib<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PERL5LIB=/home/wanglizhong/software/vcftools/vcftools-build/lib/perl5/site_perl/5.8.8:$PERL5LIB;</div></pre></td></tr></table></figure></p>
 <h2 id="单个vcf"><a href="#单个vcf" class="headerlink" title="单个vcf"></a>单个vcf</h2><h3 id="重新计算INFO里的AN和AC"><a href="#重新计算INFO里的AN和AC" class="headerlink" title="重新计算INFO里的AN和AC"></a>重新计算<code>INFO</code>里的AN和AC</h3><p>fill-an-ac<br>重新计算AN和AC 并加入<code>INFO</code>中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zcat in.vcf.gz|fill-an-ac &gt; out.vcf</div></pre></td></tr></table></figure></p>
 <p><br></p>
 <h3 id="vcf2fa"><a href="#vcf2fa" class="headerlink" title="vcf2fa"></a>vcf2fa</h3><p>vcf转成一致性序列(consensus sequence)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cat ref.fa|vcf-consensus file.vcf.gz &gt; out.fa</div><div class="line"></div><div class="line"># 其中某一个个体</div><div class="line">cat ref.fa|vcf-consensus -s sampleA_ID file.vcf.gz &gt; out.sampleA_ID.fa</div><div class="line"></div><div class="line"># 只有某一个haplotype（1或者2）</div><div class="line">cat ref.fa|vcf-consensus -H 1 file.vcf.gz &gt; out.hap1.fa</div></pre></td></tr></table></figure></p>
@@ -467,7 +468,7 @@ bgzip和tabix包含在samtools/htslib内。12samtools/htslib/bgzip -c file.vcf &
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
