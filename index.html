@@ -384,6 +384,101 @@
             
               
                 
+                <a class="post-title-link" href="/2018/02/26/Calculate-IBD-using-beagle-and-germline/" itemprop="url">
+                  Calculate IBD using beagle and germline
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-26T16:03:08+08:00" content="2018-02-26">
+              2018-02-26
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="beagle"><a href="#beagle" class="headerlink" title="beagle"></a>beagle</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export JAVAHOME=/ifshk4/BC_PUB/biosoft/PIPE_RD/Package/java/jre1.8.0_45;</div><div class="line">/ifshk4/BC_PUB/biosoft/PIPE_RD/Package/java/jre1.8.0_45/bin/java -jar /ifshk5/PC_HUMAN_EU/USER/wanglizhong/software/beagle/4.1/beagle.27Jul16.86a.jar ibd=true impute=false window=50000 overlap=20000 ibdlod=3 ibdtrim=1500 gt=$vcf out=$out/$chr</div></pre></td></tr></table></figure>
+<h2 id="germline"><a href="#germline" class="headerlink" title="germline"></a>germline</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">my $vcftools=&quot;/home/wanglizhong/software/vcftools/vcftools-build/bin/vcftools&quot;;</div><div class="line">my $germline=&quot;/home/wanglizhong/software/germline/germline-1-5-1/germline&quot;;</div><div class="line"></div><div class="line">my @vcf=&lt;01.VCF/*vcf.gz&gt;;</div><div class="line">open(O,&quot;&gt; $0.sh&quot;);</div><div class="line"></div><div class="line">foreach my $vcf(@vcf)&#123;</div><div class="line">    print O &quot;$vcftools --gzvcf $vcf --plink --out $vcf; &quot;;</div><div class="line">    print O &quot;$germline -min_m 1 -bits 128 -err_hom 0 -err_het 4 &lt; $vcf.run;\n&quot;;</div><div class="line">    open(O2,&quot;&gt; $vcf.run&quot;);</div><div class="line">    print O2 &quot;1\n$vcf.map\n$vcf.ped\n$vcf.out\n&quot;;</div><div class="line">    close O2;</div><div class="line">&#125;</div><div class="line">close O;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/02/11/PCAdmix-out-of-date-upgrad-to-RFmix/" itemprop="url">
                   PCAdmix(out-of-date;upgrade to RFmix)
                 </a>
@@ -5420,7 +5515,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

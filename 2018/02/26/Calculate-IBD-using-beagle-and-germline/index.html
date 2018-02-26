@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="自我提升和自我完善是一种终身的修行">
-<meta property="og:type" content="website">
-<meta property="og:title" content="lizhong's notes">
-<meta property="og:url" content="http://yoursite.com/tags/macOS/index.html">
+<meta name="description" content="beagle12export JAVAHOME=/ifshk4/BC_PUB/biosoft/PIPE_RD/Package/java/jre1.8.0_45;/ifshk4/BC_PUB/biosoft/PIPE_RD/Package/java/jre1.8.0_45/bin/java -jar /ifshk5/PC_HUMAN_EU/USER/wanglizhong/software/beag">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Calculate IBD using beagle and germline">
+<meta property="og:url" content="http://yoursite.com/2018/02/26/Calculate-IBD-using-beagle-and-germline/index.html">
 <meta property="og:site_name" content="lizhong's notes">
-<meta property="og:description" content="自我提升和自我完善是一种终身的修行">
+<meta property="og:description" content="beagle12export JAVAHOME=/ifshk4/BC_PUB/biosoft/PIPE_RD/Package/java/jre1.8.0_45;/ifshk4/BC_PUB/biosoft/PIPE_RD/Package/java/jre1.8.0_45/bin/java -jar /ifshk5/PC_HUMAN_EU/USER/wanglizhong/software/beag">
+<meta property="og:updated_time" content="2018-02-26T08:05:23.936Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lizhong's notes">
-<meta name="twitter:description" content="自我提升和自我完善是一种终身的修行">
+<meta name="twitter:title" content="Calculate IBD using beagle and germline">
+<meta name="twitter:description" content="beagle12export JAVAHOME=/ifshk4/BC_PUB/biosoft/PIPE_RD/Package/java/jre1.8.0_45;/ifshk4/BC_PUB/biosoft/PIPE_RD/Package/java/jre1.8.0_45/bin/java -jar /ifshk5/PC_HUMAN_EU/USER/wanglizhong/software/beag">
 
 
 
@@ -113,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/macOS/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/02/26/Calculate-IBD-using-beagle-and-germline/"/>
 
-  <title> 标签: macOS | lizhong's notes </title>
+  <title> Calculate IBD using beagle and germline | lizhong's notes </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -224,46 +225,121 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        macOS
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Calculate IBD using beagle and germline
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-02-26T16:03:08+08:00" content="2018-02-26">
+              2018-02-26
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h2 id="beagle"><a href="#beagle" class="headerlink" title="beagle"></a>beagle</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export JAVAHOME=/ifshk4/BC_PUB/biosoft/PIPE_RD/Package/java/jre1.8.0_45;</div><div class="line">/ifshk4/BC_PUB/biosoft/PIPE_RD/Package/java/jre1.8.0_45/bin/java -jar /ifshk5/PC_HUMAN_EU/USER/wanglizhong/software/beagle/4.1/beagle.27Jul16.86a.jar ibd=true impute=false window=50000 overlap=20000 ibdlod=3 ibdtrim=1500 gt=$vcf out=$out/$chr</div></pre></td></tr></table></figure>
+<h2 id="germline"><a href="#germline" class="headerlink" title="germline"></a>germline</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">my $vcftools=&quot;/home/wanglizhong/software/vcftools/vcftools-build/bin/vcftools&quot;;</div><div class="line">my $germline=&quot;/home/wanglizhong/software/germline/germline-1-5-1/germline&quot;;</div><div class="line"></div><div class="line">my @vcf=&lt;01.VCF/*vcf.gz&gt;;</div><div class="line">open(O,&quot;&gt; $0.sh&quot;);</div><div class="line"></div><div class="line">foreach my $vcf(@vcf)&#123;</div><div class="line">    print O &quot;$vcftools --gzvcf $vcf --plink --out $vcf; &quot;;</div><div class="line">    print O &quot;$germline -min_m 1 -bits 128 -err_hom 0 -err_het 4 &lt; $vcf.run;\n&quot;;</div><div class="line">    open(O2,&quot;&gt; $vcf.run&quot;);</div><div class="line">    print O2 &quot;1\n$vcf.map\n$vcf.ped\n$vcf.out\n&quot;;</div><div class="line">    close O2;</div><div class="line">&#125;</div><div class="line">close O;</div></pre></td></tr></table></figure>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/11/01/mac关闭屏幕方式/" itemprop="url">
-              
-                <span itemprop="name">mac关闭屏幕方式</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-01T19:56:56+08:00"
-              content="2016-11-01" >
-          11-01
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/11/PCAdmix-out-of-date-upgrad-to-RFmix/" rel="next" title="PCAdmix(out-of-date;upgrade to RFmix)">
+                <i class="fa fa-chevron-left"></i> PCAdmix(out-of-date;upgrade to RFmix)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/6666/06/06/shell-Cheetsheets/" rel="prev" title="Shell Scripting Cheetsheets">
+                Shell Scripting Cheetsheets <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -271,6 +347,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -290,8 +370,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -379,6 +468,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#beagle"><span class="nav-number">1.</span> <span class="nav-text">beagle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#germline"><span class="nav-number">2.</span> <span class="nav-text">germline</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -475,6 +575,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
