@@ -84,16 +84,16 @@
 
 
 
-<meta name="description" content="tmux安装过程报错可能是缺libevent，先安装libevent123456wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gztar zxvf libevent-2.1.8-stable.tar.gzcd libevent-2.">
+<meta name="description" content="先安装 libevent2.xtmux安装过程报错可能是缺libevent，先安装libevent123456wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gztar zxvf libevent-2.1.8-stable.tar.g">
 <meta property="og:type" content="article">
 <meta property="og:title" content="tmux">
 <meta property="og:url" content="http://yoursite.com/2017/06/19/tmux/index.html">
 <meta property="og:site_name" content="lizhong's notes">
-<meta property="og:description" content="tmux安装过程报错可能是缺libevent，先安装libevent123456wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gztar zxvf libevent-2.1.8-stable.tar.gzcd libevent-2.">
-<meta property="og:updated_time" content="2018-04-16T10:04:30.006Z">
+<meta property="og:description" content="先安装 libevent2.xtmux安装过程报错可能是缺libevent，先安装libevent123456wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gztar zxvf libevent-2.1.8-stable.tar.g">
+<meta property="og:updated_time" content="2018-04-16T10:54:59.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="tmux">
-<meta name="twitter:description" content="tmux安装过程报错可能是缺libevent，先安装libevent123456wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gztar zxvf libevent-2.1.8-stable.tar.gzcd libevent-2.">
+<meta name="twitter:description" content="先安装 libevent2.xtmux安装过程报错可能是缺libevent，先安装libevent123456wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gztar zxvf libevent-2.1.8-stable.tar.g">
 
 
 
@@ -286,8 +286,11 @@
       
 
       
-        <p>tmux安装过程报错可能是缺libevent，先安装libevent<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz</div><div class="line">tar zxvf libevent-2.1.8-stable.tar.gz</div><div class="line">cd libevent-2.1.8-stable</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure></p>
-<p><a href="https://github.com/tmux/tmux" target="_blank" rel="external">安装tmux</a>，运行tmux如果缺库，则把libevent-* 连接到lib目录。</p>
+        <h1 id="先安装-libevent2-x"><a href="#先安装-libevent2-x" class="headerlink" title="先安装 libevent2.x"></a>先安装 libevent2.x</h1><p>tmux安装过程报错可能是缺libevent，先安装libevent<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">wget https://github.com/libevent/libevent/releases/download/release-2.1.8-stable/libevent-2.1.8-stable.tar.gz</div><div class="line">tar zxvf libevent-2.1.8-stable.tar.gz</div><div class="line">cd libevent-2.1.8-stable</div><div class="line">./configure --prefix=$HOME</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure></p>
+<h1 id="安装-tmux"><a href="#安装-tmux" class="headerlink" title="安装 tmux"></a>安装 tmux</h1><p><a href="https://github.com/tmux/tmux" target="_blank" rel="external">安装tmux</a>，运行tmux如果缺库，则把libevent-* 连接到lib目录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/tmux/tmux.git</div><div class="line">cd tmux</div><div class="line">sh autogen.sh</div><div class="line"></div><div class="line">DIR=&quot;$HOME&quot;</div><div class="line">./configure CFLAGS=&quot;-I$DIR/include&quot; LDFLAGS=&quot;-L$DIR/lib&quot;</div><div class="line">make</div></pre></td></tr></table></figure>
+<h1 id="tmux-配置"><a href="#tmux-配置" class="headerlink" title="tmux 配置"></a>tmux 配置</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ~/</div><div class="line">em .tmux.conf</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">## .tmux.conf 内容：</div><div class="line"></div><div class="line">set -g history-limit 10000</div><div class="line"># Automatically set window title</div><div class="line">#set-window-option -g automatic-renam</div><div class="line">#set-window-option -g xterm-keys on</div><div class="line"></div><div class="line">set-option -g set-titles on</div><div class="line"># Shift arrow to switch windows S shift M alt C ctrl</div><div class="line">unbind-key -n S-Left</div><div class="line">unbind-key -n S-Right</div><div class="line"></div><div class="line">#bind -n C-Left  previous-window</div><div class="line">#bind -n C-Right next-window</div><div class="line">bind -n F2 new-window</div><div class="line">bind -n F3 previous-window</div><div class="line">bind -n F4 next-window</div><div class="line">bind -n F7 copy-mode</div><div class="line"></div><div class="line"># kill window (prefix Ctrl+q)</div><div class="line">#bind ^q killw</div><div class="line"></div><div class="line"># display</div><div class="line">#set -g status-utf8 on</div><div class="line">set -g status-keys vi</div><div class="line">set -g status-interval 1</div><div class="line">set -g status-attr bright</div><div class="line">set -g status-fg white</div><div class="line">set -g status-bg black</div><div class="line">set -g status-left-length 20</div><div class="line">set -g status-left &apos;#[fg=green][#[fg=red]#S#[fg=green]]#[default]&apos;</div><div class="line">set -g status-justify centre</div><div class="line">set -g status-right &apos;#[fg=green][ %m/%d %H:%M:%S ]#[default]&apos;</div><div class="line">setw -g window-status-current-format &apos;#[fg=yellow](#I.#P#F#W)#[default]&apos;</div><div class="line">setw -g window-status-format &apos;#I#F#W&apos;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -481,7 +484,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#先安装-libevent2-x"><span class="nav-number">1.</span> <span class="nav-text">先安装 libevent2.x</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装-tmux"><span class="nav-number">2.</span> <span class="nav-text">安装 tmux</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#tmux-配置"><span class="nav-number">3.</span> <span class="nav-text">tmux 配置</span></a></li></ol></div>
             
           </div>
         </section>
