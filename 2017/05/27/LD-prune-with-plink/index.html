@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="12plink-1.07/plink --noweb --tfile input --indep-pairwise 50 5 0.5 --out tmp1plink-1.07/plink --noweb --tfile input --extract tmp1.prune.in --recode --transpose --out output
-Linkage disequilibrium bas">
+<meta name="description" content="12plink-1.07/plink --noweb --file input --indep-pairwise 50 5 0.5 --out tmp1plink-1.07/plink --noweb --file input --extract tmp1.prune.in --recode --out output
+Linkage disequilibrium based SNP pruning">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LD-prune with plink">
 <meta property="og:url" content="http://yoursite.com/2017/05/27/LD-prune-with-plink/index.html">
 <meta property="og:site_name" content="lizhong's notes">
-<meta property="og:description" content="12plink-1.07/plink --noweb --tfile input --indep-pairwise 50 5 0.5 --out tmp1plink-1.07/plink --noweb --tfile input --extract tmp1.prune.in --recode --transpose --out output
-Linkage disequilibrium bas">
-<meta property="og:updated_time" content="2017-05-27T07:21:05.000Z">
+<meta property="og:description" content="12plink-1.07/plink --noweb --file input --indep-pairwise 50 5 0.5 --out tmp1plink-1.07/plink --noweb --file input --extract tmp1.prune.in --recode --out output
+Linkage disequilibrium based SNP pruning">
+<meta property="og:updated_time" content="2018-07-13T03:02:07.265Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LD-prune with plink">
-<meta name="twitter:description" content="12plink-1.07/plink --noweb --tfile input --indep-pairwise 50 5 0.5 --out tmp1plink-1.07/plink --noweb --tfile input --extract tmp1.prune.in --recode --transpose --out output
-Linkage disequilibrium bas">
+<meta name="twitter:description" content="12plink-1.07/plink --noweb --file input --indep-pairwise 50 5 0.5 --out tmp1plink-1.07/plink --noweb --file input --extract tmp1.prune.in --recode --out output
+Linkage disequilibrium based SNP pruning">
 
 
 
@@ -289,7 +289,7 @@ Linkage disequilibrium bas">
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plink-1.07/plink --noweb --tfile input --indep-pairwise 50 5 0.5 --out tmp1</div><div class="line">plink-1.07/plink --noweb --tfile input --extract tmp1.prune.in --recode --transpose --out output</div></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">plink-1.07/plink --noweb --file input --indep-pairwise 50 5 0.5 --out tmp1</div><div class="line">plink-1.07/plink --noweb --file input --extract tmp1.prune.in --recode --out output</div></pre></td></tr></table></figure>
 <p><a href="http://zzz.bwh.harvard.edu/plink/summary.shtml#prune" target="_blank" rel="external">Linkage disequilibrium based SNP pruning</a></p>
 <p><code>--indep-pairwise 50 5 0.5</code><br><code>--indep-pairwise 50 5 0.2</code></p>
 <p>a) consider a window of 50 SNPs<br>b) calculate LD between each pair of SNPs in the window<br>b) remove one of a pair of SNPs if the LD is greater than 0.5<br>c) shift the window 5 SNPs forward and repeat the procedure</p>
