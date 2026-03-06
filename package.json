@@ -1,0 +1,28 @@
+{
+  "name": "wlz0726.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wlz0726/wlz0726.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/wlz0726/wlz0726.github.io/issues"
+  },
+  "homepage": "https://github.com/wlz0726/wlz0726.github.io#readme",
+  "dependencies": {
+    "hexo": "^8.1.1",
+    "hexo-deployer-git": "^4.0.0",
+    "hexo-generator-index": "^4.0.0",
+    "hexo-server": "^3.0.0",
+    "hexo-theme-next": "^8.27.0"
+  }
+}
