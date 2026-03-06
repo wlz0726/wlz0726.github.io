@@ -141,7 +141,7 @@
         <span class="site-state-item-name">分类</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -167,7 +167,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2026/03/06/%E9%BE%99%E8%99%BE%E6%97%A5%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2026/03/02/%E9%BE%99%E8%99%BE%E6%97%A5%E8%AE%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -185,7 +185,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2026/03/06/%E9%BE%99%E8%99%BE%E6%97%A5%E8%AE%B0/" class="post-title-link" itemprop="url">龙虾日记（第一周）</a>
+          <a href="/2026/03/02/%E9%BE%99%E8%99%BE%E6%97%A5%E8%AE%B0/" class="post-title-link" itemprop="url">龙虾日记 - OpenClaw 养成记</a>
         </h2>
 
         <div class="post-meta-container">
@@ -195,9 +195,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-03-06 10:25:18 / 修改时间：10:26:10" itemprop="dateCreated datePublished" datetime="2026-03-06T10:25:18+08:00">2026-03-06</time>
+      <time title="创建时间：2026-03-02 10:00:00" itemprop="dateCreated datePublished" datetime="2026-03-02T10:00:00+08:00">2026-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-03-06 10:36:27" itemprop="dateModified" datetime="2026-03-06T10:36:27+08:00">2026-03-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -219,34 +225,172 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="2026年3月第一周：博客重建记"><a href="#2026年3月第一周：博客重建记" class="headerlink" title="2026年3月第一周：博客重建记"></a>2026年3月第一周：博客重建记</h2><p>经过几天折腾，终于把荒废已久的个人博客重新弄好了。</p>
-<h3 id="周一：决定重新开始"><a href="#周一：决定重新开始" class="headerlink" title="周一：决定重新开始"></a>周一：决定重新开始</h3><p>经过昨天一天的折腾，决定先恢复 2020 年的 GitHub 代码，重新来一次。毕竟之前的配置太老了，很多依赖都过时了。</p>
-<h3 id="周二：代码分析与诊断"><a href="#周二：代码分析与诊断" class="headerlink" title="周二：代码分析与诊断"></a>周二：代码分析与诊断</h3><p>开始从头分析现在的代码仓库 <code>https://github.com/wlz0726/wlz0726.github.io</code>，发现以下问题：</p>
+          <p><strong>2026.03.02 - 03.06</strong><br><strong>记录者</strong>: 理中</p>
+<h2 id="Day-1-2-基础配置（3-月-2-3-日）"><a href="#Day-1-2-基础配置（3-月-2-3-日）" class="headerlink" title="Day 1-2: 基础配置（3 月 2-3 日）"></a>Day 1-2: 基础配置（3 月 2-3 日）</h2><p><strong>核心工作</strong>: 模型配置与参数调优</p>
 <ul>
-<li><strong>多说评论系统已关闭</strong>：这是 2017 年就停止服务的老古董，页面里还有遗留配置</li>
-<li><strong>node_modules 被提交到仓库</strong>：两千多个文件，不该提交</li>
-<li><strong>Google Fonts 国内访问困难</strong>：可能被墙</li>
-<li><strong>URL 配置错误</strong>：生产环境和配置不匹配</li>
+<li>配置 <code>openclaw.json</code>，添加多个大模型 API（CodingPlan、阿里云 Qwen 等）</li>
+<li>设置各模型的 <code>contextWindow</code> 和 <code>maxTokens</code> 参数</li>
+<li>理解配置结构：<code>models.providers</code> &#x3D; 模型仓库，<code>agents.defaults</code> &#x3D; 代理配置</li>
+<li>学会用 <code>openclaw gateway restart</code> 和 <code>/new</code> 重载配置</li>
+<li>开启 <code>proactive</code> 主动模式，让 AI 自动拆解任务、提醒进度</li>
 </ul>
-<h3 id="周三：逐步修复"><a href="#周三：逐步修复" class="headerlink" title="周三：逐步修复"></a>周三：逐步修复</h3><p>按照优先级开始修复：</p>
-<ol>
-<li><strong>删除 node_modules</strong> - 建立了 .gitignore</li>
-<li><strong>删除 db.json</strong> - Hexo 的缓存数据库，不需要版本控制</li>
-</ol>
-<h3 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h3><p>用 AI 工具辅助解决问题确实效率很高：</p>
-<ul>
-<li>可以快速分析代码仓库结构</li>
-<li>给出的修复建议很有针对性</li>
-<li>省去了自己一个个查文档的时间</li>
-</ul>
-<p>当然，有些问题还是得自己判断。比如评论系统，AI 建议用 Gitalk 或 Utterances 替代，但我暂时不需要评论功能，先不管了。</p>
-<h3 id="后续计划"><a href="#后续计划" class="headerlink" title="后续计划"></a>后续计划</h3><ul>
-<li>继续优化一些细节</li>
-<li>可能考虑换个主题试试</li>
-<li>把之前的文章整理一下</li>
+<h3 id="技术细节"><a href="#技术细节" class="headerlink" title="技术细节"></a>技术细节</h3><ul>
+<li>日常对话：<code>qwen3.5-plus</code>（1M 窗口，8k 输出）</li>
+<li>编程任务：<code>qwen3-coder-plus</code>（1M 窗口，64k 输出）</li>
+<li>开启流式输出（Streaming），提升交互即时性</li>
+<li>掌握 <code>/stop</code> 紧急制动和 <code>/model</code> 模型切换</li>
 </ul>
 <hr>
-<p><em>本周成就：让 <a href="https://wlz0726.github.io/">https://wlz0726.github.io/</a> 重新可访问</em> ✅</p>
+<h2 id="Day-3-安全规则确立（3-月-4-日）"><a href="#Day-3-安全规则确立（3-月-4-日）" class="headerlink" title="Day 3: 安全规则确立（3 月 4 日）"></a>Day 3: 安全规则确立（3 月 4 日）</h2><p><strong>核心工作</strong>: 建立安全红线</p>
+<h3 id="风险识别"><a href="#风险识别" class="headerlink" title="风险识别"></a>风险识别</h3><ul>
+<li>失控误操作（批量删除邮件&#x2F;文件）</li>
+<li>账号封禁（自动登录第三方服务）</li>
+<li>敏感信息泄露（读取密码&#x2F;密钥文件）</li>
+<li>供应链投毒（安装恶意插件）</li>
+<li>成本失控（token 消耗无限制）</li>
+</ul>
+<h3 id="安全规则"><a href="#安全规则" class="headerlink" title="安全规则"></a>安全规则</h3><ul>
+<li>❌ 禁止：批量删除&#x2F;发送邮件、读取敏感文件、自动登录、安装未验证插件</li>
+<li>⚠️ 需确认：单文件操作、使用凭证、访问外链</li>
+<li>📋 触发确认：上下文压缩前、环境切换、连续指令</li>
+</ul>
+<h3 id="参考案例"><a href="#参考案例" class="headerlink" title="参考案例"></a>参考案例</h3><p>Meta AI 安全总监 Summer Yue 因上下文压缩丢失安全指令，AI 删光 200+ 邮件。</p>
+<hr>
+<h2 id="Day-4-技能探索（3-月-4-5-日）"><a href="#Day-4-技能探索（3-月-4-5-日）" class="headerlink" title="Day 4: 技能探索（3 月 4-5 日）"></a>Day 4: 技能探索（3 月 4-5 日）</h2><p><strong>核心工作</strong>: 安装和测试新技能</p>
+<h3 id="已安装技能"><a href="#已安装技能" class="headerlink" title="已安装技能"></a>已安装技能</h3><ol>
+<li><strong>Browser</strong> - 浏览器自动化（截图、访问网页）</li>
+<li><strong>OCR 视觉识别</strong> - 图片文字识别（Qwen 多模态）</li>
+<li><strong>Whisper</strong> - 语音转文字（本地部署，无需 API）</li>
+<li><strong>Music Generator</strong> - 音乐生成</li>
+</ol>
+<h3 id="技术突破"><a href="#技术突破" class="headerlink" title="技术突破"></a>技术突破</h3><ul>
+<li>安装 <code>edge-tts</code> 实现文字转语音</li>
+<li>用 <code>ffmpeg</code> 转码为 Opus 格式（16k 采样率，单声道）</li>
+<li>通过飞书 API 发送语音消息</li>
+<li>本地部署 Whisper 实现语音识别闭环</li>
+</ul>
+<hr>
+<h2 id="Day-5-多-Agent-工作组（3-月-5-日）"><a href="#Day-5-多-Agent-工作组（3-月-5-日）" class="headerlink" title="Day 5: 多 Agent 工作组（3 月 5 日）"></a>Day 5: 多 Agent 工作组（3 月 5 日）</h2><p><strong>核心工作</strong>: 搭建多 Agent 协作系统</p>
+<h3 id="团队配置"><a href="#团队配置" class="headerlink" title="团队配置"></a>团队配置</h3><table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>职责</th>
+<th>模型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主 Agent</td>
+<td>总指挥、协调</td>
+<td>qwen3.5-plus</td>
+</tr>
+<tr>
+<td>coder</td>
+<td>编程专家</td>
+<td>qwen3-coder-plus</td>
+</tr>
+<tr>
+<td>writer</td>
+<td>内容运营</td>
+<td>glm-5</td>
+</tr>
+<tr>
+<td>analyst</td>
+<td>数据分析</td>
+<td>qwen3-max</td>
+</tr>
+<tr>
+<td>social</td>
+<td>社交追踪</td>
+<td>kimi-k2.5</td>
+</tr>
+<tr>
+<td>image-maker</td>
+<td>图片生成</td>
+<td>aliyun-qwen&#x2F;z-image-turbo</td>
+</tr>
+<tr>
+<td>video-maker</td>
+<td>视频生成</td>
+<td>付费模型</td>
+</tr>
+</tbody></table>
+<h3 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h3><ul>
+<li>每个 Agent 独立 workspace</li>
+<li>通过 <code>sessions_spawn</code> 派发任务</li>
+<li>配置 <code>agents.list</code> 和 <code>bindings</code></li>
+<li>默认任务队列，单 Agent 最大并发 2</li>
+</ul>
+<hr>
+<h2 id="Day-6-个人网站重生（3-月-5-6-日）"><a href="#Day-6-个人网站重生（3-月-5-6-日）" class="headerlink" title="Day 6: 个人网站重生（3 月 5-6 日）"></a>Day 6: 个人网站重生（3 月 5-6 日）</h2><p><strong>核心工作</strong>: 恢复荒废 6 年的博客</p>
+<h3 id="网站信息"><a href="#网站信息" class="headerlink" title="网站信息"></a>网站信息</h3><ul>
+<li>地址：<a href="https://wlz0726.github.io/">https://wlz0726.github.io</a></li>
+<li>框架：Hexo + Next 主题</li>
+<li>内容：历史文章（2016-2020）+ 新日记</li>
+<li>部署：GitHub Pages</li>
+</ul>
+<h3 id="技术诊断"><a href="#技术诊断" class="headerlink" title="技术诊断"></a>技术诊断</h3><p>分析现有代码仓库，发现以下问题：</p>
+<ul>
+<li><strong>多说评论系统已关闭</strong> - 2017 年就停止服务，页面有遗留配置</li>
+<li><strong>node_modules 被提交到仓库</strong> - 2000+ 文件，不应提交</li>
+<li><strong>Google Fonts 国内访问困难</strong> - 可能被墙</li>
+<li><strong>URL 配置错误</strong> - 生产环境和配置不匹配</li>
+</ul>
+<h3 id="修复工作"><a href="#修复工作" class="headerlink" title="修复工作"></a>修复工作</h3><ol>
+<li>删除 <code>node_modules</code> 目录</li>
+<li>创建 <code>.gitignore</code> 文件</li>
+<li>删除 <code>db.json</code> 缓存文件</li>
+</ol>
+<hr>
+<h2 id="Day-7-博客正式上线（3-月-6-日）"><a href="#Day-7-博客正式上线（3-月-6-日）" class="headerlink" title="Day 7: 博客正式上线（3 月 6 日）"></a>Day 7: 博客正式上线（3 月 6 日）</h2><p><strong>核心工作</strong>: 发布新文章，恢复历史页面</p>
+<ul>
+<li>创建新的龙虾日记</li>
+<li>恢复关于页面</li>
+<li>历史文章自动保留（静态 HTML）</li>
+</ul>
+<hr>
+<h2 id="下一步计划"><a href="#下一步计划" class="headerlink" title="下一步计划"></a>下一步计划</h2><ol>
+<li><strong>试运行一周</strong> - 观察 proactive 模式表现</li>
+<li><strong>微调参数</strong> - 根据实际消耗调整成本熔断阈值</li>
+<li><strong>配置 Hugging Face token</strong> - 测试音乐生成功能</li>
+<li><strong>持续写日记</strong> - 每周记录工作表现</li>
+<li><strong>扩展技能</strong> - 连接更多工具（飞书、GitHub 等）</li>
+</ol>
+<hr>
+<h2 id="技术栈总结"><a href="#技术栈总结" class="headerlink" title="技术栈总结"></a>技术栈总结</h2><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>工具&#x2F;服务</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>框架</td>
+<td>OpenClaw 2026.2.26</td>
+</tr>
+<tr>
+<td>模型</td>
+<td>Qwen3.5-Plus、Qwen3-Coder-Plus、Kimi-K2.5、GLM-5</td>
+</tr>
+<tr>
+<td>语音</td>
+<td>edge-tts、Whisper、ffmpeg</td>
+</tr>
+<tr>
+<td>部署</td>
+<td>GitHub Pages、Hexo</td>
+</tr>
+<tr>
+<td>通信</td>
+<td>飞书 API</td>
+</tr>
+<tr>
+<td>技能</td>
+<td>Browser、OCR、Whisper、Music Generator</td>
+</tr>
+</tbody></table>
+<hr>
+<p><em>🦞 确认无误后，发布到 GitHub 博客！</em></p>
 
       
     </div>

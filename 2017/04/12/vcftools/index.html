@@ -1,0 +1,686 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="vcftools,vcf," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="习惯：Always使用bgzip生成vcf.gz文件并用tabix生成index，使得vcftools和GATK中直接使用vcf.gz文件。
+bgzip和tabix包含在samtools/htslib内。12samtools/htslib/bgzip -c file.vcf &amp;gt; file.vcf.gzsamtools/htslib/tabix -p vcf file.vcf.gz
+
+小模块在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vcftools">
+<meta property="og:url" content="http://yoursite.com/2017/04/12/vcftools/index.html">
+<meta property="og:site_name" content="lizhong's notes">
+<meta property="og:description" content="习惯：Always使用bgzip生成vcf.gz文件并用tabix生成index，使得vcftools和GATK中直接使用vcf.gz文件。
+bgzip和tabix包含在samtools/htslib内。12samtools/htslib/bgzip -c file.vcf &amp;gt; file.vcf.gzsamtools/htslib/tabix -p vcf file.vcf.gz
+
+小模块在">
+<meta property="og:updated_time" content="2018-02-26T08:53:18.358Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vcftools">
+<meta name="twitter:description" content="习惯：Always使用bgzip生成vcf.gz文件并用tabix生成index，使得vcftools和GATK中直接使用vcf.gz文件。
+bgzip和tabix包含在samtools/htslib内。12samtools/htslib/bgzip -c file.vcf &amp;gt; file.vcf.gzsamtools/htslib/tabix -p vcf file.vcf.gz
+
+小模块在">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/12/vcftools/"/>
+
+  <title> vcftools | lizhong's notes </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">lizhong's notes</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">套路提高生产力</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                vcftools
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-04-12T19:12:08+08:00" content="2017-04-12">
+              2017-04-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Cheetsheets/" itemprop="url" rel="index">
+                    <span itemprop="name">Cheetsheets</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="习惯：Always使用bgzip生成vcf-gz文件"><a href="#习惯：Always使用bgzip生成vcf-gz文件" class="headerlink" title="习惯：Always使用bgzip生成vcf.gz文件"></a>习惯：Always使用bgzip生成vcf.gz文件</h2><p>并用tabix生成index，使得vcftools和GATK中直接使用vcf.gz文件。</p>
+<p>bgzip和tabix包含在<code>samtools/htslib</code>内。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">samtools/htslib/bgzip -c file.vcf &gt; file.vcf.gz</div><div class="line">samtools/htslib/tabix -p vcf file.vcf.gz</div></pre></td></tr></table></figure></p>
+<hr>
+<p><strong>小模块</strong><br>在<code>vcftools/vcftools-build/bin/</code>中的小程序，实现简单的特定功能。列出几个最常用的。<a href="http://vcftools.sourceforge.net/perl_module.html" target="_blank" rel="external">其他更多</a></p>
+<p>使用前需要导入perl_module lib<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export PERL5LIB=/home/wanglizhong/software/vcftools/vcftools-build/lib/perl5/site_perl/5.8.8:$PERL5LIB;</div></pre></td></tr></table></figure></p>
+<h2 id="单个vcf"><a href="#单个vcf" class="headerlink" title="单个vcf"></a>单个vcf</h2><h3 id="重新计算INFO里的AN和AC"><a href="#重新计算INFO里的AN和AC" class="headerlink" title="重新计算INFO里的AN和AC"></a>重新计算<code>INFO</code>里的AN和AC</h3><p>fill-an-ac<br>重新计算AN和AC 并加入<code>INFO</code>中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zcat in.vcf.gz|fill-an-ac &gt; out.vcf</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="vcf2fa"><a href="#vcf2fa" class="headerlink" title="vcf2fa"></a>vcf2fa</h3><p>vcf转成一致性序列(consensus sequence)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">cat ref.fa|vcf-consensus file.vcf.gz &gt; out.fa</div><div class="line"></div><div class="line"># 其中某一个个体</div><div class="line">cat ref.fa|vcf-consensus -s sampleA_ID file.vcf.gz &gt; out.sampleA_ID.fa</div><div class="line"></div><div class="line"># 只有某一个haplotype（1或者2）</div><div class="line">cat ref.fa|vcf-consensus -H 1 file.vcf.gz &gt; out.hap1.fa</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="取出部分个体"><a href="#取出部分个体" class="headerlink" title="取出部分个体"></a>取出部分个体</h3><p>vcf-subset -c<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vcf-subset -c NA0001,NA0002 file.vcf.gz | bgzip -c &gt; out.vcf.gz</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="vcf里的信息自定义输出"><a href="#vcf里的信息自定义输出" class="headerlink" title="vcf里的信息自定义输出"></a>vcf里的信息自定义输出</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vcf-query file.vcf.gz 1:10327-10330</div><div class="line">vcf-query file.vcf -f &apos;%CHROM:%POS %REF %ALT [ %DP]\n&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">Usage: vcf-query [OPTIONS] file.vcf.gz</div><div class="line">Options:</div><div class="line">   -c, --columns &lt;file|list&gt;           List of comma-separated column names or one column name per line in a file.</div><div class="line">   -f, --format &lt;string&gt;               The default is &apos;%CHROM:%POS\t%REF[\t%SAMPLE=%GT]\n&apos;</div><div class="line">   -l, --list-columns                  List columns.</div><div class="line">   -r, --region chr:from-to            Retrieve the region. (Runs tabix.)</div><div class="line">       --use-old-method                Use old version of API, which is slow but more robust.</div><div class="line">   -h, -?, --help                      This help message.</div><div class="line">Expressions:</div><div class="line">   %CHROM          The CHROM column (similarly also other columns)</div><div class="line">   %GT             Translated genotype (e.g. C/A)</div><div class="line">   %GTR            Raw genotype (e.g. 0/1)</div><div class="line">   %INFO/TAG       Any tag in the INFO column</div><div class="line">   %LINE           Prints the whole line</div><div class="line">   %SAMPLE         Sample name</div><div class="line">   []              The brackets loop over all samples</div><div class="line">   %*&lt;A&gt;&lt;B&gt;        All format fields printed as KEY&lt;A&gt;VALUE&lt;B&gt;</div><div class="line">Examples:</div><div class="line">   vcf-query file.vcf.gz 1:1000-2000 -c NA001,NA002,NA003</div><div class="line">   vcf-query file.vcf.gz -r 1:1000-2000 -f &apos;%CHROM:%POS\t%REF\t%ALT[\t%SAMPLE:%*=,]\n&apos;</div><div class="line">   vcf-query file.vcf.gz -f &apos;[%GT\t]%LINE\n&apos;</div><div class="line">   vcf-query file.vcf.gz -f &apos;[%GT\ ]%LINE\n&apos;</div><div class="line">   vcf-query file.vcf.gz -f &apos;%CHROM\_%POS\t%INFO/DP\t%FILTER\n&apos;</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="将个体顺序重排"><a href="#将个体顺序重排" class="headerlink" title="将个体顺序重排"></a>将个体顺序重排</h3><p>Reorder columns</p>
+<p>将<code>file.vcf.gz</code>按照<code>template.vcf.gz</code>顺序重排<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vcf-shuffle-cols -t template.vcf.gz file.vcf.gz &gt; out.vcf</div></pre></td></tr></table></figure></p>
+<h3 id="vcf-postions-Reorder"><a href="#vcf-postions-Reorder" class="headerlink" title="vcf postions Reorder"></a>vcf postions Reorder</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">vcf-sort file.vcf.gz &gt; out.vcf</div><div class="line">zcat file.vcf.gz| vcf-sort &gt; out.vcf</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="转换成tab格式"><a href="#转换成tab格式" class="headerlink" title="转换成tab格式"></a>转换成tab格式</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">zcat file.vcf.gz | vcf-to-tab &gt; out.tab</div></pre></td></tr></table></figure>
+<p>输出如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#CHROM  POS REF 05537</div><div class="line">chr2    131 T   T/T</div><div class="line">chr2    437 G   G/G</div><div class="line">chr2    453 G   G/G</div><div class="line">chr2    469 G   G/G</div><div class="line">chr2    526 G   G/G</div><div class="line">chr2    618 G   G/G</div><div class="line">chr2    745 A   A/A</div><div class="line">chr2    756 T   T/T</div><div class="line">chr2    760 T   T/T</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="计算tstv"><a href="#计算tstv" class="headerlink" title="计算tstv"></a>计算tstv</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat file.vcf | vcf-tstv</div></pre></td></tr></table></figure>
+<p><br></p>
+<h3 id="vcf格式校验"><a href="#vcf格式校验" class="headerlink" title="vcf格式校验"></a>vcf格式校验</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vcf-validator file.vcf.gz</div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="多个vcf"><a href="#多个vcf" class="headerlink" title="多个vcf"></a>多个vcf</h2><h3 id="比较多个vcf里SNP位置的overlap"><a href="#比较多个vcf里SNP位置的overlap" class="headerlink" title="比较多个vcf里SNP位置的overlap"></a>比较多个vcf里SNP位置的overlap</h3><p>可以用结果画维恩图Venn-Diagram。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"># run</div><div class="line">vcf-compare test.vcf.gz test2.vcf.gz test3.vcf.gz|grep ^VN | cut -f 2-</div><div class="line"></div><div class="line"># results</div><div class="line">VN      94      test.vcf.gz (9.5%)      test2.vcf.gz (22.3%)    test3.vcf.gz (48.5%)</div><div class="line">VN      100     test.vcf.gz (10.1%)     test3.vcf.gz (51.5%)</div><div class="line">VN      327     test.vcf.gz (32.9%)     test2.vcf.gz (77.7%)</div><div class="line">VN      473     test.vcf.gz (47.6%)</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="合并多个染色体chr-scaffold"><a href="#合并多个染色体chr-scaffold" class="headerlink" title="合并多个染色体chr/scaffold"></a>合并多个染色体chr/scaffold</h3><p>1.个体（header）需完全相同。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vcf-concat chr1.vcf.gz chr2.vcf.gz | bgzip -c &gt; all.vcf.gz</div></pre></td></tr></table></figure></p>
+<p>2.合并有不同个体的多个vcf</p>
+<ul>
+<li><p>最好有相同Postions，缺失的默认会被填上miss（.）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vcf-merge A.vcf.gz B.vcf.gz C.vcf.gz | bgzip -c &gt; out.vcf.gz</div></pre></td></tr></table></figure>
+</li>
+<li><p>把mis的用自定义genotype（0|0，0/0，1/1等等）填上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vcf-merge -R &apos;0|0&apos; A.vcf.gz B.vcf.gz C.vcf.gz | bgzip -c &gt; out.vcf.gz</div></pre></td></tr></table></figure>
+</li>
+<li><p>bcftools</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">samtools/bcftools/bcftools merge --merge all --no-version --threads 10 file1.vcf.gz file2.vcf.gz |bgzip -c &gt; merge.vcf.gz</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>3.一行命令合并vcf，巧用括号<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"># Merge (that is, concatenate) two VCF files into one, keeping the header</div><div class="line"># from first one only.</div><div class="line">(zcat A.vcf.gz | grep ^#; zcat A.vcf.gz | grep -v ^#; zcat B.vcf.gz | grep -v ^#; )| bgzip -c &gt; out.vcf.gz</div></pre></td></tr></table></figure></p>
+<p><br></p>
+<h3 id="找vcf-overlap-互补位置"><a href="#找vcf-overlap-互补位置" class="headerlink" title="找vcf overlap/互补位置"></a>找vcf overlap/互补位置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 输出两个vcf里共有的</div><div class="line">vcf-isec -n +2 A.vcf.gz B.vcf.gz | bgzip -c &gt; out.vcf.gz</div><div class="line"></div><div class="line"># 输出第一个vcf里有，其他vcf（B和C及后面更多）里没有的</div><div class="line">vcf-isec -c A.vcf.gz B.vcf.gz C.vcf.gz | bgzip -c &gt; out.vcf.gz</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vcftools/" rel="tag">#vcftools</a>
+          
+            <a href="/tags/vcf/" rel="tag">#vcf</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/06/bam2fq/" rel="next" title="bam2fq">
+                <i class="fa fa-chevron-left"></i> bam2fq
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/17/Getting-free-images-with-copyright/" rel="prev" title="Getting free images with copyright">
+                Getting free images with copyright <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Lizhong Wang" />
+          <p class="site-author-name" itemprop="name">Lizhong Wang</p>
+          <p class="site-description motion-element" itemprop="description">自我提升和自我完善是一种终身的修行</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">46</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">50</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/samr" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/wanglzh" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/wlz0726" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://ofr9vioug.bkt.clouddn.com/QRcode-wanglizhong0726.jpg" target="_blank" title="Wechat">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Wechat
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#习惯：Always使用bgzip生成vcf-gz文件"><span class="nav-number">1.</span> <span class="nav-text">习惯：Always使用bgzip生成vcf.gz文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#单个vcf"><span class="nav-number">2.</span> <span class="nav-text">单个vcf</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#重新计算INFO里的AN和AC"><span class="nav-number">2.1.</span> <span class="nav-text">重新计算INFO里的AN和AC</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vcf2fa"><span class="nav-number">2.2.</span> <span class="nav-text">vcf2fa</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取出部分个体"><span class="nav-number">2.3.</span> <span class="nav-text">取出部分个体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vcf里的信息自定义输出"><span class="nav-number">2.4.</span> <span class="nav-text">vcf里的信息自定义输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将个体顺序重排"><span class="nav-number">2.5.</span> <span class="nav-text">将个体顺序重排</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vcf-postions-Reorder"><span class="nav-number">2.6.</span> <span class="nav-text">vcf postions Reorder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#转换成tab格式"><span class="nav-number">2.7.</span> <span class="nav-text">转换成tab格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算tstv"><span class="nav-number">2.8.</span> <span class="nav-text">计算tstv</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vcf格式校验"><span class="nav-number">2.9.</span> <span class="nav-text">vcf格式校验</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多个vcf"><span class="nav-number">3.</span> <span class="nav-text">多个vcf</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#比较多个vcf里SNP位置的overlap"><span class="nav-number">3.1.</span> <span class="nav-text">比较多个vcf里SNP位置的overlap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#合并多个染色体chr-scaffold"><span class="nav-number">3.2.</span> <span class="nav-text">合并多个染色体chr/scaffold</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#找vcf-overlap-互补位置"><span class="nav-number">3.3.</span> <span class="nav-text">找vcf overlap/互补位置</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lizhong Wang</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
