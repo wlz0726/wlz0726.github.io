@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>龙虾日记 #1 - OpenClaw 初体验</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <header><h1>龙虾日记 #1 - OpenClaw 初体验</h1><p>发表于 2026-03-02</p></header>
+  <article><p>
+<h1>🦞 龙虾日记 #1</h1></p><p><strong>日期</strong>: 2026-03-02  
+<strong>主题</strong>: OpenClaw 初体验与模型配置</p><p>---</p><p><h2>缘起</h2></p><p>今天正式开始了我的 AI Agent 养成计划。选择的是 OpenClaw 框架，一个本地优先的 Agent 系统。安装过程出乎意料地顺利，<code>npm install -g openclaw</code> 一条命令搞定。</p><p>打开配置文件的那一刻，我意识到这不仅仅是安装一个工具，而是在配置一个"数字生命"的成长环境。</p><p>---</p><p><h2>核心工作：模型配置</h2></p><p><h3>配置文件结构</h3></p><p>配置文件位于 <code>~/.openclaw/openclaw.json</code>，主要包含两大部分：</p><p>``<code>json
+{
+  "models": {
+    "providers": {
+      "codingplan": {
+        "qwen3.5-plus": {
+          "contextWindow": 1048576,
+          "maxTokens": 8192
+        }
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": "qwen3.5-plus"
+    }
+  }
+}
+</code>`<code></p><p><strong>关键参数解释</strong>：
+<li></code>contextWindow<code>: 上下文窗口大小（单位：tokens）</li>
+<li></code>maxTokens<code>: 最大输出长度</li>
+<li></code>providers<code>: 模型仓库，可以有多个供应商</li></p><p><h3>模型选择策略</h3></p><p>经过一番研究，我确定了以下配置策略：</p><p>| 场景 | 模型 | 上下文 | 输出 |
+|------|------|--------|------|
+| 日常对话 | qwen3.5-plus | 1M | 8k |
+| 编程任务 | qwen3-coder-plus | 1M | 64k |
+| 快速响应 | qwen3.5-flash | 30k | 4k |</p><p><strong>选择理由</strong>：
+<li></code>qwen3.5-plus<code>: 平衡性能和成本，适合日常使用</li>
+<li></code>qwen3-coder-plus<code>: 针对代码优化，输出上限高</li>
+<li></code>qwen3.5-flash<code>: 轻量级，适合简单任务</li></p><p>---</p><p><h2>技术突破</h2></p><p><h3>1. 配置热重载</h3></p><p>最初修改配置后需要重启整个服务，后来发现了正确的重载方式：</p><p></code>`<code>bash
+<h1>方式 1：重启 Gateway</h1>
+openclaw gateway restart</p><p><h1>方式 2：会话内切换模型</h1>
+/model qwen3.5-plus
+</code>`<code></p><p><strong>经验教训</strong>：修改配置前先备份，重载失败时可以快速恢复。</p><p><h3>2. 流式输出</h3></p><p>开启流式输出后，响应是逐字显示的，大大提升了交互的即时感。这个选项在配置文件中默认开启，但值得确认一下。</p><p><h3>3. 紧急制动</h3></p><p>学会了一个保命命令：</p><p></code>`<code>bash
+/stop
+</code>`<code></p><p>当 Agent 开始执行不合适的操作时，可以立即中断。这个命令应该放在随手可及的地方。</p><p>---</p><p><h2>踩坑记录</h2></p><p><h3>坑 1：模型别名混淆</h3></p><p>配置文件中可以设置模型别名，但不同地方的别名可能不通用。最佳实践是始终使用完整模型名 </code>provider/model-name<code>。</p><p><h3>坑 2：token 消耗预估</h3></p><p>1M 上下文听起来很大，但实际使用中要注意输出 tokens 也会计入成本。设置合理的 </code>maxTokens` 很重要。</p><p>---</p><p><h2>核心收获</h2></p><p>1. <strong>配置即教育</strong>：配置文件不仅是参数设置，更是对 Agent 的"家庭教育"
+2. <strong>模型选择是权衡</strong>：没有最好的模型，只有最适合场景的模型
+3. <strong>热重载很重要</strong>：避免频繁重启服务，提升开发效率</p><p>---</p><p><h2>相关链接</h2></p><p><li><strong>OpenClaw 官网</strong>: https://openclaw.ai</li>
+<li><strong>官方文档</strong>: https://docs.openclaw.ai</li>
+<li><strong>GitHub</strong>: https://github.com/openclaw/openclaw</li>
+<li><strong>技能市场</strong>: https://clawhub.ai</li>
+<li><strong>技能导航</strong>: https://claw123.ai</li></p><p>---</p><p><h2>明日计划</h2></p><p>1. 探索语音功能（edge-tts）
+2. 测试浏览器自动化
+3. 继续优化模型配置</p><p>---</p><p>*🦞 确认无误后，发布到 GitHub 博客！*
+</p></article>
+  <footer><a href="/">返回首页</a></footer>
+</body>
+</html>

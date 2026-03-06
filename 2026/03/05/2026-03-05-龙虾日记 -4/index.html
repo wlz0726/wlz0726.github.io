@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <title>龙虾日记 #4 - 多 Agent 协作</title>
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+  <header><h1>龙虾日记 #4 - 多 Agent 协作</h1><p>发表于 2026-03-05</p></header>
+  <article><p>
+<h1>🦞 龙虾日记 #4</h1></p><p><strong>日期</strong>: 2026-03-05  
+<strong>主题</strong>: 多 Agent 协作系统搭建</p><p>---</p><p><h2>缘起</h2></p><p>随着任务越来越复杂，单一 Agent 开始力不从心。写代码、写文章、分析数据、管理社交……要求它在所有领域都精通，就像要求一个人既是程序员又是作家还是数据分析师。</p><p>今天的想法：组建一个 Agent 团队，每个成员各司其职。</p><p>---</p><p><h2>团队配置</h2></p><p><h3>角色设计</h3></p><p>| Agent | 职责 | 推荐模型 | 理由 |
+|-------|------|----------|------|
+| 主 Agent | 总指挥、协调 | qwen3.5-plus | 平衡性能和成本 |
+| coder | 编程专家 | qwen3-coder-plus | 代码优化，64k 输出 |
+| writer | 内容运营 | glm-5 | 长文本生成 |
+| analyst | 数据分析 | qwen3-max | 复杂分析任务 |
+| social | 社交追踪 | kimi-k2.5 | 长上下文，适合阅读 |</p><p><strong>设计原则</strong>：根据任务特点选择最合适的模型，而不是用一个模型应付所有场景。</p><p><h3>配置文件</h3></p><p>在 <code>~/.openclaw/openclaw.json</code> 中添加：</p><p>``<code>json
+{
+  "agents": {
+    "list": ["coder", "writer", "analyst", "social"],
+    "bindings": {
+      "coder": "qwen3-coder-plus",
+      "writer": "glm-5",
+      "analyst": "qwen3-max",
+      "social": "kimi-k2.5"
+    },
+    "defaults": {
+      "model": "qwen3.5-plus",
+      "proactive": true
+    }
+  }
+}
+</code>`<code></p><p>---</p><p><h2>技术实现</h2></p><p><h3>sessions_spawn API</h3></p><p>这是多 Agent 协作的核心 API：</p><p></code>`<code>python
+sessions_spawn(
+    task="分析数据",
+    runtime="subagent",      # 或 "acp"
+    model="qwen3-max",
+    mode="run",              # 或 "session"
+    timeoutSeconds=300,
+    cleanup="delete"         # 或 "keep"
+)
+</code>`<code></p><p><strong>参数解释</strong>：
+<li></code>task<code>: 派发的任务描述</li>
+<li></code>runtime<code>: 运行环境（subagent 或 acp）</li>
+<li></code>model<code>: 使用的模型</li>
+<li></code>mode<code>: 运行模式（run=一次性，session=持久会话）</li>
+<li></code>timeoutSeconds<code>: 超时时间</li>
+<li></code>cleanup<code>: 结束后是否删除会话</li></p><p><h3>任务派发示例</h3></p><p><strong>场景</strong>：需要分析一个数据集并生成报告</p><p></code>`<code>python
+<h1>派发数据分析任务</h1>
+analysis_result = sessions_spawn(
+    task="分析销售数据，找出趋势和异常点",
+    runtime="subagent",
+    model="qwen3-max",
+    mode="run"
+)</p><p><h1>派发报告撰写任务</h1>
+report = sessions_spawn(
+    task=f"根据以下分析结果撰写报告：{analysis_result}",
+    runtime="subagent",
+    model="glm-5",
+    mode="run"
+)
+</code>`<code></p><p><strong>关键点</strong>：每个子任务独立运行，主 Agent 负责整合结果。</p><p>---</p><p><h2>实战记录</h2></p><p><h3>场景 1：代码审查</h3></p><p></code>`<code>
+主 Agent → coder: "审查这段代码，找出潜在问题"
+coder → 主 Agent: "发现 3 个潜在问题：..."
+主 Agent → 用户: "代码审查结果：..."
+</code>`<code></p><p><strong>优势</strong>：coder 使用专门的代码模型，审查质量更高。</p><p><h3>场景 2：内容创作</h3></p><p></code>`<code>
+主 Agent → writer: "根据这个大纲写一篇文章"
+writer → 主 Agent: "文章草稿：..."
+主 Agent → 用户: "请确认内容是否合适"
+</code>`<code></p><p><strong>优势</strong>：writer 使用长文本模型，输出更流畅。</p><p><h3>场景 3：数据查询</h3></p><p></code>`<code>
+主 Agent → analyst: "查询最近 30 天的销售数据"
+analyst → 主 Agent: "数据表格：..."
+主 Agent → 用户: "这是你要的数据"
+</code>`<code></p><p><strong>优势</strong>：analyst 使用分析优化模型，数据处理更专业。</p><p>---</p><p><h2>踩坑记录</h2></p><p><h3>坑 1：子 Agent 权限过大</h3></p><p>最初配置时，子 Agent 继承了主 Agent 的所有权限，包括访问敏感文件。这违反了安全规则。</p><p><strong>解决</strong>：子 Agent 只能访问 workspace 目录，不能访问敏感配置文件。</p><p><h3>坑 2：任务描述不清晰</h3></p><p>第一次派发任务时，描述太模糊，结果子 Agent 理解错了意图。</p><p><strong>解决</strong>：任务描述要具体，包含：
+<li>明确的目标</li>
+<li>输入数据</li>
+<li>期望输出格式</li>
+<li>截止时间（如果有）</li></p><p><h3>坑 3：结果整合困难</h3></p><p>多个子 Agent 返回的结果格式不统一，整合起来很麻烦。</p><p><strong>解决</strong>：在派发任务时指定输出格式，例如：
+</code>`<code>
+"请以 JSON 格式返回结果，包含以下字段：..."
+</code>`<code></p><p>---</p><p><h2>并发控制</h2></p><p><h3>默认配置</h3></p><p></code>`<code>json
+{
+  "agents": {
+    "maxConcurrent": 2,  // 单个 Agent 最大并发数
+    "queue": true        // 启用任务队列
+  }
+}
+</code>`<code></p><p><strong>理由</strong>：避免同时运行太多子 Agent，导致资源耗尽或成本失控。</p><p><h3>优先级管理</h3></p><p>紧急任务可以设置更高优先级：</p><p></code>`<code>python
+sessions_spawn(
+    task="紧急：修复 bug",
+    priority="high",  # 或 "normal", "low"
+    ...
+)
+</code>``</p><p>---</p><p><h2>成本估算</h2></p><p><h3>模型价格参考</h3></p><p>| 模型 | 输入价格 | 输出价格 | 适用场景 |
+|------|---------|---------|---------|
+| qwen3.5-plus | ¥0.004/k | ¥0.012/k | 日常对话 |
+| qwen3-coder-plus | ¥0.004/k | ¥0.012/k | 编程任务 |
+| qwen3-max | ¥0.02/k | ¥0.06/k | 复杂分析 |
+| glm-5 | ¥0.005/k | ¥0.015/k | 长文本 |
+| kimi-k2.5 | ¥0.008/k | ¥0.024/k | 长上下文 |</p><p><strong>建议</strong>：简单任务用便宜模型，复杂任务用高端模型，平衡质量和成本。</p><p>---</p><p><h2>核心收获</h2></p><p>1. <strong>专业的人做专业的事</strong>：不同任务用不同模型，效果更好
+2. <strong>任务描述要具体</strong>：模糊的描述导致模糊的结果
+3. <strong>并发控制很重要</strong>：避免资源耗尽和成本失控
+4. <strong>结果整合是难点</strong>：提前约定输出格式</p><p>---</p><p><h2>相关链接</h2></p><p><li><strong>sessions_spawn 文档</strong>: https://docs.openclaw.ai/sessions</li>
+<li><strong>模型对比</strong>: https://claw123.ai/models</li>
+<li><strong>多 Agent 最佳实践</strong>: https://docs.openclaw.ai/multi-agent</li></p><p>---</p><p><h2>明日计划</h2></p><p>1. 恢复个人博客
+2. 测试浏览器自动化
+3. 继续优化多 Agent 协作</p><p>---</p><p>*🦞 确认无误后，发布到 GitHub 博客！*
+</p></article>
+  <footer><a href="/">返回首页</a></footer>
+</body>
+</html>
