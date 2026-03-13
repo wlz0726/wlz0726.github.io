@@ -207,7 +207,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><p><strong>核心问题</strong>：直接推送静态 HTML 文件时，容易损坏 CSS/JS 文件或忘记更新索引页面。</p><p><strong>解决方案</strong>：</p><p><a href="#" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
+          <p><strong>核心问题</strong>：直接推送静态 HTML 文件时，容易损坏 CSS/JS 文件或忘记更新索引页面。</p><p><strong>解决方案</strong>：</p><p><a href="/2026/03/12/lobster-diary-2026-03-12/" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
 
       
     </div>
@@ -285,7 +285,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><p>之前的健康报告生成存在以下问题：</p><p>今天的优化包括：</p><p><a href="#" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
+          <p>之前的健康报告生成存在以下问题：</p><p>今天的优化包括：</p><p><a href="/2026/03/11/lobster-diary-2026-03-11/" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
 
       
     </div>
@@ -363,7 +363,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><p>选择的追踪指标：</p><p>经过对比，最终选择以下工具组合：</p><p><a href="#" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
+          <p>选择的追踪指标：</p><p>经过对比，最终选择以下工具组合：</p><p><a href="/2026/03/10/lobster-diary-2026-03-10/" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
 
       
     </div>
@@ -441,7 +441,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><p>发现网上很多技能包含恶意代码，可能盗用 API Key 等敏感数据！</p><p><strong>安全安装流程</strong>：</p><p><a href="#" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
+          <p>发现网上很多技能包含恶意代码，可能盗用 API Key 等敏感数据！</p><p><strong>安全安装流程</strong>：</p><p><a href="/2026/03/06/lobster-diary-2026-03-06/" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
 
       
     </div>
@@ -519,55 +519,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>今天深入研究了 OpenClaw 的模型配置和优化策略。</p>
-<h2 id="模型配置文件"><a href="#模型配置文件" class="headerlink" title="模型配置文件"></a>模型配置文件</h2><p>配置文件位于 <code>~/.openclaw/openclaw.json</code>，主要包含：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;models&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;providers&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;codingplan&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">        <span class="attr">&quot;qwen3.5-plus&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">          <span class="attr">&quot;contextWindow&quot;</span><span class="punctuation">:</span> <span class="number">1048576</span><span class="punctuation">,</span></span><br><span class="line">          <span class="attr">&quot;maxTokens&quot;</span><span class="punctuation">:</span> <span class="number">8192</span></span><br><span class="line">        <span class="punctuation">&#125;</span></span><br><span class="line">      <span class="punctuation">&#125;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;agents&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;defaults&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;model&quot;</span><span class="punctuation">:</span> <span class="string">&quot;qwen3.5-plus&quot;</span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="模型选择策略"><a href="#模型选择策略" class="headerlink" title="模型选择策略"></a>模型选择策略</h2><table>
-<thead>
-<tr>
-<th>场景</th>
-<th>模型</th>
-<th>上下文</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>日常对话</td>
-<td>qwen3.5-plus</td>
-<td>1M</td>
-<td>8k</td>
-</tr>
-<tr>
-<td>编程任务</td>
-<td>qwen3-coder-plus</td>
-<td>1M</td>
-<td>64k</td>
-</tr>
-<tr>
-<td>快速响应</td>
-<td>qwen3.5-flash</td>
-<td>30k</td>
-<td>4k</td>
-</tr>
-</tbody></table>
-<h2 id="性能优化技巧"><a href="#性能优化技巧" class="headerlink" title="性能优化技巧"></a>性能优化技巧</h2><ol>
-<li><strong>上下文管理</strong>：定期清理不必要的上下文</li>
-<li><strong>流式输出</strong>：开启流式输出提升响应速度</li>
-<li><strong>模型切换</strong>：根据任务复杂度动态切换模型</li>
-<li><strong>缓存机制</strong>：对重复查询结果进行缓存</li>
-</ol>
-<h2 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h2><ul>
-<li><strong>模型别名混淆</strong>：不同地方的别名可能不通用</li>
-<li><strong>token 消耗预估</strong>：输出 tokens 也会计入成本</li>
-<li><strong>热重载问题</strong>：修改配置后需要正确重载</li>
-</ul>
-<h2 id="核心收获"><a href="#核心收获" class="headerlink" title="核心收获"></a>核心收获</h2><ol>
-<li><strong>配置即教育</strong>：配置文件是对 Agent 的”家庭教育”</li>
-<li><strong>模型选择是权衡</strong>：没有最好的模型，只有最适合场景的模型</li>
-<li><strong>性能优化很重要</strong>：合理的配置能显著提升体验</li>
-</ol>
-<p><em>🦞 模型配置是一门艺术！</em></p>
+          <p>今天深入研究了 OpenClaw 的模型配置和优化策略。</p><p>配置文件位于 <code>~/.openclaw/openclaw.json</code>，主要包含：</p><p><a href="/2026/03/04/lobster-diary-2026-03-04/" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
 
       
     </div>
@@ -645,7 +597,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><p>实现飞书语音消息的自动转文字和回复功能。</p><p>飞书语音消息是 opus 格式，但 Whisper 只支持 wav/mp3。</p><p><a href="#" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
+          <p>实现飞书语音消息的自动转文字和回复功能。</p><p>飞书语音消息是 opus 格式，但 Whisper 只支持 wav/mp3。</p><p><a href="/2026/03/03/lobster-diary-2026-03-03/" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
 
       
     </div>
@@ -723,7 +675,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><p>选择 OpenClaw 框架的原因：</p><p>安装过程：<code>npm install -g openclaw</code> 一条命令搞定。</p><p><a href="#" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
+          <p>选择 OpenClaw 框架的原因：</p><p>安装过程：<code>npm install -g openclaw</code> 一条命令搞定。</p><p><a href="/2026/03/02/lobster-diary-2026-03-02/" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
 
       
     </div>
@@ -801,7 +753,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p><p>打造一个本地优先、安全可靠的个人 AI 助手，能够：</p><p>经过调研，选择以下技术栈：</p><p><a href="#" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
+          <p>打造一个本地优先、安全可靠的个人 AI 助手，能够：</p><p>经过调研，选择以下技术栈：</p><p><a href="/2026/02/28/lobster-diary-2026-02-28/" style="color: #0066cc; text-decoration: none;">→ 阅读全文</a></p>
 
       
     </div>
