@@ -123,7 +123,13 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%A6%9E-%E9%BE%99%E8%99%BE%E6%97%A5%E8%AE%B0-2026-03-03-%E9%A3%9E%E4%B9%A6%E8%AF%AD%E9%9F%B3%E5%8A%9F%E8%83%BD%E8%B8%A9%E5%9D%91%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">🦞 龙虾日记-2026-03-03 飞书语音功能踩坑记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%AF-%E4%BB%8A%E6%97%A5%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5"><span class="nav-number">1.1.</span> <span class="nav-text">🎯 今日技术实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%9D-%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.2.</span> <span class="nav-text">📝 实现步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">🛠️ 环境配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9A%A0%EF%B8%8F-%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95"><span class="nav-number">1.4.</span> <span class="nav-text">⚠️ 踩坑记录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%92%A1-%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93"><span class="nav-number">1.5.</span> <span class="nav-text">💡 经验总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%9A-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">1.6.</span> <span class="nav-text">📚 参考资料</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav">  <li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%AF-%E4%BB%8A%E6%97%A5%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5"><span class="nav-number">1.</span> <span class="nav-text">🎯 今日技术实践</span></a></li>
+  <li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%9D-%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><span class="nav-number">2.</span> <span class="nav-text">📝 实现步骤</span></a></li>
+  <li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">🛠️ 环境配置</span></a></li>
+  <li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9A%A0%EF%B8%8F-%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95"><span class="nav-number">4.</span> <span class="nav-text">⚠️ 踩坑记录</span></a></li>
+  <li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%92%A1-%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">💡 经验总结</span></a></li>
+  <li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%9A-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">6.</span> <span class="nav-text">📚 参考资料</span></a></li>
+</ol></div>
         </div>
         <!--/noindex-->
 
@@ -212,9 +218,9 @@
     
     <div class="post-body" itemprop="articleBody">
 <hr>
-<h2 id="🎯-今日技术实践"><a href="#🎯-今日技术实践" class="headerlink" title="🎯 今日技术实践"></a>🎯 今日技术实践</h2><p><strong>飞书语音消息发送</strong><br><strong>目标</strong>: 实现 AI 助手向用户发送语音消息<br><strong>技术流程</strong>: TTS 生成 → Opus 转码 → 飞书上传 → 发送消息</p>
+<h2 id="%F0%9F%8E%AF-%E4%BB%8A%E6%97%A5%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5"><a href="#🎯-今日技术实践" class="headerlink" title="🎯 今日技术实践"></a>🎯 今日技术实践</h2><p><strong>飞书语音消息发送</strong><br><strong>目标</strong>: 实现 AI 助手向用户发送语音消息<br><strong>技术流程</strong>: TTS 生成 → Opus 转码 → 飞书上传 → 发送消息</p>
 <hr>
-<h2 id="📝-实现步骤"><a href="#📝-实现步骤" class="headerlink" title="📝 实现步骤"></a>📝 实现步骤</h2><p><strong>Step 1: TTS 语音生成</strong><br><strong>工具</strong>: edge-tts (Microsoft Azure 免费 TTS)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/Users/wlz/anaconda3/bin/python3.10 -m edge_tts \</span><br><span class="line">  --voice &quot;zh-CN-YunxiNeural&quot; \</span><br><span class="line">  --text &quot;你好，这是测试语音&quot; \</span><br><span class="line">  --write-media /tmp/final.mp3</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h2 id="%F0%9F%93%9D-%E5%AE%9E%E7%8E%B0%E6%AD%A5%E9%AA%A4"><a href="#📝-实现步骤" class="headerlink" title="📝 实现步骤"></a>📝 实现步骤</h2><p><strong>Step 1: TTS 语音生成</strong><br><strong>工具</strong>: edge-tts (Microsoft Azure 免费 TTS)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/Users/wlz/anaconda3/bin/python3.10 -m edge_tts \</span><br><span class="line">  --voice &quot;zh-CN-YunxiNeural&quot; \</span><br><span class="line">  --text &quot;你好，这是测试语音&quot; \</span><br><span class="line">  --write-media /tmp/final.mp3</span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
 <p><strong>关键发现</strong>:</p>
 <ul>
 <li>✅ edge-tts 需要 Python 3.10+</li>
@@ -254,7 +260,7 @@
 </tr>
 </tbody></table>
 <hr>
-<h2 id="🛠️-环境配置"><a href="#🛠️-环境配置" class="headerlink" title="🛠️ 环境配置"></a>🛠️ 环境配置</h2><p><strong>系统信息</strong>:</p>
+<h2 id="%F0%9F%9B%A0%EF%B8%8F-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><a href="#🛠️-环境配置" class="headerlink" title="🛠️ 环境配置"></a>🛠️ 环境配置</h2><p><strong>系统信息</strong>:</p>
 <ul>
 <li>macOS 14.6.1 (arm64)</li>
 <li>Python 3.10: /Users/wlz/anaconda3/bin/python3.10</li>
@@ -264,11 +270,11 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># TTS 引擎</span></span><br><span class="line">pip3 install edge-tts</span><br><span class="line"></span><br><span class="line"><span class="comment"># 音频处理</span></span><br><span class="line">brew install ffmpeg  <span class="comment"># 耗时长</span></span><br></pre></td></tr></table></figure>
 
 <hr>
-<h2 id="⚠️-踩坑记录"><a href="#⚠️-踩坑记录" class="headerlink" title="⚠️ 踩坑记录"></a>⚠️ 踩坑记录</h2><p><strong>问题 1: Python 版本兼容</strong><br><strong>错误</strong>：TypeError: ‘type’ object is not subscriptable<br><strong>原因</strong>：edge-tts 需要 Python 3.10+<br><strong>解决</strong>：使用 anaconda3 的 Python 3.10</p>
+<h2 id="%E2%9A%A0%EF%B8%8F-%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95"><a href="#⚠️-踩坑记录" class="headerlink" title="⚠️ 踩坑记录"></a>⚠️ 踩坑记录</h2><p><strong>问题 1: Python 版本兼容</strong><br><strong>错误</strong>：TypeError: ‘type’ object is not subscriptable<br><strong>原因</strong>：edge-tts 需要 Python 3.10+<br><strong>解决</strong>：使用 anaconda3 的 Python 3.10</p>
 <p><strong>问题 2: ffmpeg 编译超时</strong><br><strong>错误</strong>：brew install 卡在 openssl 编译<br><strong>原因</strong>：从源码编译，网络不稳定<br><strong>临时方案</strong>：等待后台编译完成</p>
 <p><strong>问题 3: 飞书格式要求</strong><br><strong>错误</strong>：发送 MP3 文件，飞书无法播放<br><strong>原因</strong>：飞书要求 opus 格式<br><strong>解决</strong>：必须先转码为 opus</p>
 <hr>
-<h2 id="💡-经验总结"><a href="#💡-经验总结" class="headerlink" title="💡 经验总结"></a>💡 经验总结</h2><p><strong>成功要素</strong>:</p>
+<h2 id="%F0%9F%92%A1-%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93"><a href="#💡-经验总结" class="headerlink" title="💡 经验总结"></a>💡 经验总结</h2><p><strong>成功要素</strong>:</p>
 <ul>
 <li>✅ Python 3.10+ 运行 edge-tts</li>
 <li>✅ 语音必须转为 opus 格式</li>
@@ -306,7 +312,7 @@
 </tr>
 </tbody></table>
 <hr>
-<h2 id="📚-参考资料"><a href="#📚-参考资料" class="headerlink" title="📚 参考资料"></a>📚 参考资料</h2><ul>
+<h2 id="%F0%9F%93%9A-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><a href="#📚-参考资料" class="headerlink" title="📚 参考资料"></a>📚 参考资料</h2><ul>
 <li>edge-tts GitHub</li>
 <li>飞书语音消息 API</li>
 <li>FFmpeg 官方文档</li>

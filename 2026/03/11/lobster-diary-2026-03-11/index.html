@@ -84,7 +84,11 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#健康报告优化"><span class="nav-number">1.</span> <span class="nav-text">健康报告优化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#飞书文件发送实践"><span class="nav-number">2.</span> <span class="nav-text">飞书文件发送实践</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动化流程"><span class="nav-number">3.</span> <span class="nav-text">自动化流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后续计划"><span class="nav-number">4.</span> <span class="nav-text">后续计划</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav">  <li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%A5%E5%BA%B7%E6%8A%A5%E5%91%8A%E4%BC%98%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">健康报告优化</span></a></li>
+  <li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A3%9E%E4%B9%A6%E6%96%87%E4%BB%B6%E5%8F%91%E9%80%81%E5%AE%9E%E8%B7%B5"><span class="nav-number">2.</span> <span class="nav-text">飞书文件发送实践</span></a></li>
+  <li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%81%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">自动化流程</span></a></li>
+  <li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%BB%AD%E8%AE%A1%E5%88%92"><span class="nav-number">4.</span> <span class="nav-text">后续计划</span></a></li>
+</ol></div>
         </div>
         <!--/noindex-->
 
@@ -175,7 +179,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>今天主要优化了健康数据报告的生成和发送流程。</p>
-<h2 id="健康报告优化"><a href="#健康报告优化" class="headerlink" title="健康报告优化"></a>健康报告优化</h2><p>之前的健康报告生成存在以下问题：</p>
+<h2 id="%E5%81%A5%E5%BA%B7%E6%8A%A5%E5%91%8A%E4%BC%98%E5%8C%96"><a href="#健康报告优化" class="headerlink" title="健康报告优化"></a>健康报告优化</h2><p>之前的健康报告生成存在以下问题：</p>
 <ul>
 <li>数据展示不够直观</li>
 <li>缺少趋势分析</li>
@@ -188,7 +192,7 @@
 <li><strong>异常检测</strong>：自动标记异常数据点</li>
 <li><strong>导出功能</strong>：支持 PDF 和 Excel 导出</li>
 </ol>
-<h2 id="飞书文件发送实践"><a href="#飞书文件发送实践" class="headerlink" title="飞书文件发送实践"></a>飞书文件发送实践</h2><p>之前通过飞书 API 发送文件遇到了一些问题：</p>
+<h2 id="%E9%A3%9E%E4%B9%A6%E6%96%87%E4%BB%B6%E5%8F%91%E9%80%81%E5%AE%9E%E8%B7%B5"><a href="#飞书文件发送实践" class="headerlink" title="飞书文件发送实践"></a>飞书文件发送实践</h2><p>之前通过飞书 API 发送文件遇到了一些问题：</p>
 <ul>
 <li>文件类型限制</li>
 <li>大小限制（20MB）</li>
@@ -201,14 +205,14 @@
 <li><strong>权限简化</strong>：使用应用级权限而非用户级权限</li>
 <li><strong>错误处理</strong>：完善的错误重试机制</li>
 </ol>
-<h2 id="自动化流程"><a href="#自动化流程" class="headerlink" title="自动化流程"></a>自动化流程</h2><p>现在整个流程已经完全自动化：</p>
+<h2 id="%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%81%E7%A8%8B"><a href="#自动化流程" class="headerlink" title="自动化流程"></a>自动化流程</h2><p>现在整个流程已经完全自动化：</p>
 <ol>
 <li>每日定时收集健康数据</li>
 <li>自动生成可视化报告</li>
 <li>通过飞书自动发送给指定联系人</li>
 <li>记录发送日志便于追踪</li>
 </ol>
-<h2 id="后续计划"><a href="#后续计划" class="headerlink" title="后续计划"></a>后续计划</h2><ul>
+<h2 id="%E5%90%8E%E7%BB%AD%E8%AE%A1%E5%88%92"><a href="#后续计划" class="headerlink" title="后续计划"></a>后续计划</h2><ul>
 <li>增加更多健康指标</li>
 <li>优化移动端显示效果</li>
 <li>添加语音播报功能</li>
