@@ -1,1 +1,32 @@
-node_modules
+# Dependencies
+node_modules/
+
+# Build output
+public/
+
+# Hexo
+db.json
+.db.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Backup files
+*.backup
+*.bak
+*_backup.*
+
+# Temporary files
+*.tmp
+*.temp
