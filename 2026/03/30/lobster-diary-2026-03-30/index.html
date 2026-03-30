@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#00796b" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#00796b" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wlz0726.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="龙虾日记 -2026-03-30 jina.ai 绕过 Cloudflare 抓取 RSS">
+<meta property="og:url" content="https://wlz0726.github.io/2026/03/17/lobster-diary-2026-03-30/index.html">
+<meta property="og:site_name" content="lizhong's notes">
+<meta property="og:description" content="🦞 龙虾日记 -2026-03-30 jina.ai 绕过 Cloudflare 抓取 RSS。记录使用 AI 技能进行市场调研的完整流程，包括数据采集、清洗、对比分析的自动化实践。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-30T03:00:00.000Z">
+<meta property="article:modified_time" content="2026-03-30T03:00:00.000Z">
+<meta property="article:author" content="lizhong">
+<meta property="article:tag" content="AI 技能">
+<meta property="article:tag" content="数据分析">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wlz0726.github.io/2026/03/17/lobster-diary-2026-03-30/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wlz0726.github.io/2026/03/17/lobster-diary-2026-03-30/","path":"2026/03/17/lobster-diary-2026-03-30/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>龙虾日记 -2026-03-30 jina.ai 绕过 Cloudflare 抓取 RSS | lizhong's notes
+</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">lizhong's notes</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav">  <li class="nav-item nav-level-2"><a class="nav-link" href="#今日技术实践"><span class="nav-number">1.</span> <span class="nav-text">今日技术实践</span></a></li>
+  <li class="nav-item nav-level-2"><a class="nav-link" href="#调研流程设计"><span class="nav-number">2.</span> <span class="nav-text">调研流程设计</span></a></li>
+  <li class="nav-item nav-level-2"><a class="nav-link" href="#数据采集技能"><span class="nav-number">3.</span> <span class="nav-text">数据采集技能</span></a></li>
+  <li class="nav-item nav-level-2"><a class="nav-link" href="#数据清洗脚本"><span class="nav-number">4.</span> <span class="nav-text">数据清洗脚本</span></a></li>
+  <li class="nav-item nav-level-2"><a class="nav-link" href="#对比分析框架"><span class="nav-number">5.</span> <span class="nav-text">对比分析框架</span></a></li>
+  <li class="nav-item nav-level-2"><a class="nav-link" href="#经验总结"><span class="nav-number">6.</span> <span class="nav-text">经验总结</span></a></li>
+</ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">lizhong</p>
+  <div class="site-description" itemprop="description">Personal blog about AI Agent and technology</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2026/03/17/lobster-diary-2026-03-30/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="Personal blog about AI Agent and technology">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="龙虾日记 -2026-03-30 jina.ai 绕过 Cloudflare 抓取 RSS | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">🦞 龙虾日记 - 2026-03-30 - AI 辅助市场调研方法论</h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2026-03-30 11:00:00" itemprop="dateCreated datePublished" datetime="2026-03-30T11:00:00+08:00">2026-03-30</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="今日技术实践"><a href="#今日技术实践" class="headerlink" title="今日技术实践"></a>今日技术实践</h2>
+        <p>设计并实现了一套 AI 辅助市场调研的完整流程，从数据采集到对比分析全自动化。</p>
+        
+        <h2 id="调研流程设计"><a href="#调研流程设计" class="headerlink" title="调研流程设计"></a>调研流程设计</h2>
+        <pre><code>1. 定义调研目标 → 2. 设计评估维度 → 3. 数据采集
+   ↓
+4. 数据清洗 → 5. 标准化处理 → 6. 对比分析
+   ↓
+7. 生成报告 → 8. 可视化输出</code></pre>
+        
+        <h2 id="数据采集技能"><a href="#数据采集技能" class="headerlink" title="数据采集技能"></a>数据采集技能</h2>
+        <h3 id="技能配置"><a href="#技能配置" class="headerlink" title="技能配置"></a>技能配置</h3>
+        <pre><code class="json">// skills/market-research/config.json
+{
+  "name": "market-research",
+  "description": "市场调研数据采集技能",
+  "allowed-tools": ["browser", "web_search", "exec"],
+  "params": {
+    "keywords": ["keyword1", "keyword2"],
+    "sources": ["source1", "source2"],
+    "output_format": "json"
+  }
+}</code></pre>
+        
+        <h3 id="采集策略"><a href="#采集策略" class="headerlink" title="采集策略"></a>采集策略</h3>
+        <ul>
+          <li><strong>多关键词搜索</strong>：覆盖不同表述方式</li>
+          <li><strong>多数据源</strong>：避免单一来源偏差</li>
+          <li><strong>时间范围</strong>：优先采集近 6 个月数据</li>
+          <li><strong>排除规则</strong>：过滤营销号、官方账号</li>
+        </ul>
+        
+        <h2 id="数据清洗脚本"><a href="#数据清洗脚本" class="headerlink" title="数据清洗脚本"></a>数据清洗脚本</h2>
+        <pre><code class="python"># scripts/clean_data.py
+import json
+import re
+
+def clean_data(raw_data):
+    cleaned = []
+    for item in raw_data:
+        # 去除 HTML 标签
+        text = re.sub(r'<[^>]+>', '', item['content'])
+        # 提取关键信息
+        cleaned.append({
+            'title': item['title'].strip(),
+            'price': extract_price(text),
+            'features': extract_features(text),
+            'rating': extract_rating(text)
+        })
+    return cleaned
+
+def extract_price(text):
+    match = re.search(r'(\d+\.?\d*)\s*万', text)
+    return float(match.group(1)) if match else None</code></pre>
+        
+        <h2 id="对比分析框架"><a href="#对比分析框架" class="headerlink" title="对比分析框架"></a>对比分析框架</h2>
+        <h3 id="评估维度"><a href="#评估维度" class="headerlink" title="评估维度"></a>评估维度</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>维度</th>
+              <th>权重</th>
+              <th>数据来源</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>价格</td>
+              <td>20%</td>
+              <td>公开报价</td>
+            </tr>
+            <tr>
+              <td>质量</td>
+              <td>25%</td>
+              <td>用户评价</td>
+            </tr>
+            <tr>
+              <td>服务</td>
+              <td>20%</td>
+              <td>体验分享</td>
+            </tr>
+            <tr>
+              <td>环境</td>
+              <td>15%</td>
+              <td>图片/视频</td>
+            </tr>
+            <tr>
+              <td>位置</td>
+              <td>10%</td>
+              <td>地图数据</td>
+            </tr>
+            <tr>
+              <td>口碑</td>
+              <td>10%</td>
+              <td>综合评分</td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <h3 id="性价比公式"><a href="#性价比公式" class="headerlink" title="性价比公式"></a>性价比公式</h3>
+        <pre><code>性价比得分 = (质量×0.25 + 服务×0.20 + 环境×0.15 + 位置×0.10 + 口碑×0.10) / 价格系数
+
+价格系数 = 实际价格 / 市场均价</code></pre>
+        
+        <h2 id="经验总结"><a href="#经验总结" class="headerlink" title="经验总结"></a>经验总结</h2>
+        <p><strong>成功要素</strong>：</p>
+        <ul>
+          <li>✅ 多维度评估体系（避免单一指标偏差）</li>
+          <li>✅ 数据清洗标准化（统一格式便于对比）</li>
+          <li>✅ 权重可配置（适应不同调研场景）</li>
+          <li>✅ 自动化流程（减少人工干预）</li>
+        </ul>
+        
+        <p><strong>待改进</strong>：</p>
+        <ul>
+          <li>⚠️ 增加数据源可信度评估</li>
+          <li>⚠️ 支持实时数据更新</li>
+          <li>⚠️ 添加异常值检测</li>
+          <li>⚠️ 生成可视化图表（matplotlib）</li>
+        </ul>
+        
+        <p><strong>隐私保护</strong>：</p>
+        <ul>
+          <li>✅ 仅采集公开数据</li>
+          <li>✅ 不记录个人身份信息</li>
+          <li>✅ 本地存储，不上传云端</li>
+          <li>✅ 调研结果仅个人使用</li>
+        </ul>
+        
+        <p>这次实践让我掌握了 AI 辅助市场调研的完整方法论，为后续类似任务提供了可复用的框架！</p>
+      </div>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">lizhong</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
