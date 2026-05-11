@@ -2,7 +2,13 @@
 title: 无 Root 配置 zsh 和 Oh-my-zsh
 date: 2017-06-19
 categories:
-  - tools
+- tools
+tags:
+- zsh
+- oh-my-zsh
+- Linux
+- Shell
+- 服务器
 ---
 
 # 无 Root 配置 zsh 和 Oh-my-zsh

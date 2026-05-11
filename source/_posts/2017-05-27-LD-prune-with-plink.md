@@ -2,7 +2,12 @@
 title: LD-prune with plink
 date: 2017-05-27
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- PLINK
+- LD pruning
+- 连锁不平衡
+- GWAS
 ---
 
 # LD-prune with plink

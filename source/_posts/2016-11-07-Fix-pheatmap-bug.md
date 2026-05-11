@@ -2,7 +2,12 @@
 title: Fix pheatmap bug
 date: 2016-11-07
 categories:
-  - tools
+- tools
+tags:
+- R
+- pheatmap
+- debug
+- 热图
 ---
 
 # Fix pheatmap bug

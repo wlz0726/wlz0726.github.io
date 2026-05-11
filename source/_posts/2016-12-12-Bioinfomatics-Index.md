@@ -2,7 +2,11 @@
 title: Bioinfomatics Index
 date: 2016-12-12
 categories:
-  - tools
+- tools
+tags:
+- 生物信息学
+- 索引
+- 知识管理
 ---
 
 # Bioinfomatics Index

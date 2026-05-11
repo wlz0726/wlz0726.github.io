@@ -2,7 +2,13 @@
 title: Plot Quantile-Quantile plot with qqline using ggplot2
 date: 2017-09-21
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- R
+- ggplot2
+- QQ-plot
+- GWAS
+- 统计
 ---
 
 # Plot Quantile-Quantile plot with qqline using ggplot2

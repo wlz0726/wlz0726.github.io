@@ -2,7 +2,12 @@
 title: build blog with hexo
 date: 2016-10-08
 categories:
-  - tools
+- tools
+tags:
+- Hexo
+- 博客
+- GitHub Pages
+- 建站
 ---
 
 # build blog with hexo on github

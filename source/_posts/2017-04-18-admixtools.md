@@ -2,7 +2,12 @@
 title: admixtools
 date: 2017-04-18
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- ADMIXTOOLS
+- 群体遗传学
+- admixture
+- f3/f4统计
 ---
 
 # admixtools

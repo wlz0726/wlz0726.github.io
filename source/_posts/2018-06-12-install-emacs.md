@@ -2,7 +2,11 @@
 title: install emacs
 date: 2018-06-12
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- emacs
+- 编辑器
+- Linux
 ---
 
 # install emacs

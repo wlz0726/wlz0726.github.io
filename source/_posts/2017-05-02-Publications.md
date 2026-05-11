@@ -2,7 +2,11 @@
 title: Publications
 date: 2017-05-02
 categories:
-  - tools
+- tools
+tags:
+- 论文
+- 发表
+- 科研
 ---
 
 # Publications

@@ -2,7 +2,13 @@
 title: libgd GD problem installing Circos
 date: 2016-11-15
 categories:
-  - tools
+- tools
+tags:
+- Circos
+- GD库
+- debug
+- 安装
+- Perl
 ---
 
 # libgd and GD problem (installing Circos)

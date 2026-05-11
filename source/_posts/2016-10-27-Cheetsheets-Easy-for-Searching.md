@@ -2,7 +2,11 @@
 title: Cheetsheets Easy for Searching
 date: 2016-10-27
 categories:
-  - tools
+- tools
+tags:
+- 速查表
+- 效率
+- 知识管理
 ---
 
 # Cheetsheets Easy for Searching

@@ -2,7 +2,12 @@
 title: Filter and Trim your Paired-end FastQ file
 date: 2017-08-18
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- FASTQ
+- 质量控制
+- trimming
+- NGS
 ---
 
 # Filter and Trim your Paired-end FastQ file

@@ -2,7 +2,11 @@
 title: Biomedical information search
 date: 2018-06-14
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- 文献检索
+- PubMed
+- 科研
 ---
 
 # Biomedical information search

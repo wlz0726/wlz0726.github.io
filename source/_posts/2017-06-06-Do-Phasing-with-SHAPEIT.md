@@ -2,7 +2,12 @@
 title: Do Phasing with SHAPEIT
 date: 2017-06-06
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- SHAPEIT
+- phasing
+- 基因型推断
+- 单倍型
 ---
 
 # Do Phasing with SHAPEIT

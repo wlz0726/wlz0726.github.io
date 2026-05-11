@@ -2,7 +2,11 @@
 title: hello-world
 date: 2017-01-03
 categories:
-  - tools
+- tools
+tags:
+- 博客
+- Hexo
+- 建站
 ---
 
 # hello-world

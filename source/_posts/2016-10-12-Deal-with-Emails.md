@@ -2,7 +2,11 @@
 title: Deal with Emails
 date: 2016-10-12
 categories:
-  - tools
+- tools
+tags:
+- 邮件
+- 效率
+- 沟通
 ---
 
 # Deal with Emails

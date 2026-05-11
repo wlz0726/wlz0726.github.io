@@ -2,7 +2,12 @@
 title: Random subsample from a BAM file
 date: 2017-06-21
 categories:
-  - tools
+- tools
+tags:
+- BAM
+- samtools
+- NGS
+- bash
 ---
 
 # Random subsample from a BAM file

@@ -2,7 +2,12 @@
 title: Calculate IBD using beagle and germline
 date: 2018-02-26
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- IBD
+- beagle
+- germline
+- 群体遗传学
 ---
 
 # Calculate IBD using beagle and germline

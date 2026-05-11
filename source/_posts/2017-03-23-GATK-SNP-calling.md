@@ -2,7 +2,12 @@
 title: GATK SNP calling
 date: 2017-03-23
 categories:
-  - tools
+- tools
+tags:
+- GATK
+- SNP
+- 变异检测
+- NGS
 ---
 
 # GATK SNP calling

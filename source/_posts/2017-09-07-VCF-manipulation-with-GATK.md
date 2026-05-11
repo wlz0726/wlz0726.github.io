@@ -2,7 +2,12 @@
 title: VCF manipulation with GATK
 date: 2017-09-07
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- GATK
+- VCF
+- 变异检测
+- SNP
 ---
 
 # VCF manipulation with GATK

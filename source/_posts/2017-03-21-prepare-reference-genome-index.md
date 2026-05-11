@@ -2,7 +2,12 @@
 title: prepare reference genome index
 date: 2017-03-21
 categories:
-  - tools
+- tools
+tags:
+- 参考基因组
+- BWA
+- samtools
+- NGS
 ---
 
 # prepare reference genome index

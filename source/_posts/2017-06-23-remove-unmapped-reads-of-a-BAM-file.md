@@ -2,7 +2,12 @@
 title: remove unmapped reads of a BAM file
 date: 2017-06-23
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- BAM
+- samtools
+- NGS
+- 质量控制
 ---
 
 # remove unmapped reads of a BAM file

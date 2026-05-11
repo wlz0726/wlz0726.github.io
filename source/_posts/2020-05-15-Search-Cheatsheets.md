@@ -2,7 +2,11 @@
 title: Search Cheatsheets
 date: 2020-05-15
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- 速查表
+- 生物信息学
+- 效率
 ---
 
 # Search Cheatsheets

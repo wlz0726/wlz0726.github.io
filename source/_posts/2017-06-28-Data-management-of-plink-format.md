@@ -2,7 +2,12 @@
 title: Data management of plink format
 date: 2017-06-28
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- PLINK
+- 数据管理
+- GWAS
+- 基因型
 ---
 
 # Data management of plink format

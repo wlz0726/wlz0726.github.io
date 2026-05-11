@@ -2,7 +2,11 @@
 title: perl cheetsheets
 date: 2016-11-01
 categories:
-  - tools
+- tools
+tags:
+- Perl
+- 速查表
+- 编程
 ---
 
 # perl cheetsheets

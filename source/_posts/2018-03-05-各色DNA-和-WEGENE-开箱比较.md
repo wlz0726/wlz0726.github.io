@@ -2,7 +2,12 @@
 title: 各色DNA 和 WEGENE 开箱比较
 date: 2018-03-05
 categories:
-  - uncategorized
+- uncategorized
+tags:
+- 基因检测
+- DTC
+- WEGENE
+- 产品对比
 ---
 
 # 各色 DNA 和 WEGENE 开箱比较

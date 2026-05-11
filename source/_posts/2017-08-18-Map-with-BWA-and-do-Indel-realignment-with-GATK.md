@@ -2,7 +2,13 @@
 title: Map with BWA and do Indel realignment with GATK
 date: 2017-08-18
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- BWA
+- GATK
+- Indel realignment
+- NGS
+- 变异检测
 ---
 
 # Map with BWA and do Indel realignment with GATK

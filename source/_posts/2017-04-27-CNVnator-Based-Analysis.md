@@ -2,7 +2,12 @@
 title: CNVnator Based Analysis
 date: 2017-04-27
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- CNV
+- CNVnator
+- 拷贝数变异
+- 结构变异
 ---
 
 # CNVnator Based Analysis

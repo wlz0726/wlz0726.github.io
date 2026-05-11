@@ -2,7 +2,11 @@
 title: Bioinfomatics Data Skills
 date: 2016-10-08
 categories:
-  - tools
+- tools
+tags:
+- 生物信息学
+- 数据处理
+- 编程
 ---
 
 # Bioinfomatics Data Skills Cheatsheets

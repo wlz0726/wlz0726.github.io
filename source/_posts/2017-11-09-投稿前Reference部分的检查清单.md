@@ -2,7 +2,11 @@
 title: 投稿前Reference部分的检查清单
 date: 2017-11-09
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- 论文写作
+- 参考文献
+- 科研
 ---
 
 # 投稿前 Reference 部分的检查清单

@@ -2,7 +2,13 @@
 title: More about sequence alignments
 date: 2017-06-23
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- 序列比对
+- BWA
+- BAM
+- SAM
+- NGS
 ---
 
 # More about sequence alignments

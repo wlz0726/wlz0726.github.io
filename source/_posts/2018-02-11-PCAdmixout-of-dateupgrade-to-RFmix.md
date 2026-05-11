@@ -2,7 +2,12 @@
 title: PCAdmix(out-of-date;upgrade to RFmix)
 date: 2018-02-11
 categories:
-  - bioinformatics
+- bioinformatics
+tags:
+- PCA
+- admixture
+- 群体结构
+- RFmix
 ---
 
 # PCAdmix (out-of-date; upgrade to RFmix)

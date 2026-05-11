@@ -2,7 +2,11 @@
 title: The Art of Charm
 date: 2016-11-01
 categories:
-  - tools
+- tools
+tags:
+- 沟通
+- 社交
+- 个人发展
 ---
 
 # The Art of Charm
