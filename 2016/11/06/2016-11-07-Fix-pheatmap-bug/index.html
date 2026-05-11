@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wlz0726.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"width":320},"hljswrap":true,"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Fix pheatmap bug原文日期: 2016-11-07来源: https:&#x2F;&#x2F;github.com&#x2F;wlz0726&#x2F;wlz0726.github.io  pheatmap 包问题修复问题描述pheatmap 在 R 中绘制热图时可能出现的错误：  颜色显示异常  聚类失败  中文乱码   解决方案1. 更新 pheatmap 包12345# 卸载旧版本remove.packages(&amp;q">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fix pheatmap bug">
+<meta property="og:url" content="https://wlz0726.github.io/2016/11/06/2016-11-07-Fix-pheatmap-bug/index.html">
+<meta property="og:site_name" content="lizhong&#39;s notes">
+<meta property="og:description" content="Fix pheatmap bug原文日期: 2016-11-07来源: https:&#x2F;&#x2F;github.com&#x2F;wlz0726&#x2F;wlz0726.github.io  pheatmap 包问题修复问题描述pheatmap 在 R 中绘制热图时可能出现的错误：  颜色显示异常  聚类失败  中文乱码   解决方案1. 更新 pheatmap 包12345# 卸载旧版本remove.packages(&amp;q">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-11-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-11T03:56:37.639Z">
+<meta property="article:author" content="lizhong">
+<meta property="article:tag" content="R">
+<meta property="article:tag" content="debug">
+<meta property="article:tag" content="pheatmap">
+<meta property="article:tag" content="热图">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wlz0726.github.io/2016/11/06/2016-11-07-Fix-pheatmap-bug/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wlz0726.github.io/2016/11/06/2016-11-07-Fix-pheatmap-bug/","path":"2016/11/06/2016-11-07-Fix-pheatmap-bug/","title":"Fix pheatmap bug"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Fix pheatmap bug | lizhong's notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">lizhong's notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">龙虾日记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-folder fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Fix-pheatmap-bug"><span class="nav-number">1.</span> <span class="nav-text">Fix pheatmap bug</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#pheatmap-%E5%8C%85%E9%97%AE%E9%A2%98%E4%BF%AE%E5%A4%8D"><span class="nav-number">1.1.</span> <span class="nav-text">pheatmap 包问题修复</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.1.2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%9B%B4%E6%96%B0-pheatmap-%E5%8C%85"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">1. 更新 pheatmap 包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%A3%80%E6%9F%A5%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">2. 检查数据格式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%A7%A3%E5%86%B3%E4%B8%AD%E6%96%87%E4%B9%B1%E7%A0%81"><span class="nav-number">1.1.2.3.</span> <span class="nav-text">3. 解决中文乱码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.1.3.</span> <span class="nav-text">代码示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E5%8F%82%E6%95%B0"><span class="nav-number">1.1.4.</span> <span class="nav-text">常见参数</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">lizhong</p>
+  <div class="site-description" itemprop="description">专注于基因组学、AI Agent 与个人知识管理的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">135</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2016/11/06/2016-11-07-Fix-pheatmap-bug/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Fix pheatmap bug | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Fix pheatmap bug
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2016-11-07 00:00:00" itemprop="dateCreated datePublished" datetime="2016-11-07T00:00:00+08:00">2016-11-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Fix-pheatmap-bug"><a href="#Fix-pheatmap-bug" class="headerlink" title="Fix pheatmap bug"></a>Fix pheatmap bug</h1><p><strong>原文日期</strong>: 2016-11-07<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="pheatmap-包问题修复"><a href="#pheatmap-包问题修复" class="headerlink" title="pheatmap 包问题修复"></a>pheatmap 包问题修复</h2><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>pheatmap 在 R 中绘制热图时可能出现的错误：</p>
+<ul>
+<li><p>颜色显示异常</p>
+</li>
+<li><p>聚类失败</p>
+</li>
+<li><p>中文乱码</p>
+</li>
+</ul>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="1-更新-pheatmap-包"><a href="#1-更新-pheatmap-包" class="headerlink" title="1. 更新 pheatmap 包"></a>1. 更新 pheatmap 包</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 卸载旧版本</span><br><span class="line">remove.packages(&quot;pheatmap&quot;)</span><br><span class="line"></span><br><span class="line"># 重新安装</span><br><span class="line">install.packages(&quot;pheatmap&quot;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-检查数据格式"><a href="#2-检查数据格式" class="headerlink" title="2. 检查数据格式"></a>2. 检查数据格式</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 确保是数值矩阵</span><br><span class="line">data_matrix &lt;- as.matrix(data)</span><br><span class="line"></span><br><span class="line"># 检查是否有 NA</span><br><span class="line">sum(is.na(data_matrix))</span><br><span class="line"></span><br><span class="line"># 处理 NA</span><br><span class="line">data_matrix[is.na(data_matrix)] &lt;- 0</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-解决中文乱码"><a href="#3-解决中文乱码" class="headerlink" title="3. 解决中文乱码"></a>3. 解决中文乱码</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 设置图形参数</span><br><span class="line">par(family = &quot;STKaiti&quot;)  # 或 &quot;SimHei&quot;</span><br><span class="line"></span><br><span class="line"># 或使用 showtext 包</span><br><span class="line">library(showtext)</span><br><span class="line">showtext_auto()</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">library(pheatmap)</span><br><span class="line"></span><br><span class="line"># 基本热图</span><br><span class="line">pheatmap(data_matrix)</span><br><span class="line"></span><br><span class="line"># 带聚类</span><br><span class="line">pheatmap(data_matrix, </span><br><span class="line">         scale = &quot;row&quot;,</span><br><span class="line">         clustering_distance_rows = &quot;correlation&quot;,</span><br><span class="line">         clustering_distance_cols = &quot;correlation&quot;)</span><br><span class="line"></span><br><span class="line"># 自定义颜色</span><br><span class="line">pheatmap(data_matrix,</span><br><span class="line">         color = colorRampPalette(c(&quot;blue&quot;, &quot;white&quot;, &quot;red&quot;))(100))</span><br><span class="line"></span><br><span class="line"># 添加注释</span><br><span class="line">pheatmap(data_matrix,</span><br><span class="line">         annotation_row = row_annotation,</span><br><span class="line">         annotation_col = col_annotation)</span><br></pre></td></tr></table></figure>
+
+<h3 id="常见参数"><a href="#常见参数" class="headerlink" title="常见参数"></a>常见参数</h3><hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/R/" rel="tag"># R</a>
+              <a href="/tags/pheatmap/" rel="tag"># pheatmap</a>
+              <a href="/tags/debug/" rel="tag"># debug</a>
+              <a href="/tags/%E7%83%AD%E5%9B%BE/" rel="tag"># 热图</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2016/10/31/2016-11-01-The-Art-of-Charm/" rel="prev" title="The Art of Charm">
+                  <i class="fa fa-angle-left"></i> The Art of Charm
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2016/11/10/2016-11-11-R-Cheetsheets/" rel="next" title="R Cheetsheets">
+                  R Cheetsheets <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">lizhong</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

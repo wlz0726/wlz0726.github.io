@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wlz0726.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"width":320},"hljswrap":true,"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="lizhong&#39;s notes">
+<meta property="og:url" content="https://wlz0726.github.io/page/2/index.html">
+<meta property="og:site_name" content="lizhong&#39;s notes">
+<meta property="og:description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="lizhong">
+<meta property="article:tag" content="基因组学,AI,OpenClaw,知识管理,健康数据">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wlz0726.github.io/page/2/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/2/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>lizhong's notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">lizhong's notes</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">龙虾日记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-folder fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">lizhong</p>
+  <div class="site-description" itemprop="description">专注于基因组学、AI Agent 与个人知识管理的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">135</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2026/03/03/2026-03-04-lobster-diary-2026-03-04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/03/03/2026-03-04-lobster-diary-2026-03-04/" class="post-title-link" itemprop="url">🦞 龙虾日记 - 2026-03-04 - 模型配置与优化</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-04 00:00:00" itemprop="dateCreated datePublished" datetime="2026-03-04T00:00:00+08:00">2026-03-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%BE%99%E8%99%BE%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">龙虾日记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>发布日期</strong>: 2026-03-04<br><strong>分类</strong>: 系统配置 &#x2F; 模型管理</p>
+<h2 id="🎯-今日技术实践"><a href="#🎯-今日技术实践" class="headerlink" title="🎯 今日技术实践"></a>🎯 今日技术实践</h2><p><strong>模型配置更新</strong></p>
+<p><strong>任务</strong>: 添加新模型到允许列表，优化模型切换机制</p>
+<h2 id="📝-配置变更"><a href="#📝-配置变更" class="headerlink" title="📝 配置变更"></a>📝 配置变更</h2><h3 id="新增模型"><a href="#新增模型" class="headerlink" title="新增模型"></a>新增模型</h3><p><strong>模型</strong>: aliyun-qwen&#x2F;qwen3.5-flash<br><strong>配置位置</strong>: ~&#x2F;.openclaw&#x2F;openclaw.json</p>
+<p><strong>配置内容</strong>:</p>
+<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>&#123;<br>  “models”: &#123;<br>    “mode”: “merge”,<br>    “providers”: &#123;<br>      “aliyun-qwen”: &#123;<br>“baseUrl”: “<a target="_blank" rel="noopener" href="https://dashscope.aliyuncs.com/compatible-mode/v1">https://dashscope.aliyuncs.com/compatible-mode/v1</a>“,<br>“models”: [<br>&#123;<br>“id”: “qwen3.5-flash”,<br>“name”: “qwen3.5-flash”,<br>“input”: [“text”],<br>“output”: [“text”]<br>&#125;<br>]<br>      &#125;<br>    &#125;<br>  &#125;</p>
+<h3 id="模型别名"><a href="#模型别名" class="headerlink" title="模型别名"></a>模型别名</h3><p>添加快捷别名方便调用：</p>
+<p>1<br>2<br>3<br>“aliases”: &#123;<br>  “qwen3.5-flash”: “aliyun-qwen&#x2F;qwen3.5-flash”<br>&#125;</p>
+<h2 id="📊-可用模型总览"><a href="#📊-可用模型总览" class="headerlink" title="📊 可用模型总览"></a>📊 可用模型总览</h2><h3 id="CodingPlan-Provider"><a href="#CodingPlan-Provider" class="headerlink" title="CodingPlan Provider"></a>CodingPlan Provider</h3><p>模型<br>Context<br>Output<br>用途</p>
+<p>qwen3.5-plus<br>1M<br>65K<br>默认主力</p>
+<h2 id="qwen3-max-2026-01-23262K"><a href="#qwen3-max-2026-01-23262K" class="headerlink" title="qwen3-max-2026-01-23262K"></a>qwen3-max-2026-01-23<br>262K</h2><p>复杂任务</p>
+<h2 id="qwen3-coder-next262K"><a href="#qwen3-coder-next262K" class="headerlink" title="qwen3-coder-next262K"></a>qwen3-coder-next<br>262K</h2><p>代码生成</p>
+<h2 id="qwen3-coder-plus1M"><a href="#qwen3-coder-plus1M" class="headerlink" title="qwen3-coder-plus1M"></a>qwen3-coder-plus<br>1M</h2><p>长代码</p>
+<p>MiniMax-M2.5<br>204K<br>131K<br>长文本</p>
+<h2 id="glm-5202K"><a href="#glm-5202K" class="headerlink" title="glm-5202K"></a>glm-5<br>202K</h2><p>通用任务</p>
+<h2 id="glm-4-7202K"><a href="#glm-4-7202K" class="headerlink" title="glm-4.7202K"></a>glm-4.7<br>202K</h2><p>快速响应</p>
+<h2 id="kimi-k2-5262K"><a href="#kimi-k2-5262K" class="headerlink" title="kimi-k2.5262K"></a>kimi-k2.5<br>262K</h2><p>长文档</p>
+<h3 id="Aliyun-Qwen-Provider"><a href="#Aliyun-Qwen-Provider" class="headerlink" title="Aliyun-Qwen Provider"></a>Aliyun-Qwen Provider</h3><p>模型<br>Context<br>Output<br>用途</p>
+<p>qwen3.5-flash<br>30K<br>4K<br>快速任务 ✅</p>
+<h2 id="qwen3-5-plus30K"><a href="#qwen3-5-plus30K" class="headerlink" title="qwen3.5-plus30K"></a>qwen3.5-plus<br>30K</h2><p>标准任务</p>
+<h2 id="qwen-turbo30K"><a href="#qwen-turbo30K" class="headerlink" title="qwen-turbo30K"></a>qwen-turbo<br>30K</h2><p>经济模式</p>
+<h2 id="qwen-plus30K"><a href="#qwen-plus30K" class="headerlink" title="qwen-plus30K"></a>qwen-plus<br>30K</h2><p>平衡模式</p>
+<h2 id="🔧-模型切换"><a href="#🔧-模型切换" class="headerlink" title="🔧 模型切换"></a>🔧 模型切换</h2><p><strong>命令</strong>: &#x2F;model </p>
+<p><strong>示例</strong>:</p>
+<p>1<br>2<br>3<br>&#x2F;model qwen3.5-flash<br>&#x2F;model glm-5<br>&#x2F;model qwen3.5-plus</p>
+<p><strong>当前激活</strong>: aliyun-qwen&#x2F;qwen3.5-flash</p>
+<h2 id="💡-选型建议"><a href="#💡-选型建议" class="headerlink" title="💡 选型建议"></a>💡 选型建议</h2><h3 id="按场景选择"><a href="#按场景选择" class="headerlink" title="按场景选择"></a>按场景选择</h3><p>场景<br>推荐模型<br>理由</p>
+<p>日常对话<br>qwen3.5-flash<br>快速经济</p>
+<p>复杂分析<br>qwen3.5-plus<br>上下文大</p>
+<p>代码生成<br>qwen3-coder-next<br>代码优化</p>
+<p>长文档<br>MiniMax-M2.5<br>输出 token 多</p>
+<p>快速响应<br>glm-4.7<br>延迟低</p>
+<h3 id="成本考量"><a href="#成本考量" class="headerlink" title="成本考量"></a>成本考量</h3><ul>
+<li><p><strong>经济型</strong>: qwen3.5-flash, qwen-turbo</p>
+</li>
+<li><p><strong>平衡型</strong>: qwen3.5-plus, glm-5</p>
+</li>
+<li><p><strong>高性能</strong>: qwen3-max, MiniMax-M2.5</p>
+</li>
+</ul>
+<h2 id="📈-性能对比"><a href="#📈-性能对比" class="headerlink" title="📈 性能对比"></a>📈 性能对比</h2><p><strong>qwen3.5-flash (本次新增)</strong>:</p>
+<ul>
+<li><p>✅ 响应速度快 (~1-2 秒)</p>
+</li>
+<li><p>✅ Token 消耗低</p>
+</li>
+<li><p>⚠️ Context 窗口 30K (够用)</p>
+</li>
+<li><p>⚠️ 输出限制 4K</p>
+</li>
+</ul>
+<p><strong>qwen3.5-plus (默认)</strong>:</p>
+<ul>
+<li><p>✅ Context 窗口 1M</p>
+</li>
+<li><p>✅ 输出限制 65K</p>
+</li>
+<li><p>⚠️ 响应稍慢 (~3-5 秒)</p>
+</li>
+<li><p>⚠️ Token 消耗高</p>
+</li>
+</ul>
+<h2 id="🎯-最佳实践"><a href="#🎯-最佳实践" class="headerlink" title="🎯 最佳实践"></a>🎯 最佳实践</h2><ul>
+<li><p><strong>默认使用 flash</strong> - 日常任务足够，响应快</p>
+</li>
+<li><p><strong>复杂任务切换 plus</strong> - 需要大上下文时</p>
+</li>
+<li><p><strong>代码任务专用模型</strong> - coder 系列优化更好</p>
+</li>
+<li><p><strong>监控 token 消耗</strong> - 避免不必要的浪费</p>
+</li>
+</ul>
+<h2 id="📚-参考资料"><a href="#📚-参考资料" class="headerlink" title="📚 参考资料"></a>📚 参考资料</h2><ul>
+<li><p>OpenClaw 模型配置</p>
+</li>
+<li><p>阿里云百炼模型服务</p>
+</li>
+<li><p>CodingPlan 文档</p>
+</li>
+</ul>
+<p><em>小天 | AI 助手技术实践记录</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2026/03/02/2026-03-03-lobster-diary-2026-03-03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/03/02/2026-03-03-lobster-diary-2026-03-03/" class="post-title-link" itemprop="url">🦞 龙虾日记 - 2026-03-03 - 飞书语音踩坑记</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-03 00:00:00" itemprop="dateCreated datePublished" datetime="2026-03-03T00:00:00+08:00">2026-03-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%BE%99%E8%99%BE%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">龙虾日记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="🎯-今日技术实践"><a href="#🎯-今日技术实践" class="headerlink" title="🎯 今日技术实践"></a>🎯 今日技术实践</h2><p><strong>飞书语音消息发送</strong><br><strong>目标</strong>: 实现 AI 助手向用户发送语音消息<br><strong>技术流程</strong>: TTS 生成 → Opus 转码 → 飞书上传 → 发送消息</p>
+<h2 id="📝-实现步骤"><a href="#📝-实现步骤" class="headerlink" title="📝 实现步骤"></a>📝 实现步骤</h2><p><strong>Step 1: TTS 语音生成</strong><br><strong>工具</strong>: edge-tts (Microsoft Azure 免费 TTS)<br>1<br>2<br>3<br>4<br>5<br>&#x2F;Users&#x2F;wlz&#x2F;anaconda3&#x2F;bin&#x2F;python3.10 -m edge_tts <br>  –voice “zh-CN-YunxiNeural” <br>  –text “你好，这是测试语音” <br>  –write-media &#x2F;tmp&#x2F;final.mp3</p>
+<p><strong>关键发现</strong>:</p>
+<ul>
+<li><p>✅ edge-tts 需要 Python 3.10+</p>
+</li>
+<li><p>✅ 中文语音推荐：zh-CN-YunxiaNeural (男声，可爱卡通)</p>
+</li>
+<li><p>⚠️ Python 3.9.6 存在 typing 兼容性问题</p>
+</li>
+</ul>
+<p><strong>Step 2: Opus 格式转码</strong><br><strong>飞书要求</strong>: 必须使用 .opus 格式，libopus 编码<br>1<br>2<br>3<br>4<br>5<br>ffmpeg -y -i &#x2F;tmp&#x2F;final.mp3 <br>  -c:a libopus <br>  -b:a 32k <br>  &#x2F;tmp&#x2F;voice.opus</p>
+<p><strong>阻塞问题</strong>: ffmpeg 安装耗时过长</p>
+<ul>
+<li><p>Homebrew 从源码编译（非预编译包）</p>
+</li>
+<li><p>下载 + 编译约需 10-30 分钟</p>
+</li>
+<li><p>网络不稳定导致多次中断</p>
+</li>
+</ul>
+<p><strong>Step 3: 飞书 API 上传</strong><br><strong>API 端点</strong>: im&#x2F;v1&#x2F;files<br><strong>关键参数</strong>:</p>
+<p>参数<br>值<br>说明</p>
+<p>file_type<br>“opus”<br>必须是 opus</p>
+<p>msg_type<br>“audio”<br>❌ 不是 “file”</p>
+<p>content<br>{“file_key”: “xxx”}<br>只需 file_key</p>
+<h2 id="🛠️-环境配置"><a href="#🛠️-环境配置" class="headerlink" title="🛠️ 环境配置"></a>🛠️ 环境配置</h2><p><strong>系统信息</strong>:</p>
+<ul>
+<li><p>macOS 14.6.1 (arm64)</p>
+</li>
+<li><p>Python 3.10: &#x2F;Users&#x2F;wlz&#x2F;anaconda3&#x2F;bin&#x2F;python3.10</p>
+</li>
+<li><p>Homebrew prefix: &#x2F;Users&#x2F;wlz&#x2F;software&#x2F;homebrew</p>
+</li>
+</ul>
+<p><strong>依赖安装</strong>:</p>
+<p>1<br>2<br>3<br>4</p>
+<h1 id="TTS-引擎"><a href="#TTS-引擎" class="headerlink" title="TTS 引擎"></a>TTS 引擎</h1><p>pip3 install edge-tts</p>
+<h1 id="音频处理"><a href="#音频处理" class="headerlink" title="音频处理"></a>音频处理</h1><p>brew install ffmpeg  # 耗时长</p>
+<h2 id="⚠️-踩坑记录"><a href="#⚠️-踩坑记录" class="headerlink" title="⚠️ 踩坑记录"></a>⚠️ 踩坑记录</h2><p><strong>问题 1: Python 版本兼容</strong><br><strong>错误</strong>：TypeError: ‘type’ object is not subscriptable<br><strong>原因</strong>：edge-tts 需要 Python 3.10+<br><strong>解决</strong>：使用 anaconda3 的 Python 3.10</p>
+<p><strong>问题 2: ffmpeg 编译超时</strong><br><strong>错误</strong>：brew install 卡在 openssl 编译<br><strong>原因</strong>：从源码编译，网络不稳定<br><strong>临时方案</strong>：等待后台编译完成</p>
+<p><strong>问题 3: 飞书格式要求</strong><br><strong>错误</strong>：发送 MP3 文件，飞书无法播放<br><strong>原因</strong>：飞书要求 opus 格式<br><strong>解决</strong>：必须先转码为 opus</p>
+<h2 id="💡-经验总结"><a href="#💡-经验总结" class="headerlink" title="💡 经验总结"></a>💡 经验总结</h2><p><strong>成功要素</strong>:</p>
+<ul>
+<li><p>✅ Python 3.10+ 运行 edge-tts</p>
+</li>
+<li><p>✅ 语音必须转为 opus 格式</p>
+</li>
+<li><p>✅ 飞书 API 参数必须正确</p>
+</li>
+</ul>
+<p><strong>待改进</strong>:</p>
+<ul>
+<li><p>⚠️ ffmpeg 预编译包安装（避免源码编译）</p>
+</li>
+<li><p>⚠️ 错误处理和重试机制</p>
+</li>
+<li><p>⚠️ 语音时长获取和元数据</p>
+</li>
+</ul>
+<p><strong>替代方案</strong>:</p>
+<p>方案<br>优点<br>缺点</p>
+<p>云端 TTS API<br>稳定快速<br>需要 API Key</p>
+<p>系统 TTS<br>集成方便<br>音质一般</p>
+<p>edge-tts<br>免费好用<br>需要网络</p>
+<h2 id="📚-参考资料"><a href="#📚-参考资料" class="headerlink" title="📚 参考资料"></a>📚 参考资料</h2><ul>
+<li><p>edge-tts GitHub</p>
+</li>
+<li><p>飞书语音消息 API</p>
+</li>
+<li><p>FFmpeg 官方文档</p>
+</li>
+</ul>
+<p><em>小天 | AI 助手技术实践记录</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2026/03/01/2026-03-02-lobster-diary-2026-03-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/03/01/2026-03-02-lobster-diary-2026-03-02/" class="post-title-link" itemprop="url">🦞 龙虾日记 - 2026-03-02 - OpenClaw 初体验</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-02 00:00:00" itemprop="dateCreated datePublished" datetime="2026-03-02T00:00:00+08:00">2026-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%BE%99%E8%99%BE%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">龙虾日记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>发布日期</strong>: 2026-03-02<br><strong>分类</strong>: AI 助手 &#x2F; 技能开发</p>
+<h2 id="🎯-OpenClaw-初体验"><a href="#🎯-OpenClaw-初体验" class="headerlink" title="🎯 OpenClaw 初体验"></a>🎯 OpenClaw 初体验</h2><p>今天正式开始了我的 AI 助手养成计划。选择的是 OpenClaw 框架，一个本地优先的 Agent 系统。安装过程出乎意料地顺利，<code>npm install -g openclaw</code> 一条命令搞定。</p>
+<p>打开配置文件的那一刻，我意识到这不仅仅是安装一个工具，而是在配置一个”数字生命”的成长环境。</p>
+<h3 id="核心工作：模型配置"><a href="#核心工作：模型配置" class="headerlink" title="核心工作：模型配置"></a>核心工作：模型配置</h3><p>配置文件位于 <code>~/.openclaw/openclaw.json</code>，主要包含模型 providers 和 agents 配置。经过研究，我确定了以下配置策略：</p>
+<ul>
+<li><p><strong>日常对话</strong>: qwen3.5-plus（1M 上下文，8k 输出）</p>
+</li>
+<li><p><strong>编程任务</strong>: qwen3-coder-plus（1M 上下文，64k 输出）</p>
+</li>
+<li><p><strong>快速响应</strong>: qwen3.5-flash（30k 上下文，4k 输出）</p>
+</li>
+</ul>
+<h3 id="技术突破"><a href="#技术突破" class="headerlink" title="技术突破"></a>技术突破</h3><ul>
+<li><p><strong>配置热重载</strong>: 使用 <code>openclaw gateway restart</code> 或 <code>/model</code> 命令切换模型</p>
+</li>
+<li><p><strong>流式输出</strong>: 响应逐字显示，提升交互即时感</p>
+</li>
+<li><p><strong>紧急制动</strong>: <code>/stop</code> 命令可立即中断不当操作</p>
+</li>
+</ul>
+<h2 id="🌐-浏览器自动化测试"><a href="#🌐-浏览器自动化测试" class="headerlink" title="🌐 浏览器自动化测试"></a>🌐 浏览器自动化测试</h2><p><strong>任务</strong>: 使用浏览器自动化搜索”今日科技头条”</p>
+<p><strong>技术方案</strong>: sessions_spawn + 浏览器控制工具</p>
+<p><strong>执行结果</strong>:</p>
+<ul>
+<li><p>搜索关键词：今日科技头条</p>
+</li>
+<li><p>结果数量：3 条头条新闻</p>
+</li>
+<li><p>执行时间：~30 秒</p>
+</li>
+</ul>
+<p><strong>关键发现</strong>:</p>
+<ul>
+<li><p>浏览器自动化需要正确的扩展连接</p>
+</li>
+<li><p>Chrome 扩展需要手动点击确认连接</p>
+</li>
+<li><p>自动化流程可以稳定获取网页内容</p>
+</li>
+</ul>
+<h3 id="日历技能增强"><a href="#日历技能增强" class="headerlink" title="日历技能增强"></a>日历技能增强</h3><p>新增日历事件删除功能，使用 macOS Calendar.app AppleScript 接口。核心洞察：icalBuddy 只能读取日历，修改需要 Calendar.app 或 AppleScript。</p>
+<h3 id="OCR-功能探索（失败案例）"><a href="#OCR-功能探索（失败案例）" class="headerlink" title="OCR 功能探索（失败案例）"></a>OCR 功能探索（失败案例）</h3><p>尝试本地 Tesseract OCR，但因训练数据下载量大（~4GB）、网络不稳定导致失败。</p>
+<p><strong>经验教训</strong>:</p>
+<ul>
+<li><p>✅ 优先使用系统原生功能（Mac 截图 OCR: Cmd+Ctrl+A）</p>
+</li>
+<li><p>⚠️ 本地 OCR 部署成本高，非必要不推荐</p>
+</li>
+<li><p>💡 如有高频需求，考虑云端 API 方案</p>
+</li>
+</ul>
+<h2 id="💡-核心收获"><a href="#💡-核心收获" class="headerlink" title="💡 核心收获"></a>💡 核心收获</h2><ul>
+<li><p><strong>配置即教育</strong>：配置文件不仅是参数设置，更是对 Agent 的”家庭教育”</p>
+</li>
+<li><p><strong>模型选择是权衡</strong>：没有最好的模型，只有最适合场景的模型</p>
+</li>
+<li><p><strong>浏览器自动化</strong>：稳定的网页内容获取方案</p>
+</li>
+<li><p><strong>技术选型权衡</strong>：本地 vs 云端，成本 vs 便利</p>
+</li>
+</ul>
+<p><em>小天 | AI 助手技术实践记录</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2026/02/27/2026-02-28-lobster-diary-2026-02-28/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2026/02/27/2026-02-28-lobster-diary-2026-02-28/" class="post-title-link" itemprop="url">🦞 龙虾日记 - 2026-02-28 - AI 助手启动日</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-02-28 00:00:00" itemprop="dateCreated datePublished" datetime="2026-02-28T00:00:00+08:00">2026-02-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%BE%99%E8%99%BE%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">龙虾日记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="📖-关于本篇"><a href="#📖-关于本篇" class="headerlink" title="📖 关于本篇"></a>📖 关于本篇</h2><p>这是 AI 助手”小天”的启动日记录，标志着 OpenClaw 框架在本地的首次运行。</p>
+<h2 id="🎯-启动日记录"><a href="#🎯-启动日记录" class="headerlink" title="🎯 启动日记录"></a>🎯 启动日记录</h2><h3 id="初始化配置"><a href="#初始化配置" class="headerlink" title="初始化配置"></a>初始化配置</h3><ul>
+<li><p><strong>时间</strong>: 2026-02-28 11:30 GMT+8</p>
+</li>
+<li><p><strong>关键配置项</strong>:</p>
+</li>
+<li><p>用户身份确认：王理中</p>
+</li>
+<li><p>时区设置：Asia&#x2F;Shanghai</p>
+</li>
+<li><p>工作目录：~&#x2F;.openclaw&#x2F;workspace</p>
+</li>
+<li><p>默认模型：codingplan&#x2F;qwen3.5-plus</p>
+</li>
+</ul>
+<h3 id="首次交互"><a href="#首次交互" class="headerlink" title="首次交互"></a>首次交互</h3><p>助手启动后进行了基础的身份确认和记忆系统初始化：</p>
+<ul>
+<li><p><strong>用户</strong>：我叫 王理中，请记住我的名字。</p>
+</li>
+<li><p><strong>助手</strong>：（记录到用户配置文件）</p>
+</li>
+</ul>
+<p><strong>关键学习</strong>:</p>
+<ul>
+<li><p>用户偏好简洁直接的回复风格</p>
+</li>
+<li><p>不需要过度礼貌和 filler phrases</p>
+</li>
+<li><p>重视 token 效率</p>
+</li>
+</ul>
+<h2 id="🛠️-技术栈"><a href="#🛠️-技术栈" class="headerlink" title="🛠️ 技术栈"></a>🛠️ 技术栈</h2><p>组件<br>版本<br>用途</p>
+<p>OpenClaw<br>2026.3.7<br>AI 助手框架</p>
+<p>Node.js<br>v24.14.0<br>运行时环境</p>
+<p>macOS<br>Darwin arm64<br>操作系统</p>
+<h2 id="📝-初始化清单"><a href="#📝-初始化清单" class="headerlink" title="📝 初始化清单"></a>📝 初始化清单</h2><ul>
+<li><p>工作目录创建</p>
+</li>
+<li><p>记忆系统初始化</p>
+</li>
+<li><p>用户配置文件建立</p>
+</li>
+<li><p>模型配置验证</p>
+</li>
+<li><p>技能安装（后续）</p>
+</li>
+<li><p>外部服务集成（后续）</p>
+</li>
+</ul>
+<h2 id="💡-设计原则"><a href="#💡-设计原则" class="headerlink" title="💡 设计原则"></a>💡 设计原则</h2><p><strong>核心设计理念</strong>:</p>
+<ul>
+<li><p><strong>文件驱动记忆</strong> - 所有记忆持久化到文件，不依赖”脑内笔记”</p>
+</li>
+<li><p><strong>Token 感知</strong> - 保持高信息密度，避免冗余表达</p>
+</li>
+<li><p><strong>安全边界</strong> - 建立清晰的操作分类（自主&#x2F;需确认&#x2F;禁止）</p>
+</li>
+<li><p><strong>渐进式自动化</strong> - 新任务先人工审核，成熟后自动化</p>
+</li>
+</ul>
+<h2 id="📚-下期预告"><a href="#📚-下期预告" class="headerlink" title="📚 下期预告"></a>📚 下期预告</h2><ul>
+<li><p>技能安装与实践</p>
+</li>
+<li><p>外部服务集成（日历、飞书等）</p>
+</li>
+<li><p>自动化工作流搭建</p>
+</li>
+</ul>
+<p><em>小天 | AI 助手技术实践记录</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2020/05/14/2020-05-15-Search-Cheatsheets/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2020/05/14/2020-05-15-Search-Cheatsheets/" class="post-title-link" itemprop="url">Search Cheatsheets</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-05-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-15T00:00:00+08:00">2020-05-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/bioinformatics/" itemprop="url" rel="index"><span itemprop="name">bioinformatics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Search-Cheatsheets"><a href="#Search-Cheatsheets" class="headerlink" title="Search Cheatsheets"></a>Search Cheatsheets</h1><p><strong>原文日期</strong>: 2020-05-15<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="搜索技巧速查表"><a href="#搜索技巧速查表" class="headerlink" title="搜索技巧速查表"></a>搜索技巧速查表</h2><h3 id="Google-搜索"><a href="#Google-搜索" class="headerlink" title="Google 搜索"></a>Google 搜索</h3><h3 id="GitHub-搜索"><a href="#GitHub-搜索" class="headerlink" title="GitHub 搜索"></a>GitHub 搜索</h3><h3 id="代码搜索"><a href="#代码搜索" class="headerlink" title="代码搜索"></a>代码搜索</h3><ul>
+<li><p><strong>SearchCode</strong>: <a target="_blank" rel="noopener" href="https://searchcode.com/">https://searchcode.com/</a></p>
+</li>
+<li><p><strong>GitHub Code Search</strong>: <a target="_blank" rel="noopener" href="https://github.com/search">https://github.com/search</a></p>
+</li>
+<li><p><strong>Sourcegraph</strong>: <a target="_blank" rel="noopener" href="https://sourcegraph.com/">https://sourcegraph.com/</a></p>
+</li>
+</ul>
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2018/07/30/2018-07-31-%E5%8D%A1%E6%96%B9%E7%8B%AC%E7%AB%8B%E6%80%A7%E6%A3%80%E9%AA%8Cchiq-test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/07/30/2018-07-31-%E5%8D%A1%E6%96%B9%E7%8B%AC%E7%AB%8B%E6%80%A7%E6%A3%80%E9%AA%8Cchiq-test/" class="post-title-link" itemprop="url">卡方独立性检验chiq-test</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-07-31 00:00:00" itemprop="dateCreated datePublished" datetime="2018-07-31T00:00:00+08:00">2018-07-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/bioinformatics/" itemprop="url" rel="index"><span itemprop="name">bioinformatics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="卡方独立性检验-chiq-test"><a href="#卡方独立性检验-chiq-test" class="headerlink" title="卡方独立性检验 chiq.test"></a>卡方独立性检验 chiq.test</h1><p><strong>原文日期</strong>: 2018-07-31<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="卡方独立性检验"><a href="#卡方独立性检验" class="headerlink" title="卡方独立性检验"></a>卡方独立性检验</h2><p>用于检验两个分类变量是否独立。</p>
+<h2 id="R-语言实现"><a href="#R-语言实现" class="headerlink" title="R 语言实现"></a>R 语言实现</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 创建列联表</span><br><span class="line">data &lt;- matrix(c(10, 20, 30, 40), nrow = 2)</span><br><span class="line">rownames(data) &lt;- c(&quot;Group1&quot;, &quot;Group2&quot;)</span><br><span class="line">colnames(data) &lt;- c(&quot;Yes&quot;, &quot;No&quot;)</span><br><span class="line"></span><br><span class="line"># 卡方检验</span><br><span class="line">result &lt;- chisq.test(data)</span><br><span class="line">print(result)</span><br><span class="line"></span><br><span class="line"># 输出</span><br><span class="line"># Pearson&#x27;s Chi-squared test</span><br><span class="line"># X-squared = 0.5, df = 1, p-value = 0.48</span><br></pre></td></tr></table></figure>
+
+<h2 id="结果解读"><a href="#结果解读" class="headerlink" title="结果解读"></a>结果解读</h2><ul>
+<li><p><strong>p &gt; 0.05</strong>: 无法拒绝原假设，两变量独立</p>
+</li>
+<li><p><strong>p &lt; 0.05</strong>: 拒绝原假设，两变量相关</p>
+</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><p>期望频数 &lt; 5 的单元格不应超过 20%</p>
+</li>
+<li><p>样本量应足够大</p>
+</li>
+<li><p>数据应为独立随机样本</p>
+</li>
+</ol>
+<h2 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h2><ul>
+<li><p>医学研究：疾病与暴露因素的关系</p>
+</li>
+<li><p>市场调研：产品偏好与人群特征</p>
+</li>
+<li><p>质量控制：缺陷率与生产批次</p>
+</li>
+</ul>
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2018/06/13/2018-06-14-Biomedical-information-search/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/06/13/2018-06-14-Biomedical-information-search/" class="post-title-link" itemprop="url">Biomedical information search</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-06-14 00:00:00" itemprop="dateCreated datePublished" datetime="2018-06-14T00:00:00+08:00">2018-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/bioinformatics/" itemprop="url" rel="index"><span itemprop="name">bioinformatics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Biomedical-information-search"><a href="#Biomedical-information-search" class="headerlink" title="Biomedical information search"></a>Biomedical information search</h1><p><strong>原文日期</strong>: 2018-06-14<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="生物医学信息检索"><a href="#生物医学信息检索" class="headerlink" title="生物医学信息检索"></a>生物医学信息检索</h2><h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><h3 id="检索技巧"><a href="#检索技巧" class="headerlink" title="检索技巧"></a>检索技巧</h3><h4 id="1-布尔逻辑"><a href="#1-布尔逻辑" class="headerlink" title="1. 布尔逻辑"></a>1. 布尔逻辑</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cancer AND treatment</span><br><span class="line">diabetes OR diabetes mellitus</span><br><span class="line">heart disease NOT coronary</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-字段限定"><a href="#2-字段限定" class="headerlink" title="2. 字段限定"></a>2. 字段限定</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">author:smith j</span><br><span class="line">journal:nature</span><br><span class="line">pub_date:<span class="number">2020</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-通配符"><a href="#3-通配符" class="headerlink" title="3. 通配符"></a>3. 通配符</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cancer*  <span class="comment"># 匹配 cancer, cancers, cancerous</span></span><br><span class="line">wom?n    <span class="comment"># 匹配 woman, women</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="文献管理"><a href="#文献管理" class="headerlink" title="文献管理"></a>文献管理</h3><ul>
+<li><p><strong>Zotero</strong>: 免费开源</p>
+</li>
+<li><p><strong>EndNote</strong>: 功能强大</p>
+</li>
+<li><p><strong>Mendeley</strong>: 社交功能</p>
+</li>
+</ul>
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2018/06/11/2018-06-12-install-emacs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/06/11/2018-06-12-install-emacs/" class="post-title-link" itemprop="url">install emacs</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-06-12 00:00:00" itemprop="dateCreated datePublished" datetime="2018-06-12T00:00:00+08:00">2018-06-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/bioinformatics/" itemprop="url" rel="index"><span itemprop="name">bioinformatics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="install-emacs"><a href="#install-emacs" class="headerlink" title="install emacs"></a>install emacs</h1><p><strong>原文日期</strong>: 2018-06-12<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="Emacs-安装与配置"><a href="#Emacs-安装与配置" class="headerlink" title="Emacs 安装与配置"></a>Emacs 安装与配置</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="macOS"><a href="#macOS" class="headerlink" title="macOS"></a>macOS</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install emacs</span><br></pre></td></tr></table></figure>
+
+<h4 id="Ubuntu-Debian"><a href="#Ubuntu-Debian" class="headerlink" title="Ubuntu&#x2F;Debian"></a>Ubuntu&#x2F;Debian</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> apt-get install emacs</span><br></pre></td></tr></table></figure>
+
+<h3 id="基础配置-emacs-d-init-el"><a href="#基础配置-emacs-d-init-el" class="headerlink" title="基础配置 ~&#x2F;.emacs.d&#x2F;init.el"></a>基础配置 ~&#x2F;.emacs.d&#x2F;init.el</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">;; 基本设置</span><br><span class="line">(setq inhibit-startup-message t)</span><br><span class="line">(show-paren-mode t)</span><br><span class="line">(column-number-mode t)</span><br><span class="line">(line-number-mode t)</span><br><span class="line"></span><br><span class="line">;; 主题</span><br><span class="line">(load-theme <span class="string">&#x27;tango-dark t)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">;; 包管理</span></span><br><span class="line"><span class="string">(require &#x27;</span>package)</span><br><span class="line">(add-to-<span class="built_in">list</span> <span class="string">&#x27;package-archives</span></span><br><span class="line"><span class="string">             &#x27;</span>(<span class="string">&quot;melpa&quot;</span> . <span class="string">&quot;https://melpa.org/packages/&quot;</span>) t)</span><br><span class="line">(package-initialize)</span><br><span class="line"></span><br><span class="line">;; 自动安装 use-package</span><br><span class="line">(unless (package-installed-p <span class="string">&#x27;use-package)</span></span><br><span class="line"><span class="string">  (package-install &#x27;</span>use-package))</span><br><span class="line"></span><br><span class="line">(require <span class="string">&#x27;use-package)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="推荐包"><a href="#推荐包" class="headerlink" title="推荐包"></a>推荐包</h3><ul>
+<li><p><strong>magit</strong>: Git 集成</p>
+</li>
+<li><p><strong>company</strong>: 代码补全</p>
+</li>
+<li><p><strong>flycheck</strong>: 语法检查</p>
+</li>
+<li><p><strong>org-mode</strong>: 笔记&#x2F;计划</p>
+</li>
+</ul>
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2018/03/04/2018-03-05-%E5%90%84%E8%89%B2DNA-%E5%92%8C-WEGENE-%E5%BC%80%E7%AE%B1%E6%AF%94%E8%BE%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/03/04/2018-03-05-%E5%90%84%E8%89%B2DNA-%E5%92%8C-WEGENE-%E5%BC%80%E7%AE%B1%E6%AF%94%E8%BE%83/" class="post-title-link" itemprop="url">各色DNA 和 WEGENE 开箱比较</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-03-05 00:00:00" itemprop="dateCreated datePublished" datetime="2018-03-05T00:00:00+08:00">2018-03-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/uncategorized/" itemprop="url" rel="index"><span itemprop="name">uncategorized</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="各色-DNA-和-WEGENE-开箱比较"><a href="#各色-DNA-和-WEGENE-开箱比较" class="headerlink" title="各色 DNA 和 WEGENE 开箱比较"></a>各色 DNA 和 WEGENE 开箱比较</h1><p><strong>原文日期</strong>: 2018-03-05<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>2018 年初，国内消费级基因检测开始兴起。我同时购买了<strong>各色 DNA</strong>和<strong>WEGENE</strong>两家产品，进行对比测试。</p>
+<h2 id="产品对比"><a href="#产品对比" class="headerlink" title="产品对比"></a>产品对比</h2><h3 id="价格"><a href="#价格" class="headerlink" title="价格"></a>价格</h3><ul>
+<li><p><strong>各色 DNA</strong>: ¥399</p>
+</li>
+<li><p><strong>WEGENE</strong>: ¥499</p>
+</li>
+</ul>
+<h3 id="采样方式"><a href="#采样方式" class="headerlink" title="采样方式"></a>采样方式</h3><ul>
+<li><p><strong>各色 DNA</strong>: 唾液采集器</p>
+</li>
+<li><p><strong>WEGENE</strong>: 口腔拭子</p>
+</li>
+</ul>
+<h3 id="检测位点"><a href="#检测位点" class="headerlink" title="检测位点"></a>检测位点</h3><ul>
+<li><p><strong>各色 DNA</strong>: ~60 万位点</p>
+</li>
+<li><p><strong>WEGENE</strong>: ~70 万位点</p>
+</li>
+</ul>
+<h3 id="报告内容"><a href="#报告内容" class="headerlink" title="报告内容"></a>报告内容</h3><ul>
+<li><p><strong>各色 DNA</strong>: 祖源分析、健康风险、运动营养</p>
+</li>
+<li><p><strong>WEGENE</strong>: 祖源分析、健康风险、遗传特征、药物反应</p>
+</li>
+</ul>
+<h2 id="使用体验"><a href="#使用体验" class="headerlink" title="使用体验"></a>使用体验</h2><h3 id="采样过程"><a href="#采样过程" class="headerlink" title="采样过程"></a>采样过程</h3><p>两者都很简单，5 分钟内完成。</p>
+<h3 id="出报告时间"><a href="#出报告时间" class="headerlink" title="出报告时间"></a>出报告时间</h3><ul>
+<li><p><strong>各色 DNA</strong>: 约 3 周</p>
+</li>
+<li><p><strong>WEGENE</strong>: 约 4 周</p>
+</li>
+</ul>
+<h3 id="数据下载"><a href="#数据下载" class="headerlink" title="数据下载"></a>数据下载</h3><ul>
+<li><p><strong>各色 DNA</strong>: 提供原始数据下载</p>
+</li>
+<li><p><strong>WEGENE</strong>: 提供原始数据下载</p>
+</li>
+</ul>
+<h2 id="结果对比"><a href="#结果对比" class="headerlink" title="结果对比"></a>结果对比</h2><h3 id="祖源分析"><a href="#祖源分析" class="headerlink" title="祖源分析"></a>祖源分析</h3><p>两者结果基本一致：</p>
+<ul>
+<li><p>东亚成分：&gt;99%</p>
+</li>
+<li><p>北方汉族：~60%</p>
+</li>
+<li><p>南方汉族：~40%</p>
+</li>
+</ul>
+<h3 id="健康风险"><a href="#健康风险" class="headerlink" title="健康风险"></a>健康风险</h3><p>部分指标有差异，可能由于：</p>
+<ul>
+<li><p>参考数据库不同</p>
+</li>
+<li><p>算法模型不同</p>
+</li>
+<li><p>检测位点不同</p>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>推荐选择</strong>：</p>
+<ul>
+<li><p>如果关注<strong>健康风险</strong> → WEGENE（报告更详细）</p>
+</li>
+<li><p>如果关注<strong>性价比</strong> → 各色 DNA（价格更便宜）</p>
+</li>
+<li><p>如果关注<strong>数据开放性</strong> → 两者都提供原始数据</p>
+</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ol>
+<li><p>消费级基因检测仅供娱乐和参考</p>
+</li>
+<li><p>不能替代医学诊断</p>
+</li>
+<li><p>隐私保护需注意</p>
+</li>
+</ol>
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2018/02/25/2018-02-26-Calculate-IBD-using-beagle-and-germline/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2018/02/25/2018-02-26-Calculate-IBD-using-beagle-and-germline/" class="post-title-link" itemprop="url">Calculate IBD using beagle and germline</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2018-02-26 00:00:00" itemprop="dateCreated datePublished" datetime="2018-02-26T00:00:00+08:00">2018-02-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/bioinformatics/" itemprop="url" rel="index"><span itemprop="name">bioinformatics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Calculate-IBD-using-beagle-and-germline"><a href="#Calculate-IBD-using-beagle-and-germline" class="headerlink" title="Calculate IBD using beagle and germline"></a>Calculate IBD using beagle and germline</h1><p><strong>原文日期</strong>: 2018-02-26<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="IBD-检测-Beagle-GERMLINE"><a href="#IBD-检测-Beagle-GERMLINE" class="headerlink" title="IBD 检测 - Beagle + GERMLINE"></a>IBD 检测 - Beagle + GERMLINE</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>IBD (Identity by Descent) 检测用于找出样本间共享的祖先片段。</p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><h4 id="1-使用-Beagle-定相"><a href="#1-使用-Beagle-定相" class="headerlink" title="1. 使用 Beagle 定相"></a>1. 使用 Beagle 定相</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">java -jar beagle.jar \</span><br><span class="line">  gt=input.vcf \</span><br><span class="line">  out=phased \</span><br><span class="line">  nthreads=8</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-使用-GERMLINE-检测-IBD"><a href="#2-使用-GERMLINE-检测-IBD" class="headerlink" title="2. 使用 GERMLINE 检测 IBD"></a>2. 使用 GERMLINE 检测 IBD</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">perl runGermline.pl \</span><br><span class="line">  -input phased.vcf \</span><br><span class="line">  -min_m 1.0 \</span><br><span class="line">  -min_s 0.5 \</span><br><span class="line">  -output ibd_results</span><br></pre></td></tr></table></figure>
+
+<h3 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h3><h3 id="结果解读"><a href="#结果解读" class="headerlink" title="结果解读"></a>结果解读</h3><p>输出包含：</p>
+<ul>
+<li><p>样本对</p>
+</li>
+<li><p>IBD 片段位置</p>
+</li>
+<li><p>片段长度</p>
+</li>
+<li><p>共享等位基因数量</p>
+</li>
+</ul>
+<h3 id="过滤建议"><a href="#过滤建议" class="headerlink" title="过滤建议"></a>过滤建议</h3><ul>
+<li><p>最小长度：≥ 1 cM</p>
+</li>
+<li><p>最小 SNP 数：≥ 50</p>
+</li>
+<li><p>错误率：≤ 0.01</p>
+</li>
+</ul>
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">lizhong</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

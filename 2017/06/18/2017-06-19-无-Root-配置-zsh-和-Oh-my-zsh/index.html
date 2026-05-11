@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wlz0726.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"width":320},"hljswrap":true,"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="无 Root 配置 zsh 和 Oh-my-zsh原文日期: 2017-06-19来源: https:&#x2F;&#x2F;github.com&#x2F;wlz0726&#x2F;wlz0726.github.io  无 Root 权限安装 zsh1. 下载源码123wget https:&#x2F;&#x2F;sourceforge.net&#x2F;projects&#x2F;zsh&#x2F;files&#x2F;zsh&#x2F;5.8&#x2F;zsh-5.8.tar.xztar xf zsh-5.8">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无 Root 配置 zsh 和 Oh-my-zsh">
+<meta property="og:url" content="https://wlz0726.github.io/2017/06/18/2017-06-19-%E6%97%A0-Root-%E9%85%8D%E7%BD%AE-zsh-%E5%92%8C-Oh-my-zsh/index.html">
+<meta property="og:site_name" content="lizhong&#39;s notes">
+<meta property="og:description" content="无 Root 配置 zsh 和 Oh-my-zsh原文日期: 2017-06-19来源: https:&#x2F;&#x2F;github.com&#x2F;wlz0726&#x2F;wlz0726.github.io  无 Root 权限安装 zsh1. 下载源码123wget https:&#x2F;&#x2F;sourceforge.net&#x2F;projects&#x2F;zsh&#x2F;files&#x2F;zsh&#x2F;5.8&#x2F;zsh-5.8.tar.xztar xf zsh-5.8">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2017-06-18T16:00:00.000Z">
+<meta property="article:modified_time" content="2026-05-11T03:56:37.639Z">
+<meta property="article:author" content="lizhong">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Shell">
+<meta property="article:tag" content="oh-my-zsh">
+<meta property="article:tag" content="zsh">
+<meta property="article:tag" content="服务器">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wlz0726.github.io/2017/06/18/2017-06-19-%E6%97%A0-Root-%E9%85%8D%E7%BD%AE-zsh-%E5%92%8C-Oh-my-zsh/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://wlz0726.github.io/2017/06/18/2017-06-19-%E6%97%A0-Root-%E9%85%8D%E7%BD%AE-zsh-%E5%92%8C-Oh-my-zsh/","path":"2017/06/18/2017-06-19-无-Root-配置-zsh-和-Oh-my-zsh/","title":"无 Root 配置 zsh 和 Oh-my-zsh"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>无 Root 配置 zsh 和 Oh-my-zsh | lizhong's notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">lizhong's notes</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">龙虾日记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-folder fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%97%A0-Root-%E9%85%8D%E7%BD%AE-zsh-%E5%92%8C-Oh-my-zsh"><span class="nav-number">1.</span> <span class="nav-text">无 Root 配置 zsh 和 Oh-my-zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%97%A0-Root-%E6%9D%83%E9%99%90%E5%AE%89%E8%A3%85-zsh"><span class="nav-number">1.1.</span> <span class="nav-text">无 Root 权限安装 zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%8B%E8%BD%BD%E6%BA%90%E7%A0%81"><span class="nav-number">1.1.1.</span> <span class="nav-text">1. 下载源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%E5%88%B0%E7%94%A8%E6%88%B7%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.2.</span> <span class="nav-text">2. 编译安装到用户目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%B7%BB%E5%8A%A0%E5%88%B0-PATH"><span class="nav-number">1.1.3.</span> <span class="nav-text">3. 添加到 PATH</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85-Oh-my-zsh"><span class="nav-number">1.2.</span> <span class="nav-text">安装 Oh-my-zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%BE%91-zshrc"><span class="nav-number">1.2.1.</span> <span class="nav-text">编辑 ~&#x2F;.zshrc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6"><span class="nav-number">1.3.</span> <span class="nav-text">安装插件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-autosuggestions"><span class="nav-number">1.3.1.</span> <span class="nav-text">zsh-autosuggestions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-syntax-highlighting"><span class="nav-number">1.3.2.</span> <span class="nav-text">zsh-syntax-highlighting</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%BB%98%E8%AE%A4-shell"><span class="nav-number">1.4.</span> <span class="nav-text">设置默认 shell</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E8%8D%90%E4%B8%BB%E9%A2%98"><span class="nav-number">1.5.</span> <span class="nav-text">推荐主题</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">lizhong</p>
+  <div class="site-description" itemprop="description">专注于基因组学、AI Agent 与个人知识管理的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">135</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2017/06/18/2017-06-19-%E6%97%A0-Root-%E9%85%8D%E7%BD%AE-zsh-%E5%92%8C-Oh-my-zsh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="无 Root 配置 zsh 和 Oh-my-zsh | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          无 Root 配置 zsh 和 Oh-my-zsh
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-06-19 00:00:00" itemprop="dateCreated datePublished" datetime="2017-06-19T00:00:00+08:00">2017-06-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="无-Root-配置-zsh-和-Oh-my-zsh"><a href="#无-Root-配置-zsh-和-Oh-my-zsh" class="headerlink" title="无 Root 配置 zsh 和 Oh-my-zsh"></a>无 Root 配置 zsh 和 Oh-my-zsh</h1><p><strong>原文日期</strong>: 2017-06-19<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="无-Root-权限安装-zsh"><a href="#无-Root-权限安装-zsh" class="headerlink" title="无 Root 权限安装 zsh"></a>无 Root 权限安装 zsh</h2><h3 id="1-下载源码"><a href="#1-下载源码" class="headerlink" title="1. 下载源码"></a>1. 下载源码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://sourceforge.net/projects/zsh/files/zsh/5.8/zsh-5.8.tar.xz</span><br><span class="line">tar xf zsh-5.8.tar.xz</span><br><span class="line"><span class="built_in">cd</span> zsh-5.8</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-编译安装到用户目录"><a href="#2-编译安装到用户目录" class="headerlink" title="2. 编译安装到用户目录"></a>2. 编译安装到用户目录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=<span class="variable">$HOME</span>/.local</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-添加到-PATH"><a href="#3-添加到-PATH" class="headerlink" title="3. 添加到 PATH"></a>3. 添加到 PATH</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export PATH=$HOME/.local/bin:$PATH&#x27;</span> &gt;&gt; ~/.bashrc</span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装-Oh-my-zsh"><a href="#安装-Oh-my-zsh" class="headerlink" title="安装 Oh-my-zsh"></a>安装 Oh-my-zsh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置 zsh 路径</span></span><br><span class="line"><span class="built_in">export</span> ZSH=<span class="variable">$HOME</span>/.oh-my-zsh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 克隆 Oh-my-zsh</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/ohmyzsh/ohmyzsh.git <span class="variable">$ZSH</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制模板配置</span></span><br><span class="line"><span class="built_in">cp</span> <span class="variable">$ZSH</span>/templates/zshrc.zsh-template <span class="variable">$HOME</span>/.zshrc</span><br></pre></td></tr></table></figure>
+
+<h3 id="编辑-zshrc"><a href="#编辑-zshrc" class="headerlink" title="编辑 ~&#x2F;.zshrc"></a>编辑 ~&#x2F;.zshrc</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置主题</span></span><br><span class="line">ZSH_THEME=<span class="string">&quot;robbyrussell&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置插件</span></span><br><span class="line">plugins=(git zsh-autosuggestions zsh-syntax-highlighting)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 zsh 路径</span></span><br><span class="line"><span class="built_in">export</span> ZSH=<span class="variable">$HOME</span>/.oh-my-zsh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动 Oh-my-zsh</span></span><br><span class="line"><span class="built_in">source</span> <span class="variable">$ZSH</span>/oh-my-zsh.sh</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><h3 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a>zsh-autosuggestions</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br></pre></td></tr></table></figure>
+
+<h3 id="zsh-syntax-highlighting"><a href="#zsh-syntax-highlighting" class="headerlink" title="zsh-syntax-highlighting"></a>zsh-syntax-highlighting</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+
+<h2 id="设置默认-shell"><a href="#设置默认-shell" class="headerlink" title="设置默认 shell"></a>设置默认 shell</h2><p>如果有 sudo 权限：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看可用 shell</span></span><br><span class="line"><span class="built_in">cat</span> /etc/shells</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置默认 shell</span></span><br><span class="line">chsh -s <span class="variable">$HOME</span>/.local/bin/zsh</span><br></pre></td></tr></table></figure>
+
+<p>如果没有 sudo 权限，每次手动启动：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$HOME</span>/.local/bin/zsh</span><br></pre></td></tr></table></figure>
+
+<h2 id="推荐主题"><a href="#推荐主题" class="headerlink" title="推荐主题"></a>推荐主题</h2><ul>
+<li><p><strong>robbyrussell</strong>: 默认主题，简洁</p>
+</li>
+<li><p><strong>agnoster</strong>: 美观，需要 Powerline 字体</p>
+</li>
+<li><p><strong>powerlevel10k</strong>: 功能强大，高度可定制</p>
+</li>
+</ul>
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/zsh/" rel="tag"># zsh</a>
+              <a href="/tags/oh-my-zsh/" rel="tag"># oh-my-zsh</a>
+              <a href="/tags/Shell/" rel="tag"># Shell</a>
+              <a href="/tags/%E6%9C%8D%E5%8A%A1%E5%99%A8/" rel="tag"># 服务器</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2017/06/05/2017-06-06-Do-Phasing-with-SHAPEIT/" rel="prev" title="Do Phasing with SHAPEIT">
+                  <i class="fa fa-angle-left"></i> Do Phasing with SHAPEIT
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2017/06/18/2017-06-19-tmux/" rel="next" title="tmux">
+                  tmux <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">lizhong</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.2">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"wlz0726.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":true,"version":"8.21.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12,"width":320},"hljswrap":true,"copycode":{"enable":true,"style":"flat"},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="lizhong&#39;s notes">
+<meta property="og:url" content="https://wlz0726.github.io/page/5/index.html">
+<meta property="og:site_name" content="lizhong&#39;s notes">
+<meta property="og:description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="lizhong">
+<meta property="article:tag" content="基因组学,AI,OpenClaw,知识管理,健康数据">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://wlz0726.github.io/page/5/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/5/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>lizhong's notes</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">lizhong's notes</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">龙虾日记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-folder fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">lizhong</p>
+  <div class="site-description" itemprop="description">专注于基因组学、AI Agent 与个人知识管理的个人博客</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">62</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">135</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2017/04/17/2017-04-18-Insert-blank-line-using-markdown/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/04/17/2017-04-18-Insert-blank-line-using-markdown/" class="post-title-link" itemprop="url">Insert blank line using markdown</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-18 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-18T00:00:00+08:00">2017-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Insert-blank-line-using-markdown"><a href="#Insert-blank-line-using-markdown" class="headerlink" title="Insert blank line using markdown"></a>Insert blank line using markdown</h1><p><strong>原文日期</strong>: 2017-04-18<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="Markdown-空行技巧"><a href="#Markdown-空行技巧" class="headerlink" title="Markdown 空行技巧"></a>Markdown 空行技巧</h2><h3 id="段落间距"><a href="#段落间距" class="headerlink" title="段落间距"></a>段落间距</h3><p>空一行即可：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第一段</span><br><span class="line"></span><br><span class="line">第二段</span><br></pre></td></tr></table></figure>
+
+<h3 id="强制换行"><a href="#强制换行" class="headerlink" title="强制换行"></a>强制换行</h3><p>末尾两个空格 或 <code>&lt;br&gt;</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">第一行  </span><br><span class="line">第二行</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2017/04/17/2017-04-18-admixtools/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/04/17/2017-04-18-admixtools/" class="post-title-link" itemprop="url">admixtools</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-18 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-18T00:00:00+08:00">2017-04-18</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/bioinformatics/" itemprop="url" rel="index"><span itemprop="name">bioinformatics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="admixtools"><a href="#admixtools" class="headerlink" title="admixtools"></a>admixtools</h1><p><strong>原文日期</strong>: 2017-04-18<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="ADMIXTOOLS-使用指南"><a href="#ADMIXTOOLS-使用指南" class="headerlink" title="ADMIXTOOLS 使用指南"></a>ADMIXTOOLS 使用指南</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>ADMIXTOOLS 是哈佛大学 Reich 实验室开发的群体遗传学分析工具包，主要用于：</p>
+<ul>
+<li><p>群体混合分析 (Admixture)</p>
+</li>
+<li><p>f-statistics 计算 (f2, f3, f4)</p>
+</li>
+<li><p>系统发育关系推断</p>
+</li>
+<li><p>基因流检测</p>
+</li>
+</ul>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><h4 id="方法-1-源码编译"><a href="#方法-1-源码编译" class="headerlink" title="方法 1: 源码编译"></a>方法 1: 源码编译</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 克隆仓库</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/DReichLab/AdmixTools.git</span><br><span class="line"><span class="built_in">cd</span> AdmixTools</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译</span></span><br><span class="line">make</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加到 PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:/path/to/AdmixTools/bin</span><br></pre></td></tr></table></figure>
+
+<h4 id="方法-2-conda-安装"><a href="#方法-2-conda-安装" class="headerlink" title="方法 2: conda 安装"></a>方法 2: conda 安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install -c bioconda admixtools</span><br></pre></td></tr></table></figure>
+
+<h3 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h3><p>ADMIXTOOLS 使用 <strong>EIGENSTRAT 格式</strong>:</p>
+<ol>
+<li><p><strong>.geno</strong> - 基因型数据</p>
+</li>
+<li><p><strong>.snp</strong> - SNP 信息</p>
+</li>
+<li><p><strong>.ind</strong> - 个体信息</p>
+</li>
+</ol>
+<h4 id="从-PLINK-转换"><a href="#从-PLINK-转换" class="headerlink" title="从 PLINK 转换"></a>从 PLINK 转换</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用 convertf</span></span><br><span class="line">convertf -p parfile</span><br></pre></td></tr></table></figure>
+
+<p><strong>parfile 示例</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">genotypename: <span class="built_in">input</span>.bed</span><br><span class="line">snpname: <span class="built_in">input</span>.bim</span><br><span class="line">indivname: <span class="built_in">input</span>.fam</span><br><span class="line">outputformat: EIGENSTRAT</span><br><span class="line">genotypeoutname: output.geno</span><br><span class="line">snpoutname: output.snp</span><br><span class="line">indivoutname: output.ind</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用程序"><a href="#常用程序" class="headerlink" title="常用程序"></a>常用程序</h3><h4 id="1-qpAdm-混合比例估计"><a href="#1-qpAdm-混合比例估计" class="headerlink" title="1. qpAdm - 混合比例估计"></a>1. qpAdm - 混合比例估计</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qpAdm -p parfile</span><br></pre></td></tr></table></figure>
+
+<p><strong>parfile 示例</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">popleft: Target</span><br><span class="line">popright: Source1 Source2 Source3</span><br><span class="line">outpop: ALL</span><br><span class="line">details: YES</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-qpGraph-构建系统发育图"><a href="#2-qpGraph-构建系统发育图" class="headerlink" title="2. qpGraph - 构建系统发育图"></a>2. qpGraph - 构建系统发育图</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qpGraph -p parfile -g graphfile</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-f4-统计量"><a href="#3-f4-统计量" class="headerlink" title="3. f4 统计量"></a>3. f4 统计量</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f4 -p parfile</span><br></pre></td></tr></table></figure>
+
+<p><strong>parfile 示例</strong>:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">popfilename: pops.txt</span><br><span class="line">f4mode: YES</span><br></pre></td></tr></table></figure>
+
+<h3 id="结果解读"><a href="#结果解读" class="headerlink" title="结果解读"></a>结果解读</h3><h4 id="f3-统计量"><a href="#f3-统计量" class="headerlink" title="f3 统计量"></a>f3 统计量</h4><ul>
+<li><p><strong>负值</strong>: 表明目标群体是源群体的混合后代</p>
+</li>
+<li><p><strong>Z 分数</strong>: |Z| &gt; 3 认为显著</p>
+</li>
+</ul>
+<h4 id="f4-统计量"><a href="#f4-统计量" class="headerlink" title="f4 统计量"></a>f4 统计量</h4><ul>
+<li><p><strong>显著非零</strong>: 表明存在基因流</p>
+</li>
+<li><p><strong>符号</strong>: 指示基因流方向</p>
+</li>
+</ul>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ol>
+<li><p><strong>古代 DNA 分析</strong>: 检测古代群体与现代群体的关系</p>
+</li>
+<li><p><strong>人群历史</strong>: 推断人群混合事件</p>
+</li>
+<li><p><strong>疾病研究</strong>: 控制群体分层</p>
+</li>
+</ol>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li><p><strong>数据质量</strong>: 确保 SNP 质量和覆盖度</p>
+</li>
+<li><p><strong>样本选择</strong>: 选择合适的参考群体</p>
+</li>
+<li><p><strong>多重检验</strong>: 校正 p 值</p>
+</li>
+<li><p><strong>结果验证</strong>: 使用多种方法交叉验证</p>
+</li>
+</ol>
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2017/04/16/2017-04-17-Getting-free-images-with-copyright/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/04/16/2017-04-17-Getting-free-images-with-copyright/" class="post-title-link" itemprop="url">Getting free images with copyright</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-17 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-17T00:00:00+08:00">2017-04-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="Getting-free-images-with-copyright"><a href="#Getting-free-images-with-copyright" class="headerlink" title="Getting free images with copyright"></a>Getting free images with copyright</h1><p><strong>原文日期</strong>: 2017-04-17<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="免费图片资源"><a href="#免费图片资源" class="headerlink" title="免费图片资源"></a>免费图片资源</h2><h3 id="CC0-免版权"><a href="#CC0-免版权" class="headerlink" title="CC0 免版权"></a>CC0 免版权</h3><h3 id="使用注意"><a href="#使用注意" class="headerlink" title="使用注意"></a>使用注意</h3><ol>
+<li><p>确认许可类型</p>
+</li>
+<li><p>按要求署名（如需）</p>
+</li>
+<li><p>商业用途需额外确认</p>
+</li>
+</ol>
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2017/04/11/2017-04-12-vcftools/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/04/11/2017-04-12-vcftools/" class="post-title-link" itemprop="url">vcftools</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-12 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-12T00:00:00+08:00">2017-04-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/bioinformatics/" itemprop="url" rel="index"><span itemprop="name">bioinformatics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="vcftools"><a href="#vcftools" class="headerlink" title="vcftools"></a>vcftools</h1><p><strong>原文日期</strong>: 2017-04-12<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="VCF-文件操作工具"><a href="#VCF-文件操作工具" class="headerlink" title="VCF 文件操作工具"></a>VCF 文件操作工具</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># macOS</span></span><br><span class="line">brew install vcftools</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ubuntu/Debian</span></span><br><span class="line"><span class="built_in">sudo</span> apt-get install vcftools</span><br><span class="line"></span><br><span class="line"><span class="comment"># 源码编译</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/vcftools/vcftools.git</span><br><span class="line"><span class="built_in">cd</span> vcftools</span><br><span class="line">make</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<h3 id="基本信息统计"><a href="#基本信息统计" class="headerlink" title="基本信息统计"></a>基本信息统计</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 总体统计</span></span><br><span class="line">vcftools --vcf input.vcf --freq</span><br><span class="line"></span><br><span class="line"><span class="comment"># 每个样本的缺失率</span></span><br><span class="line">vcftools --vcf input.vcf --missing-indv</span><br><span class="line"></span><br><span class="line"><span class="comment"># 每个位点的缺失率</span></span><br><span class="line">vcftools --vcf input.vcf --missing-site</span><br><span class="line"></span><br><span class="line"><span class="comment"># 等位基因频率</span></span><br><span class="line">vcftools --vcf input.vcf --allele-freq</span><br></pre></td></tr></table></figure>
+
+<h3 id="过滤"><a href="#过滤" class="headerlink" title="过滤"></a>过滤</h3><h4 id="按质量过滤"><a href="#按质量过滤" class="headerlink" title="按质量过滤"></a>按质量过滤</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最小质量值</span></span><br><span class="line">vcftools --vcf input.vcf --minQ 30 --recode --recode-INFO-all --out filtered</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最大缺失率</span></span><br><span class="line">vcftools --vcf input.vcf --max-missing 0.9 --recode --out filtered</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最小 MAF</span></span><br><span class="line">vcftools --vcf input.vcf --maf 0.05 --recode --out filtered</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最大 MAF</span></span><br><span class="line">vcftools --vcf input.vcf --max-maf 0.95 --recode --out filtered</span><br></pre></td></tr></table></figure>
+
+<h4 id="按深度过滤"><a href="#按深度过滤" class="headerlink" title="按深度过滤"></a>按深度过滤</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最小深度</span></span><br><span class="line">vcftools --vcf input.vcf --min-meanDP 10 --recode --out filtered</span><br><span class="line"></span><br><span class="line"><span class="comment"># 最大深度</span></span><br><span class="line">vcftools --vcf input.vcf --max-meanDP 100 --recode --out filtered</span><br></pre></td></tr></table></figure>
+
+<h3 id="格式转换"><a href="#格式转换" class="headerlink" title="格式转换"></a>格式转换</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># VCF → PLINK</span></span><br><span class="line">vcftools --vcf input.vcf --plink --out output</span><br><span class="line"></span><br><span class="line"><span class="comment"># VCF → BEAGLE</span></span><br><span class="line">vcftools --vcf input.vcf --beagle --out output</span><br><span class="line"></span><br><span class="line"><span class="comment"># VCF → EIGENSTRAT</span></span><br><span class="line">vcftools --vcf input.vcf --eigenstrat --out output</span><br><span class="line"></span><br><span class="line"><span class="comment"># VCF → PED</span></span><br><span class="line">vcftools --vcf input.vcf --ped --out output</span><br></pre></td></tr></table></figure>
+
+<h3 id="提取子集"><a href="#提取子集" class="headerlink" title="提取子集"></a>提取子集</h3><h4 id="按样本"><a href="#按样本" class="headerlink" title="按样本"></a>按样本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从文件读取样本列表</span></span><br><span class="line">vcftools --vcf input.vcf --keep samples.txt --recode --out subset</span><br><span class="line"></span><br><span class="line"><span class="comment"># 移除样本</span></span><br><span class="line">vcftools --vcf input.vcf --remove samples.txt --recode --out subset</span><br></pre></td></tr></table></figure>
+
+<h4 id="按区域"><a href="#按区域" class="headerlink" title="按区域"></a>按区域</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 染色体</span></span><br><span class="line">vcftools --vcf input.vcf --chr 1 --recode --out chr1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 区域</span></span><br><span class="line">vcftools --vcf input.vcf --chr 1 --from-bp 1000000 --to-bp 2000000 --recode --out region</span><br></pre></td></tr></table></figure>
+
+<h4 id="按位点"><a href="#按位点" class="headerlink" title="按位点"></a>按位点</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 从文件读取位点列表</span></span><br><span class="line">vcftools --vcf input.vcf --snps snps.txt --recode --out subset</span><br></pre></td></tr></table></figure>
+
+<h3 id="群体遗传统计"><a href="#群体遗传统计" class="headerlink" title="群体遗传统计"></a>群体遗传统计</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 核苷酸多样性 (Pi)</span></span><br><span class="line">vcftools --vcf input.vcf --window-pi 10000 --out pi</span><br><span class="line"></span><br><span class="line"><span class="comment"># Fst (群体分化)</span></span><br><span class="line">vcftools --vcf input.vcf --weir-fst-pop pop1.txt --weir-fst-pop pop2.txt --out fst</span><br><span class="line"></span><br><span class="line"><span class="comment"># Tajima&#x27;s D</span></span><br><span class="line">vcftools --vcf input.vcf --TajimaD 10000 --out tajima</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2017/04/05/2017-04-06-bam2fq/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/04/05/2017-04-06-bam2fq/" class="post-title-link" itemprop="url">bam2fq</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-04-06 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-06T00:00:00+08:00">2017-04-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/bioinformatics/" itemprop="url" rel="index"><span itemprop="name">bioinformatics</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="bam2fq"><a href="#bam2fq" class="headerlink" title="bam2fq"></a>bam2fq</h1><p><strong>原文日期</strong>: 2017-04-06<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="BAM-转-FASTQ"><a href="#BAM-转-FASTQ" class="headerlink" title="BAM 转 FASTQ"></a>BAM 转 FASTQ</h2><h3 id="使用-samtools"><a href="#使用-samtools" class="headerlink" title="使用 samtools"></a>使用 samtools</h3><h4 id="单端数据"><a href="#单端数据" class="headerlink" title="单端数据"></a>单端数据</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">samtools fastq input.bam &gt; output.fastq</span><br></pre></td></tr></table></figure>
+
+<h4 id="双端数据"><a href="#双端数据" class="headerlink" title="双端数据"></a>双端数据</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 输出两个文件</span></span><br><span class="line">samtools fastq -1 read1.fastq -2 read2.fastq -0 /dev/null -s /dev/null -n input.bam</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong>:</p>
+<ul>
+<li><p><code>-1</code>: 第一个 read 的输出文件</p>
+</li>
+<li><p><code>-2</code>: 第二个 read 的输出文件</p>
+</li>
+<li><p><code>-0</code>: 只有一个 read 比对的输出（通常丢弃）</p>
+</li>
+<li><p><code>-s</code>: 只有一个 read 比对的输出（通常丢弃）</p>
+</li>
+<li><p><code>-n</code>: 保留原始 read 名</p>
+</li>
+</ul>
+<h4 id="按比对状态过滤"><a href="#按比对状态过滤" class="headerlink" title="按比对状态过滤"></a>按比对状态过滤</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 仅比对上的 reads</span></span><br><span class="line">samtools fastq -F 4 input.bam &gt; mapped.fastq</span><br><span class="line"></span><br><span class="line"><span class="comment"># 仅未比对的 reads</span></span><br><span class="line">samtools fastq -f 4 input.bam &gt; unmapped.fastq</span><br><span class="line"></span><br><span class="line"><span class="comment"># 正确配对的 reads</span></span><br><span class="line">samtools fastq -f 2 input.bam &gt; paired.fastq</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-bedtools"><a href="#使用-bedtools" class="headerlink" title="使用 bedtools"></a>使用 bedtools</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bedtools bamtofastq \</span><br><span class="line">  -i input.bam \</span><br><span class="line">  -fq output.fastq</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-Picard"><a href="#使用-Picard" class="headerlink" title="使用 Picard"></a>使用 Picard</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">picard SamToFastq \</span><br><span class="line">  I=input.bam \</span><br><span class="line">  F=output_R1.fastq \</span><br><span class="line">  F2=output_R2.fastq \</span><br><span class="line">  UNPAIRED_FASTQ=unpaired.fastq</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li><p><strong>质量值格式</strong>: 确保与下游工具兼容</p>
+</li>
+<li><p><strong>双端配对</strong>: 保持 read1 和 read2 的顺序一致</p>
+</li>
+<li><p><strong>文件名</strong>: 使用有意义的命名</p>
+</li>
+<li><p><strong>压缩</strong>: 输出 gzip 压缩格式节省空间</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">samtools fastq input.bam | gzip &gt; output.fastq.gz</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2017/03/22/2017-03-23-GATK-SNP-calling/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/03/22/2017-03-23-GATK-SNP-calling/" class="post-title-link" itemprop="url">GATK SNP calling</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-03-23 00:00:00" itemprop="dateCreated datePublished" datetime="2017-03-23T00:00:00+08:00">2017-03-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="GATK-SNP-calling"><a href="#GATK-SNP-calling" class="headerlink" title="GATK SNP calling"></a>GATK SNP calling</h1><p><strong>原文日期</strong>: 2017-03-23<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="GATK-SNP-检测流程"><a href="#GATK-SNP-检测流程" class="headerlink" title="GATK SNP 检测流程"></a>GATK SNP 检测流程</h2><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载 GATK</span></span><br><span class="line">wget https://github.com/broadinstitute/gatk/releases/download/4.2.0.0/gatk-4.2.0.0.zip</span><br><span class="line">unzip gatk-4.2.0.0.zip</span><br><span class="line"><span class="built_in">cd</span> gatk-4.2.0.0</span><br></pre></td></tr></table></figure>
+
+<h3 id="预处理流程"><a href="#预处理流程" class="headerlink" title="预处理流程"></a>预处理流程</h3><h4 id="1-比对"><a href="#1-比对" class="headerlink" title="1. 比对"></a>1. 比对</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bwa mem -t 8 -M reference.fasta reads_R1.fastq reads_R2.fastq | \</span><br><span class="line">  samtools <span class="built_in">sort</span> -o sorted.bam</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-标记重复"><a href="#2-标记重复" class="headerlink" title="2. 标记重复"></a>2. 标记重复</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gatk MarkDuplicates \</span><br><span class="line">  -I sorted.bam \</span><br><span class="line">  -O dedup.bam \</span><br><span class="line">  -M metrics.txt</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-基础质量重校准-BQSR"><a href="#3-基础质量重校准-BQSR" class="headerlink" title="3. 基础质量重校准 (BQSR)"></a>3. 基础质量重校准 (BQSR)</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第一步：构建重校准表</span></span><br><span class="line">gatk BaseRecalibrator \</span><br><span class="line">  -R reference.fasta \</span><br><span class="line">  -I dedup.bam \</span><br><span class="line">  --known-sites dbSNP.vcf \</span><br><span class="line">  --known-sites Mills_and_1000G_gold_standard.vcf \</span><br><span class="line">  -O recal.table</span><br><span class="line"></span><br><span class="line"><span class="comment"># 第二步：应用重校准</span></span><br><span class="line">gatk ApplyBQSR \</span><br><span class="line">  -R reference.fasta \</span><br><span class="line">  -I dedup.bam \</span><br><span class="line">  --bqsr-recal-file recal.table \</span><br><span class="line">  -O recal.bam</span><br></pre></td></tr></table></figure>
+
+<h3 id="变异检测"><a href="#变异检测" class="headerlink" title="变异检测"></a>变异检测</h3><h4 id="HaplotypeCaller"><a href="#HaplotypeCaller" class="headerlink" title="HaplotypeCaller"></a>HaplotypeCaller</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 单样本</span></span><br><span class="line">gatk HaplotypeCaller \</span><br><span class="line">  -R reference.fasta \</span><br><span class="line">  -I recal.bam \</span><br><span class="line">  -O output.vcf \</span><br><span class="line">  --dont-use-soft-clipped-bases \</span><br><span class="line">  --standard-min-confidence-threshold-for-calling 30</span><br><span class="line"></span><br><span class="line"><span class="comment"># 多样本（GVCF 模式）</span></span><br><span class="line">gatk HaplotypeCaller \</span><br><span class="line">  -R reference.fasta \</span><br><span class="line">  -I sample1.bam \</span><br><span class="line">  -O sample1.g.vcf \</span><br><span class="line">  -ERC GVCF</span><br></pre></td></tr></table></figure>
+
+<h4 id="联合基因分型"><a href="#联合基因分型" class="headerlink" title="联合基因分型"></a>联合基因分型</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 合并 GVCF</span></span><br><span class="line">gatk CombineGVCFs \</span><br><span class="line">  -R reference.fasta \</span><br><span class="line">  --variant sample1.g.vcf \</span><br><span class="line">  --variant sample2.g.vcf \</span><br><span class="line">  -O combined.g.vcf</span><br><span class="line"></span><br><span class="line"><span class="comment"># 联合基因分型</span></span><br><span class="line">gatk GenotypeGVCFs \</span><br><span class="line">  -R reference.fasta \</span><br><span class="line">  -V combined.g.vcf \</span><br><span class="line">  -O output.vcf</span><br></pre></td></tr></table></figure>
+
+<h3 id="变异过滤"><a href="#变异过滤" class="headerlink" title="变异过滤"></a>变异过滤</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">gatk VariantFiltration \</span><br><span class="line">  -R reference.fasta \</span><br><span class="line">  -V output.vcf \</span><br><span class="line">  --filter-expression <span class="string">&quot;QD &lt; 2.0&quot;</span> \</span><br><span class="line">  --filter-name <span class="string">&quot;QD2&quot;</span> \</span><br><span class="line">  --filter-expression <span class="string">&quot;FS &gt; 60.0&quot;</span> \</span><br><span class="line">  --filter-name <span class="string">&quot;FS60&quot;</span> \</span><br><span class="line">  --filter-expression <span class="string">&quot;MQ &lt; 40.0&quot;</span> \</span><br><span class="line">  --filter-name <span class="string">&quot;MQ40&quot;</span> \</span><br><span class="line">  -O filtered.vcf</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用过滤阈值"><a href="#常用过滤阈值" class="headerlink" title="常用过滤阈值"></a>常用过滤阈值</h3><hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2017/03/20/2017-03-21-prepare-reference-genome-index/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/03/20/2017-03-21-prepare-reference-genome-index/" class="post-title-link" itemprop="url">prepare reference genome index</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-03-21 00:00:00" itemprop="dateCreated datePublished" datetime="2017-03-21T00:00:00+08:00">2017-03-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="prepare-reference-genome-index"><a href="#prepare-reference-genome-index" class="headerlink" title="prepare reference genome index"></a>prepare reference genome index</h1><p><strong>原文日期</strong>: 2017-03-21<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="参考基因组索引构建"><a href="#参考基因组索引构建" class="headerlink" title="参考基因组索引构建"></a>参考基因组索引构建</h2><h3 id="BWA-索引"><a href="#BWA-索引" class="headerlink" title="BWA 索引"></a>BWA 索引</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载参考基因组</span></span><br><span class="line">wget ftp://ftp.ensembl.org/pub/release-84/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解压</span></span><br><span class="line">gunzip Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建索引</span></span><br><span class="line">bwa index -a bwtsw Homo_sapiens.GRCh38.dna.primary_assembly.fa</span><br></pre></td></tr></table></figure>
+
+<p><strong>输出文件</strong>:</p>
+<ul>
+<li><p><code>.amb</code> - 模糊位点信息</p>
+</li>
+<li><p><code>.ann</code> - 序列注释</p>
+</li>
+<li><p><code>.bwt</code> - Burrows-Wheeler 转换</p>
+</li>
+<li><p><code>.pac</code> - 压缩序列</p>
+</li>
+<li><p><code>.sa</code> - 后缀数组</p>
+</li>
+</ul>
+<h3 id="Bowtie2-索引"><a href="#Bowtie2-索引" class="headerlink" title="Bowtie2 索引"></a>Bowtie2 索引</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bowtie2-build reference.fasta index_prefix</span><br></pre></td></tr></table></figure>
+
+<h3 id="HISAT2-索引"><a href="#HISAT2-索引" class="headerlink" title="HISAT2 索引"></a>HISAT2 索引</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hisat2-build reference.fasta index_prefix</span><br></pre></td></tr></table></figure>
+
+<h3 id="STAR-索引"><a href="#STAR-索引" class="headerlink" title="STAR 索引"></a>STAR 索引</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">STAR --runMode genomeGenerate \</span><br><span class="line">     --genomeDir /path/to/index \</span><br><span class="line">     --genomeFastaFiles reference.fasta \</span><br><span class="line">     --sjdbGTFfile annotation.gtf \</span><br><span class="line">     --sjdbOverhang 100 \</span><br><span class="line">     --runThreadN 8</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数说明</strong>:</p>
+<ul>
+<li><p><code>--sjdbOverhang</code>: 读长 -1（如 101bp 读长设为 100）</p>
+</li>
+<li><p><code>--runThreadN</code>: 线程数</p>
+</li>
+</ul>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ol>
+<li><p><strong>磁盘空间</strong>: 人类基因组索引约需 30-50GB</p>
+</li>
+<li><p><strong>内存</strong>: STAR 索引需要约 30GB 内存</p>
+</li>
+<li><p><strong>时间</strong>: 完整索引约需 1-4 小时</p>
+</li>
+<li><p><strong>版本</strong>: 记录参考基因组版本（GRCh37&#x2F;GRCh38）</p>
+</li>
+</ol>
+<h3 id="验证索引"><a href="#验证索引" class="headerlink" title="验证索引"></a>验证索引</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># BWA</span></span><br><span class="line">bwa mem -t 4 reference.fasta reads.fastq | samtools view -c</span><br><span class="line"></span><br><span class="line"><span class="comment"># 应该输出比对上的 reads 数</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2017/02/11/2017-02-12-PPT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/02/11/2017-02-12-PPT/" class="post-title-link" itemprop="url">PPT</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-02-12 00:00:00" itemprop="dateCreated datePublished" datetime="2017-02-12T00:00:00+08:00">2017-02-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="PPT"><a href="#PPT" class="headerlink" title="PPT"></a>PPT</h1><p><strong>原文日期</strong>: 2017-02-12<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="PPT-制作技巧"><a href="#PPT-制作技巧" class="headerlink" title="PPT 制作技巧"></a>PPT 制作技巧</h2><h3 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h3><h4 id="1-简洁-Keep-It-Simple"><a href="#1-简洁-Keep-It-Simple" class="headerlink" title="1. 简洁 (Keep It Simple)"></a>1. 简洁 (Keep It Simple)</h4><ul>
+<li><p>每页一个核心观点</p>
+</li>
+<li><p>避免文字堆砌</p>
+</li>
+<li><p>留白是美德</p>
+</li>
+</ul>
+<h4 id="2-一致-Consistency"><a href="#2-一致-Consistency" class="headerlink" title="2. 一致 (Consistency)"></a>2. 一致 (Consistency)</h4><ul>
+<li><p>字体统一（标题 + 正文不超过 2 种）</p>
+</li>
+<li><p>颜色统一（主色 + 辅色 + 强调色）</p>
+</li>
+<li><p>风格统一（扁平化&#x2F;拟物化）</p>
+</li>
+</ul>
+<h4 id="3-可视化-Visualize"><a href="#3-可视化-Visualize" class="headerlink" title="3. 可视化 (Visualize)"></a>3. 可视化 (Visualize)</h4><ul>
+<li><p>多用图表，少用文字</p>
+</li>
+<li><p>一图胜千言</p>
+</li>
+<li><p>使用高质量图片</p>
+</li>
+</ul>
+<h4 id="4-对比-Contrast"><a href="#4-对比-Contrast" class="headerlink" title="4. 对比 (Contrast)"></a>4. 对比 (Contrast)</h4><ul>
+<li><p>大小对比（标题 vs 正文）</p>
+</li>
+<li><p>颜色对比（重点突出）</p>
+</li>
+<li><p>空间对比（层次分明）</p>
+</li>
+</ul>
+<h3 id="配色方案"><a href="#配色方案" class="headerlink" title="配色方案"></a>配色方案</h3><h4 id="推荐配色"><a href="#推荐配色" class="headerlink" title="推荐配色"></a>推荐配色</h4><h4 id="配色工具"><a href="#配色工具" class="headerlink" title="配色工具"></a>配色工具</h4><ul>
+<li><p><strong>ColorHunt</strong>: <a target="_blank" rel="noopener" href="https://colorhunt.co/">https://colorhunt.co/</a></p>
+</li>
+<li><p><strong>Coolors</strong>: <a target="_blank" rel="noopener" href="https://coolors.co/">https://coolors.co/</a></p>
+</li>
+<li><p><strong>Adobe Color</strong>: <a target="_blank" rel="noopener" href="https://color.adobe.com/">https://color.adobe.com/</a></p>
+</li>
+</ul>
+<h3 id="字体选择"><a href="#字体选择" class="headerlink" title="字体选择"></a>字体选择</h3><h4 id="中文推荐"><a href="#中文推荐" class="headerlink" title="中文推荐"></a>中文推荐</h4><ul>
+<li><p><strong>标题</strong>: 思源黑体、微软雅黑</p>
+</li>
+<li><p><strong>正文</strong>: 思源宋体、苹方</p>
+</li>
+</ul>
+<h4 id="英文推荐"><a href="#英文推荐" class="headerlink" title="英文推荐"></a>英文推荐</h4><ul>
+<li><p><strong>标题</strong>: Arial, Helvetica, Montserrat</p>
+</li>
+<li><p><strong>正文</strong>: Georgia, Lato, Open Sans</p>
+</li>
+</ul>
+<h3 id="资源推荐"><a href="#资源推荐" class="headerlink" title="资源推荐"></a>资源推荐</h3><h3 id="演讲技巧"><a href="#演讲技巧" class="headerlink" title="演讲技巧"></a>演讲技巧</h3><ol>
+<li><p><strong>开场</strong>: 用问题&#x2F;故事吸引注意力</p>
+</li>
+<li><p><strong>结构</strong>: 总 - 分 - 总</p>
+</li>
+<li><p><strong>结尾</strong>: 总结 + 行动号召</p>
+</li>
+<li><p><strong>互动</strong>: 适时提问</p>
+</li>
+</ol>
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2017/01/02/2017-01-03-hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2017/01/02/2017-01-03-hello-world/" class="post-title-link" itemprop="url">hello-world</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-03 00:00:00" itemprop="dateCreated datePublished" datetime="2017-01-03T00:00:00+08:00">2017-01-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="hello-world"><a href="#hello-world" class="headerlink" title="hello-world"></a>hello-world</h1><p><strong>原文日期</strong>: 2017-01-03<br><strong>来源</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726/wlz0726.github.io">https://github.com/wlz0726/wlz0726.github.io</a></p>
+<hr>
+<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><p>这是我的 Hexo 博客的第一篇文章！</p>
+<h3 id="博客主题"><a href="#博客主题" class="headerlink" title="博客主题"></a>博客主题</h3><ul>
+<li><p>生物信息学学习笔记</p>
+</li>
+<li><p>编程技巧分享</p>
+</li>
+<li><p>科研工具推荐</p>
+</li>
+<li><p>生活随笔</p>
+</li>
+</ul>
+<h3 id="更新计划"><a href="#更新计划" class="headerlink" title="更新计划"></a>更新计划</h3><ul>
+<li><p>每周至少更新一篇</p>
+</li>
+<li><p>分享实用代码片段</p>
+</li>
+<li><p>记录学习心得</p>
+</li>
+<li><p>总结踩坑经验</p>
+</li>
+</ul>
+<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><p><strong>Lizhong Wang</strong></p>
+<ul>
+<li><p>生物信息学研究者</p>
+</li>
+<li><p>编程爱好者</p>
+</li>
+<li><p>终身学习者</p>
+</li>
+</ul>
+<h3 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h3><ul>
+<li><p><strong>GitHub</strong>: <a target="_blank" rel="noopener" href="https://github.com/wlz0726">https://github.com/wlz0726</a></p>
+</li>
+<li><p><strong>微博</strong>: @samr</p>
+</li>
+<li><p><strong>知乎</strong>: <a target="_blank" rel="noopener" href="https://www.zhihu.com/people/wanglzh">https://www.zhihu.com/people/wanglzh</a></p>
+</li>
+</ul>
+<hr>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><h3 id="编程语言"><a href="#编程语言" class="headerlink" title="编程语言"></a>编程语言</h3><ul>
+<li><p>Perl</p>
+</li>
+<li><p>Python</p>
+</li>
+<li><p>R</p>
+</li>
+</ul>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><ul>
+<li><p>Linux&#x2F;Unix</p>
+</li>
+<li><p>Git</p>
+</li>
+<li><p>Docker</p>
+</li>
+</ul>
+<h3 id="研究方向"><a href="#研究方向" class="headerlink" title="研究方向"></a>研究方向</h3><ul>
+<li><p>群体遗传学</p>
+</li>
+<li><p>基因组学</p>
+</li>
+<li><p>生物信息学算法</p>
+</li>
+</ul>
+<hr>
+<p><em>🎉 博客正式开通！欢迎交流！</em></p>
+<hr>
+<p><em>此文档为 GitHub 博客自动归档</em></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wlz0726.github.io/2016/12/31/2017-01-01-R-Cheetsheets/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lizhong">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lizhong's notes">
+      <meta itemprop="description" content="专注于基因组学、AI Agent 与个人知识管理的个人博客">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | lizhong's notes">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2016/12/31/2017-01-01-R-Cheetsheets/" class="post-title-link" itemprop="url">R Cheetsheets</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2017-01-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-01-01T00:00:00+08:00">2017-01-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tools/" itemprop="url" rel="index"><span itemprop="name">tools</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" title="上一页" aria-label="上一页" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" title="下一页" aria-label="下一页" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">lizhong</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
