@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://wlz0726.github.io/sitemap.xml

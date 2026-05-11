@@ -1,0 +1,85 @@
+# ============================================================
+# NexT 8.x Theme Configuration - Muse Scheme
+# ============================================================
+
+# Scheme: Muse | Mist | Pisces | Gemini
+scheme: Muse
+
+# Dark mode
+darkmode: true
+
+# Favicon
+favicon:
+  small: /images/favicon-16x16-next.png
+  medium: /images/favicon-32x32-next.png
+  apple_touch_icon: /images/apple-touch-icon-next.png
+
+# Sidebar
+sidebar:
+  position: left
+  width: 320
+  display: post  # post | always | hide | remove
+
+# Menu (navigation)
+menu:
+  home: / || fa fa-home
+  about: /about/ || fa fa-user
+  archives: /archives/ || fa fa-archive
+  categories: /categories/ || fa fa-folder
+  tags: /tags/ || fa fa-tags
+
+# Creative Commons
+creative_commons:
+  license: by-nc-sa
+  sidebar: false
+  post: false
+  language:
+
+# Post settings
+post_meta:
+  item_text: true
+  created_at: true
+  updated_at:
+    enable: false
+    another_day: false
+  categories: true
+
+# Code block
+codeblock:
+  copy_button:
+    enable: true
+    style: flat
+
+# Back to top
+back2top:
+  enable: true
+  sidebar: false
+  scrollpercent: false
+
+# Reading progress
+reading_progress:
+  enable: true
+  color: "#00796b"
+  height: 2px
+
+# Bookmark
+bookmark:
+  enable: false
+
+# GitHub banner
+github_banner:
+  enable: false
+
+# Font settings
+font:
+  enable: false
+  host:
+
+# SEO
+seo: true
+
+# Custom text
+custom_text:
+  powered: false
+  theme:
+    enable: false
